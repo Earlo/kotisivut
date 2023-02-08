@@ -1,20 +1,29 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
-import { Timeline } from 'react-twitter-widgets'
 
 //bg-[#fbbb00]
 const Header = () => {
   return (
-    <section className="flex flex-row w-full py-10 h-32 bg-gray-100 ">
+    <section className="flex flex-row w-full md:py-10 h-32 bg-gray-100 ">
       <div className=" w-1/2 items-start">
         <h1 className="text-3xl ml-10 font-bold ">Visa Pollari</h1>
         <h3 className="text-xl ml-10 font-bold ">Ehdolla uudellamaalla</h3>
       </div>
-      <div className="w-1/2 flex mr-10 flex-row justify-end ">
+      <div className="hidden sm:flex w-1/2 mr-10 flex-row justify-end ">
         <div>
           <Image
             src="/lib-logo-1-fin-white.png"
+            width={500 / 3}
+            height={150 / 3}
+            alt="logo"
+          />
+        </div>
+      </div>
+      <div className="flex sm:hidden w-1/2 mr-10 flex-row justify-end ">
+        <div>
+          <Image
+            src="/favicon.ico"
             width={500 / 3}
             height={150 / 3}
             alt="logo"
@@ -43,16 +52,6 @@ const Home = () => {
         setTgPosts(results)
       })
   }, [])
-  /*
-  useEffect(() => {
-    async function fetchData() {
-      const result = await axios('https://t.me/s/visapollari')
-      console.log('result', result)
-    }
-    fetchData()
-  })
-
-  */
   return (
     <main className="flex text-black flex-col items-center bg-white  ">
       <Header />
