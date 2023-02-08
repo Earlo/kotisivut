@@ -35,7 +35,11 @@ const Home = () => {
     fetch('https://t.me/s/visapollari', {
       method: 'GET',
       mode: 'cors',
-      headers: { 'Content-Type': 'application/json' },
+      headers: {
+        'Content-Type': 'application/json',
+        origin: 'localhost',
+        referrer: 'localhost',
+      },
     })
       .then((res) => res.text())
       .then((data) => {
