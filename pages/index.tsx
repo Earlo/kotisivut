@@ -18,9 +18,13 @@ const Header = () => {
           alt="logo"
         />
       </div>
-      <div className="block md:hidden w-1/2 justify-end ">
-        <Image src="/favicon.ico" width={80} height={80} alt="logo" />
-      </div>
+      <Image
+        className="w-auto"
+        src="/favicon.ico"
+        width={64}
+        height={64}
+        alt="logo"
+      />
     </section>
   )
 }
