@@ -3255,7 +3255,7 @@ i.tgme_widget_share_icon {
   display: -webkit-flex;
   display: flex;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
 }
 .tgme_popup_container.hide {
   display: none;

@@ -5,30 +5,21 @@ import { useEffect, useState } from 'react'
 //bg-[#fbbb00]
 const Header = () => {
   return (
-    <section className="flex flex-row w-full md:py-10 h-32 bg-gray-100 ">
+    <section className="flex flex-row w-full py-10 h-32 bg-gray-100 ">
       <div className=" w-1/2 items-start">
         <h1 className="text-3xl ml-10 font-bold ">Visa Pollari</h1>
         <h3 className="text-xl ml-10 font-bold ">Ehdolla uudellamaalla</h3>
       </div>
-      <div className="hidden sm:flex w-1/2 mr-10 flex-row justify-end ">
-        <div>
-          <Image
-            src="/lib-logo-1-fin-white.png"
-            width={500 / 3}
-            height={150 / 3}
-            alt="logo"
-          />
-        </div>
+      <div className="hidden md:flex w-1/2 mr-10 justify-end ">
+        <Image
+          src="/lib-logo-1-fin-white.png"
+          width={500 / 3}
+          height={150 / 3}
+          alt="logo"
+        />
       </div>
-      <div className="flex sm:hidden w-1/2 mr-10 flex-row justify-end ">
-        <div>
-          <Image
-            src="/favicon.ico"
-            width={500 / 3}
-            height={150 / 3}
-            alt="logo"
-          />
-        </div>
+      <div className="flex md:hidden w-1/2 justify-end ">
+        <Image src="/favicon.ico" width={150 / 3} height={150 / 3} alt="logo" />
       </div>
     </section>
   )
@@ -55,9 +46,9 @@ const Home = () => {
   return (
     <main className="flex text-black flex-col items-center bg-white  ">
       <Header />
-      <section className="flex flex-col items-center w-full p-10">
+      <section className="flex flex-col items-center w-full p-0 md:p-10">
         <h2 className="text-2xl font-bold">Miksi olen ehdolla</h2>
-        <div className="flex flex-row items-center w-full p-10">
+        <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
           <Image
             src="/visa-pollari.jpg"
             className="w-48 h-48 rounded-full m-5"
@@ -87,7 +78,7 @@ const Home = () => {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center w-full py-10 px-10">
+      <section className="flex flex-col items-center w-full p-4 md:p-10">
         <h2 className="text-2xl font-bold">Tavoitteeni politiikassa</h2>
         <ul className="list-disc pl-5">
           <div className="text-lg mb-3">
@@ -144,8 +135,8 @@ const Home = () => {
         </ul>
       </section>
       {/** section with two columns, one for telegram one for twitter */}
-      <section className="flex flex-row items-center justify-around w-full py-10 px-10">
-        <div className="flex flex-col items-center justify-center w-1/2">
+      <section className="flex flex-row items-center justify-around w-full p-0 md:p-10">
+        <div className="flex flex-col items-center justify-center w-full md:w-1/2">
           <div className="text-lg mb-3">
             <p>
               <b>
