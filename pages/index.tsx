@@ -30,29 +30,14 @@ const Header = () => {
 }
 
 const Home = () => {
-  const [tgPosts, setTgPosts] = useState<Element[]>([])
+  const [tgPosts, setTgPosts] = useState<string[]>([])
   useEffect(() => {
-    fetch('https://t.me/s/visapollari', {
-      method: 'GET',
-      mode: 'no-cors',
-      headers: {
-        'Content-Type': 'application/json',
-        Origin: 'localhost',
-        Referrer: 'localhost',
-      },
-    })
-      .then((res) => res.text())
+    fetch('/api/telegram')
+      .then((res) => {
+        return res.json()
+      })
       .then((data) => {
-        const parser = new DOMParser()
-        const virtualDoc = parser.parseFromString(data, 'text/html')
-        const results = Array.from(
-          virtualDoc.getElementsByClassName('js-widget_message'),
-        )
-        results.shift()
-        results.forEach((result) => {
-          console.log('result', result)
-        })
-        setTgPosts(results)
+        setTgPosts(data)
       })
   }, [])
   return (
@@ -162,8 +147,8 @@ const Home = () => {
           {tgPosts.map((post) => (
             <div
               className="w-full py-10 px-10"
-              key={post.innerHTML}
-              dangerouslySetInnerHTML={{ __html: post.innerHTML }}
+              key={post}
+              dangerouslySetInnerHTML={{ __html: post }}
             />
           ))}
         </div>
