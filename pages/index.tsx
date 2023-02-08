@@ -34,11 +34,11 @@ const Home = () => {
   useEffect(() => {
     fetch('https://t.me/s/visapollari', {
       method: 'GET',
-      mode: 'cors',
+      mode: 'no-cors',
       headers: {
         'Content-Type': 'application/json',
-        origin: 'localhost',
-        referrer: 'localhost',
+        Origin: 'localhost',
+        Referrer: 'localhost',
       },
     })
       .then((res) => res.text())
