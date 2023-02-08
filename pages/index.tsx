@@ -5,8 +5,8 @@ import { useEffect, useState } from 'react'
 //bg-[#fbbb00]
 const Header = () => {
   return (
-    <section className="flex flex-row w-full py-10 h-32 bg-gray-100 ">
-      <div className=" w-1/2 items-start">
+    <section className="flex flex-row justify-between w-full h-32 bg-gray-100 ">
+      <div className="w-1/2 items-start">
         <h1 className="text-3xl ml-10 font-bold ">Visa Pollari</h1>
         <h3 className="text-xl ml-10 font-bold ">Ehdolla uudellamaalla</h3>
       </div>
@@ -18,8 +18,8 @@ const Header = () => {
           alt="logo"
         />
       </div>
-      <div className="flex md:hidden w-1/2 justify-end ">
-        <Image src="/favicon.ico" width={150 / 3} height={150 / 3} alt="logo" />
+      <div className="block md:hidden w-1/2 justify-end ">
+        <Image src="/favicon.ico" width={80} height={80} alt="logo" />
       </div>
     </section>
   )
@@ -28,7 +28,11 @@ const Header = () => {
 const Home = () => {
   const [tgPosts, setTgPosts] = useState<Element[]>([])
   useEffect(() => {
-    fetch('https://t.me/s/visapollari')
+    fetch('https://t.me/s/visapollari', {
+      method: 'GET',
+      mode: 'cors',
+      headers: { 'Content-Type': 'application/json' },
+    })
       .then((res) => res.text())
       .then((data) => {
         const parser = new DOMParser()
