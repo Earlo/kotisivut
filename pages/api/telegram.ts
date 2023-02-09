@@ -36,6 +36,7 @@ const search =  async (req: NextApiRequest, res: NextApiResponse<string[]>) => {
       const searchContext = `.js-widget_message`
       const telegramMessages = $(searchContext).toArray().map((x) => $(x).html()).filter((x) => x !== null && x !== undefined);
       res.statusCode = 200
+      telegramMessages.shift();
       return res.json(telegramMessages as string[])
     } catch (e) { // 5
       console.log(e)
