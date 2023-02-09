@@ -5,24 +5,25 @@ import { useEffect, useState } from 'react'
 //bg-[#fbbb00]
 const Header = () => {
   return (
-    <section className="flex flex-row justify-between w-full h-32 bg-gray-100 ">
-      <div className="w-1/2 items-start">
-        <h1 className="text-3xl ml-10 font-bold ">Visa Pollari</h1>
-        <h3 className="text-xl ml-10 font-bold ">Ehdolla uudellamaalla</h3>
-      </div>
-      <div className="hidden md:flex w-1/2 mr-10 justify-end ">
-        <Image
-          src="/lib-logo-1-fin-white.png"
-          width={500 / 3}
-          height={150 / 3}
-          alt="logo"
-        />
+    <section className="flex w-full h-32 bg-gray-100 justify-between items-center">
+      <div className="w-3/4 items-start">
+        <h1 className="text-3xl ml-4 md:ml-10 font-bold ">Visa Pollari</h1>
+        <h3 className="text-xl ml-4 md:ml-10 font-bold ">
+          Ehdolla Uudellamaalla
+        </h3>
       </div>
       <Image
-        className="w-auto"
-        src="/favicon.ico"
-        width={64}
-        height={64}
+        className="hidden md:flex w-auto h-3/4 mr-4 "
+        src="/lib-logo-1-fin.png"
+        width={500}
+        height={150}
+        alt="logo"
+      />
+      <Image
+        className="md:hidden flex w-auto h-3/5 mr-4"
+        src="/libLogo.png"
+        width={256}
+        height={256}
         alt="logo"
       />
     </section>
@@ -134,19 +135,17 @@ const Home = () => {
       {/** section with two columns, one for telegram one for twitter */}
       <section className="flex flex-row items-center justify-around w-full p-0 md:p-10">
         <div className="flex flex-col items-center justify-center w-full md:w-1/2">
-          <div className="text-lg mb-3">
-            <p>
-              <b>
-                Liity kanavalleni telegramissa:{' '}
-                <Link href="https://t.me/visapollari" className="text-blue-800">
-                  @VisaPollari
-                </Link>
-              </b>
-            </p>
-          </div>
+          <p className="text-lg mb-3">
+            <b>
+              Telegram:{' '}
+              <Link href="https://t.me/visapollari" className="text-blue-800">
+                @VisaPollari
+              </Link>
+            </b>
+          </p>
           {tgPosts.map((post) => (
             <div
-              className="w-full py-10 px-10"
+              className="w-full py-1 px-10"
               key={post}
               dangerouslySetInnerHTML={{ __html: post }}
             />
@@ -154,7 +153,7 @@ const Home = () => {
         </div>
       </section>
       {/** footer */}
-      <footer className="grid items-center justify-around w-full py-10 bg-black">
+      <footer className="grid items-center justify-around w-full mt-4 py-10 bg-black">
         <a href="https://twitter.com/VisaPollari">
           <svg
             xmlns="http://www.w3.org/2000/svg"
