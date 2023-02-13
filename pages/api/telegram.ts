@@ -33,7 +33,7 @@ const search =  async (req: NextApiRequest, res: NextApiResponse<string[]>) => {
       const response = await fetch(`https://t.me/s/visapollari`)
       const htmlString = await response.text()
       const $ = cheerio.load(htmlString)
-      const searchContext = `.js-widget_message`
+      const searchContext = `.tgme_widget_message`
       const telegramMessages = $(searchContext).toArray().map((x) => $(x).html()).filter((x) => x !== null && x !== undefined);
       res.statusCode = 200
       telegramMessages.shift();

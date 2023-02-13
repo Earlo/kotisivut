@@ -92,7 +92,7 @@ const Home = () => {
               </b>
               <br />
               Vaikka en uskokaan että vuoden 2024 budjetti tulee vastaamaan
-              tavoiteohjelmaamme, tai allekirjoita aivan jokaista
+              liberaalipuolueen varjobudjettia, tai allekirjoita aivan jokaista
               leikkauskohdetta, on se kuitenkin hyvä rima asettaa. <br />
               Euromäärien sijaan omasta mielestäni leikkauslistan pointti on
               käydä keskustelua siitä, mitkä valtion tehtävät ovat oikeasti
@@ -121,12 +121,12 @@ const Home = () => {
             puolueille. Suomen tulisi poistaa vaalipiirit ja siirtyä
             siirtoäänijärjestelmään. Eduskunta-, Alue-, sekä kuntavaalit
             voitaisiin yhdistää yksiksi vaaleiksi, jolloin tilanteet jossa
-            politiikko päätyy useaan pestiin samanaikaisesti olisi
-            harvinaisempaa. Yhdistetyt vaalit antaisivat myös politiikoille
+            poliitikko päätyy useaan pestiin samanaikaisesti olisi
+            harvinaisempaa. Yhdistetyt vaalit antaisivat myös poliitikoille
             mahdollisuuden keskittyä hallinnollisiin tehtäviin, vaalityön
             sijasta. <br />
             Puoluetukea tulisi vähentää, ja kansanedustajien sopeutumisrahan
-            kaltaiset välineitä jotka kannustavat ammattipoliitkon uraan tulisi
+            kaltaiset välineitä jotka kannustavat ammattipoliitikon uraan tulisi
             poistaa. Valtion rahoitus 3. sektorin järjestöille, ajatuspajoille,
             tai muille ulkoisille organisaatiolle tulisi lopettaa.
           </div>
