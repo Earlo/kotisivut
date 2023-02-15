@@ -82,7 +82,7 @@ const Home = () => {
           <div className="text-lg mb-3">
             <p>
               <b>
-                1. Puolueen vaalikanpanjan mukaisesi:{' '}
+                1. Puolueen vaalikampanjan mukaisesi:{' '}
                 <Link
                   href="https://liberaalipuolue.fi/leikattavaaloytyy"
                   className="text-blue-800"
