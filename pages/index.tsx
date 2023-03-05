@@ -53,7 +53,6 @@ const Home = () => {
           height={192}
           alt="Visa Pollari"
         />
-
         <h2 className="text-2xl font-bold">Kuka olen?</h2>
         <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
           <Image
@@ -64,7 +63,6 @@ const Home = () => {
             height={192}
             alt="Visa Pollari"
           />
-
           <p className="text-lg">
             Visa Pollari, ohjelmistokehittäjä, yhdistysaktiivi, ja teekkari
             Espoosta.
