@@ -82,10 +82,7 @@ const Home = () => {
             <br />
             Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä.
             Mennään vaikka kahville.{' '}
-            <Link
-              href="https://calendly.com/visa-pollari/30min"
-              className="text-blue-500"
-            >
+            <Link href="https://cal.com/visap/30min" className="text-blue-500">
               Varaa aika
             </Link>
           </p>
