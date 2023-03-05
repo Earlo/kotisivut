@@ -45,15 +45,57 @@ const Home = () => {
     <main className="flex text-black flex-col items-center bg-white  ">
       <Header />
       <section className="flex flex-col items-center w-full p-0 md:p-10">
-        <h2 className="text-2xl font-bold">Miksi olen ehdolla</h2>
+        <Image
+          // show when mobile
+          src="/ehdolla.jpg"
+          className="w-48 h-48 rounded-full m-5 md:hidden block"
+          width={192}
+          height={192}
+          alt="Visa Pollari"
+        />
+
+        <h2 className="text-2xl font-bold">Kuka olen?</h2>
         <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
           <Image
-            src="/visa-pollari.jpg"
-            className="w-48 h-48 rounded-full m-5"
+            // hide when mobile
+            src="/ehdolla.jpg"
+            className="w-48 h-48 rounded-full m-5 hidden md:block"
             width={192}
             height={192}
             alt="Visa Pollari"
           />
+
+          <p className="text-lg">
+            Visa Pollari, ohjelmistokehittäjä, yhdistysaktiivi, ja teekkari
+            Espoosta.
+            <br />
+            Opiskelen töitteni ohella tietototekniikkaa Aalto-yliopistossa, ja
+            toiminut laajasti yliopistoa ympäröivässä yhdistys- ja
+            yhteisökentässä. Tämä on tietyllä tavalla ollut myös
+            yhteiskunnallisen heräämiseni kipinä. Upeat projektit ja hankkeeet
+            joita olen nähnyt ihmisten ympärilläni tekevän ja joita olen päässyt
+            itse tekemään, on luonut uskoa siihen, että ihmisillä voi todella
+            olla omistajuus heitä ympäröivästä maailmasta,
+            <br />
+            Vapaa-aikani kuluu suurelta osin erinäisten projektiluontoisten
+            harrastusten parissa, tapahtumia järjestäen, ohjelmoiden, tai
+            milloin mitäkin. Nautin suuresti filosofisista keskusteluista, sekä
+            leipomisesta. Lenkkeilen säännöllisen epäsäännöllisesti.
+            <br />
+            Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä.
+            Mennään vaikka kahville.{' '}
+            <Link
+              href="https://calendly.com/visa-pollari/30min"
+              className="text-blue-500"
+            >
+              Varaa aika
+            </Link>
+          </p>
+        </div>
+      </section>
+      <section className="flex flex-col items-center w-full p-0 md:p-10">
+        <h2 className="text-2xl font-bold">Miksi olen ehdolla?</h2>
+        <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
           <p className="text-lg">
             Olen aktiivisesti seurannut suomen politiikkaa viimeiset 10 vuotta
             ja olen tietyillä tasoilla turhautunut siihen kuinka politiikkaa
@@ -76,6 +118,7 @@ const Home = () => {
           </p>
         </div>
       </section>
+
       <section className="flex flex-col items-center w-full p-4 md:p-10">
         <h2 className="text-2xl font-bold">Tavoitteeni politiikassa</h2>
         <ul className="list-disc pl-5">
