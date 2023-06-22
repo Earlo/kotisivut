@@ -1,196 +1,28 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import { Telegram } from '@/components/telegram'
 import { useEffect, useState } from 'react'
 
-//bg-[#fbbb00]
+// Header Component
 const Header = () => {
   return (
     <section className="flex w-full h-32 bg-gray-100 justify-between items-center">
       <div className="w-3/4 items-start">
         <h1 className="text-3xl ml-4 md:ml-10 font-bold ">Visa Pollari</h1>
         <h3 className="text-xl ml-4 md:ml-10 font-bold ">
-          Ehdolla Uudellamaalla
+          Tärkeintä on osallistuminen :)
         </h3>
       </div>
-      <Image
-        className="hidden md:flex w-auto h-3/4 mr-4 "
-        src="/lib-logo-1-fin.png"
-        width={500}
-        height={150}
-        alt="logo"
-      />
-      <Image
-        className="md:hidden flex w-auto h-3/5 mr-4"
-        src="/libLogo.png"
-        width={256}
-        height={256}
-        alt="logo"
-      />
     </section>
   )
 }
 
+// Home Component
 const Home = () => {
-  const [tgPosts, setTgPosts] = useState<string[]>([])
-  useEffect(() => {
-    fetch('/api/telegram')
-      .then((res) => {
-        return res.json()
-      })
-      .then((data) => {
-        setTgPosts(data)
-      })
-  }, [])
   return (
     <main className="flex text-black flex-col items-center bg-white  ">
       <Header />
-      <section className="flex flex-col items-center w-full p-0 md:p-10">
-        <Image
-          // show when mobile
-          src="/ehdolla.jpg"
-          className="w-48 h-48 rounded-full m-5 md:hidden block"
-          width={192}
-          height={192}
-          alt="Visa Pollari"
-        />
-        <h2 className="text-2xl font-bold">Kuka olen?</h2>
-        <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
-          <Image
-            // hide when mobile
-            src="/ehdolla.jpg"
-            className="w-48 h-48 rounded-full m-5 hidden md:block"
-            width={192}
-            height={192}
-            alt="Visa Pollari"
-          />
-          <p className="text-lg">
-            Visa Pollari, ohjelmistokehittäjä, yhdistysaktiivi, ja teekkari
-            Espoosta.
-            <br />
-            Opiskelen töitteni ohella tietototekniikkaa Aalto-yliopistossa, ja
-            toiminut laajasti yliopistoa ympäröivässä yhdistys- ja
-            yhteisökentässä. Tämä on tietyllä tavalla ollut myös
-            yhteiskunnallisen heräämiseni kipinä. Upeat projektit ja hankkeeet
-            joita olen nähnyt ihmisten ympärilläni tekevän ja joita olen päässyt
-            itse tekemään, on luonut uskoa siihen, että ihmisillä voi todella
-            olla omistajuus heitä ympäröivästä maailmasta,
-            <br />
-            Vapaa-aikani kuluu suurelta osin erinäisten projektiluontoisten
-            harrastusten parissa, tapahtumia järjestäen, ohjelmoiden, tai
-            milloin mitäkin. Nautin suuresti filosofisista keskusteluista, sekä
-            leipomisesta. Lenkkeilen säännöllisen epäsäännöllisesti.
-            <br />
-            Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä.
-            Mennään vaikka kahville.{' '}
-            <Link href="https://cal.com/visap/30min" className="text-blue-500">
-              Varaa aika
-            </Link>
-          </p>
-        </div>
-      </section>
-      <section className="flex flex-col items-center w-full p-0 md:p-10">
-        <h2 className="text-2xl font-bold">Miksi olen ehdolla?</h2>
-        <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
-          <p className="text-lg">
-            Olen aktiivisesti seurannut suomen politiikkaa viimeiset 10 vuotta
-            ja olen tietyillä tasoilla turhautunut siihen kuinka politiikkaa
-            tehdään, ja erityisesti kuinka yhteiskunnallista keskustelua
-            käydään.
-            <br />
-            Vaikka en olekaan täysin samaa mieltä kaikista Liberaalipuolueen
-            puolueohjelman tai vaihtoehtobudjetin kohdista, niin itselleni se on
-            vaikuttanut ensimmäiseltä kokonaisvaltaiselta visiolta siitä, mikä
-            valtion rooli on yhteiskunnassa. Valtapuolueet eivät ole kyenneet
-            samalla tavalla tarjoamaan visiota siitä mikä on valtion rooli
-            yhteiskunnassa, vaan monelta osin ottavat nykytilanteen jonain
-            ennalta-annettuna totuutena, ja pyrkivät hiomaan sitä haluamaansa
-            muotoon.
-            <br />
-            <i>
-              Muiden puolueiden etsiessä siis lokaalia maksimia, koen että
-              Liberaalipuolueen tähtäimessä globaali maksimi.
-            </i>
-          </p>
-        </div>
-      </section>
-
-      <section className="flex flex-col items-center w-full p-4 md:p-10">
-        <h2 className="text-2xl font-bold">Tavoitteeni politiikassa</h2>
-        <ul className="list-disc pl-5">
-          <div className="text-lg mb-3">
-            <p>
-              <b>
-                1. Puolueen vaalikampanjan mukaisesi:{' '}
-                <Link
-                  href="https://liberaalipuolue.fi/leikattavaaloytyy"
-                  className="text-blue-800"
-                >
-                  #Leikattavaalöytyy
-                </Link>
-              </b>
-              <br />
-              Vaikka en uskokaan että vuoden 2024 budjetti tulee vastaamaan
-              liberaalipuolueen varjobudjettia, tai allekirjoita aivan jokaista
-              leikkauskohdetta, on se kuitenkin hyvä rima asettaa. <br />
-              Euromäärien sijaan omasta mielestäni leikkauslistan pointti on
-              käydä keskustelua siitä, mitkä valtion tehtävät ovat oikeasti
-              välttämättömiä jotta yhteiskunta sen ympärillä voi toimia
-            </p>
-          </div>
-          <div className="text-lg mb-3">
-            <p>
-              <b>
-                2. Sääntelyn keventäminen ja lainsäädännön yksinkertaistaminen
-              </b>
-            </p>
-            Valtio on liian suuri ja liian monipuolinen toimija, ja se
-            näännyttää itse itseään laajenemalla liian usealle sektorille. Lista
-            asioista joita tulisi laillistaa tai valvoa vähemmän on mittava.
-            Joukkorahoitus, alkoholin anniskelu, dyykkaaminen, kannabis,
-            jumalanpilkka, sähköpyörät, juridinen sukupuoli, ja niin edelleen
-            ovat kaikki asioita joiden syynäämiseen valtion tulisi käyttää
-            huomattavasti vähemmän resursseja.
-          </div>
-          <div className="text-lg mb-3">
-            <p>
-              <b>3. Yhteiskunnan rakenne ja poliittinen järjestelmä</b>
-            </p>
-            Nykyinen poliittinen järjestelmä edistää vallan keskittymistä
-            puolueille. Suomen tulisi poistaa vaalipiirit ja siirtyä
-            siirtoäänijärjestelmään. Eduskunta-, Alue-, sekä kuntavaalit
-            voitaisiin yhdistää yksiksi vaaleiksi, jolloin tilanteet jossa
-            poliitikko päätyy useaan pestiin samanaikaisesti olisi
-            harvinaisempaa. Yhdistetyt vaalit antaisivat myös poliitikoille
-            mahdollisuuden keskittyä hallinnollisiin tehtäviin, vaalityön
-            sijasta. <br />
-            Puoluetukea tulisi vähentää, ja kansanedustajien sopeutumisrahan
-            kaltaiset välineitä jotka kannustavat ammattipoliitikon uraan tulisi
-            poistaa. Valtion rahoitus 3. sektorin järjestöille, ajatuspajoille,
-            tai muille ulkoisille organisaatiolle tulisi lopettaa.
-          </div>
-        </ul>
-      </section>
-      {/** section with two columns, one for telegram one for twitter */}
-      <section className="flex flex-row items-center justify-around w-full p-0 md:p-10">
-        <div className="flex flex-col items-center justify-center w-full md:w-1/2">
-          <p className="text-lg mb-3">
-            <b>
-              Telegram:{' '}
-              <Link href="https://t.me/visapollari" className="text-blue-800">
-                @VisaPollari
-              </Link>
-            </b>
-          </p>
-          {tgPosts.map((post) => (
-            <div
-              className="w-full py-1 px-10"
-              key={post}
-              dangerouslySetInnerHTML={{ __html: post }}
-            />
-          ))}
-        </div>
-      </section>
-      {/** footer */}
+      <Telegram />
       <footer className="grid items-center justify-around w-full mt-4 py-10 bg-black">
         <a href="https://twitter.com/VisaPollari">
           <svg
