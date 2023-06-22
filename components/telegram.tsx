@@ -62,6 +62,7 @@ const TelegramPost = ({ post }: { post: string }) => {
                 className="rounded"
                 src={linkPreviewRightImage}
                 alt={previewTitle}
+                layout="responsive"
                 width={100}
                 height={100}
               />
@@ -103,12 +104,6 @@ export const Telegram = () => {
       <h2 className="text-2xl font-bold mb-4">Latest Telegram Posts</h2>
       {tgPosts.map((post, index) => (
         <TelegramPost key={index} post={post} />
-        /*
-        <div
-          className="w-full py-1 px-10"
-          key={index}
-          dangerouslySetInnerHTML={{ __html: post }}
-        />*/
       ))}
     </section>
   )

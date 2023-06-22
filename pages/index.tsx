@@ -36,7 +36,6 @@ const Home = () => {
             />
           </svg>
         </a>
-        <div className="text-lg mb-3"></div>
       </footer>
     </main>
   )
