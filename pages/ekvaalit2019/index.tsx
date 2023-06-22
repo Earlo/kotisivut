@@ -2,7 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { useEffect, useState } from 'react'
 
-//bg-[#fbbb00]
 const Header = () => {
   return (
     <section className="flex w-full h-32 bg-gray-100 justify-between items-center">
