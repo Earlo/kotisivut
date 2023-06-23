@@ -23,9 +23,8 @@ const TelegramPost = ({ post }: { post: string }) => {
     ?.replace(/url\((['"])?(.*?)\1\)/gi, '$2')
     .split(',')[0]
 
-  console.log(linkPreview)
   return (
-    <div className="w-full py-2 px-4 mb-4 bg-gray-100 rounded shadow">
+    <div className="w-full py-2 px-4 mb-4 bg-gray-100 rounded shadow break-words">
       <div className="flex items-center">
         {profilePicUrl && (
           <Image
@@ -54,7 +53,7 @@ const TelegramPost = ({ post }: { post: string }) => {
           href={linkPreview}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 p-2 border rounded bg-blue-50 hover:bg-blue-100 transition-colors duration-200 flex items-center"
+          className="mt-2 p-2 border rounded bg-blue-50 hover:bg-blue-100 transition-colors duration-200 flex items-center break-words"
         >
           {linkPreviewRightImage && (
             <div className="mr-2">
@@ -69,7 +68,7 @@ const TelegramPost = ({ post }: { post: string }) => {
             </div>
           )}
 
-          <div>
+          <div className="mr-2">
             <p className="font-bold text-blue-600">{previewTitle}</p>
             <p className="text-blue-800">{previewDescription}</p>
           </div>
@@ -100,7 +99,7 @@ export const Telegram = () => {
       })
   }, [])
   return (
-    <section className="flex flex-col items-center p-4 md:p-10">
+    <section className="w-full flex flex-col items-center p-4 md:p-10">
       <h2 className="text-2xl font-bold mb-4">Latest Telegram Posts</h2>
       {tgPosts.map((post, index) => (
         <TelegramPost key={index} post={post} />
