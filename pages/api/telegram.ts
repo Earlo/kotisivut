@@ -29,7 +29,7 @@ function runMiddleware(req:NextApiRequest, res: NextApiResponse<string[]>, fn: (
 const search =  async (req: NextApiRequest, res: NextApiResponse<string[]>) => {
   await runMiddleware(req, res, cors)
   if (req.method === 'GET') {
-    try { // 4
+    try {
       const response = await fetch(`https://t.me/s/visapollari`)
       const htmlString = await response.text()
       const $ = cheerio.load(htmlString)
@@ -38,7 +38,7 @@ const search =  async (req: NextApiRequest, res: NextApiResponse<string[]>) => {
       res.statusCode = 200
       telegramMessages.shift();
       return res.json(telegramMessages as string[])
-    } catch (e) { // 5
+    } catch (e) {
       console.log(e)
       res.statusCode = 404
       return res.json([])
