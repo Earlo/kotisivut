@@ -1,31 +1,31 @@
-import { Telegram } from '@/components/telegram'
+import { Telegram } from '@/components/telegram';
 
 // Header Component
 const Header = () => {
   return (
-    <section className="flex w-full h-32 bg-gray-100 justify-between items-center">
+    <section className="flex h-32 w-full items-center justify-between bg-gray-100">
       <div className="w-3/4 items-start">
-        <h1 className="text-3xl ml-4 md:ml-10 font-bold ">Visa Pollari</h1>
-        <h3 className="text-xl ml-4 md:ml-10 font-bold ">
+        <h1 className="ml-4 text-3xl font-bold md:ml-10 ">Visa Pollari</h1>
+        <h3 className="ml-4 text-xl font-bold md:ml-10 ">
           Tärkeintä on osallistuminen :)
         </h3>
       </div>
     </section>
-  )
-}
+  );
+};
 
 // Home Component
 const Home = () => {
   return (
-    <main className="flex text-black flex-col items-center bg-white  ">
+    <main className="flex flex-col items-center bg-white text-black  ">
       <Header />
       <Telegram />
-      <footer className="grid items-center justify-around w-full mt-4 py-10 bg-black">
+      <footer className="mt-4 grid w-full items-center justify-around bg-black py-10">
         <a href="https://twitter.com/VisaPollari">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            className="w-10 h-10"
+            className="h-10 w-10"
           >
             <path
               fill="white"
@@ -35,7 +35,7 @@ const Home = () => {
         </a>
       </footer>
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;

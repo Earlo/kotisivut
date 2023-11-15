@@ -1,63 +1,64 @@
-import Image from 'next/image'
-import Link from 'next/link'
-import { useEffect, useState } from 'react'
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
 
 const Header = () => {
   return (
-    <section className="flex w-full h-32 bg-gray-100 justify-between items-center">
+    <section className="flex h-32 w-full items-center justify-between bg-gray-100">
       <div className="w-3/4 items-start">
-        <h1 className="text-3xl ml-4 md:ml-10 font-bold ">Visa Pollari</h1>
-        <h3 className="text-xl ml-4 md:ml-10 font-bold ">
+        <h1 className="ml-4 text-3xl font-bold md:ml-10 ">Visa Pollari</h1>
+        <h3 className="ml-4 text-xl font-bold md:ml-10 ">
           Ehdolla Uudellamaalla
         </h3>
       </div>
       <Image
-        className="hidden md:flex w-auto h-3/4 mr-4 "
+        className="mr-4 hidden h-3/4 w-auto md:flex "
         src="/lib-logo-1-fin.png"
         width={500}
         height={150}
         alt="logo"
       />
       <Image
-        className="md:hidden flex w-auto h-3/5 mr-4"
+        className="mr-4 flex h-3/5 w-auto md:hidden"
         src="/libLogo.png"
         width={256}
         height={256}
         alt="logo"
       />
     </section>
-  )
-}
+  );
+};
 
 const Home = () => {
-  const [tgPosts, setTgPosts] = useState<string[]>([])
+  const [tgPosts, setTgPosts] = useState<string[]>([]);
   useEffect(() => {
     fetch('/api/telegram')
       .then((res) => {
-        return res.json()
+        return res.json();
       })
       .then((data) => {
-        setTgPosts(data)
-      })
-  }, [])
+        setTgPosts(data);
+      });
+  }, []);
   return (
-    <main className="flex text-black flex-col items-center bg-white  ">
+    <main className="flex flex-col items-center bg-white text-black  ">
       <Header />
-      <section className="flex flex-col items-center w-full p-0 md:p-10">
+      <section className="flex w-full flex-col items-center p-0 md:p-10">
         <Image
           // show when mobile
           src="/ehdolla.jpg"
-          className="w-48 h-48 rounded-full m-5 md:hidden block"
+          className="m-5 block h-48 w-48 rounded-full md:hidden"
           width={192}
           height={192}
           alt="Visa Pollari"
         />
         <h2 className="text-2xl font-bold">Kuka olen?</h2>
-        <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
+        <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
           <Image
             // hide when mobile
             src="/ehdolla.jpg"
-            className="w-48 h-48 rounded-full m-5 hidden md:block"
+            className="m-5 hidden h-48 w-48 rounded-full md:block"
             width={192}
             height={192}
             alt="Visa Pollari"
@@ -87,9 +88,9 @@ const Home = () => {
           </p>
         </div>
       </section>
-      <section className="flex flex-col items-center w-full p-0 md:p-10">
+      <section className="flex w-full flex-col items-center p-0 md:p-10">
         <h2 className="text-2xl font-bold">Miksi olen ehdolla?</h2>
-        <div className="flex flex-col md:flex-row items-center w-full p-4 md:p-10">
+        <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
           <p className="text-lg">
             Olen aktiivisesti seurannut suomen politiikkaa viimeiset 10 vuotta
             ja olen tietyillä tasoilla turhautunut siihen kuinka politiikkaa
@@ -113,10 +114,10 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="flex flex-col items-center w-full p-4 md:p-10">
+      <section className="flex w-full flex-col items-center p-4 md:p-10">
         <h2 className="text-2xl font-bold">Tavoitteeni politiikassa</h2>
         <ul className="list-disc pl-5">
-          <div className="text-lg mb-3">
+          <div className="mb-3 text-lg">
             <p>
               <b>
                 1. Puolueen vaalikampanjan mukaisesi:{' '}
@@ -136,7 +137,7 @@ const Home = () => {
               välttämättömiä jotta yhteiskunta sen ympärillä voi toimia
             </p>
           </div>
-          <div className="text-lg mb-3">
+          <div className="mb-3 text-lg">
             <p>
               <b>
                 2. Sääntelyn keventäminen ja lainsäädännön yksinkertaistaminen
@@ -150,7 +151,7 @@ const Home = () => {
             ovat kaikki asioita joiden syynäämiseen valtion tulisi käyttää
             huomattavasti vähemmän resursseja.
           </div>
-          <div className="text-lg mb-3">
+          <div className="mb-3 text-lg">
             <p>
               <b>3. Yhteiskunnan rakenne ja poliittinen järjestelmä</b>
             </p>
@@ -170,9 +171,9 @@ const Home = () => {
         </ul>
       </section>
       {/** section with two columns, one for telegram one for twitter */}
-      <section className="flex flex-row items-center justify-around w-full p-0 md:p-10">
-        <div className="flex flex-col items-center justify-center w-full md:w-1/2">
-          <p className="text-lg mb-3">
+      <section className="flex w-full flex-row items-center justify-around p-0 md:p-10">
+        <div className="flex w-full flex-col items-center justify-center md:w-1/2">
+          <p className="mb-3 text-lg">
             <b>
               Telegram:{' '}
               <Link href="https://t.me/visapollari" className="text-blue-800">
@@ -182,7 +183,7 @@ const Home = () => {
           </p>
           {tgPosts.map((post) => (
             <div
-              className="w-full py-1 px-10"
+              className="w-full px-10 py-1"
               key={post}
               dangerouslySetInnerHTML={{ __html: post }}
             />
@@ -190,12 +191,12 @@ const Home = () => {
         </div>
       </section>
       {/** footer */}
-      <footer className="grid items-center justify-around w-full mt-4 py-10 bg-black">
+      <footer className="mt-4 grid w-full items-center justify-around bg-black py-10">
         <a href="https://twitter.com/VisaPollari">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 512 512"
-            className="w-10 h-10"
+            className="h-10 w-10"
           >
             <path
               fill="white"
@@ -203,10 +204,10 @@ const Home = () => {
             />
           </svg>
         </a>
-        <div className="text-lg mb-3"></div>
+        <div className="mb-3 text-lg"></div>
       </footer>
     </main>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
