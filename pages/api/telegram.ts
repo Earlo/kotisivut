@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from 'next'
 import * as cheerio from 'cheerio';
 import Cors from 'cors'
+import type { NextApiRequest, NextApiResponse } from 'next'
 
 const cors = Cors({
   methods: ['POST'],
@@ -13,7 +13,7 @@ function runMiddleware(req:NextApiRequest, res: NextApiResponse<string[]>, fn: (
   statusCode?: number | undefined;
   setHeader(key: string, value: string): any;
   end(): any;
-}, next: (err?: any) => any) => void
+}, next: (err?: any) => any) => void,
 ) {
   return new Promise((resolve, reject) => {
     fn(req, res, (result) => {

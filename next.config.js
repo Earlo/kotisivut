@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
-module.exports = {
+const nextConfig = {
+  reactStrictMode: true,
   images: {
-    domains: ['cdn4.telegram-cdn.org'],
+    domains: ['cdn4.telegram-cdn.org', 'cdn4.cdn-telegram.org'],
   },
   async headers() {
     return [
       {
-        // matching all API routes
         source: '/api/:path*',
         headers: [
           { key: 'Access-Control-Allow-Credentials', value: 'true' },
@@ -25,3 +25,5 @@ module.exports = {
     ]
   },
 }
+
+module.exports = nextConfig
