@@ -1,7 +1,4 @@
-import Image from 'next/image'
-import Link from 'next/link'
 import { Telegram } from '@/components/telegram'
-import { useEffect, useState } from 'react'
 
 // Header Component
 const Header = () => {
