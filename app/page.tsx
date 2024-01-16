@@ -1,6 +1,5 @@
 import { Telegram } from '@/components/telegram';
 
-// Header Component
 const Header = () => {
   return (
     <section className="flex h-32 w-full items-center justify-between bg-gray-100">
@@ -14,7 +13,6 @@ const Header = () => {
   );
 };
 
-// Home Component
 const Home = () => {
   return (
     <main className="flex flex-col items-center bg-white text-black  ">

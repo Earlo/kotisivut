@@ -1,7 +1,6 @@
 'use client';
 import { useEffect, useState } from 'react';
 import * as cheerio from 'cheerio';
-
 import Image from 'next/image';
 
 // Telegram Post Component
