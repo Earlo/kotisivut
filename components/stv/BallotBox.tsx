@@ -4,16 +4,16 @@ import React, { useState } from 'react';
 
 interface BallotBoxProps {
   votes: string[][];
+  setVotes: React.Dispatch<React.SetStateAction<string[][]>>;
 }
 
-const BallotBox: React.FC<BallotBoxProps> = ({ votes }) => {
-  const [allVotes, setAllVotes] = useState<string[][]>(votes);
+const BallotBox: React.FC<BallotBoxProps> = ({ votes, setVotes }) => {
   const [newVote, setNewVote] = useState<string[]>(Array(4).fill(''));
 
   const addVote = () => {
     const validVote = newVote.filter((choice) => choice);
     if (validVote.length > 0) {
-      setAllVotes([newVote, ...allVotes]);
+      setVotes([newVote, ...votes]);
       setNewVote(Array(4).fill(''));
     }
   };
@@ -27,7 +27,7 @@ const BallotBox: React.FC<BallotBoxProps> = ({ votes }) => {
   return (
     <div className="mx-auto my-8 max-w-lg rounded-lg bg-gray-700 p-8 shadow-lg">
       <h2 className="mb-6 text-center text-2xl font-bold text-white">
-        Äänilipas (Ääniä: {allVotes.length} kpl)
+        Äänilipas (Ääniä: {votes.length} kpl)
       </h2>
       <div className="mb-4 flex flex-col space-y-2">
         {Array(4)
@@ -53,7 +53,7 @@ const BallotBox: React.FC<BallotBoxProps> = ({ votes }) => {
       </div>
       <div className="h-64 overflow-y-auto">
         <div className="space-y-4">
-          {allVotes.map((vote, index) => (
+          {votes.map((vote, index) => (
             <Vote key={index} candidates={vote} />
           ))}
         </div>
