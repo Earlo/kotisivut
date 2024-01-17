@@ -69,17 +69,14 @@ const Page = () => {
       </Text>
       <div className="mx-auto  rounded-lg  p-6 shadow">
         <Subheader>Esimerkkivaalit</Subheader>
-
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {/* BallotBox taking full width on small screens and 1/3 on medium screens and above */}
-          <div className="md:col-span-1">
+        <div className="flex flex-col-reverse gap-6  md:grid md:grid-cols-3">
+          <div className="md:flex-row">
             <BallotBox
               votes={allVotes}
               setVotes={setAllVotes}
               candidates={candidates}
             />
           </div>
-          {/* Text content taking full width on small screens and 2/3 on medium screens and above */}
           <div className="space-y-4 md:col-span-2">
             <Text>
               Siirtoäänivaalitapa toimii siten, että ensisijaisesti äänet
