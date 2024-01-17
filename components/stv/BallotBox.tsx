@@ -40,11 +40,11 @@ const BallotBox: React.FC<BallotBoxProps> = ({
 
   // Render the candidate cards on top of the ballot box
   return (
-    <div className="mx-auto my-8  rounded-lg bg-gray-700 p-8 shadow-lg">
+    <div className="mx-auto w-full rounded-lg bg-gray-700 p-4 shadow-lg">
       <h2 className="mb-6 text-center text-2xl font-bold text-white">
         Äänilipas (Ääniä: {votes.length} kpl)
       </h2>
-      <div className="mb-4 grid grid-cols-2 gap-4 sm:grid-cols-4">
+      <div className="mb-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
         {candidates.map((candidate) => (
           <div key={candidate.name} className="cursor-pointer">
             <CandidateProfile

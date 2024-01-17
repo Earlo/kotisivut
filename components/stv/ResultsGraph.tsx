@@ -53,9 +53,9 @@ const ResultGraph: React.FC<ResultGraphProps> = ({
   const isOver = highestVotes > maxVotes / 2;
   return (
     <>
-      <div className="mx-auto mt-8 max-w-md">
+      <div className="mx-auto max-w-md">
         <h2 className="mb-4 text-lg font-bold text-white">
-          {depth + 1}. laskentakierroksen tulos
+          {depth + 1}. kierroksen tulos
         </h2>
         <div className="flex items-end justify-between border-t border-white">
           {Object.entries(voteCounts).map(([candidate, count]) => (

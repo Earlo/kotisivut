@@ -26,14 +26,14 @@ const Page = () => {
     return voteWithColor;
   });
   return (
-    <div>
+    <div className="max-w-8xl mx-auto p-4">
       <Header>Siirtoäänivaali</Header>
       <Text>
         Presidentinvaalien ennakkoäänestys on alkamassa, ja ehdokkaiden ollessa
-        99-prosenttisesti samaa mieltä kaikesta, ei luvassa ole
-        reaalipoliittisesti mitään järkyttävän suurta jännitysnäytelmää. Tästä
-        syystä tilaisuus onkin mitä parhain keskustella jokaisien vaalien
-        kaikista kiinostavimmasta asiasta, eli vaalimetasta.
+        99-prosenttisesti samaa mieltä kaikesta, ei todellisuudessa ole luvassa
+        mitään järkyttävän suurta jännitysnäytelmää. Tästä syystä tilaisuus
+        onkin mitä parhain keskustella jokaisien vaalien kaikista
+        kiinostavimmasta asiasta, eli vaalimetasta.
       </Text>
       <Text>
         Suomen nykyinen kaksikierroksinen presidentinvaalikäytäntö leinee
@@ -67,17 +67,15 @@ const Page = () => {
         järjestelmä tunnetaan Single Transferable Vote -järjesteämänä (STV)
         (elikkäs SiirToääniVaaleina.)
       </Text>
-      <div className="mx-auto  rounded-lg  p-6 shadow">
+      <div className="mx-auto  rounded-lg  shadow">
         <Subheader>Esimerkkivaalit</Subheader>
-        <div className="flex flex-col-reverse gap-6  md:grid md:grid-cols-3">
-          <div className="md:flex-row">
-            <BallotBox
-              votes={allVotes}
-              setVotes={setAllVotes}
-              candidates={candidates}
-            />
-          </div>
-          <div className="space-y-4 md:col-span-2">
+        <div className="flex flex-col-reverse gap-2 md:grid md:grid-cols-2">
+          <BallotBox
+            votes={allVotes}
+            setVotes={setAllVotes}
+            candidates={candidates}
+          />
+          <div className="space-y-4 md:col-span-1">
             <Text>
               Siirtoäänivaalitapa toimii siten, että ensisijaisesti äänet
               annetaan äänilipukkeen ensimmäiselle nimelle, ja lasketaan
@@ -86,33 +84,67 @@ const Page = () => {
               äänensä siirretään äänestäjien toisen valinnan mukaisesti. Tätä
               prosessia jatketaan kunnes joku ehdokas saavuttaa enemmistön.
             </Text>
-
             <Text>
-              Ohessa on esimerkkiäänilipas jossa on jo 50 esimerkkiääntä.
-              Alapuolella on laskettu äänten siirtoäänivaalitulokset
+              Tämä siis tarkoittaa, että äänestyskertoja on vain yksi,
+              riippumatta ehdokkaiden määrästä. Lipukkeeseen ei tarvitse merkitä
+              yhtään varavaihtoehtoa, mutta jos haluaa, voi merkitä vaikka
+              kaikki. Mikäli kaikki lapulla olevat ehdokkaat on eliminoitu,
+              lasketaan ääni tästä eteenpäin tyhjäksi ääneksi.
+            </Text>
+            <Text>
+              Ohessa on esimerkkiäänilipas jossa on jo 50 esimerkkiääntä ja
+              alapuolella on laskettu äänten siirtoäänivaalitulokset
               kierroksittain. Nykyisellä äänijakaumalla Väykkä voittaa vaalit
               toisella kierroksella, mutta lisäämällä ääniä lippaaseen voit
               muuta tulosta.
             </Text>
           </div>
         </div>
-        <div className="mt-6 flex flex-col sm:flex-row">
+        <div className="mt-2 flex flex-col sm:flex-row">
           <ResultGraph votes={votesWithColor} candidates={candidates} />
         </div>
       </div>
       <Text>
-        Useat suomalaiset yhdistysaktiivit ovat varmasti tutustuneet tähän
-        järjestelmään, ja se on mahdollista soveltaa myös useamman kuin yhden
-        henkilön valitseviin vaaleihin.
+        Mitkä ovat siis siirtoäänivaalien hyödyt verrattuna nykyiseen? Nämä
+        tietenkin on hiukan kirjoittajan subjektiivisia näkemyksiä, mutta tässä
+        muutamia:{' '}
       </Text>
       <Text>
-        Mitkä ovat siis siirtoäänivaalien hyödyt verrattuna nykyiseen?
-        Ensinnäkin se kannustaa äänestäjiä äänestämään omien mieltymystensä
-        mukaan, eikä taktikoimaan ääntään. Tämän myötä ehdokkailla on parempi
-        mahdollisuus erottautua toisistaan, sen sijaan että pyrkivät olemaan
-        pelkästään vähiten huono vaihtoehto.
+        1. Järjestelmä kannustaa äänestäjiä äänestämään omien mieltymystensä
+        mukaan, eikä taktikoimaan ääntään. Taktinen äänestäminen on varmasti
+        jokaiselle tuttu konsepti viimeaikaisten vaalien johdosta, ja
+        siirtoäänivaalitapa vähentää tätä ilmiötä merkittävästi. Oman äänensä
+        voi ensisijaisesti antaa mieleisemmälle ehdokkaalle, ja vaikka tämä en
+        johtaisikaan valintaan, siirtyy ääni seuraavalle, ja lopulta pienimmälle
+        hyväksyttävälle pahalle, mikäli äänestäjä vain täyttää lipukkeen niin
+        pitkälle
       </Text>
-      <Subheader>Siirtoäänivaali presidentinvaalissa</Subheader>
+      <Text>
+        2. Järjestelmä poistaa insentiivejä ehdokkaista pyrkimään vetoamaan vain
+        suurimpaan yhteiseen nimittäjään, vaan vapauttaa heidät ehkä jopa
+        olemaan hiukan radikaalimpia, ja vetoamaan myös pienempiin, kenties
+        tällä hetkellä politiikasta vieraantuneisiin äänestäjäryhmiin.
+      </Text>
+      <Text>
+        3. Kun äänestäjiä ei rangaista marginaalisempien ehdokkaiden
+        äänestämisestä, saa myös yhteiskunta laajempaa tietoa siitä, minkälaisia
+        ajatuksia ja ideologioita väestössä elää. Tämä voi olla hyvinkin
+        arvokasta dataa yhteiskunnan ymmärtämisen kannalta, sekä auttaa
+        päätöksentekijöitä näkemään että minkälaisille asioille on oikeasti
+        kysyntää. Hyvä esimerkki tästä on NATO-jäsenyys, jossa kukaan ei
+        halunnut asettautua selkeästi sen puoleastapuhujaksi, sillä kansa ei
+        ilamissut haluaan NATOa kohtaan tarpeeksi selkeästi. Muttan kansa ei
+        myöskään kyennyt NATOkantaansa ilmaisemaan, sillä tarjolla ei ollut
+        ehdokkaita jotka olisivat selkeästi asettautuneet asian taakse.
+      </Text>
+      <Subheader>Leikkisiirtoäänivaalit 2024</Subheader>
+      <Text>
+        Tämän artikkelin tarkoituksena on myös toimia kokeena, jossa
+        siirtoäänivaaleja kokeillaan käytännössä. Tässä artikkelissa on
+        mahdollisuus äänestää omia suosikkiehdokkaitaan, ja nähdä miten
+        siirtoäänivaalitapa toimisi käytännössä. Tämä on kuitenkin vain
+        leikkivaali, eikä sillä ole mitään vaikutusta oikeisiin vaaleihin.
+      </Text>
     </div>
   );
 };

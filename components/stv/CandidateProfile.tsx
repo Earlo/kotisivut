@@ -40,7 +40,7 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({
         </div>
         {isDisabled && (
           <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-75">
-            <span className="rotate-12 transform text-xl font-bold text-white">
+            <span className="text-md rotate-12 transform font-bold text-white">
               {disabled}
             </span>
           </div>
