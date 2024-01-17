@@ -1,6 +1,5 @@
 'use client';
 import { defaultVotes } from './votes';
-import CandidateProfile from '@/components/stv/CandidateCard'; // Adjust the import path based on your file structure
 import BallotBox from '@/components/stv/BallotBox';
 import ResultGraph from '@/components/stv/ResultsGraph';
 import Header from '@/components/BlogHeader';
@@ -68,24 +67,27 @@ const Page = () => {
         järjestelmä tunnetaan Single Transferable Vote -järjesteämänä (STV)
         (elikkäs SiirToääniVaaleina.)
       </Text>
-      <div className="mx-auto max-w-7xl rounded-lg  p-6 shadow">
+      <div className="mx-auto  rounded-lg  p-6 shadow">
         <Subheader>Esimerkkivaalit</Subheader>
 
         <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
           {/* BallotBox taking full width on small screens and 1/3 on medium screens and above */}
           <div className="md:col-span-1">
-            <BallotBox votes={allVotes} setVotes={setAllVotes} />
+            <BallotBox
+              votes={allVotes}
+              setVotes={setAllVotes}
+              candidates={candidates}
+            />
           </div>
-
           {/* Text content taking full width on small screens and 2/3 on medium screens and above */}
           <div className="space-y-4 md:col-span-2">
             <Text>
-              Vaalitapa toimii siten, että ensisijaisesti äänet annetaan
-              äänilipukkeen ensimmäiselle nimelle, ja lasketaan vaalitulos näin.
-              Mikäli yksikään ehdokkaista ei saavuta enemmistöä, poistetaan
-              vähiten ääniä saanut ehdokas, ja hänen äänensä siirretään
-              äänestäjien toisen valinnan mukaisesti. Tätä prosessia jatketaan
-              kunnes joku ehdokas saavuttaa enemmistön.
+              Siirtoäänivaalitapa toimii siten, että ensisijaisesti äänet
+              annetaan äänilipukkeen ensimmäiselle nimelle, ja lasketaan
+              vaalitulos näin. Mikäli yksikään ehdokkaista ei saavuta
+              enemmistöä, poistetaan vähiten ääniä saanut ehdokas, ja hänen
+              äänensä siirretään äänestäjien toisen valinnan mukaisesti. Tätä
+              prosessia jatketaan kunnes joku ehdokas saavuttaa enemmistön.
             </Text>
 
             <Text>
@@ -97,20 +99,7 @@ const Page = () => {
             </Text>
           </div>
         </div>
-
-        {/* Candidate profiles in a responsive grid */}
-        <div className="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4">
-          {candidates.map((candidate) => (
-            <CandidateProfile
-              key={candidate.name}
-              name={candidate.name}
-              imageSrc={candidate.imageSrc}
-            />
-          ))}
-        </div>
-
-        {/* ResultGraph taking full width */}
-        <div className="mt-6">
+        <div className="mt-6 flex flex-col sm:flex-row">
           <ResultGraph votes={votesWithColor} candidates={candidates} />
         </div>
       </div>
