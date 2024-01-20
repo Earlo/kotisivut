@@ -1,5 +1,6 @@
 'use client';
 import { defaultVotes } from './votes';
+import RealVote from '@/components/stv/RealVote';
 import BallotBox from '@/components/stv/BallotBox';
 import ResultGraph from '@/components/stv/ResultsGraph';
 import Header from '@/components/BlogHeader';
@@ -107,7 +108,7 @@ const Page = () => {
       <Text>
         Mitkä ovat siis siirtoäänivaalien hyödyt verrattuna nykyiseen? Nämä
         tietenkin on hiukan kirjoittajan subjektiivisia näkemyksiä, mutta tässä
-        muutamia:{' '}
+        muutamia:
       </Text>
       <Text>
         1. Järjestelmä kannustaa äänestäjiä äänestämään omien mieltymystensä
@@ -137,14 +138,9 @@ const Page = () => {
         myöskään kyennyt NATOkantaansa ilmaisemaan, sillä tarjolla ei ollut
         ehdokkaita jotka olisivat selkeästi asettautuneet asian taakse.
       </Text>
-      <Subheader>Leikkisiirtoäänivaalit 2024</Subheader>
-      <Text>
-        Tämän artikkelin tarkoituksena on myös toimia kokeena, jossa
-        siirtoäänivaaleja kokeillaan käytännössä. Tässä artikkelissa on
-        mahdollisuus äänestää omia suosikkiehdokkaitaan, ja nähdä miten
-        siirtoäänivaalitapa toimisi käytännössä. Tämä on kuitenkin vain
-        leikkivaali, eikä sillä ole mitään vaikutusta oikeisiin vaaleihin.
-      </Text>
+      <Subheader>Lopuksi</Subheader>
+      <Text>Tämän kirjoituksen tarkoituksen</Text>
+      <RealVote />
     </div>
   );
 };
