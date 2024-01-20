@@ -1,6 +1,7 @@
 import '@/styles/globals.css';
 import Script from 'next/script';
 import Head from 'next/head';
+import { GoogleAnalytics } from '@next/third-parties/google';
 
 export default function RootLayout({
   children,
@@ -21,19 +22,7 @@ export default function RootLayout({
         strategy="afterInteractive"
         key="googletagmanager"
       />
-      <Script
-        id="google-analytics"
-        strategy="afterInteractive"
-        key="google-analytics"
-      >
-        {`
-          window.dataLayer = window.dataLayer || [];
-          function gtag(){dataLayer.push(arguments);}
-          gtag('js', new Date());
-
-          gtag('config', 'G-9W2F6V6N7L');
-          `}
-      </Script>
+      <GoogleAnalytics gaId="G-9W2F6V6N7L" />
       <body>{children}</body>
     </html>
   );
