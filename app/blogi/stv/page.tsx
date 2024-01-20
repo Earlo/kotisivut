@@ -7,6 +7,7 @@ import Header from '@/components/BlogHeader';
 import Text from '@/components/Text';
 import Subheader from '@/components/Subheader';
 import { useState } from 'react';
+import Link from 'next/link';
 
 const Page = () => {
   const [allVotes, setAllVotes] = useState<string[][]>(defaultVotes);
@@ -30,46 +31,47 @@ const Page = () => {
     <div className="max-w-8xl mx-auto p-4">
       <Header>Siirtoäänivaali</Header>
       <Text>
-        Presidentinvaalien ennakkoäänestys on alkamassa, ja ehdokkaiden ollessa
-        99-prosenttisesti samaa mieltä kaikesta, ei todellisuudessa ole luvassa
-        mitään järkyttävän suurta jännitysnäytelmää. Tästä syystä tilaisuus
-        onkin mitä parhain keskustella jokaisien vaalien kaikista
-        kiinostavimmasta asiasta, eli vaalimetasta.
+        Presidentinvaalien ennakkoäänestys on meneillään. Ehdokkaat ovat
+        99-prosenttisesti samaa mieltä kaikesta, joten mitään järkyttävän suurta
+        jännitysnäytelmää ei ole luvassa. Tästä syystä tilaisuus onkin mitä
+        parhain keskustella jokaisten vaalien kaikista kiinnostavimmasta asiasta
+        eli vaalimetasta.
       </Text>
       <Text>
-        Suomen nykyinen kaksikierroksinen presidentinvaalikäytäntö leinee
-        kaikille tuttu. Jokainen äänioikeutettu voi äänestää yhtä ehdokasta, ja
-        jos kukaan ehdokkaista ei saa yli 50% äänistä, järjestetään toinen
-        kierros kahden eniten ääniä saaneen ehdokkaan välillä.
+        Suomen nykyinen kaksikierroksinen presidentinvaalikäytäntö lienee
+        kaikille tuttu, mutta kertauksena: Jokainen äänioikeutettu voi äänestää
+        yhtä ehdokasta, ja näistä ehdokkaista valitaan se, joka saa yli puolet
+        äänistä. Kuitenkin, mikäli kukaan ehdokkaista ei ylitä tätä 50%
+        rajapyykkiä, järjestetään kahden ensimmäisellä kierroksella eniten ääniä
+        saaneen ehdokkaan välillä toinen kierros.
       </Text>
       <Text>
-        Tässä järjestelmässä on kuitenkin ongelmansa. Joista itselleni ainakin
-        selkein on se, miten se kannustaa vaalien aikana äänestäjiä taktikoimaan
-        äänestystään. Mikäli äänestäjä haluaa varmistaa, itselleen parhaimman
-        mahdollisen lopputuloksen, ei välttämätt ole järkevää äänestää omaa
-        suosikkiaan, vaan rajoittaa valintansa niihin ehdokkaisiin joilla on
-        mahdollisimman suuri todennäköisyys päästä toiselle kierrokselle ja
-        voittaa se. Erityisesti nykyisessä sosiaalisen median ja välittömän
-        kommunikaation aikakaudella, tämän johtaa siihen että äänestäjät
-        jähmettyvät kahden suosituimman ehdokkaan taakse, ja muut ehdokkaat
-        jäävät marginaaliin.
+        Tässä järjestelmässä on kuitenkin ongelmansa. Ilmeisin niistä on
+        dominoinut keskustelua niin aiempien eduskuntavaalien alla, ja
+        nousevasti nytkin presidentinvaaleissa, eli taktinen äänestäminen.
+        Vaikka käytössä olevan vaalitavan etuna on sen yksinkertaisuus, voi
+        äänestyspäätös olla äänestäjälle hyvinkin monimutkainen, mikäli hän
+        alkaa päätöstään enemmän miettimään.
       </Text>
       <Text>
-        Mitä asialle voisi tehdä? Itse haluaisin ehdottaa ratkaisuksi
-        siirtoäänivaaleja
+        Mikäli äänestäjä haluaa varmistaa itsensä kannalta mieluisimman
+        mahdollisen lopputuloksen, ei hänen ole välttämättä järkevää äänestää
+        omaa suosikkiaan, vaan valita sellainen ehdokas, jolla on mahdollisimman
+        suuri todennäköisyys päästä toiselle kierrokselle ja voittaa se.
+        Erityisesti nykyisellä sosiaalisen median ja välittömän kommunikaation
+        aikakaudella tämä johtaa siihen, että äänestäjät jähmettyvät kahden
+        suosituimman ehdokkaan taakse ja muut ehdokkaat jäävät marginaaliin.
+        Gallupien ja median asema vaalien voittajassa kasvaa suunnattomasti, ja
+        vetävä narratiivi kaksintaistelusta nousee ylitse itse politiikan
+        substanssista puhumisen. Tämä puolestaan edistää monen jo monen
+        huomaamaa ilmiötä poliittisesta polarisoitumisesta, jossa laajan kentän
+        sijaan kannattajat keskittyvät muutaman kuplan ympärille.
       </Text>
-      <Subheader>Siirtoäänivaali</Subheader>
       <Text>
-        Yksinkertaisesti siirtoäänivaalissa äänestäjät asettavat ehdokkaat
-        järjestykseen mieltymystensä mukaan. Jos kukaan ehdokas ei saa heti
-        enemmistöä äänistä, vähiten ääniä saanut ehdokas poistetaan, ja hänen
-        äänensä siirretään äänestäjien toisen valinnan mukaisesti. Tätä
-        prosessia jatketaan kunnes joku ehdokas saavuttaa enemmistön. Tämä
-        järjestelmä tunnetaan Single Transferable Vote -järjesteämänä (STV)
-        (elikkäs SiirToääniVaaleina.)
+        Mitä asialle voisi tehdä? Itse ehdotan ratkaisuksi siirtoäänivaaleja.
       </Text>
       <div className="mx-auto  rounded-lg  shadow">
-        <Subheader>Esimerkkivaalit</Subheader>
+        <Subheader>Siirtoäänivaali</Subheader>
         <div className="flex flex-col-reverse gap-2 md:grid md:grid-cols-2">
           <BallotBox
             votes={allVotes}
@@ -78,19 +80,21 @@ const Page = () => {
           />
           <div className="space-y-4 md:col-span-1">
             <Text>
-              Siirtoäänivaalitapa toimii siten, että ensisijaisesti äänet
-              annetaan äänilipukkeen ensimmäiselle nimelle, ja lasketaan
-              vaalitulos näin. Mikäli yksikään ehdokkaista ei saavuta
-              enemmistöä, poistetaan vähiten ääniä saanut ehdokas, ja hänen
-              äänensä siirretään äänestäjien toisen valinnan mukaisesti. Tätä
-              prosessia jatketaan kunnes joku ehdokas saavuttaa enemmistön.
+              Siirtoäänivaalissa äänestäjät yksinkertaisesti asettavat ehdokkaat
+              järjestykseen mieltymystensä mukaan. Äänet annetaan äänilipukkeen
+              ensimmäiselle nimelle ja lasketaan vaalitulos näin. Jos yksikään
+              ehdokas ei saa yli puolta äänistä, vähiten ääniä saanut ehdokas
+              eliminoidaan ja hänen saamat äänet siirretään kunkin äänestäjän
+              toiselle ehdokkaalle. Tätä prosessia jatketaan, kunnes joku
+              ehdokas saa enemmistön äänet.
             </Text>
             <Text>
-              Tämä siis tarkoittaa, että äänestyskertoja on vain yksi,
-              riippumatta ehdokkaiden määrästä. Lipukkeeseen ei tarvitse merkitä
-              yhtään varavaihtoehtoa, mutta jos haluaa, voi merkitä vaikka
-              kaikki. Mikäli kaikki lapulla olevat ehdokkaat on eliminoitu,
-              lasketaan ääni tästä eteenpäin tyhjäksi ääneksi.
+              Äänestyskertoja on siis vain yksi riippumatta ehdokkaiden
+              määrästä. Lipukkeeseen ei tarvitse merkitä yhtään varavaihtoehtoa,
+              mutta halutessaan voi merkitä vaikka kaikki. Mikäli kaikki lapulla
+              olevat ehdokkaat on eliminoitu, ääni lasketaan tyhjäksi ääneksi.
+              Tämä järjestelmä tunnetaan Single Transferable Vote -järjestelmänä
+              (STV) (elikkäs SiirToääniVaaleina).
             </Text>
             <Text>
               Ohessa on esimerkkiäänilipas jossa on jo 50 esimerkkiääntä ja
@@ -106,41 +110,70 @@ const Page = () => {
         </div>
       </div>
       <Text>
-        Mitkä ovat siis siirtoäänivaalien hyödyt verrattuna nykyiseen? Nämä
-        tietenkin on hiukan kirjoittajan subjektiivisia näkemyksiä, mutta tässä
-        muutamia:
+        Mitkä ovat siis siirtoäänivaalin hyödyt verrattuna nykyiseen
+        vaalitapaan? Nämä ovat tietenkin kirjoittajan subjektiivisia näkemyksiä,
+        mutta tässä muutamia:
       </Text>
       <Text>
         1. Järjestelmä kannustaa äänestäjiä äänestämään omien mieltymystensä
-        mukaan, eikä taktikoimaan ääntään. Taktinen äänestäminen on varmasti
-        jokaiselle tuttu konsepti viimeaikaisten vaalien johdosta, ja
+        mukaan eikä taktikoimaan ääntään. Taktinen äänestäminen on varmasti
+        jokaiselle tuttu konsepti viimeaikaisten vaalien vuoksi ja
         siirtoäänivaalitapa vähentää tätä ilmiötä merkittävästi. Oman äänensä
-        voi ensisijaisesti antaa mieleisemmälle ehdokkaalle, ja vaikka tämä en
-        johtaisikaan valintaan, siirtyy ääni seuraavalle, ja lopulta pienimmälle
-        hyväksyttävälle pahalle, mikäli äänestäjä vain täyttää lipukkeen niin
-        pitkälle
+        voi ensisijaisesti antaa mieleisemmälle ehdokkaalle. Jos oma
+        suosikkiehdokas tulee eliminoiduksi, ääni siirtyy seuraavalle. Lopulta
+        ääni päätyy pienimmälle hyväksyttävälle pahalle, mikäli äänestäjä vain
+        täyttää lipukkeen niin pitkälle.
       </Text>
       <Text>
-        2. Järjestelmä poistaa insentiivejä ehdokkaista pyrkimään vetoamaan vain
-        suurimpaan yhteiseen nimittäjään, vaan vapauttaa heidät ehkä jopa
-        olemaan hiukan radikaalimpia, ja vetoamaan myös pienempiin, kenties
-        tällä hetkellä politiikasta vieraantuneisiin äänestäjäryhmiin.
+        2. Järjestelmä vähentää ehdokkaiden iinsentiivejä pyrkiä vetoamaan vain
+        suurimpaan yhteiseen nimittäjään. Se vapauttaa heidät ehkä jopa olemaan
+        hiukan radikaalimpia ja vetoamaan myös pienempiin, kenties tällä
+        hetkellä politiikasta vieraantuneisiin äänestäjäryhmiin.
       </Text>
       <Text>
         3. Kun äänestäjiä ei rangaista marginaalisempien ehdokkaiden
-        äänestämisestä, saa myös yhteiskunta laajempaa tietoa siitä, minkälaisia
+        äänestämisestä, myös yhteiskunta saa laajempaa tietoa siitä, minkälaisia
         ajatuksia ja ideologioita väestössä elää. Tämä voi olla hyvinkin
-        arvokasta dataa yhteiskunnan ymmärtämisen kannalta, sekä auttaa
-        päätöksentekijöitä näkemään että minkälaisille asioille on oikeasti
-        kysyntää. Hyvä esimerkki tästä on NATO-jäsenyys, jossa kukaan ei
-        halunnut asettautua selkeästi sen puoleastapuhujaksi, sillä kansa ei
-        ilamissut haluaan NATOa kohtaan tarpeeksi selkeästi. Muttan kansa ei
-        myöskään kyennyt NATOkantaansa ilmaisemaan, sillä tarjolla ei ollut
-        ehdokkaita jotka olisivat selkeästi asettautuneet asian taakse.
+        arvokasta dataa yhteiskunnan ymmärtämisen kannalta ja se auttaa
+        päätöksentekijöitä näkemään minkälaisille asioille on oikeasti kysyntää.
+        Hyvä esimerkki tästä on Nato-jäsenyys. Ehdokkaat eivät halunnut puhua
+        sen puolesta, sillä kansa ei ollut ilmaissut haluaan Natoa kohtaan
+        tarpeeksi selkeästi. Kansa ei kyennyt ilmaisemaan Nato-kantaansa, sillä
+        tarjolla ei ollut ehdokkaita, jotka olisivat selkeästi asettuneet asian
+        taakse.
       </Text>
       <Subheader>Lopuksi</Subheader>
-      <Text>Tämän kirjoituksen tarkoituksen</Text>
+      <Text>
+        Vaikka suomen vaalijärjestelmä ei ole maailman suurin farssi, on
+        järjestelmässämme selkeä valuvika siinä, että mikään elin tai taho ei
+        ole vastuussa järjestelmän aktiivisesta kehittämisestä. Tärkeimpiä
+        henkilökohtaisia poliittisia tavoitteitani on juurikin metapoliittisen
+        keskustelun herättely, niin Suomessa kuin laajemminkin.
+      </Text>
+
+      <Text>
+        Mikäli haluat osallistua mielikuvitteellisiin siirtoäänivaaleihin
+        nykyisten ehdokkaiden kautta, on se mahdollista allaolevan lomakkeen
+        avulla:
+      </Text>
       <RealVote />
+      <Subheader>Linkkejä</Subheader>
+      <Link
+        href="https://youtu.be/l8XOZJkozfI?si=m3URF-ou-g-ne3A7"
+        className="flex"
+      >
+        Erinomainen Youtubevideo selittäen yhdenlaiset hypoteettiset
+        siirtoäänivaalit
+      </Link>
+      <Link href="http://www.chickennation.com/voting/" className="flex">
+        Sarjakuva Australiassa käytössä olevasta siirtoäänivaalijärjestelmästä
+      </Link>
+      <Link
+        href="https://en.wikipedia.org/wiki/Single_transferable_vote"
+        className="flex"
+      >
+        Aiheesta wikipediassa
+      </Link>
     </div>
   );
 };
