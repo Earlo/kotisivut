@@ -54,7 +54,7 @@ const ResultGraph: React.FC<ResultGraphProps> = ({
   return (
     <>
       <div className="mx-auto max-w-md">
-        <h2 className="mb-4 text-lg font-bold text-white">
+        <h2 className="mb-4 text-lg font-bold text-orange-200">
           {depth + 1}. kierroksen tulos
         </h2>
         <div className="flex items-end justify-between border-t border-white">

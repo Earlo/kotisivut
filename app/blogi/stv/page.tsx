@@ -28,7 +28,7 @@ const Page = () => {
     return voteWithColor;
   });
   return (
-    <div className="max-w-8xl mx-auto p-4">
+    <div className="max-w-8xl mx-auto bg-slate-950  p-4 ">
       <Header>Siirtoäänivaali</Header>
       <Text>
         Presidentinvaalien ennakkoäänestys on meneillään. Ehdokkaat ovat
@@ -153,24 +153,27 @@ const Page = () => {
 
       <Text>
         Mikäli haluat osallistua mielikuvitteellisiin siirtoäänivaaleihin
-        nykyisten ehdokkaiden kautta, on se mahdollista allaolevan lomakkeen
-        avulla:
+        nykyisten ehdokkaiden kautta, voit tehdä sen tästä. Julkaisen tulokset
+        oikeiden vaalien jälkeen.
       </Text>
       <RealVote />
       <Subheader>Linkkejä</Subheader>
       <Link
         href="https://youtu.be/l8XOZJkozfI?si=m3URF-ou-g-ne3A7"
-        className="flex"
+        className="flex transition-transform hover:underline"
       >
         Erinomainen Youtubevideo selittäen yhdenlaiset hypoteettiset
         siirtoäänivaalit
       </Link>
-      <Link href="http://www.chickennation.com/voting/" className="flex">
+      <Link
+        href="http://www.chickennation.com/voting/"
+        className="flex transition-transform hover:underline"
+      >
         Sarjakuva Australiassa käytössä olevasta siirtoäänivaalijärjestelmästä
       </Link>
       <Link
         href="https://en.wikipedia.org/wiki/Single_transferable_vote"
-        className="flex"
+        className="flex transition-transform hover:underline"
       >
         Aiheesta wikipediassa
       </Link>

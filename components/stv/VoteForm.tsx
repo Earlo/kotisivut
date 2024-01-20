@@ -1,16 +1,18 @@
 'use client';
 import CandidateProfile from './CandidateProfile';
 import React, { useState } from 'react';
-interface VooteFormProps {
+interface VoteFormProps {
   votes: string[][];
   setVotes: React.Dispatch<React.SetStateAction<string[][]>>;
   candidates: { name: string; imageSrc: string; color: string }[];
+  className?: string;
 }
 
-const VooteForm: React.FC<VooteFormProps> = ({
+const VoteForm: React.FC<VoteFormProps> = ({
   votes,
   setVotes,
   candidates,
+  className = 'grid-cols-4',
 }) => {
   const [newVote, setNewVote] = useState<string[]>(
     Array(candidates.length).fill(''),
@@ -41,7 +43,7 @@ const VooteForm: React.FC<VooteFormProps> = ({
 
   return (
     <>
-      <div className="mb-4 grid grid-cols-2 gap-4 lg:grid-cols-4">
+      <div className={`mb-4 grid grid-cols-2 gap-4 lg:${className}`}>
         {candidates.map((candidate) => (
           <div key={candidate.name} className="cursor-pointer">
             <CandidateProfile
@@ -83,4 +85,4 @@ const VooteForm: React.FC<VooteFormProps> = ({
   );
 };
 
-export default VooteForm;
+export default VoteForm;

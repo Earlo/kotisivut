@@ -14,7 +14,7 @@ const Bar: React.FC<BarProps> = ({
   color = '#aaaaaa',
 }) => {
   return (
-    <div className="flex flex-col items-center px-1">
+    <div className="flex flex-col items-center px-1 text-orange-200">
       <div className="flex h-56 flex-col-reverse">
         <div
           className={`transition-all duration-300 ease-in-out`}
