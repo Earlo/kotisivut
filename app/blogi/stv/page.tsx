@@ -39,9 +39,9 @@ const Page = () => {
       </Text>
       <Text>
         Suomen nykyinen kaksikierroksinen presidentinvaalikäytäntö lienee
-        kaikille tuttu, mutta kertauksena: Jokainen äänioikeutettu voi äänestää
+        kaikille tuttu, mutta kertauksena: jokainen äänioikeutettu voi äänestää
         yhtä ehdokasta, ja näistä ehdokkaista valitaan se, joka saa yli puolet
-        äänistä. Kuitenkin, mikäli kukaan ehdokkaista ei ylitä tätä 50%
+        äänistä. Kuitenkin mikäli kukaan ehdokkaista ei ylitä tätä 50%
         rajapyykkiä, järjestetään kahden ensimmäisellä kierroksella eniten ääniä
         saaneen ehdokkaan välillä toinen kierros.
       </Text>
@@ -136,7 +136,7 @@ const Page = () => {
         ajatuksia ja ideologioita väestössä elää. Tämä voi olla hyvinkin
         arvokasta dataa yhteiskunnan ymmärtämisen kannalta ja se auttaa
         päätöksentekijöitä näkemään minkälaisille asioille on oikeasti kysyntää.
-        Hyvä esimerkki tästä on Nato-jäsenyys. Ehdokkaat eivät halunnut puhua
+        Hyvä esimerkki tästä on Nato-jäsenyys. Ehdokkaat eivät halunneet puhua
         sen puolesta, sillä kansa ei ollut ilmaissut haluaan Natoa kohtaan
         tarpeeksi selkeästi. Kansa ei kyennyt ilmaisemaan Nato-kantaansa, sillä
         tarjolla ei ollut ehdokkaita, jotka olisivat selkeästi asettuneet asian
@@ -160,20 +160,20 @@ const Page = () => {
       <Subheader>Linkkejä</Subheader>
       <Link
         href="https://youtu.be/l8XOZJkozfI?si=m3URF-ou-g-ne3A7"
-        className="flex transition-transform hover:underline"
+        className="flex underline transition-transform hover:text-blue-500"
       >
         Erinomainen Youtubevideo selittäen yhdenlaiset hypoteettiset
         siirtoäänivaalit
       </Link>
       <Link
         href="http://www.chickennation.com/voting/"
-        className="flex transition-transform hover:underline"
+        className="flex underline transition-transform hover:text-blue-500"
       >
         Sarjakuva Australiassa käytössä olevasta siirtoäänivaalijärjestelmästä
       </Link>
       <Link
         href="https://en.wikipedia.org/wiki/Single_transferable_vote"
-        className="flex transition-transform hover:underline"
+        className="flex underline transition-transform hover:text-blue-500"
       >
         Aiheesta wikipediassa
       </Link>
