@@ -1,5 +1,6 @@
 'use client';
 import CandidateProfile from './CandidateProfile';
+import { cn } from '@/lib/helpers';
 import React, { useState } from 'react';
 interface VoteFormProps {
   votes: string[][];
@@ -43,7 +44,7 @@ const VoteForm: React.FC<VoteFormProps> = ({
 
   return (
     <>
-      <div className={`mb-4 grid grid-cols-2 gap-4 lg:${className}`}>
+      <div className={cn(`mb-4 grid grid-cols-2 gap-4`, className)}>
         {candidates.map((candidate) => (
           <div key={candidate.name} className="cursor-pointer">
             <CandidateProfile

@@ -53,7 +53,7 @@ const RealVote: React.FC<RealVoteProps> = () => {
         votes={votes}
         setVotes={setVotes}
         candidates={candidates}
-        className="grid-cols-6"
+        className="lg:grid-cols-6"
       />
     </div>
   );

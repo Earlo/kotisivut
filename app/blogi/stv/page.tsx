@@ -28,7 +28,7 @@ const Page = () => {
     return voteWithColor;
   });
   return (
-    <div className="max-w-8xl mx-auto bg-slate-950  p-4 ">
+    <div className="max-w-8xl mx-auto bg-gray-950 p-4 ">
       <Header>Siirtoäänivaali</Header>
       <Text>
         Presidentinvaalien ennakkoäänestys on meneillään. Ehdokkaat ovat
