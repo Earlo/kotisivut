@@ -32,7 +32,7 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({
         <Image
           src={imageSrc}
           alt={name}
-          layout="fill" // 'objectFit' is no longer needed with 'layout="fill"'
+          layout="fill"
           className="rounded-t-lg"
         />
         <div className="absolute bottom-0 w-full rounded-b-lg bg-black bg-opacity-50 py-2 text-center text-white">
