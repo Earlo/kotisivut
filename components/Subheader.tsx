@@ -1,4 +1,3 @@
-// Subheader.tsx
 interface SubheaderProps {
   children: React.ReactNode;
 }

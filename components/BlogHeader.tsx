@@ -1,4 +1,3 @@
-// Header.tsx
 interface HeaderProps {
   children: React.ReactNode;
 }
