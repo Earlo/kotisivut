@@ -9,6 +9,7 @@ import Head from 'next/head';
 const Page = () => {
   return (
     <div className="max-w-8xl mx-auto bg-gray-950 p-4 ">
+      <Header>TÄÄ on ihan kesken :D.</Header>
       <Header>Lakkoja löytyy soilta.</Header>
       <Text>
         Viimepäivinä oon suhteellisen etäisesi seurannut lakoista käytävää
