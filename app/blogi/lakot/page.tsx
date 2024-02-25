@@ -2,9 +2,7 @@ import Header from '@/components/BlogHeader';
 import Text from '@/components/Text';
 import Subheader from '@/components/Subheader';
 import List from '@/components/List';
-import Link from 'next/link';
 import Image from 'next/image';
-import Head from 'next/head';
 
 const Page = () => {
   return (
