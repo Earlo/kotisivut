@@ -68,8 +68,10 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
                 0,
                 Math.min(position, slider?.offsetWidth),
               );
-              //ts-ignore
-              slider.value = (value / slider?.offsetWidth) * slider?.max; //ts-ignore
+              slider.value = (
+                (value / slider?.offsetWidth) *
+                parseInt(slider?.max)
+              ).toString();
               setBudu((prev) => ({
                 ...prev,
                 [name]: parseInt(slider?.value),
