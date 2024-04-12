@@ -604,4 +604,6 @@ export const budjetti = {
   'Avustukset rakennusperinnön hoitoon': -1700000,
   'Valtionvelan korko': -3155000000,
   'Palkkiot ja muut menot valtionvelasta': -21510000,
+} as {
+  [key: string]: number;
 };

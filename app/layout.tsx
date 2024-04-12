@@ -16,6 +16,10 @@ export default function RootLayout({
           src="https://platform.twitter.com/widgets.js"
           key="twitter"
         />
+        <meta
+          name="viewport"
+          content="width=device-width, initial-scale=1.0, user-scalable=no"
+        ></meta>
       </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-9W2F6V6N7L"
