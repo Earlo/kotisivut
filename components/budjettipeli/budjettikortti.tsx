@@ -45,7 +45,12 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
         </h3>
         <h3 className="  text-l font-bold text-black">
           sinun budjetissasi: <EuroFormatter amount={absAmount} /> (
-          {((amount / originalAmount) * 100).toFixed(2)}%)
+          {originalAbsAmount !== 0 ? (
+            ((absAmount / originalAbsAmount) * 100).toFixed(2) + '%'
+          ) : (
+            <EuroFormatter amount={absAmount} />
+          )}
+          )
         </h3>
         <div>
           <span className="text-sm text-black">
@@ -55,32 +60,33 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
             type="range"
             id="myRange"
             className="w-full"
-            min={Math.min(0, originalAmount * 2)}
-            max={Math.max(0, originalAmount * 2)}
-            value={amount}
+            min={0}
+            max={Math.max(originalAbsAmount * 2, 1000000)}
+            value={absAmount}
             onTouchMove={(e) => {
-              const touch = e.touches[0]; // Get the first touch
+              const touch = e.touches[0];
               const slider = document.getElementById(
                 'myRange',
               ) as HTMLInputElement;
-              const position = touch.clientX; // Position of touch
+              const position = touch.clientX;
               const value = Math.max(
                 0,
                 Math.min(position, slider?.offsetWidth),
               );
               slider.value = (
+                sign *
                 (value / slider?.offsetWidth) *
                 parseInt(slider?.max)
               ).toString();
               setBudu((prev) => ({
                 ...prev,
-                [name]: parseInt(slider?.value),
+                [name]: sign * parseInt(slider?.value),
               }));
             }}
             onChange={(e) =>
               setBudu((prev) => ({
                 ...prev,
-                [name]: parseInt(e.target.value),
+                [name]: sign * parseInt(e.target.value),
               }))
             }
           />

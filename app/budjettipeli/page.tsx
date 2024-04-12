@@ -7,7 +7,7 @@ import EuroFormatter from '@/components/budjettipeli/euroja';
 import { useState } from 'react';
 const Page = () => {
   const [budu, setBudu] = useState(budjetti);
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(150);
   const currentItem = Object.keys(budjetti)[currentIndex];
   const total = Object.values(budu).reduce((acc, val) => acc + val, 0);
   const numberOfKeys = Object.keys(budu).length;
@@ -32,14 +32,14 @@ const Page = () => {
           if (originalAbsAmount === absAmount) {
             return null;
           }
+          const muutos = absAmount - originalAbsAmount;
           return (
             <div key={key} className="flex justify-between">
+              <span>{key}:</span>
               <span>
-                {key} ({sign === 1 ? 'Tulo' : 'Meno'}):
-              </span>
-              <span>
-                <EuroFormatter amount={absAmount} /> (
-                {((budu[key] / budjetti[key]) * 100).toFixed(2)}%)
+                {sign === -1 && '-'}
+                <EuroFormatter amount={absAmount} /> ({muutos > 0 ? '+' : '-'}{' '}
+                <EuroFormatter amount={Math.abs(muutos)} />)
               </span>
             </div>
           );
