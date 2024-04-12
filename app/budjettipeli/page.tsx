@@ -7,12 +7,12 @@ import EuroFormatter from '@/components/budjettipeli/euroja';
 import { useState } from 'react';
 const Page = () => {
   const [budu, setBudu] = useState(budjetti);
-  const [currentIndex, setCurrentIndex] = useState(150);
+  const [currentIndex, setCurrentIndex] = useState(0);
   const currentItem = Object.keys(budjetti)[currentIndex];
   const total = Object.values(budu).reduce((acc, val) => acc + val, 0);
   const numberOfKeys = Object.keys(budu).length;
   return (
-    <div className="max-w-8xl mx-auto bg-gray-950 p-4 ">
+    <div className="max-w-8xl mx-auto flex flex-col items-center bg-gray-950 p-4 ">
       <Header>Budjettipeli</Header>
       <Text>
         {`Tervetuloa budjettipeliin! Tässä pelissä sinun tulee jakaa budjettisi
@@ -45,8 +45,8 @@ const Page = () => {
           );
         })}
       </Text>
-      <div className="relative mt-6 w-[94%] max-w-[600px]">
-        <div className="relative m-0 h-0 w-full pb-[100%]">
+      <div className="relative mt-6 flex w-[94%] max-w-[600px]">
+        <div className="relative m-0 flex h-0 w-full pb-[100%]">
           <BudjettiKortti
             className="left-[0] top-[0] z-[100]"
             name={currentItem}
