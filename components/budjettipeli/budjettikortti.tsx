@@ -36,7 +36,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
         {index + 1 + '/' + numberOfKeys}
       </span>
       <div className="flex max-h-80 flex-grow flex-col justify-between">
-        <h2 className="pt-4 text-center text-xl font-bold text-black">
+        <h2 className="pt-5 text-center text-xl font-bold text-black">
           {index + 1 + '. '}
           {name} ({sign === 1 ? 'Tulo' : 'Meno'})
         </h2>
@@ -52,41 +52,22 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
           )}
           )
         </h3>
-        <div>
+        <div className="flex flex-col items-center">
           <span className="text-sm text-black">
             Käytä tätä liukusäädintä muuttaaksesi budjettikohtaa
           </span>
           <input
             type="range"
             id="myRange"
-            className="w-full"
+            className="w-11/12"
             min={0}
             max={Math.max(originalAbsAmount * 2, 1000000)}
             value={absAmount}
-            onTouchMove={(e) => {
-              const touch = e.touches[0];
-              const slider = document.getElementById(
-                'myRange',
-              ) as HTMLInputElement;
-              const position = touch.clientX;
-              const value = Math.max(
-                0,
-                Math.min(position, slider?.offsetWidth),
-              );
-              slider.value = (
-                sign *
-                (value / slider?.offsetWidth) *
-                parseInt(slider?.max)
-              ).toString();
+            onInput={(e) =>
               setBudu((prev) => ({
                 ...prev,
-                [name]: sign * parseInt(slider?.value),
-              }));
-            }}
-            onChange={(e) =>
-              setBudu((prev) => ({
-                ...prev,
-                [name]: sign * parseInt(e.target.value),
+                [name]:
+                  sign * parseInt((e.target as HTMLInputElement).value, 10),
               }))
             }
           />
