@@ -1,5 +1,6 @@
 import Header from '@/components/BlogHeader';
 import Budjettipeli from '@/components/budjettipeli/budjettipeli';
+import { Suspense } from 'react';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
@@ -35,7 +36,9 @@ const Page = () => {
   return (
     <div className="max-w-8xl mx-auto flex flex-col items-center bg-gray-950 p-4 ">
       <Header>Budjettipeli</Header>
-      <Budjettipeli />
+      <Suspense>
+        <Budjettipeli />
+      </Suspense>
     </div>
   );
 };
