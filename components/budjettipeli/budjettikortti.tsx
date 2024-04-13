@@ -33,7 +33,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
       )}
     >
       <span className="absolute right-2 top-2  rounded-bl-lg p-2 text-center text-white">
-        {index + 1 + '/' + (numberOfKeys + 1)}
+        {index + 1 + '/' + numberOfKeys}
       </span>
       <div className="flex max-h-80 flex-grow flex-col justify-between">
         <h2 className="pt-4 text-center text-xl font-bold text-black">
