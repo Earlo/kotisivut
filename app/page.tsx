@@ -32,7 +32,7 @@ const Home = () => {
         <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
           <Image
             // hide when mobile
-            src="/ehdolla.jpg"
+            src="/vaalikuva_rect.jpg"
             className="m-5 hidden h-48 w-48 rounded-full md:block"
             width={192}
             height={192}
