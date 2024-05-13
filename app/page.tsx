@@ -22,7 +22,7 @@ const Home = () => {
       <section className="flex w-full flex-col items-center p-0 md:p-10">
         <Image
           // show when mobile
-          src="/ehdolla.jpg"
+          src="/vaalikuva_rect.jpg"
           className="m-5 block h-48 w-48 rounded-full md:hidden"
           width={192}
           height={192}
