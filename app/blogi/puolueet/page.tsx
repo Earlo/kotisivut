@@ -102,7 +102,7 @@ const PartiesPage = () => {
         koko taulukon omaan käyttöösi tai klikata kätevää namiskaa, joka kopioi
         kaikkien puolueiden sähköpostit leikepöydällesi.
       </Text>
-      <Text>Terveisin, Visa Pollari</Text>
+      <Text>T. Visa Pollari</Text>
       <div className="mb-4 flex items-center">
         <button
           onClick={copyEmails}
