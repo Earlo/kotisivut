@@ -1,9 +1,9 @@
 import '@/styles/globals.css';
 import Icon from '@/components/generic/Icon';
+import { ToasterProvider } from '@/components/generic/Toaster';
 import Script from 'next/script';
 import Head from 'next/head';
 import { GoogleAnalytics } from '@next/third-parties/google';
-
 export default function RootLayout({
   children,
 }: {
@@ -29,30 +29,43 @@ export default function RootLayout({
       />
       <GoogleAnalytics gaId="G-9W2F6V6N7L" />
       <body>
-        {children}
-        <footer className="mt-4 flex w-full flex-row items-center justify-around bg-black py-10">
-          <a href="https://twitter.com/VisaPollari">
-            <Icon name="Twitter" />
-          </a>
-          <a href="https://www.linkedin.com/in/visapollari">
-            <Icon name="LinkedIn" />
-          </a>
-          <a href="https://github.com/Earlo">
-            <Icon name="GitHub" />
-          </a>
-          <a href="https://bsky.app/profile/visapollari.bsky.social">
-            <Icon name="Bluesky" />
-          </a>
-          <a href="https://www.threads.net/@visapollari">
-            <Icon name="Threads" />
-          </a>
-          <a href="https://suomi.social/@visapollari">
-            <Icon name="Mastodon" />
-          </a>
-          <a href="https://t.me/visapollari">
-            <Icon name="Telegram" />
-          </a>
-        </footer>
+        <ToasterProvider>
+          <header className="flex h-24 w-full items-center justify-between">
+            <div className="w-3/4 items-start">
+              <h1 className="ml-4 text-3xl font-bold md:ml-10 ">
+                Visa Pollari
+              </h1>
+              <h3 className="ml-4 text-xl font-bold md:ml-10 ">
+                Tärkeintä on osallistuminen.
+              </h3>
+            </div>
+          </header>
+
+          {children}
+          <footer className="mt-4 flex w-full flex-row items-center justify-around bg-black py-10">
+            <a href="https://twitter.com/VisaPollari">
+              <Icon name="Twitter" />
+            </a>
+            <a href="https://www.linkedin.com/in/visapollari">
+              <Icon name="LinkedIn" />
+            </a>
+            <a href="https://github.com/Earlo">
+              <Icon name="GitHub" />
+            </a>
+            <a href="https://bsky.app/profile/visapollari.bsky.social">
+              <Icon name="Bluesky" />
+            </a>
+            <a href="https://www.threads.net/@visapollari">
+              <Icon name="Threads" />
+            </a>
+            <a href="https://suomi.social/@visapollari">
+              <Icon name="Mastodon" />
+            </a>
+            <a href="https://t.me/visapollari">
+              <Icon name="Telegram" />
+            </a>
+          </footer>
+        </ToasterProvider>
       </body>
     </html>
   );

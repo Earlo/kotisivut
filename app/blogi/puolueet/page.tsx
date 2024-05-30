@@ -1,8 +1,13 @@
 'use client';
 
+import useClipboard from '@/hooks/useClipboard';
+import { cn } from '@/lib/helpers';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-
+import {
+  ClipboardIcon,
+  ClipboardDocumentCheckIcon,
+} from '@heroicons/react/20/solid';
 type SiteInfo = {
   id: number;
   partyDesc: string | null;
@@ -40,6 +45,9 @@ const fetchParties = async (): Promise<Party[]> => {
 const PartiesPage = () => {
   const [parties, setParties] = useState<Party[]>([]);
   const [error, setError] = useState<string | null>(null);
+  const { copiedData, onCopy } = useClipboard();
+  const partyString = parties.map((party) => party.siteInfo.email).join(', ');
+  const partiesClipped = copiedData && copiedData === partyString;
 
   useEffect(() => {
     const getParties = async () => {
@@ -54,24 +62,38 @@ const PartiesPage = () => {
   }, []);
 
   const copyEmails = () => {
-    const emails = parties.map((party) => party.siteInfo.email).join(', ');
-    navigator.clipboard.writeText(emails);
-    alert('Emails copied to clipboard');
+    if (!partiesClipped) {
+      onCopy(partyString);
+    }
   };
 
   if (error) {
     return <div className="text-red-500">Error: {error}</div>;
   }
-
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 className="mb-4 text-3xl font-bold">Registered Parties</h1>
-      <button
-        onClick={copyEmails}
-        className="mb-4 rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-700"
-      >
-        Copy All Emails
-      </button>
+      <h1 className="mb-4 text-3xl font-bold">Rekisteröityneet puolueet</h1>
+      <div className="mb-4 flex items-center">
+        <button
+          onClick={copyEmails}
+          className={cn(
+            'mr-2 flex flex-row rounded bg-blue-500 px-4 py-2 text-white ',
+            {
+              'cursor-not-allowed ': partiesClipped,
+              'hover:bg-blue-700': !partiesClipped,
+            },
+          )}
+        >
+          {partiesClipped
+            ? 'Puolueiden sähköpostit ovat nyt leikepöydällesi!'
+            : 'Kopioi kaikkien puolueiden sähköpostit leikepöydällesi'}
+          {partiesClipped ? (
+            <ClipboardDocumentCheckIcon className="ml-2 h-6 w-6 text-green-500" />
+          ) : (
+            <ClipboardIcon className="ml-2 h-6 w-6 text-gray-500" />
+          )}
+        </button>
+      </div>
       <div className="overflow-x-auto">
         <table className="min-w-full divide-y divide-gray-200">
           <thead className="bg-gray-50">
@@ -86,31 +108,31 @@ const PartiesPage = () => {
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
               >
-                Name
+                Nimi
               </th>
               <th
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
               >
-                Email
+                Sähköposti
               </th>
               <th
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
               >
-                Phone
+                Puhelin
               </th>
               <th
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
               >
-                Address
+                Osoite
               </th>
               <th
                 scope="col"
                 className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
               >
-                Website
+                Web
               </th>
             </tr>
           </thead>
