@@ -28,7 +28,7 @@ export default function RootLayout({
         key="googletagmanager"
       />
       <GoogleAnalytics gaId="G-9W2F6V6N7L" />
-      <body>
+      <body className="flex min-h-screen flex-col items-center justify-between bg-gray-900 font-sans text-white">
         <ToasterProvider>
           <header className="flex h-24 w-full items-center justify-between">
             <div className="w-3/4 items-start">
