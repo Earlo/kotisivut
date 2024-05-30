@@ -2,12 +2,14 @@
 
 import useClipboard from '@/hooks/useClipboard';
 import { cn } from '@/lib/helpers';
+import Text from '@/components/Text';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
 import {
   ClipboardIcon,
   ClipboardDocumentCheckIcon,
 } from '@heroicons/react/20/solid';
+
 type SiteInfo = {
   id: number;
   partyDesc: string | null;
@@ -73,6 +75,34 @@ const PartiesPage = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <h1 className="mb-4 text-3xl font-bold">Rekisteröityneet puolueet</h1>
+      <Text>
+        Tässä Eurovaalien alla olen huomannut erään, selkeästi suomalaista
+        kansalaisyhteiskuntaa piinaavan vaivan; nimittäin poliittisten
+        puolueiden tavoittaminen tuntuu olevan suunnattoman vaikeaa. On täysin
+        ymmärrettävää, että kansalaisyhteiskunnan resurssit ovat rajalliset, ja
+        kuten kuten tiedämme, mikäli kommunikaatio voi epäonnistua, se myös
+        epäonnistuu epäonnistuu.
+      </Text>
+      <Text>
+        Mietin mistä asia johtuu, ja tässä muutama päivä sitten, samalla kun
+        kävin napsauttamassa 25.5. Hamppupuolueelle kannattajakorttini, tajusin
+        sen. puoluerekisteri.fi ei tarjoa yksinkertaista tapaa napata kaikkien
+        puolueiden yhteystietoja. Eli siis vuosien ajan yhteiskunta on kärsinyt
+        tästä saavutettavuusesteestä!
+      </Text>
+      <Text>
+        Mielestäni julkisien palveluiden, kuten puoluerekisteri.fi:n tulisi olla
+        avointa lähdekoodia. tällöin kuka tahansa voisi kehittää palvelua
+        eteenpäin, ja esimerkiksi lisätä sivustolle listan kaikkien puolueiden
+        yhteystiedoista.
+      </Text>
+      <Text>
+        Pahimpaan hätään olen kuitenkin tehnyt tämän sivun, josta löydät
+        kaikkien rekisteröityneiden puolueiden yhteystiedot. Voit joko kopioida
+        koko taulukon omaan käyttöösi, tai klikata kätevää namiskaa joka kopioi
+        kaikkien puolueiden sähköpostit leikepöydällesi.
+      </Text>
+      <Text>T. Visa Pollari</Text>
       <div className="mb-4 flex items-center">
         <button
           onClick={copyEmails}
