@@ -88,7 +88,7 @@ const PartiesPage = () => {
         kävin napsauttamassa 25.5. Hamppupuolueelle kannattajakorttini, tajusin
         sen. Puoluerekisteri.fi ei tarjoa yksinkertaista tapaa napata kaikkien
         puolueiden yhteystietoja. Eli siis vuosien ajan yhteiskunta on kärsinyt
-        tästä saavutettavuusesteestä!
+        tästä tiedonsaantiesteestä!
       </Text>
       <Text>
         Mielestäni julkisten palveluiden, kuten puoluerekisteri.fi:n, tulisi
