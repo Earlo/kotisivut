@@ -10,6 +10,37 @@ import {
   ClipboardDocumentCheckIcon,
 } from '@heroicons/react/20/solid';
 
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Rekisteröityneet puolueet - Yhteystiedot',
+  description:
+    'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
+  openGraph: {
+    title: 'Rekisteröityneet puolueet - Yhteystiedot',
+    description:
+      'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
+    images: [
+      {
+        url: 'https://visapollari.fi/blogi/puolueet/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Rekisteröityneet puolueet esikatselukuva',
+      },
+    ],
+    type: 'website',
+    url: 'https://visapollari.fi/blogi/puolueet',
+  },
+  twitter: {
+    card: 'summary',
+    site: '@visapollari',
+    creator: '@visapollari',
+    images: 'https://visapollari.fi/blogi/puolueet/og-image.jpg',
+    description:
+      'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
+  },
+};
+
 type SiteInfo = {
   id: number;
   partyDesc: string | null;
