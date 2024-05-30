@@ -30,8 +30,8 @@ const CopyButton = ({ copyTarget }: { copyTarget: string }) => {
       )}
     >
       {isClipped
-        ? 'Puolueiden sähköpostit ovat nyt leikepöydällesi!'
-        : 'Kopioi kaikkien puolueiden sähköpostit leikepöydälläsi'}
+        ? 'Puolueiden sähköpostit ovat nyt leikepöydälläsi!'
+        : 'Kopioi kaikkien puolueiden sähköpostit leikepöydällesi'}
       {isClipped ? (
         <ClipboardDocumentCheckIcon className="ml-2 h-6 w-6 text-green-500" />
       ) : (
