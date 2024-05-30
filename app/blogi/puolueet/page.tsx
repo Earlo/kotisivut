@@ -40,8 +40,8 @@ const PartiesPage = () => {
         Eurovaalien alla olen huomannut erään selkeästi suomalaista
         kansalaisyhteiskuntaa piinaavan vaivan: poliittisten puolueiden
         tavoittaminen tuntuu olevan suunnattoman vaikeaa. On täysin
-        ymmärrettävää, että kansalaisyhteiskunnan resurssit ovat rajalliset, ja
-        kuten tiedämme, mikäli kommunikaatio voi epäonnistua, se myös
+        ymmärrettävää, että yhdistysten ja säätiöiden resurssit ovat rajalliset,
+        ja kuten tiedämme, mikäli kommunikaatio voi epäonnistua, se myös
         epäonnistuu.
       </Text>
       <Text>
