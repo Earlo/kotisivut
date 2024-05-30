@@ -2,7 +2,11 @@
 const nextConfig = {
   reactStrictMode: true,
   images: {
-    domains: ['cdn4.telegram-cdn.org', 'cdn4.cdn-telegram.org'],
+    domains: [
+      'cdn4.telegram-cdn.org',
+      'cdn4.cdn-telegram.org',
+      'puoluerekisteri.fi',
+    ],
   },
   async headers() {
     return [
@@ -22,8 +26,8 @@ const nextConfig = {
           },
         ],
       },
-    ]
+    ];
   },
-}
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;
