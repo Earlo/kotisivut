@@ -4,6 +4,8 @@ import { ToasterProvider } from '@/components/generic/Toaster';
 import Script from 'next/script';
 import Head from 'next/head';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import Link from 'next/link';
+
 export default function RootLayout({
   children,
 }: {
@@ -39,6 +41,13 @@ export default function RootLayout({
                 Tärkeintä on osallistuminen.
               </h3>
             </div>
+
+            <Link
+              href="/blogi"
+              className="mr-4 text-2xl font-bold hover:text-blue-500 md:mr-10"
+            >
+              Blogi
+            </Link>
           </header>
 
           {children}
