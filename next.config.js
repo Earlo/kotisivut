@@ -6,6 +6,7 @@ const nextConfig = {
       'cdn4.telegram-cdn.org',
       'cdn4.cdn-telegram.org',
       'puoluerekisteri.fi',
+      'liberaalipuolue.fi',
     ],
   },
   async headers() {
