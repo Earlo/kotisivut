@@ -34,3 +34,25 @@ export async function POST(request: Request) {
     );
   }
 }
+
+export async function GET(request: Request) {
+  try {
+    const { data, error } = await supabase.from('rankings').select();
+    if (error) {
+      console.log(error);
+      return NextResponse.json({ error: 'PostgrestError' }, { status: 500 });
+    }
+
+    return NextResponse.json(data, {
+      headers: {
+        'Cache-Control': 's-maxage=1, stale-while-revalidate',
+      },
+    });
+  } catch (e) {
+    console.log(e);
+    return NextResponse.json(
+      { error: 'Internal server error' },
+      { status: 500 },
+    );
+  }
+}
