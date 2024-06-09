@@ -55,7 +55,7 @@ const ListForm: React.FC<ListFormProps> = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
           placeholder={`Name`}
-          className={'mb-2 rounded border border-gray-300 p-2'}
+          className={'mb-2 rounded border border-gray-300 bg-slate-900 p-2'}
         />
       </>
     );
@@ -68,7 +68,7 @@ const ListForm: React.FC<ListFormProps> = ({
         value={name}
         onChange={(e) => setName(e.target.value)}
         placeholder={`Name`}
-        className={'mb-2 rounded border border-gray-300 p-2'}
+        className={'mb-2 rounded border border-gray-300 bg-slate-900 p-2'}
       />
 
       <div className={cn(`mb-4 grid grid-cols-2 gap-4`, className)}>
@@ -101,7 +101,7 @@ const ListForm: React.FC<ListFormProps> = ({
                   value={newVote[index]}
                   onChange={(e) => updateVote(index, e.target.value)}
                   placeholder={`#${index + 1} valinta`}
-                  className={'border-gray-30b rounded border p-2'}
+                  className={'border-gray-30b rounded border bg-slate-900 p-2'}
                 />
                 {newVote[index] ? (
                   <button

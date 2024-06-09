@@ -32,12 +32,10 @@ export default function RootLayout({
       <GoogleAnalytics gaId="G-9W2F6V6N7L" />
       <body className="flex min-h-screen flex-col items-center justify-between bg-gray-900 font-sans text-white">
         <ToasterProvider>
-          <header className="flex h-24 w-full items-center justify-between">
+          <header className="flex h-24 w-full items-center justify-between bg-black">
             <div className="w-3/4 items-start">
-              <h1 className="ml-4 text-3xl font-bold md:ml-10 ">
-                Visa Pollari
-              </h1>
-              <h3 className="ml-4 text-xl font-bold md:ml-10 ">
+              <h1 className="ml-4 text-3xl font-bold md:ml-10">Visa Pollari</h1>
+              <h3 className="ml-4 text-xl font-bold md:ml-10">
                 Tärkeintä on osallistuminen.
               </h3>
             </div>
