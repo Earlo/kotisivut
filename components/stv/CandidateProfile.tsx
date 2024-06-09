@@ -1,11 +1,12 @@
+import { cn } from '@/lib/helpers';
 import React from 'react';
 import Image from 'next/image';
-
 interface CandidateProfileProps {
   name: string;
   imageSrc: string;
   onClick: () => void;
   disabled?: string;
+  className?: string;
 }
 
 const CandidateProfile: React.FC<CandidateProfileProps> = ({
@@ -13,6 +14,7 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({
   imageSrc,
   onClick,
   disabled,
+  className = '',
 }) => {
   const isDisabled = Boolean(disabled);
 
@@ -33,7 +35,7 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({
           src={imageSrc}
           alt={name}
           layout="fill"
-          className="rounded-t-lg"
+          className={cn('rounded-t-lg', className)}
         />
         <div className="absolute bottom-0 w-full rounded-b-lg bg-black bg-opacity-50 py-2 text-center text-white">
           <h3 className="font-bold">{name}</h3>
