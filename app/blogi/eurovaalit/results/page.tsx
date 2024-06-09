@@ -1,13 +1,16 @@
 'use client';
 import { candidates } from '../candidates';
 import Header from '@/components/BlogHeader';
-import Text from '@/components/Text';
 import CandidateProfile from '@/components/stv/CandidateProfile';
 import React, { useEffect, useState } from 'react';
 
 const Page = () => {
-  const [guesses, setGuesses] = useState([]);
-  const [scores, setScores] = useState({});
+  const [guesses, setGuesses] = useState<
+    { made_by: string; ranking: string }[]
+  >([]);
+  const [scores, setScores] = useState<{
+    [key: string]: { [key: string]: boolean };
+  }>({});
 
   useEffect(() => {
     fetch('/api/tierlist', {
@@ -20,11 +23,11 @@ const Page = () => {
   }, []);
 
   useEffect(() => {
-    const initScores = {};
+    const initScores = {} as { [key: string]: { [key: string]: boolean } };
     guesses.forEach((guess) => {
       initScores[guess.made_by] = {};
       const ranking = JSON.parse(guess.ranking);
-      ranking.forEach((candidate, index) => {
+      ranking.forEach((candidate: string) => {
         initScores[guess.made_by][candidate] = false;
       });
     });
@@ -42,29 +45,33 @@ const Page = () => {
             <span>
               {guess.made_by}{' '}
               {JSON.parse(guess.ranking)
-                .map((candidate) => (scores[guess.made_by][candidate] ? 1 : 0))
-                .reduce((a, b) => a + b, 0)}
+                .map((candidate: string) =>
+                  scores[guess.made_by][candidate] ? 1 : 0,
+                )
+                .reduce((a: number, b: number) => a + b, 0)}
             </span>
-            {JSON.parse(guess.ranking).map((candidate, index) => (
-              <CandidateProfile
-                key={index}
-                name={candidate}
-                imageSrc={
-                  candidates.find((c) => c.name === candidate)?.imageSrc
-                }
-                onClick={() => {
-                  const newScores = { ...scores };
-                  newScores[guess.made_by][candidate] =
-                    !newScores[guess.made_by][candidate];
-                  setScores(newScores);
-                }}
-                className={
-                  scores[guess.made_by][candidate]
-                    ? 'border-4 border-green-500'
-                    : 'border-red-500'
-                }
-              />
-            ))}
+            {JSON.parse(guess.ranking).map(
+              (candidate: string, index: number) => (
+                <CandidateProfile
+                  key={index}
+                  name={candidate}
+                  imageSrc={
+                    candidates.find((c) => c.name === candidate)?.imageSrc ?? ''
+                  }
+                  onClick={() => {
+                    const newScores = { ...scores };
+                    newScores[guess.made_by][candidate] =
+                      !newScores[guess.made_by][candidate];
+                    setScores(newScores);
+                  }}
+                  className={
+                    scores[guess.made_by][candidate]
+                      ? 'border-4 border-green-500'
+                      : 'border-red-500'
+                  }
+                />
+              ),
+            )}
           </div>
         ))}
       </div>
