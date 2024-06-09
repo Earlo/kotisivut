@@ -1,5 +1,6 @@
 'use client';
 import ListForm from './TierlistForm';
+import { useToaster } from '@/components/generic/Toaster';
 import React, { useEffect, useState } from 'react';
 
 interface TierListProps {
@@ -10,6 +11,8 @@ const TierList: React.FC<TierListProps> = ({ candidates }) => {
   const [votes, setVotes] = useState<string[][]>([]);
   const [name, setName] = useState<string>('');
   const [quessMade, setQuessMade] = useState<boolean>(false);
+  const { addToast } = useToaster();
+
   useEffect(() => {
     if (votes.length > 0) {
       const clienIp = window.location.hostname;
@@ -25,8 +28,10 @@ const TierList: React.FC<TierListProps> = ({ candidates }) => {
         }),
       });
       setQuessMade(true);
+      setVotes([]);
+      addToast('Veikkaus tallennettu', 'success');
     }
-  }, [votes, name]);
+  }, [votes, name, addToast]);
   return (
     <div className="mx-auto w-full rounded-lg bg-gray-700 p-4 shadow-lg">
       {quessMade ? (
