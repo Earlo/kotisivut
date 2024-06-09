@@ -116,9 +116,16 @@ const ListForm: React.FC<ListFormProps> = ({
           )}
         <button
           onClick={addVote}
-          className="mt-2 rounded bg-blue-500 p-2 text-white"
+          className={cn(
+            'mt-2 rounded bg-blue-500 p-2 text-white disabled:cursor-not-allowed disabled:bg-gray-500',
+          )}
+          disabled={newVote.filter((choice) => choice).length < 20}
         >
-          Lähetä arvaus
+          {newVote.filter((choice) => choice).length < 20
+            ? 'Valitse vielä ' +
+              (20 - newVote.filter((choice) => choice).length) +
+              ' ehdokasta'
+            : 'Lähetä'}
         </button>
       </div>
     </>
