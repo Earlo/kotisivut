@@ -91,7 +91,7 @@ const ListForm: React.FC<ListFormProps> = ({
         {Array(candidates.length)
           .fill(null)
           .map((_, index) =>
-            index === 0 || newVote[index - 1] ? (
+            index === 0 || newVote[index - 1] || newVote[index] ? (
               <div key={index}>
                 <span className="inline-block w-10 text-white">
                   {'#' + (index + 1)}
@@ -103,12 +103,14 @@ const ListForm: React.FC<ListFormProps> = ({
                   placeholder={`#${index + 1} valinta`}
                   className={'border-gray-30b rounded border p-2'}
                 />
-                <button
-                  onClick={() => updateVote(index, '')}
-                  className="ml-2 rounded bg-red-500 p-2 text-white hover:bg-red-700"
-                >
-                  X
-                </button>
+                {newVote[index] ? (
+                  <button
+                    onClick={() => updateVote(index, '')}
+                    className="ml-2 rounded bg-red-500 p-2 text-white hover:bg-red-700"
+                  >
+                    X
+                  </button>
+                ) : null}
               </div>
             ) : null,
           )}
