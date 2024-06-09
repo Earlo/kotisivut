@@ -49,7 +49,7 @@ export default function RootLayout({
           </header>
 
           {children}
-          <footer className="mt-4 flex w-full flex-row items-center justify-around bg-black py-10">
+          <footer className="mt-0 flex w-full flex-row items-center justify-around bg-black py-10">
             <a href="https://twitter.com/VisaPollari">
               <Icon name="Twitter" />
             </a>
