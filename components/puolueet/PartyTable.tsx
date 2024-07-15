@@ -142,7 +142,12 @@ const PartyTable = () => {
                 <td className="whitespace-nowrap px-6 py-4 text-sm text-blue-600">
                   {party.siteInfo.url ? (
                     <a
-                      href={`http://${party.siteInfo.url}`}
+                      href={
+                        party.siteInfo.url.startsWith('http') ||
+                        party.siteInfo.url.startsWith('https')
+                          ? party.siteInfo.url
+                          : `http://${party.siteInfo.url}`
+                      }
                       target="_blank"
                       rel="noopener noreferrer"
                     >
