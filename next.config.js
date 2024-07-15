@@ -3,6 +3,7 @@ const nextConfig = {
   reactStrictMode: true,
   images: {
     domains: [
+      'web.telegram.org',
       'cdn4.telegram-cdn.org',
       'cdn4.cdn-telegram.org',
       'puoluerekisteri.fi',
