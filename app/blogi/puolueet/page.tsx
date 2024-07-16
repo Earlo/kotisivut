@@ -47,15 +47,24 @@ const PartiesPage = () => {
       <Text>
         Mietin, mistä asia johtuu, ja tässä muutama päivä sitten, samalla kun
         kävin napsauttamassa 25.5. kannatusilmoitukseni juuri alkaneelle
-        keräykselle, tajusin sen. Puoluerekisteri.fi ei tarjoa yksinkertaista
-        tapaa napata kaikkien puolueiden yhteystietoja. Eli siis vuosien ajan
-        yhteiskunta on kärsinyt tästä tiedonsaantiesteestä!
+        keräykselle, tajusin sen:
+      </Text>
+
+      <Text className="text-center font-bold text-yellow-300">
+        Puoluerekisteri.fi ei tarjoa yksinkertaista tapaa napata kaikkien
+        puolueiden yhteystietoja yhdellä kertaa.
+      </Text>
+      <Text>
+        Eli siis vuosien ajan yhteiskunta on kärsinyt tästä ylitsepääsemättömän
+        vaivalloisesta tiedonsaantiesteestä!
       </Text>
       <Text>
         Mielestäni julkisten palveluiden, kuten puoluerekisteri.fi:n, tulisi
         olla avointa lähdekoodia. Tällöin kuka tahansa voisi kehittää palvelua
         eteenpäin ja esimerkiksi lisätä sivustolle listan kaikkien puolueiden
-        yhteystiedoista.
+        yhteystiedoista. Mikäli näin olisi, kuka tahansa, kuten minä, tai sinä
+        voisimme yksinkertaisesti mennä katsomaan sivuston lähdekoodia, ja
+        paikata tämän yhteiskunnallisen tiekuopan.
       </Text>
       <Text>
         Pahimpaan hätään olen kuitenkin tehnyt tämän sivun, josta löydät

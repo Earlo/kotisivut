@@ -1,9 +1,9 @@
 'use client';
 
 import CopyButton from '@/components/puolueet/CopyButton';
+import { cn } from '@/lib/helpers';
 import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
-
 type SiteInfo = {
   id: number;
   partyDesc: string | null;
@@ -61,85 +61,80 @@ const PartyTable = () => {
   return (
     <>
       <CopyButton copyTarget={partyString} />
-
       <div className="overflow-x-auto">
-        <table className="min-w-full divide-y divide-gray-200">
+        <table className="min-w-full divide-y divide-gray-200 text-gray-500">
           <thead className="bg-gray-50">
             <tr>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
               >
                 Logo
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
               >
                 Nimi
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
               >
                 Sähköposti
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
               >
                 Puhelin
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
               >
                 Osoite
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider text-gray-500"
+                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
               >
                 Web
               </th>
             </tr>
           </thead>
-          <tbody className="divide-y divide-gray-200 bg-white">
+          <tbody className="divide-y divide-gray-200 bg-white text-sm">
             {parties.map((party) => (
               <tr key={party.id}>
                 <td className="whitespace-nowrap px-6 py-4">
                   {party.siteInfo ? (
                     <Image
                       src={`https://puoluerekisteri.fi/publicapi/attachment/${party.id}/0/logo.png`}
-                      alt={`${party.name} logo`}
+                      alt={`Ei kuvaa`}
                       width={64}
                       height={64}
                       className="h-16 w-16 object-contain"
                     />
                   ) : (
-                    <span>No Logo</span>
+                    <span>Ei kuvaa</span>
                   )}
                 </td>
-                <td className="px-6 py-4 text-sm font-medium text-gray-900">
-                  <div>{party.name}</div>
-                  <div className="text-sm text-gray-500">
-                    {party.siteInfo.email}
-                  </div>
-                  <div className="text-sm text-gray-500">
-                    {party.siteInfo.phoneNumber}
-                  </div>
+                <td className="px-6 py-4 font-medium">
+                  <div className="text-gray-900">{party.name}</div>
+                  <div className="">{party.siteInfo.email}</div>
+                  <div className="">{party.siteInfo.phoneNumber}</div>
                 </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                <td className="whitespace-nowrap px-6 py-4">
                   {party.siteInfo.email}
                 </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                <td className="whitespace-nowrap px-6 py-4">
                   {party.siteInfo.phoneNumber}
                 </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm text-gray-500">
+                <td className="whitespace-nowrap px-6 py-4">
                   {party.siteInfo.address}, {party.siteInfo.postcode},{' '}
                   {party.siteInfo.city}
                 </td>
-                <td className="whitespace-nowrap px-6 py-4 text-sm text-blue-600">
+                <td className="whitespace-nowrap px-6 py-4">
                   {party.siteInfo.url ? (
                     <a
                       href={
@@ -150,11 +145,16 @@ const PartyTable = () => {
                       }
                       target="_blank"
                       rel="noopener noreferrer"
+                      className={cn('underline', {
+                        'text-blue-600 hover:text-blue-900': party.siteInfo.url,
+                      })}
                     >
-                      {party.siteInfo.url}
+                      {party.siteInfo.url
+                        .replace(/(^\w+:|^)\/\//, '')
+                        .replace(/\/$/, '')}
                     </a>
                   ) : (
-                    'No Website'
+                    'Ei verkkosivua'
                   )}
                 </td>
               </tr>
