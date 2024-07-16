@@ -33,20 +33,19 @@ const Page = () => {
     <div className="max-w-8xl mx-auto bg-gray-950 p-4">
       <Header>Tuotantofutuurimalli</Header>
       <Text>
-        Suomessa maksetaa erinäisiä maataloustukia lähes 2 miljardia euroa
+        Suomessa maksettiin erinäisiä maataloustukia lähes 2 miljardia euroa
         vuonna 2023. Tätä tukipottia usein perustellaan huoltovarmmuudella
-        kriisiolosuhteita varten, mutta toteutuuko tämä? Venäjän aloitettua
-        hyökkäyssotansa Ukrainassa, ja pakotteita asettaessa, huomattiin että
-        suomen ruokatuontanto oli hyvinkin riippuvainen Venäjästä, esim.
-        lannoitteen suhteen.
+        kriisiolosuhteita varten, mutta toteutuuko tämä? Venäjän vastaisia
+        pakotteita asettaessa, huomattiin että Suomen ruokatuontanto oli
+        hyvinkin riippuvainen Venäjästä, esim. lannoitteen suhteen.
       </Text>
       <Text>
-        Tällä tukia jaetaan monilla perusteilla, on peltopinta-alan mukaan
-        jyvitettyä viljelijätukea, hanketukia, rakennetukia, markkinatukia,
-        normaaleja yritystukia, ja niin edelleen. Siitä huolimatta, kun
-        huoltovarmuus ilmiselvästi ei toteudu nykyisellä järjestelmällä, niin
-        mikä tarkalleen sitten sen oikeutus on? Olisko kenties
-        maataloustukipotti mahdollista kohdistaa paremmin?
+        Tällä hetkellä tukia jaetaan monilla perusteilla. On peltopinta-alan
+        mukaan jyvitettyä viljelijätukea, hanketukia, rakennetukia,
+        markkinatukia, normaaleja yritystukia, ja niin edelleen. Siitä
+        huolimatta, kun huoltovarmuus ilmiselvästi ei toteudu nykyisellä
+        järjestelmällä, niin mikä tarkalleen sitten sen oikeutus on? Olisko
+        kenties maataloustukipotti mahdollista kohdistaa paremmin?
       </Text>
       <Text>Ehdottaisin asiaa korjaamista Tuotantofutuurimallilla.</Text>
       <Text>
@@ -59,14 +58,14 @@ const Page = () => {
       </Text>
       <Text>
         Tämän laskelman tehtyään huoltovarmuuskeskus pistää ilmoille
-        tarjouspyynnön herneistä, jossa on spesifioitu kriisitilassa toimimiseen
-        vaaditut puitteet. Tämä voisi sisältää vaikkapa sen, että tuotanto
-        tehdään paikallisella työvoimalla, jo maassa olevilla välineistöllä,
-        kotimaisella lannoitteella, jne. Oletettavasti huoltovarmuuskeskus saisi
-        tarjouksia, joista sitten he valikoisivat edullisimmat kunnes vaaditu
-        määrä hernetilauksia on tehty. Toimitusajankohta herneille olisi
-        tulevaisuudessa, mutta huoltovarmuuskeskus ostaisi nämä herneet
-        futuurina.
+        tarjouspyynnön herneistä, jossa tarjouksen ehtona on spesifioitu
+        kriisitilassa toimimiseen vaaditut puitteet. Tämä voisi sisältää
+        vaikkapa sen, että tuotanto tehdään paikallisella työvoimalla, jo maassa
+        olevilla välineistöllä, kotimaisella lannoitteella, jne. Oletettavasti
+        huoltovarmuuskeskus saisi tarjouksia, joista sitten he valikoisivat
+        edullisimmat kunnes vaaditu määrä herneitä olisi tilattu.
+        Toimitusajankohta herneille olisi tulevaisuudessa, mutta
+        huoltovarmuuskeskus ostaisi nämä herneet futuurina.
       </Text>
       <Text>
         Kun aikaa kuluu, toimitusajankohta lähestyy, ja käy selväksi että
