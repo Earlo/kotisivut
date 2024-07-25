@@ -151,7 +151,10 @@ const PartyTable = () => {
                     >
                       {party.siteInfo.url
                         .replace(/(^\w+:|^)\/\//, '')
-                        .replace(/\/$/, '')}
+                        .replace(/\/$/, '')
+                        .replace('www.', '')
+                        .replace('http://', '')
+                        .replace('https://', '')}
                     </a>
                   ) : (
                     'Ei verkkosivua'
