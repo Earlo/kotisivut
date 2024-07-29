@@ -39,7 +39,8 @@ const Home = () => {
             Mennään vaikka kahville.{' '}
             <Link href="https://cal.com/visap/30min" className="text-blue-500">
               Varaa aika
-            </Link>
+            </Link>{' '}
+            tai soita minulle +358456350724
           </p>
         </div>
       </section>
