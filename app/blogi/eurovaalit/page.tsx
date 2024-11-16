@@ -1,8 +1,8 @@
-import { candidates } from './candidates';
 import Header from '@/components/BlogHeader';
 import Text from '@/components/Text';
 import TierList from '@/components/tierlist/Tierlist';
 import type { Metadata } from 'next';
+import { candidates } from './candidates';
 
 export const metadata: Metadata = {
   title: 'Eurovaalit LIB tulosveikkaus',

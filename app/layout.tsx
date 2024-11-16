@@ -1,10 +1,10 @@
-import '@/styles/globals.css';
 import Icon from '@/components/generic/Icon';
 import { ToasterProvider } from '@/components/generic/Toaster';
-import Script from 'next/script';
-import Head from 'next/head';
+import '@/styles/globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
+import Head from 'next/head';
 import Link from 'next/link';
+import Script from 'next/script';
 
 export default function RootLayout({
   children,

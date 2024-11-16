@@ -1,5 +1,5 @@
-import { candidates } from '../candidates';
 import { ImageResponse } from 'next/og';
+import { candidates } from '../candidates';
 
 export const runtime = 'edge';
 

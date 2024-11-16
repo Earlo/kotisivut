@@ -2,8 +2,8 @@
 
 import CopyButton from '@/components/puolueet/CopyButton';
 import { cn } from '@/lib/helpers';
-import React, { useEffect, useState } from 'react';
 import Image from 'next/image';
+import { useEffect, useState } from 'react';
 type SiteInfo = {
   id: number;
   partyDesc: string | null;

@@ -1,10 +1,10 @@
 'use client';
-import { budjetti } from './budjetti';
 import Text from '@/components/Text';
 import BudjettiKortti from '@/components/budjettipeli/budjettikortti';
 import EuroFormatter from '@/components/budjettipeli/euroja';
 import { useSearchParams } from 'next/navigation';
 import { useState } from 'react';
+import { budjetti } from './budjetti';
 
 interface BudjettiKorttiProps {
   buduProp?: { [key: string]: number };

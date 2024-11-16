@@ -39,7 +39,11 @@ export async function GET(request: Request) {
     });
   } catch (e) {
     return NextResponse.json(
-      { error: 'Internal server error' },
+      {
+        error: `Internal server error ${
+          e instanceof Error ? e.message : JSON.stringify(e)
+        }`,
+      },
       { status: 500 },
     );
   }

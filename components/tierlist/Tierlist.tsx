@@ -1,7 +1,7 @@
 'use client';
-import ListForm from './TierlistForm';
 import { useToaster } from '@/components/generic/Toaster';
 import React, { useEffect, useState } from 'react';
+import ListForm from './TierlistForm';
 
 interface TierListProps {
   candidates: { name: string; imageSrc: string; color?: string }[];

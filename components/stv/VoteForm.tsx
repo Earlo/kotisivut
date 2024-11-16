@@ -1,7 +1,7 @@
 'use client';
-import CandidateProfile from './CandidateProfile';
 import { cn } from '@/lib/helpers';
 import React, { useState } from 'react';
+import CandidateProfile from './CandidateProfile';
 interface VoteFormProps {
   votes: string[][];
   setVotes: React.Dispatch<React.SetStateAction<string[][]>>;

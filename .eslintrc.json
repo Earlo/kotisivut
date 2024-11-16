@@ -23,6 +23,7 @@
     }
   },
   "rules": {
+    "import/no-extraneous-dependencies": ["error"],
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-var-requires": 0,
     "no-unused-vars": "off",
@@ -32,26 +33,18 @@
         "args": "none"
       }
     ],
+    "@typescript-eslint/no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true, // Remove this if it's not supported by your version
+        "allowTernary": true
+      }
+    ],
     "comma-dangle": ["error", "always-multiline"],
     "import/no-unresolved": "off", // todo: fix custom types resolver  [2, { "commonjs": true, "amd": true }],
     "import/named": 2,
     "import/namespace": 2,
     "import/default": 2,
-    "import/export": 2,
-    "import/order": [
-      "warn",
-      {
-        "groups": [
-          "index",
-          "sibling",
-          "parent",
-          "internal",
-          "external",
-          "builtin",
-          "object",
-          "type"
-        ]
-      }
-    ]
+    "import/export": 2
   }
 }

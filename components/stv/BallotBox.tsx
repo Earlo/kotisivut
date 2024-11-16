@@ -1,6 +1,6 @@
+import React from 'react';
 import Vote from './Vote';
 import VoteForm from './VoteForm';
-import React from 'react';
 
 interface BallotBoxProps {
   votes: string[][];

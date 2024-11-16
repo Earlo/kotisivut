@@ -1,5 +1,5 @@
-import EuroFormatter from './euroja';
 import { cn } from '@/lib/helpers';
+import EuroFormatter from './euroja';
 interface BudjettiKorttiProps {
   className?: string;
   name: string;

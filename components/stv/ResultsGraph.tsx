@@ -1,6 +1,6 @@
 'use client';
-import Bar from './Bar';
 import React, { useState } from 'react';
+import Bar from './Bar';
 
 interface ResultGraphProps {
   votes: { vote: string[]; color: string }[];

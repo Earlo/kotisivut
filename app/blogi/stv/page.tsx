@@ -1,13 +1,13 @@
 'use client';
-import { defaultVotes } from './votes';
-import RealVote from '@/components/stv/RealVote';
-import BallotBox from '@/components/stv/BallotBox';
-import ResultGraph from '@/components/stv/ResultsGraph';
 import Header from '@/components/BlogHeader';
-import Text from '@/components/Text';
+import BallotBox from '@/components/stv/BallotBox';
+import RealVote from '@/components/stv/RealVote';
+import ResultGraph from '@/components/stv/ResultsGraph';
 import Subheader from '@/components/Subheader';
-import { useState } from 'react';
+import Text from '@/components/Text';
 import Link from 'next/link';
+import { useState } from 'react';
+import { defaultVotes } from './votes';
 
 const Page = () => {
   const [allVotes, setAllVotes] = useState<string[][]>(defaultVotes);

@@ -1,5 +1,5 @@
 import { useToaster } from '@/components/generic/Toaster';
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function useClipboard() {
   const [copiedData, setCopiedData] = useState<string>('');

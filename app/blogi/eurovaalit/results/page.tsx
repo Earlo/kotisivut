@@ -1,8 +1,8 @@
 'use client';
-import { candidates } from '../candidates';
 import Header from '@/components/BlogHeader';
 import CandidateProfile from '@/components/stv/CandidateProfile';
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import { candidates } from '../candidates';
 
 const Page = () => {
   const [guesses, setGuesses] = useState<

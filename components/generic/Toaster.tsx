@@ -1,7 +1,7 @@
 'use client';
 
-import React, { useState, createContext, useContext } from 'react';
 import { XMarkIcon } from '@heroicons/react/20/solid';
+import React, { createContext, useContext, useState } from 'react';
 
 type Toast = {
   id: number;

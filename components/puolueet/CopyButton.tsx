@@ -3,8 +3,8 @@
 import useClipboard from '@/hooks/useClipboard';
 import { cn } from '@/lib/helpers';
 import {
-  ClipboardIcon,
   ClipboardDocumentCheckIcon,
+  ClipboardIcon,
 } from '@heroicons/react/20/solid';
 
 const CopyButton = ({ copyTarget }: { copyTarget: string }) => {

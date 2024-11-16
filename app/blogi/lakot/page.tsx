@@ -1,7 +1,7 @@
 import Header from '@/components/BlogHeader';
-import Text from '@/components/Text';
-import Subheader from '@/components/Subheader';
 import List from '@/components/List';
+import Subheader from '@/components/Subheader';
+import Text from '@/components/Text';
 import Image from 'next/image';
 
 const Page = () => {

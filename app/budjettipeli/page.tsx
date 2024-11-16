@@ -1,7 +1,7 @@
 import Header from '@/components/BlogHeader';
 import Budjettipeli from '@/components/budjettipeli/budjettipeli';
-import { Suspense } from 'react';
 import type { Metadata } from 'next';
+import { Suspense } from 'react';
 
 export const metadata: Metadata = {
   title: 'Budjettipeli - Säädä budjettiasi',
