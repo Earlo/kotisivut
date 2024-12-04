@@ -21,7 +21,7 @@
     "next": "^15.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "supabase": "^1.131.5"
+    "supabase": "^2.0.0"
   },
   "devDependencies": {
     "@types/cors": "^2.8.16",
