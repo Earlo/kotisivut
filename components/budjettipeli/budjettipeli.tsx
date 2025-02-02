@@ -72,7 +72,7 @@ const Budjettipeli: React.FC<BudjettiKorttiProps> = ({ buduProp }) => {
       <div className="relative mt-6 flex w-[94%] max-w-[600px]">
         <div className="relative m-0 flex h-0 w-full pb-[100%]">
           <BudjettiKortti
-            className="left-[0] top-[0] z-[100]"
+            className="left-0 top-0 z-100"
             name={currentItem}
             originalAmount={budjetti[currentItem]}
             amount={budu[currentItem]}

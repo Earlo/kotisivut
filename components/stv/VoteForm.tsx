@@ -71,13 +71,13 @@ const VoteForm: React.FC<VoteFormProps> = ({
                 value={newVote[index]}
                 onChange={(e) => updateVote(index, e.target.value)}
                 placeholder={`#${index + 1} valinta`}
-                className={'rounded border border-gray-300 p-2 '}
+                className={'rounded-sm border border-gray-300 p-2 '}
               />
             ) : null,
           )}
         <button
           onClick={addVote}
-          className="mt-2 rounded bg-blue-500 p-2 text-white"
+          className="mt-2 rounded-sm bg-blue-500 p-2 text-white"
         >
           Add Vote
         </button>

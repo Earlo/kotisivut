@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const PartiesPage = () => {
   return (
-    <div className="container mx-auto flex flex-grow flex-col bg-black px-4 py-8">
+    <div className="container mx-auto flex grow flex-col bg-black px-4 py-8">
       <h1 className="mb-4 text-3xl font-bold">Blogi</h1>
       <Text>
         Tässä muutamia kirjoittamiani tekstejä tai muita

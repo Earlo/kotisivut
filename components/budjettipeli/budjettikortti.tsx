@@ -35,7 +35,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
       <span className="absolute right-2 top-2  rounded-bl-lg p-2 text-center text-white">
         {index + 1 + '/' + numberOfKeys}
       </span>
-      <div className="flex max-h-80 flex-grow flex-col justify-between">
+      <div className="flex max-h-80 grow flex-col justify-between">
         <h2 className="pt-5 text-center text-xl font-bold text-black">
           {index + 1 + '. '}
           {name} ({sign === 1 ? 'Tulo' : 'Meno'})

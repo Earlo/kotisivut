@@ -39,7 +39,7 @@ const Page = () => {
   return (
     <div className="mx-auto bg-gray-950">
       <Header>Eurovaalit LIB tulosveikkaus: Results</Header>
-      <div className="flex max-w-[100vw] flex-grow flex-row overflow-scroll">
+      <div className="flex max-w-[100vw] grow flex-row overflow-scroll">
         {guesses.map((guess, index) => (
           <div key={index} className="mb-4 ml-1 w-36 min-w-36 bg-gray-900 p-1">
             <span>

@@ -70,7 +70,7 @@ const Page = () => {
       <Text>
         Mitä asialle voisi tehdä? Itse ehdotan ratkaisuksi siirtoäänivaaleja.
       </Text>
-      <div className="mx-auto  rounded-lg  shadow">
+      <div className="mx-auto  rounded-lg  shadow-sm">
         <Subheader>Siirtoäänivaali</Subheader>
         <div className="flex flex-col-reverse gap-2 md:grid md:grid-cols-2">
           <BallotBox
