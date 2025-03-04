@@ -5,7 +5,7 @@ import Link from 'next/link';
 const Home = () => {
   return (
     <main className="flex flex-col items-center bg-white text-black">
-      <section className="flex w-full flex-col items-center p-0 md:p-10">
+      <section className="flex w-full flex-col items-center p-0 md:p-4 xl:p-10">
         <Image
           src="/vaalikuva_rect.jpg"
           className="m-5 block h-48 w-48 rounded-full md:hidden"

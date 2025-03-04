@@ -33,18 +33,16 @@ export default function RootLayout({
       <body className="flex min-h-screen flex-col items-center justify-between bg-gray-900 font-sans text-white">
         <ToasterProvider>
           <header className="flex h-24 w-full items-center justify-between bg-black">
-            <div className="w-3/4 items-start">
-              <h1 className="ml-4 text-3xl font-bold md:ml-10">Visa Pollari</h1>
-              <h3 className="ml-4 text-xl font-bold md:ml-10">
-                Tärkeintä on osallistuminen.
-              </h3>
+            <div className="flex grow flex-col items-start pl-2">
+              <h1 className="text-3xl font-bold">Visa Pollari</h1>
+              <h3 className="text-xl font-bold">Tärkeintä on osallistuminen</h3>
             </div>
 
             <Link
               href="/blogi"
-              className="mr-4 text-2xl font-bold hover:text-blue-500 md:mr-10"
+              className="text-2xl font-bold hover:opacity-80 pr-6"
             >
-              Blogi
+              Blogitekstejä
             </Link>
           </header>
 

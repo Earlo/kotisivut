@@ -24,7 +24,7 @@ const TelegramPost = ({ post }: { post: string }) => {
     .split(',')[0];
 
   return (
-    <div className="mb-4 w-full break-words rounded-sm bg-gray-100 px-4 py-2 shadow-sm">
+    <div className="mb-4 w-full max-w-80 break-words rounded-sm bg-gray-100 px-4 py-2 shadow-sm">
       <div className="flex items-center">
         {profilePicUrl && (
           <Image
