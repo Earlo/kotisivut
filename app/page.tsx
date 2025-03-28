@@ -23,17 +23,7 @@ const Home = () => {
             alt="Visa Pollari"
           />
           <p className="text-lg">
-            Visa Pollari, ohjelmistokehittäjä, yrittäjä, ja teekkari Espoosta.
-            <br />
-            Upeat projektit ja hankkeeet joita olen nähnyt ihmisten ympärilläni
-            tekevän ja joita olen päässyt itse tekemään, on luonut uskoa siihen,
-            että ihmisillä voi todella olla omistajuus heitä ympäröivästä
-            maailmasta,
-            <br />
-            Vapaa-aikani kuluu suurelta osin erinäisten projektiluontoisten
-            harrastusten parissa, tapahtumia järjestäen, ohjelmoiden, tai
-            milloin mitäkin. Nautin suuresti filosofisista keskusteluista, sekä
-            leipomisesta. Lenkkeilen säännöllisen epäsäännöllisesti.
+            Visa Pollari, ohjelmistokonsultti Espoosta.
             <br />
             Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä.
             Mennään vaikka kahville.{' '}
