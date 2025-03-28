@@ -35,7 +35,7 @@ export default function RootLayout({
           <header className="flex h-24 w-full items-center justify-between bg-black">
             <div className="flex grow flex-col items-start pl-2">
               <h1 className="text-3xl font-bold">Visa Pollari</h1>
-              <h3 className="text-xl font-bold">Tärkeintä on osallistuminen</h3>
+              <h3 className="font-bold">Tärkeintä on osallistuminen</h3>
             </div>
 
             <Link
