@@ -6,7 +6,7 @@ import Image from 'next/image';
 
 const Page = () => {
   return (
-    <div className="max-w-8xl mx-auto bg-gray-950 p-4 ">
+    <div className="max-w-8xl mx-auto bg-gray-950 p-4">
       <Header>TÄÄ on ihan kesken :D.</Header>
       <Header>Lakkoja löytyy soilta.</Header>
       <Text>

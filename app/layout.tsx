@@ -40,7 +40,7 @@ export default function RootLayout({
 
             <Link
               href="/blogi"
-              className="text-2xl font-bold hover:opacity-80 pr-6"
+              className="pr-6 text-2xl font-bold hover:opacity-80"
             >
               Blogitekstejä
             </Link>

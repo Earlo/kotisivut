@@ -7,13 +7,13 @@ const Header = () => {
   return (
     <section className="flex h-32 w-full items-center justify-between bg-gray-100">
       <div className="w-3/4 items-start">
-        <h1 className="ml-4 text-3xl font-bold md:ml-10 ">Visa Pollari</h1>
-        <h3 className="ml-4 text-xl font-bold md:ml-10 ">
+        <h1 className="ml-4 text-3xl font-bold md:ml-10">Visa Pollari</h1>
+        <h3 className="ml-4 text-xl font-bold md:ml-10">
           Ehdolla Uudellamaalla
         </h3>
       </div>
       <Image
-        className="mr-4 hidden h-3/4 w-auto md:flex "
+        className="mr-4 hidden h-3/4 w-auto md:flex"
         src="/lib-logo-1-fin.png"
         width={500}
         height={150}
@@ -42,7 +42,7 @@ const Home = () => {
       });
   }, []);
   return (
-    <main className="flex flex-col items-center bg-white text-black  ">
+    <main className="flex flex-col items-center bg-white text-black">
       <Header />
       <section className="flex w-full flex-col items-center p-0 md:p-10">
         <Image

@@ -71,7 +71,7 @@ const VoteForm: React.FC<VoteFormProps> = ({
                 value={newVote[index]}
                 onChange={(e) => updateVote(index, e.target.value)}
                 placeholder={`#${index + 1} valinta`}
-                className={'rounded-sm border border-gray-300 p-2 '}
+                className={'rounded-sm border border-gray-300 p-2'}
               />
             ) : null,
           )}

@@ -28,7 +28,7 @@ const Page = () => {
     return voteWithColor;
   });
   return (
-    <div className="max-w-8xl mx-auto bg-gray-950 p-4 ">
+    <div className="max-w-8xl mx-auto bg-gray-950 p-4">
       <Header>Siirtoäänivaali</Header>
       <Text>
         Presidentinvaalien ennakkoäänestys on meneillään. Ehdokkaat ovat
@@ -70,7 +70,7 @@ const Page = () => {
       <Text>
         Mitä asialle voisi tehdä? Itse ehdotan ratkaisuksi siirtoäänivaaleja.
       </Text>
-      <div className="mx-auto  rounded-lg  shadow-sm">
+      <div className="mx-auto rounded-lg shadow-sm">
         <Subheader>Siirtoäänivaali</Subheader>
         <div className="flex flex-col-reverse gap-2 md:grid md:grid-cols-2">
           <BallotBox

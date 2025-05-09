@@ -22,9 +22,9 @@ const CopyButton = ({ copyTarget }: { copyTarget: string }) => {
     <button
       onClick={copyEmails}
       className={cn(
-        'mb-2 mr-2 flex flex-row items-center rounded-sm bg-blue-500 px-4 py-2 text-white',
+        'mr-2 mb-2 flex flex-row items-center rounded-sm bg-blue-500 px-4 py-2 text-white',
         {
-          'cursor-not-allowed ': isClipped,
+          'cursor-not-allowed': isClipped,
           'hover:bg-blue-700': !isClipped,
         },
       )}

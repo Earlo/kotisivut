@@ -24,7 +24,7 @@ const TelegramPost = ({ post }: { post: string }) => {
     .split(',')[0];
 
   return (
-    <div className="mb-4 w-full max-w-80 break-words rounded-sm bg-gray-100 px-4 py-2 shadow-sm">
+    <div className="mb-4 w-full max-w-80 rounded-sm bg-gray-100 px-4 py-2 break-words shadow-sm">
       <div className="flex items-center">
         {profilePicUrl && (
           <Image
@@ -53,7 +53,7 @@ const TelegramPost = ({ post }: { post: string }) => {
           href={linkPreview}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 flex items-center break-words rounded-sm border bg-blue-50 p-2 transition-colors duration-200 hover:bg-blue-100"
+          className="mt-2 flex items-center rounded-sm border bg-blue-50 p-2 break-words transition-colors duration-200 hover:bg-blue-100"
         >
           {linkPreviewRightImage && (
             <div className="mr-2">

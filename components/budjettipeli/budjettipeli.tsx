@@ -72,7 +72,7 @@ const Budjettipeli: React.FC<BudjettiKorttiProps> = ({ buduProp }) => {
       <div className="relative mt-6 flex w-[94%] max-w-[600px]">
         <div className="relative m-0 flex h-0 w-full pb-[100%]">
           <BudjettiKortti
-            className="left-0 top-0 z-100"
+            className="top-0 left-0 z-100"
             name={currentItem}
             originalAmount={budjetti[currentItem]}
             amount={budu[currentItem]}
@@ -106,7 +106,7 @@ const Budjettipeli: React.FC<BudjettiKorttiProps> = ({ buduProp }) => {
         );
       })}
       <button
-        className="ml-2 rounded-md bg-slate-700 p-1 px-2 text-blue-500  hover:bg-slate-800 hover:text-white"
+        className="ml-2 rounded-md bg-slate-700 p-1 px-2 text-blue-500 hover:bg-slate-800 hover:text-white"
         onClick={handleCopyURL}
       >
         Kopioi linkki budjettiisi!

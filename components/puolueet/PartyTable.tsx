@@ -67,37 +67,37 @@ const PartyTable = () => {
             <tr>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
               >
                 Logo
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
               >
                 Nimi
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
               >
                 Sähköposti
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
               >
                 Puhelin
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
               >
                 Osoite
               </th>
               <th
                 scope="col"
-                className="px-6 py-3 text-left text-xs font-medium uppercase tracking-wider"
+                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
               >
                 Web
               </th>
@@ -106,7 +106,7 @@ const PartyTable = () => {
           <tbody className="divide-y divide-gray-200 bg-white text-sm">
             {parties.map((party) => (
               <tr key={party.id}>
-                <td className="whitespace-nowrap px-6 py-4">
+                <td className="px-6 py-4 whitespace-nowrap">
                   {party.siteInfo ? (
                     <Image
                       src={`https://puoluerekisteri.fi/publicapi/attachment/${party.id}/0/logo.png`}
@@ -124,17 +124,17 @@ const PartyTable = () => {
                   <div className="">{party.siteInfo.email}</div>
                   <div className="">{party.siteInfo.phoneNumber}</div>
                 </td>
-                <td className="whitespace-nowrap px-6 py-4">
+                <td className="px-6 py-4 whitespace-nowrap">
                   {party.siteInfo.email}
                 </td>
-                <td className="whitespace-nowrap px-6 py-4">
+                <td className="px-6 py-4 whitespace-nowrap">
                   {party.siteInfo.phoneNumber}
                 </td>
-                <td className="whitespace-nowrap px-6 py-4">
+                <td className="px-6 py-4 whitespace-nowrap">
                   {party.siteInfo.address}, {party.siteInfo.postcode},{' '}
                   {party.siteInfo.city}
                 </td>
-                <td className="whitespace-nowrap px-6 py-4">
+                <td className="px-6 py-4 whitespace-nowrap">
                   {party.siteInfo.url ? (
                     <a
                       href={

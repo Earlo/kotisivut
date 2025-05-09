@@ -37,11 +37,11 @@ const CandidateProfile: React.FC<CandidateProfileProps> = ({
           layout="fill"
           className={cn('rounded-t-lg', className)}
         />
-        <div className="absolute bottom-0 w-full rounded-b-lg bg-black bg-opacity-50 py-2 text-center text-white">
+        <div className="bg-opacity-50 absolute bottom-0 w-full rounded-b-lg bg-black py-2 text-center text-white">
           <h3 className="font-bold">{name}</h3>
         </div>
         {isDisabled && (
-          <div className="absolute inset-0 flex items-center justify-center rounded-lg bg-black bg-opacity-75">
+          <div className="bg-opacity-75 absolute inset-0 flex items-center justify-center rounded-lg bg-black">
             <span className="text-md rotate-12 transform font-bold text-white">
               {disabled}
             </span>

@@ -32,7 +32,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
         className,
       )}
     >
-      <span className="absolute right-2 top-2  rounded-bl-lg p-2 text-center text-white">
+      <span className="absolute top-2 right-2 rounded-bl-lg p-2 text-center text-white">
         {index + 1 + '/' + numberOfKeys}
       </span>
       <div className="flex max-h-80 grow flex-col justify-between">
@@ -40,10 +40,10 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
           {index + 1 + '. '}
           {name} ({sign === 1 ? 'Tulo' : 'Meno'})
         </h2>
-        <h3 className="  text-l font-bold text-black">
+        <h3 className="text-l font-bold text-black">
           Alkuperäinen summa: <EuroFormatter amount={originalAbsAmount} />
         </h3>
-        <h3 className="  text-l font-bold text-black">
+        <h3 className="text-l font-bold text-black">
           sinun budjetissasi: <EuroFormatter amount={absAmount} /> (
           {originalAbsAmount !== 0 ? (
             ((absAmount / originalAbsAmount) * 100).toFixed(2) + '%'

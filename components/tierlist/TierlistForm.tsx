@@ -101,7 +101,9 @@ const ListForm: React.FC<ListFormProps> = ({
                   value={newVote[index]}
                   onChange={(e) => updateVote(index, e.target.value)}
                   placeholder={`#${index + 1} valinta`}
-                  className={'border-gray-30b rounded-sm border bg-slate-900 p-2'}
+                  className={
+                    'border-gray-30b rounded-sm border bg-slate-900 p-2'
+                  }
                   disabled
                 />
                 {newVote[index] ? (
