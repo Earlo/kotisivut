@@ -15,7 +15,7 @@
   "dependencies": {
     "@heroicons/react": "2.2.0",
     "@next/third-parties": "15.3.3",
-    "@supabase/supabase-js": "2.49.9",
+    "@supabase/supabase-js": "2.49.10",
     "cheerio": "1.0.0",
     "cors": "2.8.5",
     "next": "15.3.3",
