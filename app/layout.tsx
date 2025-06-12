@@ -1,3 +1,4 @@
+//app/layout.tsx
 import Icon from '@/components/generic/Icon';
 import { ToasterProvider } from '@/components/generic/Toaster';
 import '@/styles/globals.css';
@@ -12,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="">
+    <html lang="fi" className="">
       <Head key={'head'}>
         <script
           async
@@ -45,8 +46,7 @@ export default function RootLayout({
               Blogitekstejä
             </Link>
           </header>
-
-          {children}
+          <main className="w-full flex-1">{children}</main>
           <footer className="mt-0 flex w-full flex-row items-center justify-around bg-black py-10">
             <a href="https://twitter.com/VisaPollari">
               <Icon name="Twitter" />

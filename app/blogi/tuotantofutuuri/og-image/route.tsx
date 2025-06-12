@@ -1,9 +1,9 @@
+//app/blogi/tuotantofutuuri/og-image/route.tsx
 import { ImageResponse } from 'next/og';
 
 export const runtime = 'edge';
 
 export async function GET() {
-  // Shuffle the candidates array to randomize the order
   return new ImageResponse(
     (
       <div
@@ -25,7 +25,7 @@ export async function GET() {
             textAlign: 'center',
           }}
         >
-          Tuontatofutuurimalli
+          Tuotantofutuurimalli
         </h1>
       </div>
     ),
