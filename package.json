@@ -21,7 +21,7 @@
     "next": "15.5.0",
     "react": "19.1.1",
     "react-dom": "19.1.1",
-    "supabase": "2.34.3"
+    "supabase": "2.39.2"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "4.1.12",
