@@ -19,7 +19,7 @@
     "cheerio": "1.1.2",
     "cors": "2.8.5",
     "next": "15.5.4",
-    "react": "19.1.1",
+    "react": "19.2.0",
     "react-dom": "19.2.0",
     "supabase": "2.48.3"
   },
@@ -27,7 +27,7 @@
     "@tailwindcss/postcss": "4.1.14",
     "@types/cors": "2.8.19",
     "@types/node": "24.6.2",
-    "@types/react": "19.1.17",
+    "@types/react": "19.2.0",
     "@types/react-dom": "19.2.0",
     "@typescript-eslint/eslint-plugin": "8.45.0",
     "@typescript-eslint/parser": "8.45.0",
