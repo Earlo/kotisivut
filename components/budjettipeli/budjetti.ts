@@ -105,19 +105,16 @@ export const budjetti = {
   'Vierailuista ja kokousmatkoista aiheutuvat menot': -2550000,
   Perusparannukset: -25000000,
   'Valtioneuvoston kanslian toimintamenot': -158679000,
-  'Ministereiden, heidän valtiosihteeriensä ja erityisavustajiensa palkkaukset':
-    -15232000,
+  'Ministereiden, heidän valtiosihteeriensä ja erityisavustajiensa palkkaukset': -15232000,
   'Euroopan unionin kansallisten asiantuntijoiden palkkamenot': -2480000,
-  'Yhdenvertaisuutta, tasa-arvoa ja syrjimättömyyttä koskevan tiedonannon toimeenpano':
-    -2000000,
+  'Yhdenvertaisuutta, tasa-arvoa ja syrjimättömyyttä koskevan tiedonannon toimeenpano': -2000000,
   'Saamelaisten totuus- ja sovintoprosessin edistäminen': -1358000,
   'Kuurojen totuus- ja sovintoprosessi': -808000,
   Osakehankinnat: -5700000,
   'Puoluetoiminnan tukeminen': -34566000,
   'Oikeuskanslerinviraston toimintamenot': -4564000,
   Kunniamerkit: -700000,
-  'Osallistumismaksut ja maksuosuudet Euroopan hybridiuhkien torjunnan osaamiskeskukselle':
-    -2040000,
+  'Osallistumismaksut ja maksuosuudet Euroopan hybridiuhkien torjunnan osaamiskeskukselle': -2040000,
   'Ulkoasiainhallinnon toimintamenot': -257647000,
   'Tiede- ja kulttuuri-instituuttikiinteistöjen menot': -1102000,
   'Ulkoministeriön hallinnonalan arvonlisäveromenot': -14220000,
@@ -128,8 +125,7 @@ export const budjetti = {
   'Varsinainen kehitysyhteistyö': -628586000,
   'Demokratia- ja oikeusvaltiotuki': -2904000,
   'Tuki Ukrainalle': -57821000,
-  'Finnfundin (Teollisen yhteistyön rahasto Oy) pääoman korottaminen':
-    -10000000,
+  'Finnfundin (Teollisen yhteistyön rahasto Oy) pääoman korottaminen': -10000000,
   'Kehityspoliittiset lainat ja sijoitukset': -69730000,
   'Itämeren, Barentsin ja arktisen alueen yhteistyö': -1600000,
   'Etyj-puheenjohtajuus': -2840000,
@@ -139,8 +135,7 @@ export const budjetti = {
   'Pääomasijoitus Instex S.A.S.:lle': 0,
   'Ulkoministeriön Kurssivaihtelut': -500000,
   'Oikeusministeriön toimintamenot': -25441000,
-  'Oikeusministeriön yhteydessä toimivien viranomaisten toimintamenot':
-    -18239000,
+  'Oikeusministeriön yhteydessä toimivien viranomaisten toimintamenot': -18239000,
   'Oikeusrekisterikeskuksen toimintamenot': -10110000,
   'Oikeusministeriön Erityismenot': -13943000,
   'Oikeusministeriön hallinnonalan tuottavuusmääräraha': -1735000,
@@ -165,13 +160,11 @@ export const budjetti = {
   'Kriisinhallintakeskuksen toimintamenot': -2434000,
   'Sisäministeriön hallinnonalan kehittäminen': -1432000,
   'Öljy- ja kemikaalivahinkojen torjunta': -5500000,
-  'EU:n osuus sisäisen turvallisuuden ja maahanmuuton hallintaan ohjelmakaudella 2021-2027':
-    -9713000,
+  'EU:n osuus sisäisen turvallisuuden ja maahanmuuton hallintaan ohjelmakaudella 2021-2027': -9713000,
   'EU:n pelastuspalvelumekanismi CBRN-varastointi': -114851000,
   'Sisäministeriön hallinnonalan arvonlisäveromenot': -191500000,
   'Sisäministeriön Eräät avustukset': -1280000,
-  'Kansainvälisten järjestöjen jäsenmaksut ja maksuosuudet ulkomaille':
-    -1000000,
+  'Kansainvälisten järjestöjen jäsenmaksut ja maksuosuudet ulkomaille': -1000000,
   'Poliisitoimen toimintamenot': -942405000,
   'Suojelupoliisin toimintamenot': -66752000,
   'Maasta poistamis- ja noutokuljetuksista aiheutuvat menot': -7668000,
@@ -182,8 +175,7 @@ export const budjetti = {
   'Hätäkeskuslaitoksen toimintamenot': -77057000,
   'Pelastusopiston toimintamenot': -20345000,
   'Sisäministeriön Erityismenot': -3000000,
-  'Maahanmuuttoviraston ja valtion vastaanottokeskusten toimintamenot':
-    -101327000,
+  'Maahanmuuttoviraston ja valtion vastaanottokeskusten toimintamenot': -101327000,
   'Pakolaisten ja turvapaikanhakijoiden vastaanotto': -320570000,
   'Vapaaehtoinen paluu': -2318000,
   'Vastaanottotoiminnan asiakkaille maksettavat tuet': -87326000,
@@ -198,14 +190,12 @@ export const budjetti = {
   'Sotilaallisen kriisinhallinnan kalusto- ja hallintomenot': -66110000,
   'Puolustusministeriön Kurssivaihtelut': -10000,
   'Valtiovarainministeriön toimintamenot': -40830000,
-  'Valtion kiinteistöstrategian toteuttaminen ja hallinnanalan omistajaohjaus':
-    -345000,
+  'Valtion kiinteistöstrategian toteuttaminen ja hallinnanalan omistajaohjaus': -345000,
   'Valtiovarainministeriön hallinnonalan tuottavuusmääräraha': -2306000,
   Metallirahamenot: -210000,
   'Valtiovarainministeriön hallinnonalan arvonlisäveromenot': -162000000,
   'Elpymis- ja palautumissuunnitelman rahoitus työkykyhankkeeseen': -1500000,
-  'Kansainvälisten järjestöjen jäsenmaksut ja rahoitusosuudet (Valtionvarainministeriö)':
-    -1200000,
+  'Kansainvälisten järjestöjen jäsenmaksut ja rahoitusosuudet (Valtionvarainministeriö)': -1200000,
   'Suomen Pankin eräiden sijoitustuottojen siirto Kreikan valtiolle': -1910000,
   'Verohallinnon toimintamenot': -425043000,
   'Tullin toimintamenot': -207899000,
@@ -216,8 +206,7 @@ export const budjetti = {
   'Valtiokonttorin toimintamenot': -36180000,
   'Keskitettyjen valuuttatilien kurssierot': -600000,
   'Huoltovarmuuspankin palvelumaksu': -1700000,
-  'Valtion talous- ja henkilöstöhallinnon palvelukeskuksen toimintamenot':
-    -6447000,
+  'Valtion talous- ja henkilöstöhallinnon palvelukeskuksen toimintamenot': -6447000,
   'Valtion tieto- ja viestintätekniikkakeskuksen toimintamenot': -5000000,
   'Valtion tieto- ja viestintätekniikkakeskuksen investointimenot': -15000000,
   Verkkomaksaminen: -500000,
@@ -238,8 +227,7 @@ export const budjetti = {
   'Työturvallisuuden edistäminen': -1010000,
   'Osaamisen kehittäminen': -12000000,
   'Julkisen hallinnon ICT:n ohjaus ja kehittäminen': -10800000,
-  'Valtion talous-, henkilöstö- ja toimitilahallinnon tietojärjestelmät':
-    -4350000,
+  'Valtion talous-, henkilöstö- ja toimitilahallinnon tietojärjestelmät': -4350000,
   'Sosiaali- ja terveydenhuollon sekä pelastustoimen uudistuksen valmistelun ja toimeenpanon tuki ja ohjaus':
     -105100000,
   'Eräät Pohjois-Atlantin puolustusliitto NATO:n jäsenyydestä aiheutuvat menot': 0,
@@ -249,21 +237,18 @@ export const budjetti = {
   'Ahvenanmaan tasoitusmaksu': -204976000,
   'Ahvenanmaan verotasoitus': -114700000,
   'Elpymis- ja palautumisvälineen rahoitus Ahvenanmaan maakunnalle': -700000,
-  'Hyvinvointialueiden ja HUS-yhtymän sosiaali- ja terveydenhuollon sekä pelastustoimen rahoitus':
-    -24654314000,
+  'Hyvinvointialueiden ja HUS-yhtymän sosiaali- ja terveydenhuollon sekä pelastustoimen rahoitus': -24654314000,
   'Hyvinvointialueiden lisärahoitus': -1000000,
   'Valtionosuus kunnille peruspalvelujen järjestämiseen': -2463200000,
   'Kuntien yhdistymisen taloudellinen tuki': -11400000,
-  'Valtion korvaus kunnille veroperustemuutoksista aiheutuvista verotulojen menetyksistä':
-    -861000000,
+  'Valtion korvaus kunnille veroperustemuutoksista aiheutuvista verotulojen menetyksistä': -861000000,
   Energiaverotuki: -70000000,
   'Lainat ja takaukset sähkön johdannaismarkkinoilla toimiville yhteisöille': 0,
   'Rahoitusvakausviraston toimintamenot': -8080000,
   'Euroopan unionin osallistuminen matkamenojen korvauksiin': -1400000,
   'Isäntämaakorvaus Pohjoismaiden Investointipankille': -13800000,
   'Ukrainan makrotaloudellisen rahoitusavun korkomenot': -10000000,
-  'Kansainvälisille rahoituslaitoksille annettujen sitoumusten lunastaminen':
-    -10000,
+  'Kansainvälisille rahoituslaitoksille annettujen sitoumusten lunastaminen': -10000,
   'Suomen osuus Kansainvälisen jälleenrakennus- ja kehityspankin sekä Kansainvälisen rahoitusyhtiön peruspääoman korottamisesta':
     -6200000,
   'Maksut Euroopan unionille': -2286000000,
@@ -274,10 +259,8 @@ export const budjetti = {
   'Kassasijoitusten riskienhallinta': -1000,
   'Opetus- ja kulttuuriministeriön toimintamenot': -24949000,
   'Opetushallituksen toimintamenot': -66306000,
-  'Opetushallituksen yhteydessä toimivien viranomaisten toimintamenot':
-    -12675000,
-  'Jatkuvan oppimisen ja työllisyyden palvelukeskuksen toimintamenot':
-    -15840000,
+  'Opetushallituksen yhteydessä toimivien viranomaisten toimintamenot': -12675000,
+  'Jatkuvan oppimisen ja työllisyyden palvelukeskuksen toimintamenot': -15840000,
   'Suomen Akatemian toimintamenot': -13539000,
   'Kansallisarkiston toimintamenot': -22714000,
   'Kotimaisten kielten keskuksen toimintamenot': -5069000,
@@ -293,17 +276,13 @@ export const budjetti = {
   'Lasten ja nuorten harrastustoiminta': -14500000,
   'Opetus- ja kulttuuriministeriön Eräät avustukset': -1547000,
   'Avustukset kirkolliseen ja uskonnolliseen toimintaan': -3541000,
-  'Valtion rahoitus evankelis-luterilaisen kirkon yhteiskunnallisiin tehtäviin':
-    -124133000,
+  'Valtion rahoitus evankelis-luterilaisen kirkon yhteiskunnallisiin tehtäviin': -124133000,
   'Jatkuvan oppimisen ja osaamisen kehittäminen': -6348000,
   'Rahoitusosuudet kansainvälisille järjestöille 1': -2246000,
   'Valtion yleissivistävän koulutuksen toimintamenot': -42099000,
-  'Perusopetuksen, varhaiskasvatuksen ja vapaan sivistystyön yhteiset menot':
-    -74750000,
-  'Valtionosuus ja -avustus esi- ja perusopetuksen ja varhaiskasvatuksen käyttökustannuksiin':
-    -521374000,
-  'Valtionosuus ja -avustus vapaan sivistystyön oppilaitosten käyttökustannuksiin':
-    -168313000,
+  'Perusopetuksen, varhaiskasvatuksen ja vapaan sivistystyön yhteiset menot': -74750000,
+  'Valtionosuus ja -avustus esi- ja perusopetuksen ja varhaiskasvatuksen käyttökustannuksiin': -521374000,
+  'Valtionosuus ja -avustus vapaan sivistystyön oppilaitosten käyttökustannuksiin': -168313000,
   'Valtionavustus järjestöille': -8123000,
   'Valtion ammatillisen koulutuksen toimintamenot': -8950000,
   'Ammatillisen koulutuksen ja lukiokoulutuksen yhteiset menot': -23137000,
@@ -325,10 +304,8 @@ export const budjetti = {
   'Museoviraston kulttuuri- ja nähtävyyskohteiden tilakustannukset': -18502000,
   'Taiteen ja kulttuurin yhteiset menot': -409000,
   'Valtionavustukset yleisten kirjastojen toimintaan': -9130000,
-  'Valtionosuus ja -avustus esittävän taiteen ja museoiden käyttökustannuksiin':
-    -157627000,
-  'Valtionosuus ja -avustus taiteen perusopetuksen käyttökustannuksiin':
-    -96619000,
+  'Valtionosuus ja -avustus esittävän taiteen ja museoiden käyttökustannuksiin': -157627000,
+  'Valtionosuus ja -avustus taiteen perusopetuksen käyttökustannuksiin': -96619000,
   'Korvaus Suomenlinnan huoltoliikenteen käyttötappioon': -252000,
   'Eräät käyttöoikeuskorvaukset': -27648000,
   'Avustukset taiteen ja kulttuurin edistämiseen': -96172000,
@@ -337,10 +314,8 @@ export const budjetti = {
   'Valtionavustus tilakustannuksiin': -28909000,
   'Digitaalisen kulttuuriperinnön saatavuus ja säilyttäminen': -2300000,
   'Valtionrahoitus kansallisten taidelaitosten toimintaan': -65009000,
-  'Kansallisgallerian ja valtion taideteostoimikunnan kokoelmien kartuttaminen':
-    -1683000,
-  'Toimitilojen ja kiinteistövarallisuuden perusparannukset ja kunnossapito':
-    -3249000,
+  'Kansallisgallerian ja valtion taideteostoimikunnan kokoelmien kartuttaminen': -1683000,
+  'Toimitilojen ja kiinteistövarallisuuden perusparannukset ja kunnossapito': -3249000,
   'Rahoitus Suomen arkkitehtuuri- ja designmuseosäätiölle ja kiinteistöosakeyhtiölle': 0,
   'Kulttuuriympäristön suojelusta aiheutuvat menot': -40000,
   'Liikuntatoimen yhteiset menot': -8026000,
@@ -351,8 +326,7 @@ export const budjetti = {
   'Nuorisotyön yhteiset menot': -712000,
   'Valtionosuudet kuntien nuorisotoimeen': -7648000,
   'Nuorisotyön edistäminen': -35382000,
-  'Nuorten työpajatoiminta, etsivä nuorisotyö sekä koulu- ja oppilaitosnuorisotyö':
-    -30000000,
+  'Nuorten työpajatoiminta, etsivä nuorisotyö sekä koulu- ja oppilaitosnuorisotyö': -30000000,
   'Maa- ja metsätalousministeriön toimintamenot': -24862000,
   'Luonnonvarakeskuksen toimintamenot': -82777000,
   'Tutkimus ja kehittäminen': -1943000,
@@ -362,21 +336,18 @@ export const budjetti = {
   'Maaseutuelinkeinotoiminnan korkotuki': -40000000,
   'Luopumistuet ja -eläkkeet': -15100000,
   'Eläinten hyvinvointikorvaukset': -74000000,
-  'Valtionavustus maatalouden neuvontapalveluihin ja eräisiin muihin kehittämistoimiin':
-    -4356000,
+  'Valtionavustus maatalouden neuvontapalveluihin ja eräisiin muihin kehittämistoimiin': -4356000,
   'Porotalouden edistäminen': -2569000,
   'Hevostalouden edistäminen': -39192000,
   'Valtionavustus 4H-toimintaan': -3305000,
   'Maaseudun kehittäminen': -3000000,
-  'EU:n ja valtion rahoitusosuus alueelliseen ja paikalliseen maaseudun kehittämiseen':
-    -188349000,
+  'EU:n ja valtion rahoitusosuus alueelliseen ja paikalliseen maaseudun kehittämiseen': -188349000,
   'Ruokaviraston toimintamenot': -79483000,
   'Eläinlääkintähuolto ja kasvintuhoojien torjunta': -5868000,
   'Maa- ja puutarhatalouden kansallinen tuki': -350000000,
   'EU-tulotuki ja EU-markkinatuki': -522400000,
   'Turvepeltojen ilmastotoimet': 0,
-  'Ympäristökorvaukset, luonnonmukainen tuotanto, neuvonta ja ei-tuotannolliset investoinnit':
-    -286816000,
+  'Ympäristökorvaukset, luonnonmukainen tuotanto, neuvonta ja ei-tuotannolliset investoinnit': -286816000,
   Luonnonhaittakorvaukset: -496815000,
   'EU-rahoitteinen ruokaketjun kehittäminen': -11005000,
   'Ruokaketjun kehittäminen': -6587000,
@@ -405,8 +376,7 @@ export const budjetti = {
   'Liikenne- ja viestintäviraston toimintamenot': -95762000,
   'Väyläviraston toimintamenot': -62579000,
   'Ilmatieteen laitoksen toimintamenot': -49305000,
-  'Liikenne- ja viestintäministeriön hallinnonalan arvonlisäveromenot':
-    -471468000,
+  'Liikenne- ja viestintäministeriön hallinnonalan arvonlisäveromenot': -471468000,
   Perusväylänpito: -1534856000,
   'Avustukset liikenne- ja viestintäverkkoihin': -19940000,
   'Liikenne- ja viestintäministeriön Eräät avustukset': -12400000,
@@ -432,14 +402,12 @@ export const budjetti = {
   Siviilipalvelus: -6139000,
   'Työ- ja elinkeinoministeriön hallinnonalan arvonlisäveromenot': -62072000,
   'Valtionavustus kestävää kasvupolitiikkaa edistäville toimijoille': -2953000,
-  'Erityisavustus Teknologian tutkimuskeskus VTT Oy:n tutkimusinfrastruktuuriin':
-    -17100000,
+  'Erityisavustus Teknologian tutkimuskeskus VTT Oy:n tutkimusinfrastruktuuriin': -17100000,
   'Valtionavustus Teknologian tutkimuskeskus VTT Oy:n toimintaan': -107777000,
   'Valtionavustus kuluttajajärjestölle': 0,
   'Valtion osuus merimiespalvelutoiminnasta': -2572000,
   'Matkustajien paluukuljetukset ja korvaukset': -400000,
-  'Kansainvälisten järjestöjen jäsenmaksut ja rahoitusosuudet (Työ- ja elinkeinoministeriö)':
-    -19456000,
+  'Kansainvälisten järjestöjen jäsenmaksut ja rahoitusosuudet (Työ- ja elinkeinoministeriö)': -19456000,
   'Eräät oikeudenkäyntikulut ja korvaukset': -50000,
   'Energiatehokkuuden ja uusiutuvan energian käytön edistäminen': -3400000,
   'Tutkimus-, kehittämis- ja innovaatiotoiminnan tukeminen': -514060000,
@@ -448,16 +416,13 @@ export const budjetti = {
   'Laivanrakennuksen innovaatiotuki': -24750000,
   'Julkisen liikennesähkön ja -kaasun lataus- ja tankkausinfrastruktuurin edistäminen': 0,
   'Uusiutuvan energian tuotantotuki': -309131000,
-  'EU-hankkeiden kansallinen vastinrahoitus korkeakouluille ja valtion tutkimuslaitoksille':
-    -35000000,
+  'EU-hankkeiden kansallinen vastinrahoitus korkeakouluille ja valtion tutkimuslaitoksille': -35000000,
   'Lainat tutkimus- ja innovaatiotoimintaan': -143680000,
-  'Pääomalainat teollisuuden uudistumiseen ja yritysvetoisten liiketoimintaekosysteemien kehittämiseen':
-    -4000000,
+  'Pääomalainat teollisuuden uudistumiseen ja yritysvetoisten liiketoimintaekosysteemien kehittämiseen': -4000000,
   'Pääomasijoitus Ilmastorahasto Oy:lle': 0,
   'Pääomasijoitus Lääkekehityskeskus Oy:lle': 0,
   'Turveyrittäjien avustaminen': 0,
-  'Valtion korvaus kunnille TE -palvelu-uudistuksen muutoskulujen kattamiseen':
-    -34000000,
+  'Valtion korvaus kunnille TE -palvelu-uudistuksen muutoskulujen kattamiseen': -34000000,
   'Alueiden kestävän kasvun ja elinvoiman tukeminen': -9832000,
   'Valtionavustus Työkanava Oy:n toimintaan': -5000000,
   'Yritysten kehittämishankkeiden tukeminen': -10200000,
@@ -465,15 +430,13 @@ export const budjetti = {
   'Julkiset työvoima- ja yrityspalvelut': -183971000,
   Palkkaturva: -33460000,
   'Toimet työurien pidentämiseksi': -61700000,
-  'EU:n ja valtion rahoitusosuus EU:n alue- ja rakennepolitiikan ja muihin koheesiopolitiikan ohjelmiin':
-    -643967000,
+  'EU:n ja valtion rahoitusosuus EU:n alue- ja rakennepolitiikan ja muihin koheesiopolitiikan ohjelmiin': -643967000,
   'Pääomasijoitus Työkanava Oy:lle': 0,
   'Vaikuttavuusinvestointien tuotonmaksu': -6000000,
   'Valtiontuki sähköhuollon varmistamiseksi': -900000,
   'Yöjunarungon vaunukaluston hankinta': -2090000,
   'Finnvera Oyj:n tappiokorvaukset': -65436000,
-  'Korko- ja muu tuki julkisesti tuetuille vienti- ja alusluotoille':
-    -142700000,
+  'Korko- ja muu tuki julkisesti tuetuille vienti- ja alusluotoille': -142700000,
   'Siirrot hallinnonalan rahastoihin': -20000,
   'Lainat Finnvera Oyj:n varainhankintaan': -10000,
   'Pääomasijoitus Business Finland Venture Capital Oy:lle': 0,
@@ -482,10 +445,8 @@ export const budjetti = {
   'Valtion korvaukset kotoutumisen edistämisestä': -384250000,
   'Sosiaali- ja terveysministeriön toimintamenot': -39412000,
   'Valtion mielisairaaloiden toimintamenot': -498000,
-  'Terveyden ja hyvinvoinnin laitoksen alaisten lastensuojeluyksiköiden toimintamenot':
-    -2810000,
-  'Terveyden ja hyvinvoinnin laitoksen alaisen vankiterveydenhuollon yksikön toimintamenot':
-    -22466000,
+  'Terveyden ja hyvinvoinnin laitoksen alaisten lastensuojeluyksiköiden toimintamenot': -2810000,
+  'Terveyden ja hyvinvoinnin laitoksen alaisen vankiterveydenhuollon yksikön toimintamenot': -22466000,
   'Sosiaaliturva-asioiden muutoksenhakulautakunnan toimintamenot': -9237000,
   'Vankiterveydenhuollon yksikön ulkopuoliset terveyspalvelut': -2800000,
   'Sosiaali- ja terveydenhuollon valtakunnallinen tiedonhallinta': -31770000,
@@ -509,38 +470,30 @@ export const budjetti = {
   'Vammaisten henkilöiden tulkkauspalvelut': -60500000,
   Perustoimeentulotuki: -872750000,
   'Kansaneläkelaitoksen sosiaaliturvarahastojen toimintakulut': -519800000,
-  'Valtion korvaus hyvinvointialueille kuntouttavan työtoiminnan järjestämisen kustannuksiin':
-    -30484000,
-  'Valtionosuus työttömyysetuuksien ansioturvasta ja vuorottelukorvauksesta':
-    -777460000,
+  'Valtion korvaus hyvinvointialueille kuntouttavan työtoiminnan järjestämisen kustannuksiin': -30484000,
+  'Valtionosuus työttömyysetuuksien ansioturvasta ja vuorottelukorvauksesta': -777460000,
   'Valtionosuus työttömyysetuuksien perusturvasta': -1407590000,
   'Valtionosuudet Työllisyysrahastolle': -3300000,
   'Korvaukset rajat ylittävästä terheydenhuollosta': -10000000,
   'Valtion osuus sairausvakuutuslaista johtuvista menoista': -2305650000,
   'Valtion osuus merimieseläkekassan menoista': -67300000,
-  'Valtion osuus maatalousyrittäjän eläkelaista johtuvista menoista':
-    -840900000,
+  'Valtion osuus maatalousyrittäjän eläkelaista johtuvista menoista': -840900000,
   'Valtion osuus yrittäjän eläkelaista johtuvista menoista': -505300000,
-  'Valtion korvaus lapsen hoidon ja opiskelun ajalta kertyvästä eläkkeestä':
-    -23300000,
-  'Valtion osuus maatalousyrittäjien tapaturmavakuutuksen kustannuksista':
-    -14500000,
-  'Valtion osuus kansaneläkelaista ja eräistä muista laeista johtuvista menoista':
-    -4065500000,
+  'Valtion korvaus lapsen hoidon ja opiskelun ajalta kertyvästä eläkkeestä': -23300000,
+  'Valtion osuus maatalousyrittäjien tapaturmavakuutuksen kustannuksista': -14500000,
+  'Valtion osuus kansaneläkelaista ja eräistä muista laeista johtuvista menoista': -4065500000,
   'Valtion korvaus sodista kärsineiden huoltoon': -700000,
   Rintamalisät: -3900000,
   Sotilasvammakorvaukset: 0,
   'Sotilasvammalain mukaiset korvaukset': -42630000,
   'Valtionapu sotainvalidien puolisoiden kuntoutustoimintaan': -1080000,
-  'Rintama-avustus eräille ulkomaalaisille vapaaehtoisille rintamasotilaille':
-    -9000,
+  'Rintama-avustus eräille ulkomaalaisille vapaaehtoisille rintamasotilaille': -9000,
   'Eräät kuntoutustoiminnan menot': -400000,
   'Rintamaveteraanien kuntoutustoiminnan menot': 0,
   'Valtionapu rintamaveteraanien kuntoutustoimintaan': 0,
   'Rintamaveteraanien kuntoutus ja kotona asumista tukevat palvelut': -85000000,
   'Kansallinen lapsistrategia-toiminto': 0,
-  'Valtion korvaus terveydenhuollon ja sosiaalihuollon valtakunnallisen valmiuden kustannuksiin':
-    -350000,
+  'Valtion korvaus terveydenhuollon ja sosiaalihuollon valtakunnallisen valmiuden kustannuksiin': -350000,
   'Sosiaali- ja terveydenhuollon kansallinen kehittäminen': -2800000,
   'Valtion rahoitus terveydenhuollon yksiköille yliopistotasoiseen tutkimukseen sekä sosiaalityön yliopistotasoiseen tutkimukseen':
     -35000000,
@@ -552,29 +505,22 @@ export const budjetti = {
   'Valtion korvaus hyvinvointialueille kielteisen turvapaikkapäätöksen saaneiden henkilöiden kiireellisen sosiaalihuollon kustannuksiin':
     -2000000,
   'Palvelurakenteen kehittäminen': -300000,
-  'Valtion rahoitus lääkäri- ja lääkintähelikopteritoiminnan menoihin':
-    -47500000,
+  'Valtion rahoitus lääkäri- ja lääkintähelikopteritoiminnan menoihin': -47500000,
   'Valtion rahoitus turvakotitoiminnan menoihin': -26550000,
-  'Elpymis- ja palautumissuunnitelman rahoitus sosiaali- ja terveydenhuoltoon':
-    -43000000,
+  'Elpymis- ja palautumissuunnitelman rahoitus sosiaali- ja terveydenhuoltoon': -43000000,
   'Valtionavustus sosiaalialan osaamiskeskusten toimintaan': -2250000,
-  'Valtion korvaus rikosasioiden sovittelun järjestämisen kustannuksiin':
-    -7100000,
+  'Valtion korvaus rikosasioiden sovittelun järjestämisen kustannuksiin': -7100000,
   'Rokotteiden hankinta': -42440000,
   Terveysvalvonta: -460000,
   'Tartuntatautien valvonta': -460000,
   'Terveyden edistäminen': -11525000,
-  'Valtion korvaus työterheyshuollon erikoislääkärikoulutuksesta aiheutuviin kustannuksiin':
-    -2900000,
+  'Valtion korvaus työterheyshuollon erikoislääkärikoulutuksesta aiheutuviin kustannuksiin': -2900000,
   'Valtionavustus UKK-instituutin toimintaan': -928000,
-  'Valtion korvaus maatalousyrittäjien lomituspalvelujen kustannuksiin':
-    -112000000,
+  'Valtion korvaus maatalousyrittäjien lomituspalvelujen kustannuksiin': -112000000,
   'Valtion korvaus turkistuottajien lomituspalvelujen kustannuksiin': -1700000,
   'Valtion korvaus poronhoitajien sijaisavun kustannuksiin': -450000,
-  'Valtion korvaus maatalousyrittäjien ja turkistuottajien lomituspalvelujen hallintomenoihin':
-    -15140000,
-  'Avustukset yhdistyksille ja säätiöille terheyden ja sosiaalisen hyvinvoinnin edistämiseen':
-    -383588000,
+  'Valtion korvaus maatalousyrittäjien ja turkistuottajien lomituspalvelujen hallintomenoihin': -15140000,
+  'Avustukset yhdistyksille ja säätiöille terheyden ja sosiaalisen hyvinvoinnin edistämiseen': -383588000,
   'Ympäristöministeriön toimintamenot': -42064000,
   'Suomen ympäristökeskuksen toimintamenot': -27527000,
   'Ympäristöministeriön hallinnonalan arvonlisäveromenot': -12435000,

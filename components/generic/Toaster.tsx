@@ -15,9 +15,7 @@ type ToasterContextType = {
 
 const ToasterContext = createContext<ToasterContextType | undefined>(undefined);
 
-export const ToasterProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const ToasterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [nextId, setNextId] = useState(1);
 
@@ -37,11 +35,7 @@ export const ToasterProvider: React.FC<{ children: React.ReactNode }> = ({
           <div
             key={toast.id}
             className={`relative flex w-64 items-center justify-between rounded p-4 text-white shadow-lg ${
-              toast.type === 'success'
-                ? 'bg-green-500'
-                : toast.type === 'error'
-                  ? 'bg-red-500'
-                  : 'bg-blue-500'
+              toast.type === 'success' ? 'bg-green-500' : toast.type === 'error' ? 'bg-red-500' : 'bg-blue-500'
             }`}
           >
             <span>{toast.message}</span>
@@ -49,9 +43,7 @@ export const ToasterProvider: React.FC<{ children: React.ReactNode }> = ({
               <div className="relative flex h-6 w-6 items-center justify-center">
                 <XMarkIcon
                   className="absolute z-40 h-5 w-5 cursor-pointer"
-                  onClick={() =>
-                    setToasts((prev) => prev.filter((t) => t.id !== toast.id))
-                  }
+                  onClick={() => setToasts((prev) => prev.filter((t) => t.id !== toast.id))}
                 />
                 <svg className="absolute" width="24" height="24">
                   <circle

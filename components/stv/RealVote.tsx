@@ -47,12 +47,7 @@ const RealVote: React.FC = () => {
 
   return (
     <div className="mx-auto w-full rounded-lg bg-gray-700 p-4 shadow-lg">
-      <VoteForm
-        votes={votes}
-        setVotes={setVotes}
-        candidates={candidates}
-        className="lg:grid-cols-6"
-      />
+      <VoteForm votes={votes} setVotes={setVotes} candidates={candidates} className="lg:grid-cols-6" />
     </div>
   );
 };

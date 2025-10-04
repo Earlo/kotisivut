@@ -65,40 +65,22 @@ const PartyTable = () => {
         <table className="min-w-full divide-y divide-gray-200 text-gray-500">
           <thead className="bg-gray-50">
             <tr>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
-              >
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
                 Logo
               </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
-              >
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
                 Nimi
               </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
-              >
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
                 Sähköposti
               </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
-              >
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
                 Puhelin
               </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
-              >
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
                 Osoite
               </th>
-              <th
-                scope="col"
-                className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase"
-              >
+              <th scope="col" className="px-6 py-3 text-left text-xs font-medium tracking-wider uppercase">
                 Web
               </th>
             </tr>
@@ -124,22 +106,16 @@ const PartyTable = () => {
                   <div className="">{party.siteInfo.email}</div>
                   <div className="">{party.siteInfo.phoneNumber}</div>
                 </td>
+                <td className="px-6 py-4 whitespace-nowrap">{party.siteInfo.email}</td>
+                <td className="px-6 py-4 whitespace-nowrap">{party.siteInfo.phoneNumber}</td>
                 <td className="px-6 py-4 whitespace-nowrap">
-                  {party.siteInfo.email}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {party.siteInfo.phoneNumber}
-                </td>
-                <td className="px-6 py-4 whitespace-nowrap">
-                  {party.siteInfo.address}, {party.siteInfo.postcode},{' '}
-                  {party.siteInfo.city}
+                  {party.siteInfo.address}, {party.siteInfo.postcode}, {party.siteInfo.city}
                 </td>
                 <td className="px-6 py-4 whitespace-nowrap">
                   {party.siteInfo.url ? (
                     <a
                       href={
-                        party.siteInfo.url.startsWith('http') ||
-                        party.siteInfo.url.startsWith('https')
+                        party.siteInfo.url.startsWith('http') || party.siteInfo.url.startsWith('https')
                           ? party.siteInfo.url
                           : `http://${party.siteInfo.url}`
                       }

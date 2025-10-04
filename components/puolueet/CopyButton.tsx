@@ -2,10 +2,7 @@
 
 import useClipboard from '@/hooks/useClipboard';
 import { cn } from '@/lib/helpers';
-import {
-  ClipboardDocumentCheckIcon,
-  ClipboardIcon,
-} from '@heroicons/react/20/solid';
+import { ClipboardDocumentCheckIcon, ClipboardIcon } from '@heroicons/react/20/solid';
 
 const CopyButton = ({ copyTarget }: { copyTarget: string }) => {
   const { copiedData, onCopy } = useClipboard();
@@ -21,13 +18,10 @@ const CopyButton = ({ copyTarget }: { copyTarget: string }) => {
   return (
     <button
       onClick={copyEmails}
-      className={cn(
-        'mr-2 mb-2 flex flex-row items-center rounded-sm bg-blue-500 px-4 py-2 text-white',
-        {
-          'cursor-not-allowed': isClipped,
-          'hover:bg-blue-700': !isClipped,
-        },
-      )}
+      className={cn('mr-2 mb-2 flex flex-row items-center rounded-sm bg-blue-500 px-4 py-2 text-white', {
+        'cursor-not-allowed': isClipped,
+        'hover:bg-blue-700': !isClipped,
+      })}
     >
       {isClipped
         ? 'Puolueiden sähköpostit ovat nyt leikepöydälläsi!'

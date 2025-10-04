@@ -53,9 +53,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
           )
         </h3>
         <div className="flex flex-col items-center">
-          <span className="text-sm text-black">
-            Käytä säädintä muuttaaksesi budjettikohtaa
-          </span>
+          <span className="text-sm text-black">Käytä säädintä muuttaaksesi budjettikohtaa</span>
           <input
             type="range"
             id="myRange"
@@ -66,8 +64,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
             onInput={(e) =>
               setBudu((prev) => ({
                 ...prev,
-                [name]:
-                  sign * parseInt((e.target as HTMLInputElement).value, 10),
+                [name]: sign * parseInt((e.target as HTMLInputElement).value, 10),
               }))
             }
           />

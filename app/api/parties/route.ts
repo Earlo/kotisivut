@@ -2,9 +2,7 @@ import { NextResponse } from 'next/server';
 
 export async function GET() {
   try {
-    const response = await fetch(
-      'https://puoluerekisteri.fi/publicapi/party/registered',
-    );
+    const response = await fetch('https://puoluerekisteri.fi/publicapi/party/registered');
     if (!response.ok) {
       throw new Error('Failed to fetch parties');
     }
@@ -16,9 +14,6 @@ export async function GET() {
     });
   } catch (e) {
     console.log(e);
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 },
-    );
+    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
   }
 }

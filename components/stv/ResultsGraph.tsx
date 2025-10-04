@@ -8,11 +8,7 @@ interface ResultGraphProps {
   depth?: number;
 }
 
-const ResultGraph: React.FC<ResultGraphProps> = ({
-  votes,
-  candidates,
-  depth = 0,
-}) => {
+const ResultGraph: React.FC<ResultGraphProps> = ({ votes, candidates, depth = 0 }) => {
   const voteCounts: { [key: string]: number } = {};
   const [showNextRound, setShowNextRound] = useState<boolean>(false);
 
@@ -34,16 +30,12 @@ const ResultGraph: React.FC<ResultGraphProps> = ({
   const nextRound = votes.map((vote) => {
     if (vote.vote[0] === candidateWithLeastVotes.name) {
       return {
-        vote: vote.vote
-          .slice(1)
-          .filter((candidate) => candidate !== candidateWithLeastVotes.name),
+        vote: vote.vote.slice(1).filter((candidate) => candidate !== candidateWithLeastVotes.name),
         color: vote.color,
       };
     } else {
       return {
-        vote: vote.vote.filter(
-          (candidate) => candidate !== candidateWithLeastVotes.name,
-        ),
+        vote: vote.vote.filter((candidate) => candidate !== candidateWithLeastVotes.name),
         color: vote.color,
       };
     }
@@ -54,9 +46,7 @@ const ResultGraph: React.FC<ResultGraphProps> = ({
   return (
     <>
       <div className="mx-auto max-w-md">
-        <h2 className="mb-4 text-lg font-bold text-gray-200">
-          {depth + 1}. kierroksen tulos
-        </h2>
+        <h2 className="mb-4 text-lg font-bold text-gray-200">{depth + 1}. kierroksen tulos</h2>
         <div className="flex items-end justify-between border-t border-white">
           {Object.entries(voteCounts).map(([candidate, count]) => (
             <Bar
@@ -97,9 +87,7 @@ const ResultGraph: React.FC<ResultGraphProps> = ({
       {!isOver && showNextRound ? (
         <ResultGraph
           votes={nextRound}
-          candidates={candidates.filter(
-            (candidate) => candidate.name !== candidateWithLeastVotes.name,
-          )}
+          candidates={candidates.filter((candidate) => candidate.name !== candidateWithLeastVotes.name)}
           depth={depth + 1}
         />
       ) : null}

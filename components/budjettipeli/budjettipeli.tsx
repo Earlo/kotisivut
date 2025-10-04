@@ -93,11 +93,7 @@ const Budjettipeli: React.FC<BudjettiKorttiProps> = ({ buduProp }) => {
         return (
           <div key={key} className="flex w-full justify-between">
             <span>{key}:</span>
-            <span
-              className={`text-right ${
-                sign * muutos > 0 ? 'text-green-500' : 'text-red-500'
-              }`}
-            >
+            <span className={`text-right ${sign * muutos > 0 ? 'text-green-500' : 'text-red-500'}`}>
               {sign === -1 && '-'}
               <EuroFormatter amount={absAmount} /> ({muutos > 0 ? '+' : '-'}
               <EuroFormatter amount={Math.abs(muutos)} />)

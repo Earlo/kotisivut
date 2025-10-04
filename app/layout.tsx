@@ -1,5 +1,5 @@
 //app/layout.tsx
-import Icon from '@/components/generic/Icon';
+import Footer from '@/components/generic/footer/Footer';
 import { ToasterProvider } from '@/components/generic/Toaster';
 import '@/styles/globals.css';
 import { GoogleAnalytics } from '@next/third-parties/google';
@@ -7,23 +7,12 @@ import Head from 'next/head';
 import Link from 'next/link';
 import Script from 'next/script';
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fi" className="">
       <Head key={'head'}>
-        <script
-          async
-          src="https://platform.twitter.com/widgets.js"
-          key="twitter"
-        />
-        <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1.0, user-scalable=no"
-        />
+        <script async src="https://platform.twitter.com/widgets.js" key="twitter" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no" />
       </Head>
       <Script
         src="https://www.googletagmanager.com/gtag/js?id=G-9W2F6V6N7L"
@@ -39,37 +28,12 @@ export default function RootLayout({
               <h3 className="font-bold">Tärkeintä on osallistuminen</h3>
             </div>
 
-            <Link
-              href="/blogi"
-              className="pr-6 text-2xl font-bold hover:opacity-80"
-            >
+            <Link href="/blogi" className="pr-6 text-2xl font-bold hover:opacity-80">
               Blogitekstejä
             </Link>
           </header>
           <main className="w-full flex-1">{children}</main>
-          <footer className="mt-0 flex w-full flex-row items-center justify-around bg-black py-10">
-            <a href="https://twitter.com/VisaPollari">
-              <Icon name="Twitter" />
-            </a>
-            <a href="https://www.linkedin.com/in/visapollari">
-              <Icon name="LinkedIn" />
-            </a>
-            <a href="https://github.com/Earlo">
-              <Icon name="GitHub" />
-            </a>
-            <a href="https://bsky.app/profile/visapollari.bsky.social">
-              <Icon name="Bluesky" />
-            </a>
-            <a href="https://www.threads.net/@visapollari">
-              <Icon name="Threads" />
-            </a>
-            <a href="https://suomi.social/@visapollari">
-              <Icon name="Mastodon" />
-            </a>
-            <a href="https://t.me/visapollari">
-              <Icon name="Telegram" />
-            </a>
-          </footer>
+          <Footer />
         </ToasterProvider>
       </body>
     </html>

@@ -19,9 +19,7 @@ const ListForm: React.FC<ListFormProps> = ({
   candidates,
   className = 'grid-cols-4',
 }) => {
-  const [newVote, setNewVote] = useState<string[]>(
-    Array(candidates.length).fill(''),
-  );
+  const [newVote, setNewVote] = useState<string[]>(Array(candidates.length).fill(''));
 
   const addVote = () => {
     const validVote = newVote.filter((choice) => choice);
@@ -78,11 +76,7 @@ const ListForm: React.FC<ListFormProps> = ({
               name={candidate.name}
               imageSrc={candidate.imageSrc}
               onClick={() => handleCandidateClick(candidate.name)}
-              disabled={
-                newVote.includes(candidate.name)
-                  ? 'Lipukkeessa #' + (newVote.indexOf(candidate.name) + 1)
-                  : ''
-              }
+              disabled={newVote.includes(candidate.name) ? 'Lipukkeessa #' + (newVote.indexOf(candidate.name) + 1) : ''}
             />
           </div>
         ))}
@@ -93,17 +87,13 @@ const ListForm: React.FC<ListFormProps> = ({
           .map((_, index) =>
             index === 0 || newVote[index - 1] || newVote[index] ? (
               <div key={index}>
-                <span className="inline-block w-10 text-white">
-                  {'#' + (index + 1)}
-                </span>
+                <span className="inline-block w-10 text-white">{'#' + (index + 1)}</span>
                 <input
                   type="text"
                   value={newVote[index]}
                   onChange={(e) => updateVote(index, e.target.value)}
                   placeholder={`#${index + 1} valinta`}
-                  className={
-                    'border-gray-30b rounded-sm border bg-slate-900 p-2'
-                  }
+                  className={'border-gray-30b rounded-sm border bg-slate-900 p-2'}
                   disabled
                 />
                 {newVote[index] ? (
@@ -119,15 +109,11 @@ const ListForm: React.FC<ListFormProps> = ({
           )}
         <button
           onClick={addVote}
-          className={cn(
-            'mt-2 rounded-sm bg-blue-500 p-2 text-white disabled:cursor-not-allowed disabled:bg-gray-500',
-          )}
+          className={cn('mt-2 rounded-sm bg-blue-500 p-2 text-white disabled:cursor-not-allowed disabled:bg-gray-500')}
           disabled={newVote.filter((choice) => choice).length < 20}
         >
           {newVote.filter((choice) => choice).length < 20
-            ? 'Valitse vielä ' +
-              (20 - newVote.filter((choice) => choice).length) +
-              ' ehdokasta'
+            ? 'Valitse vielä ' + (20 - newVote.filter((choice) => choice).length) + ' ehdokasta'
             : 'Lähetä'}
         </button>
       </div>

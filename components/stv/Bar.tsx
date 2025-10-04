@@ -7,12 +7,7 @@ interface BarProps {
   color?: string; // Optional color prop with a default value
 }
 
-const Bar: React.FC<BarProps> = ({
-  maxVotes,
-  votes,
-  label,
-  color = '#aaaaaa',
-}) => {
+const Bar: React.FC<BarProps> = ({ maxVotes, votes, label, color = '#aaaaaa' }) => {
   return (
     <div className="flex flex-col items-center px-1 text-gray-200">
       <div className="flex h-56 flex-col-reverse">

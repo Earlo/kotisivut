@@ -5,9 +5,7 @@ import { useEffect, useState } from 'react';
 import { candidates } from '../candidates';
 
 const Page = () => {
-  const [guesses, setGuesses] = useState<
-    { made_by: string; ranking: string }[]
-  >([]);
+  const [guesses, setGuesses] = useState<{ made_by: string; ranking: string }[]>([]);
   const [scores, setScores] = useState<{
     [key: string]: { [key: string]: boolean };
   }>({});
@@ -45,33 +43,22 @@ const Page = () => {
             <span>
               {guess.made_by}{' '}
               {JSON.parse(guess.ranking)
-                .map((candidate: string) =>
-                  scores[guess.made_by][candidate] ? 1 : 0,
-                )
+                .map((candidate: string) => (scores[guess.made_by][candidate] ? 1 : 0))
                 .reduce((a: number, b: number) => a + b, 0)}
             </span>
-            {JSON.parse(guess.ranking).map(
-              (candidate: string, index: number) => (
-                <CandidateProfile
-                  key={index}
-                  name={candidate}
-                  imageSrc={
-                    candidates.find((c) => c.name === candidate)?.imageSrc ?? ''
-                  }
-                  onClick={() => {
-                    const newScores = { ...scores };
-                    newScores[guess.made_by][candidate] =
-                      !newScores[guess.made_by][candidate];
-                    setScores(newScores);
-                  }}
-                  className={
-                    scores[guess.made_by][candidate]
-                      ? 'border-4 border-green-500'
-                      : 'border-red-500'
-                  }
-                />
-              ),
-            )}
+            {JSON.parse(guess.ranking).map((candidate: string, index: number) => (
+              <CandidateProfile
+                key={index}
+                name={candidate}
+                imageSrc={candidates.find((c) => c.name === candidate)?.imageSrc ?? ''}
+                onClick={() => {
+                  const newScores = { ...scores };
+                  newScores[guess.made_by][candidate] = !newScores[guess.made_by][candidate];
+                  setScores(newScores);
+                }}
+                className={scores[guess.made_by][candidate] ? 'border-4 border-green-500' : 'border-red-500'}
+              />
+            ))}
           </div>
         ))}
       </div>

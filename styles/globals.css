@@ -22,9 +22,8 @@
   --max-width: 1100px;
   --border-radius: 12px;
   --font-mono:
-    ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono',
-    'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace', 'Source Code Pro',
-    'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
+    ui-monospace, Menlo, Monaco, 'Cascadia Mono', 'Segoe UI Mono', 'Roboto Mono', 'Oxygen Mono', 'Ubuntu Monospace',
+    'Source Code Pro', 'Fira Mono', 'Droid Sans Mono', 'Courier New', monospace;
 
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -207,10 +206,7 @@ html.theme_dark body.twallpaper .tgme_background_pattern {
   animation-duration: 150ms;
   animation-timing-function: steps(9);
 }
-.tgme_header_search_form.has_value
-  .tgme_header_search_form_clear
-  .tgme_action_button_icon
-  .icon_body {
+.tgme_header_search_form.has_value .tgme_header_search_form_clear .tgme_action_button_icon .icon_body {
   animation-name: play9;
 }
 @-webkit-keyframes play9 {
@@ -626,28 +622,17 @@ a.tgme_channel_join_telegram {
 .tgme_widget_message_text.before_footer + .tgme_widget_message_footer {
   margin-top: -14px;
 }
-.tgme_widget_message_one_media:has(
-    > .tgme_widget_message_text.before_footer:last-child
-  )
-  + .tgme_widget_message_footer {
+.tgme_widget_message_one_media:has(> .tgme_widget_message_text.before_footer:last-child) + .tgme_widget_message_footer {
   margin-top: -14px;
 }
-.tgme_widget_message_voice_player
-  + .tgme_widget_message_footer
-  .tgme_widget_message_info,
-.tgme_widget_message_text.before_footer
-  + .tgme_widget_message_footer
-  .tgme_widget_message_info {
+.tgme_widget_message_voice_player + .tgme_widget_message_footer .tgme_widget_message_info,
+.tgme_widget_message_text.before_footer + .tgme_widget_message_footer .tgme_widget_message_info {
   position: relative;
 }
 .tgme_widget_message_bubble > .tgme_widget_message_photo_wrap,
-.tgme_widget_message_bubble
-  > .media_supported_cont
-  > .tgme_widget_message_photo_wrap,
+.tgme_widget_message_bubble > .media_supported_cont > .tgme_widget_message_photo_wrap,
 .tgme_widget_message_bubble > .tgme_widget_message_video_player,
-.tgme_widget_message_bubble
-  > .media_supported_cont
-  > .tgme_widget_message_video_player,
+.tgme_widget_message_bubble > .media_supported_cont > .tgme_widget_message_video_player,
 .tgme_widget_message_bubble .tgme_widget_message_grouped_wrap,
 .tgme_widget_message_bubble .tgme_widget_message_location_wrap {
   margin: 10px -9px;
@@ -745,9 +730,7 @@ body.twallpaper .no_bubble .tgme_widget_message_roundvideo_play {
   max-height: 144px;
 }
 .with_effect .tgme_widget_message_sticker_wrap,
-.with_effect
-  .tgme_widget_message_sticker_wrap
-  .tgme_widget_message_tgsticker_wrap,
+.with_effect .tgme_widget_message_sticker_wrap .tgme_widget_message_tgsticker_wrap,
 .with_effect .tgme_widget_message_sticker_wrap .tgme_widget_message_tgsticker {
   max-width: 192px;
   max-height: 144px;
@@ -890,9 +873,7 @@ body .no_bubble .tgme_widget_message_forwarded_from,
   width: 100%;
 }
 .no_bubble.sticker_media .tgme_widget_message_footer .tgme_widget_message_info,
-.no_bubble.roundvideo_media
-  .tgme_widget_message_footer
-  .tgme_widget_message_info {
+.no_bubble.roundvideo_media .tgme_widget_message_footer .tgme_widget_message_info {
   margin: 0 0 3px;
   left: 0;
   max-width: 100%;
@@ -1176,16 +1157,13 @@ a.tme_messages_more:hover {
     color: transparent;
     cursor: pointer;
   }
-  .tgme_header.search_collapsed
-    .tgme_header_search_form_input::-webkit-input-placeholder {
+  .tgme_header.search_collapsed .tgme_header_search_form_input::-webkit-input-placeholder {
     color: transparent;
   }
-  .tgme_header.search_collapsed
-    .tgme_header_search_form_input::-moz-placeholder {
+  .tgme_header.search_collapsed .tgme_header_search_form_input::-moz-placeholder {
     color: transparent;
   }
-  .tgme_header.search_collapsed
-    .tgme_header_search_form_input:-ms-input-placeholder {
+  .tgme_header.search_collapsed .tgme_header_search_form_input:-ms-input-placeholder {
     color: transparent;
   }
   .tgme_header.search_collapsed .tgme_header_search_form_icon circle,
@@ -1625,8 +1603,8 @@ tg-emoji .tg-emoji-webm video {
 .tgme_widget_login_user_photo {
   position: relative;
   font-family:
-    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-    sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+    -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol';
   font-style: normal;
   text-align: center;
   text-transform: uppercase;
@@ -2039,10 +2017,8 @@ a.tgme_widget_message_video_player:hover {
   visibility: hidden;
   opacity: 0;
 }
-.tgme_widget_message_video_player.not_supported
-  .message_media_not_supported_wrap,
-.tgme_widget_message_roundvideo_player.not_supported
-  .message_media_not_supported_wrap {
+.tgme_widget_message_video_player.not_supported .message_media_not_supported_wrap,
+.tgme_widget_message_roundvideo_player.not_supported .message_media_not_supported_wrap {
   pointer-events: auto;
   visibility: visible;
   opacity: 1;
@@ -2081,9 +2057,7 @@ a.tgme_widget_message_video_player:hover {
   max-height: 192px;
 }
 .with_effect .tgme_widget_message_sticker_wrap,
-.with_effect
-  .tgme_widget_message_sticker_wrap
-  .tgme_widget_message_tgsticker_wrap,
+.with_effect .tgme_widget_message_sticker_wrap .tgme_widget_message_tgsticker_wrap,
 .with_effect .tgme_widget_message_sticker_wrap .tgme_widget_message_tgsticker {
   max-width: 256px;
   max-height: 192px;
@@ -2095,9 +2069,7 @@ a.tgme_widget_message_video_player:hover {
 .with_effect .tgme_widget_message_sticker_wrap {
   transform: scaleX(-1);
 }
-.with_effect
-  .tgme_widget_message_sticker_wrap
-  .tgme_widget_message_tgsticker_wrap {
+.with_effect .tgme_widget_message_sticker_wrap .tgme_widget_message_tgsticker_wrap {
   overflow: hidden;
 }
 .tgme_widget_message_tgsticker_effect + .tgme_widget_message_tgsticker_wrap {
@@ -2755,8 +2727,7 @@ a.tgme_widget_message_link_button:hover {
 .tgme_widget_message_poll_option_radio_item {
   cursor: pointer;
 }
-.tgme_widget_message_poll_option_radio_item
-  .tgme_widget_message_poll_option_value {
+.tgme_widget_message_poll_option_radio_item .tgme_widget_message_poll_option_value {
   padding-bottom: 10px;
 }
 .tgme_widget_message_poll_option_radio {
@@ -2774,8 +2745,7 @@ a.tgme_widget_message_link_button:hover {
   box-sizing: border-box;
   transition: all 0.15s ease;
 }
-.tgme_widget_message_poll_option_radio_item
-  .tgme_widget_message_poll_option_radio:after {
+.tgme_widget_message_poll_option_radio_item .tgme_widget_message_poll_option_radio:after {
   position: absolute;
   left: 0;
   display: inline-block;
@@ -2785,19 +2755,16 @@ a.tgme_widget_message_link_button:hover {
   height: 20px;
   border-radius: 10px;
   box-sizing: border-box;
-  background: var(--radio-item-color) var(--radio-item-icon-svg) no-repeat
-    center;
+  background: var(--radio-item-color) var(--radio-item-icon-svg) no-repeat center;
   transition: all 0.1s ease;
   transform: scale3d(0, 0, 1);
   opacity: 0;
 }
-.tgme_widget_message_poll_option_radio_item.selected
-  .tgme_widget_message_poll_option_radio:after {
+.tgme_widget_message_poll_option_radio_item.selected .tgme_widget_message_poll_option_radio:after {
   transform: scale3d(1, 1, 1);
   opacity: 1;
 }
-.tgme_widget_message_poll_option_radio_item:hover
-  .tgme_widget_message_poll_option_radio:before {
+.tgme_widget_message_poll_option_radio_item:hover .tgme_widget_message_poll_option_radio:before {
   background-color: var(--radio-bghover);
 }
 .tgme_widget_message_poll_option_value {
@@ -2817,8 +2784,7 @@ a.tgme_widget_message_link_button:hover {
 }
 .tgme_widget_message_poll_option_correct,
 .tgme_widget_message_poll_option_incorrect {
-  background: var(--accent-line-color) var(--pollopt-correct-icon-svg) no-repeat
-    center;
+  background: var(--accent-line-color) var(--pollopt-correct-icon-svg) no-repeat center;
   position: absolute;
   width: 12px;
   height: 12px;
@@ -2993,88 +2959,63 @@ a.tgme_widget_message_link_button:hover {
   visibility: hidden;
   transition: visibility 0.2s ease;
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_photo_wrap.blured.active:before,
-.tgme_widget_message_grouped
-  .tgme_widget_message_photo_wrap.blured.active:after {
+.tgme_widget_message_grouped .tgme_widget_message_photo_wrap.blured.active:before,
+.tgme_widget_message_grouped .tgme_widget_message_photo_wrap.blured.active:after {
   visibility: visible;
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player.not_supported
-  .message_media_not_supported_wrap {
+.tgme_widget_message_grouped .tgme_widget_message_video_player.not_supported .message_media_not_supported_wrap {
   pointer-events: none;
   visibility: hidden;
   opacity: 0;
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player.active.not_supported
-  .message_media_not_supported_wrap {
+.tgme_widget_message_grouped .tgme_widget_message_video_player.active.not_supported .message_media_not_supported_wrap {
   pointer-events: auto;
   visibility: visible;
   opacity: 1;
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player.not_supported
-  .message_video_play {
+.tgme_widget_message_grouped .tgme_widget_message_video_player.not_supported .message_video_play {
   opacity: 1;
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player.active.not_supported
-  .message_video_play {
+.tgme_widget_message_grouped .tgme_widget_message_video_player.active.not_supported .message_video_play {
   opacity: 0;
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player
-  .message_video_play:after {
+.tgme_widget_message_grouped .tgme_widget_message_video_player .message_video_play:after {
   width: 50px;
   height: 50px;
   border-radius: 25px;
   background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m5%203.24662107v17.50675783c0%20.6750147.54720753%201.2222223%201.22222222%201.2222223.23559715%200%20.46617345-.0680925.66397379-.196081l13.52794929-8.7533789c.5667222-.3667026.7288701-1.1233929.3621675-1.6901151-.0937888-.1449463-.2172212-.2683787-.3621675-.3621675l-13.52794929-8.75337893c-.5667222-.3667026-1.3234125-.20455468-1.69011509.36216752-.12798845.19780033-.19608092.42837663-.19608092.66397378z%22%20fill%3D%22%23fff%22%2F%3E%3C%2Fsvg%3E');
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player.not_supported
-  .message_video_play:after {
+.tgme_widget_message_grouped .tgme_widget_message_video_player.not_supported .message_video_play:after {
   background-image: url('data:image/svg+xml,%3Csvg%20height%3D%2230%22%20viewBox%3D%220%200%2030%2030%22%20width%3D%2230%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m20%204v2h2l.0010534-1.97483793c.7298783.05096843%201.0959232.17857229%201.4642152.37553699.4888888.26146063.8725717.6451435%201.1340323%201.13403238l.0922854.18482021c.2018093.43861897.3084137.9561578.3084137%202.12627615v14.3083444c0%201.3372781-.1392384%201.8222075-.4006991%202.3110964-.2614606.4888888-.6451435.8725717-1.1340323%201.1340323-.368292.1969647-.7343369.3245686-1.4642152.375537l-.0010534-1.9748379h-2v2h-10v-2h-2l-.00008693%201.9749054c-.73052165-.0509233-1.09672713-.1785528-1.46518163-.3756045-.48888888-.2614606-.87257175-.6451435-1.13403238-1.1340323l-.09228534-.1848203c-.18739436-.407289-.29269878-.8826263-.30678617-1.8853159l-.00162755-14.5493046c0-1.33727811.13923842-1.82220747.40069906-2.31109636.26146063-.48888888.6451435-.87257175%201.13403238-1.13403238.3684545-.19705162.73465998-.32468117%201.46518163-.37560443l.00008693%201.97490537h2v-2zm-10%2016h-2v2h2zm12%200h-2v2h2zm-12-4h-2v2h2zm12%200h-2v2h2zm-12-4h-2v2h2zm12%200h-2v2h2zm-12-4h-2v2h2zm12%200h-2v2h2z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E');
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player
-  .message_video_duration {
+.tgme_widget_message_grouped .tgme_widget_message_video_player .message_video_duration {
   transition: opacity 0.2s ease;
   opacity: 0;
 }
-.tgme_widget_message_grouped
-  .tgme_widget_message_video_player.active
-  .message_video_duration {
+.tgme_widget_message_grouped .tgme_widget_message_video_player.active .message_video_duration {
   opacity: 1;
 }
 
 .bgcolor0 {
-  background: var(--bgcolor0)
-    linear-gradient(var(--bgcolor0-top), var(--bgcolor0-bottom));
+  background: var(--bgcolor0) linear-gradient(var(--bgcolor0-top), var(--bgcolor0-bottom));
 }
 .bgcolor1 {
-  background: var(--bgcolor1)
-    linear-gradient(var(--bgcolor1-top), var(--bgcolor1-bottom));
+  background: var(--bgcolor1) linear-gradient(var(--bgcolor1-top), var(--bgcolor1-bottom));
 }
 .bgcolor2 {
-  background: var(--bgcolor2)
-    linear-gradient(var(--bgcolor2-top), var(--bgcolor2-bottom));
+  background: var(--bgcolor2) linear-gradient(var(--bgcolor2-top), var(--bgcolor2-bottom));
 }
 .bgcolor3 {
-  background: var(--bgcolor3)
-    linear-gradient(var(--bgcolor3-top), var(--bgcolor3-bottom));
+  background: var(--bgcolor3) linear-gradient(var(--bgcolor3-top), var(--bgcolor3-bottom));
 }
 .bgcolor4 {
-  background: var(--bgcolor4)
-    linear-gradient(var(--bgcolor4-top), var(--bgcolor4-bottom));
+  background: var(--bgcolor4) linear-gradient(var(--bgcolor4-top), var(--bgcolor4-bottom));
 }
 .bgcolor5 {
-  background: var(--bgcolor5)
-    linear-gradient(var(--bgcolor5-top), var(--bgcolor5-bottom));
+  background: var(--bgcolor5) linear-gradient(var(--bgcolor5-top), var(--bgcolor5-bottom));
 }
 .bgcolor6 {
-  background: var(--bgcolor6)
-    linear-gradient(var(--bgcolor6-top), var(--bgcolor6-bottom));
+  background: var(--bgcolor6) linear-gradient(var(--bgcolor6-top), var(--bgcolor6-bottom));
 }
 
 .color0 {
@@ -3137,9 +3078,7 @@ button.tgme_widget_login_button:active:focus {
   vertical-align: top;
   background: no-repeat 0 0;
 }
-.tgme_widget_login
-  button.tgme_widget_login_button
-  .tgme_widget_login_button_icon {
+.tgme_widget_login button.tgme_widget_login_button .tgme_widget_login_button_icon {
   background: url('data:image/svg+xml,%3Csvg%20height%3D%2224%22%20viewBox%3D%220%200%2024%2024%22%20width%3D%2224%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%3Cpath%20d%3D%22m1.95617055%2011.392196c5.77764656-2.42328736%209.63031585-4.02086673%2011.55800785-4.79273807%205.5039525-2.20384954%206.6476266-2.5866818%207.3930574-2.59932314.1639507-.00278035.5305319.0363352.7679878.22182361.2005031.15662277.2556695.36819788.2820684.51669348.026399.1484956.0592719.48677234.0331404.75109194-.2982611%203.0169019-1.5888322%2010.33812718-2.2454015%2013.71710898-.2778191%201.4297738-.8288514%201.7357846-1.3584441%201.7826999-1.1509274.1019576-2.0208916-.5588425-3.1356211-1.2622918-1.7443316-1.1007592-2.3854935-1.3972358-4.0786694-2.4713734-1.95675765-1.2413519-.8891962-1.8911034.2259543-3.0061212.2918402-.2918054%205.3989024-4.83750096%205.497052-5.24030969.0122753-.05037796-.1557336-.55407742-.2716182-.65323489-.1158847-.09915747-.2869204-.06524947-.4103446-.03828214-.17495.03822537-2.9615423%201.81132342-8.35977698%205.31929412-.79096496.5228681-1.50739646.7776269-2.1492945.7642766-.70764107-.0147176-2.06885864-.3851791-3.08078398-.7018404-1.24116762-.388398-1.69932554-.5713149-1.61342745-1.2309348.04474105-.3435709.36011227-.7024173.94611366-1.0765391z%22%20fill%3D%22%23fff%22%20fill-rule%3D%22evenodd%22%2F%3E%3C%2Fsvg%3E')
     no-repeat 0 -1px;
 }
@@ -3149,17 +3088,12 @@ button.tgme_widget_login_button:active:focus {
   padding: 9px 21px 11px;
   border-radius: 20px;
 }
-.tgme_widget_login.large
-  button.tgme_widget_login_button
-  .tgme_widget_login_button_icon {
+.tgme_widget_login.large button.tgme_widget_login_button .tgme_widget_login_button_icon {
   width: 24px;
   height: 22px;
   margin: 0 13px -2px -7px;
 }
-body.rtl
-  .tgme_widget_login.large
-  button.tgme_widget_login_button
-  .tgme_widget_login_button_icon {
+body.rtl .tgme_widget_login.large button.tgme_widget_login_button .tgme_widget_login_button_icon {
   margin-left: 13px;
   margin-right: -7px;
 }
@@ -3191,18 +3125,13 @@ body.rtl .tgme_widget_login.large .tgme_widget_login_user_photo {
   padding: 5px 14px 6px;
   border-radius: 14px;
 }
-.tgme_widget_login.medium
-  button.tgme_widget_login_button
-  .tgme_widget_login_button_icon {
+.tgme_widget_login.medium button.tgme_widget_login_button .tgme_widget_login_button_icon {
   width: 19px;
   height: 17px;
   background-size: 19px;
   margin: 0 9px 0 -4px;
 }
-body.rtl
-  .tgme_widget_login.medium
-  button.tgme_widget_login_button
-  .tgme_widget_login_button_icon {
+body.rtl .tgme_widget_login.medium button.tgme_widget_login_button .tgme_widget_login_button_icon {
   margin-left: 9px;
   margin-right: -4px;
 }
@@ -3227,18 +3156,13 @@ body.rtl .tgme_widget_login.medium .tgme_widget_login_user_photo {
   padding: 3px 9px;
   border-radius: 10px;
 }
-.tgme_widget_login.small
-  button.tgme_widget_login_button
-  .tgme_widget_login_button_icon {
+.tgme_widget_login.small button.tgme_widget_login_button .tgme_widget_login_button_icon {
   width: 14px;
   height: 12px;
   margin: 1px 6px 0 -2px;
   background-size: 14px;
 }
-body.rtl
-  .tgme_widget_login.small
-  button.tgme_widget_login_button
-  .tgme_widget_login_button_icon {
+body.rtl .tgme_widget_login.small button.tgme_widget_login_button .tgme_widget_login_button_icon {
   margin-left: 6px;
   margin-right: -2px;
 }

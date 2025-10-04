@@ -27,26 +27,13 @@ const TelegramPost = ({ post }: { post: string }) => {
     <div className="mb-4 w-full max-w-80 rounded-sm bg-gray-100 px-4 py-2 break-words shadow-sm">
       <div className="flex items-center">
         {profilePicUrl && (
-          <Image
-            className="rounded-full"
-            src={profilePicUrl}
-            alt={authorName}
-            width={32}
-            height={32}
-          />
+          <Image className="rounded-full" src={profilePicUrl} alt={authorName} width={32} height={32} />
         )}
         <p className="font-bold">{authorName}</p>
       </div>
       <p dangerouslySetInnerHTML={{ __html: messageText }} />
       {embeddedPicUrl && (
-        <Image
-          className="mt-2 rounded-sm"
-          src={embeddedPicUrl}
-          alt=""
-          layout="responsive"
-          width={500}
-          height={300}
-        />
+        <Image className="mt-2 rounded-sm" src={embeddedPicUrl} alt="" layout="responsive" width={500} height={300} />
       )}
       {linkPreview && (
         <a
@@ -75,9 +62,7 @@ const TelegramPost = ({ post }: { post: string }) => {
         </a>
       )}
       <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-500">
-          {new Date(messageDate!).toLocaleString()}
-        </p>
+        <p className="text-sm text-gray-500">{new Date(messageDate!).toLocaleString()}</p>
         <p className="text-sm text-gray-500">Views: {viewCount}</p>
       </div>
     </div>

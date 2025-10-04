@@ -25,8 +25,7 @@ const Home = () => {
           <p className="text-lg">
             Visa Pollari, ohjelmistokonsultti Espoosta.
             <br />
-            Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä.
-            Mennään vaikka kahville.{' '}
+            Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä. Mennään vaikka kahville.{' '}
             <Link href="https://cal.com/visap/30min" className="text-blue-500">
               Varaa aika
             </Link>{' '}

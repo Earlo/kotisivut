@@ -24,20 +24,10 @@ interface IconProps {
   customPath?: string;
 }
 
-const Icon: React.FC<IconProps> = ({
-  name,
-  className = 'h-8 w-8',
-  color = 'white',
-  customPath,
-}) => {
+const Icon: React.FC<IconProps> = ({ name, className = 'h-8 w-8', color = 'white', customPath }) => {
   const path = customPath || paths[name] || '';
   return (
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 24 24"
-      fill={color}
-      className={className}
-    >
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill={color} className={className}>
       <title>{name}</title>
       <path d={path} />
     </svg>

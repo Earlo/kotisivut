@@ -9,15 +9,8 @@ interface VoteFormProps {
   className?: string;
 }
 
-const VoteForm: React.FC<VoteFormProps> = ({
-  votes,
-  setVotes,
-  candidates,
-  className = 'grid-cols-4',
-}) => {
-  const [newVote, setNewVote] = useState<string[]>(
-    Array(candidates.length).fill(''),
-  );
+const VoteForm: React.FC<VoteFormProps> = ({ votes, setVotes, candidates, className = 'grid-cols-4' }) => {
+  const [newVote, setNewVote] = useState<string[]>(Array(candidates.length).fill(''));
 
   const addVote = () => {
     const validVote = newVote.filter((choice) => choice);
@@ -51,11 +44,7 @@ const VoteForm: React.FC<VoteFormProps> = ({
               name={candidate.name}
               imageSrc={candidate.imageSrc}
               onClick={() => handleCandidateClick(candidate.name)}
-              disabled={
-                newVote.includes(candidate.name)
-                  ? 'Lipukkeessa #' + (newVote.indexOf(candidate.name) + 1)
-                  : ''
-              }
+              disabled={newVote.includes(candidate.name) ? 'Lipukkeessa #' + (newVote.indexOf(candidate.name) + 1) : ''}
             />
           </div>
         ))}
@@ -75,10 +64,7 @@ const VoteForm: React.FC<VoteFormProps> = ({
               />
             ) : null,
           )}
-        <button
-          onClick={addVote}
-          className="mt-2 rounded-sm bg-blue-500 p-2 text-white"
-        >
+        <button onClick={addVote} className="mt-2 rounded-sm bg-blue-500 p-2 text-white">
           Add Vote
         </button>
       </div>
