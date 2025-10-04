@@ -9,6 +9,7 @@ const nextConfig: NextConfig = {
       'cdn4.cdn-telegram.org',
       'puoluerekisteri.fi',
       'liberaalipuolue.fi',
+      'cdn4.telesco.pe',
     ],
   },
   async headers() {
