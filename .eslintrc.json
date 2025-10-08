@@ -1,14 +1,15 @@
 {
   "extends": [
     "eslint:recommended",
-    "next",
+    "next/core-web-vitals",
     "plugin:@typescript-eslint/recommended",
     "plugin:import/recommended",
     "plugin:import/typescript",
+    "plugin:jsx-a11y/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
-  "plugins": ["@typescript-eslint", "import"],
+  "plugins": ["@typescript-eslint", "import", "jsx-a11y"],
   "settings": {
     "shouldfix": true,
     "import/resolver": {
@@ -23,6 +24,11 @@
     }
   },
   "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "jsx-a11y/alt-text": "warn",
+    "jsx-a11y/anchor-is-valid": "warn",
     "import/no-extraneous-dependencies": ["error"],
     "@typescript-eslint/no-explicit-any": "error",
     "@typescript-eslint/no-var-requires": 0,
