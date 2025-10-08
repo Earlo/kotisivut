@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const compat = new FlatCompat({ baseDirectory: __dirname });
 
-export default [
+const config = [
   { ignores: ['**/node_modules/**', '.next/**', 'dist/**', 'out/**'] },
 
   js.configs.recommended,
@@ -26,12 +26,17 @@ export default [
         typescript: { alwaysTryTypes: true, project: './tsconfig.json' },
         node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
       },
-      'import/parsers': {
-        '@typescript-eslint/parser': ['.ts', '.tsx'],
-      },
+      'import/parsers': { '@typescript-eslint/parser': ['.ts', '.tsx'] },
     },
   }),
 
+  // File-specific tweaks
+  {
+    files: ['next-env.d.ts'],
+    rules: { '@typescript-eslint/triple-slash-reference': 'off' },
+  },
+
+  // Project rules
   {
     rules: {
       'react/react-in-jsx-scope': 'off',
@@ -52,3 +57,5 @@ export default [
     },
   },
 ];
+
+export default config;

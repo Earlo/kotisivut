@@ -2,6 +2,7 @@
 import CandidateProfile from '@/components/stv/CandidateProfile';
 import { cn } from '@/lib/helpers';
 import React, { useState } from 'react';
+
 interface ListFormProps {
   votes: string[][];
   setVotes: React.Dispatch<React.SetStateAction<string[][]>>;
@@ -47,31 +48,37 @@ const ListForm: React.FC<ListFormProps> = ({
   if (!name) {
     return (
       <>
-        <label className="block text-white">Aseta ensin nimesi</label>
+        <label htmlFor="guesser-name" className="block text-white">
+          Aseta ensin nimesi
+        </label>
         <input
+          id="guesser-name"
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-          placeholder={`Name`}
-          className={'mb-2 rounded-sm border border-gray-300 bg-slate-900 p-2'}
+          placeholder="Name"
+          className="mb-2 rounded-sm border border-gray-300 bg-slate-900 p-2"
         />
       </>
     );
   }
   return (
     <>
-      <label className="block text-white">Arvaajan nimi</label>
+      <label htmlFor="guesser-name" className="block text-white">
+        Arvaajan nimi
+      </label>
       <input
+        id="guesser-name"
         type="text"
         value={name}
         onChange={(e) => setName(e.target.value)}
-        placeholder={`Name`}
-        className={'mb-2 rounded-sm border border-gray-300 bg-slate-900 p-2'}
+        placeholder="Name"
+        className="mb-2 rounded-sm border border-gray-300 bg-slate-900 p-2"
       />
 
       <div className={cn(`mb-4 grid grid-cols-2 gap-4`, className)}>
         {candidates.map((candidate) => (
-          <div key={candidate.name} className="cursor-pointer">
+          <div key={candidate.name}>
             <CandidateProfile
               name={candidate.name}
               imageSrc={candidate.imageSrc}
@@ -93,11 +100,12 @@ const ListForm: React.FC<ListFormProps> = ({
                   value={newVote[index]}
                   onChange={(e) => updateVote(index, e.target.value)}
                   placeholder={`#${index + 1} valinta`}
-                  className={'border-gray-30b rounded-sm border bg-slate-900 p-2'}
+                  className="rounded-sm border border-gray-300 bg-slate-900 p-2"
                   disabled
                 />
                 {newVote[index] ? (
                   <button
+                    type="button"
                     onClick={() => updateVote(index, '')}
                     className="ml-2 rounded-sm bg-red-500 p-2 text-white hover:bg-red-700"
                   >
@@ -108,6 +116,7 @@ const ListForm: React.FC<ListFormProps> = ({
             ) : null,
           )}
         <button
+          type="button"
           onClick={addVote}
           className={cn('mt-2 rounded-sm bg-blue-500 p-2 text-white disabled:cursor-not-allowed disabled:bg-gray-500')}
           disabled={newVote.filter((choice) => choice).length < 20}
