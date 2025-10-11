@@ -57,7 +57,7 @@ export default function Page() {
                 href={calUrl}
                 className="inline-flex items-center justify-center rounded-md bg-black px-5 py-3 font-medium text-white ring-1 ring-black/10 transition hover:opacity-90"
               >
-                Lähde kanssani kahville
+                Varaa tapaaminen
               </Link>
               <a
                 href={`tel:${phone}`}
