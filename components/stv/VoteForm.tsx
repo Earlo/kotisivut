@@ -1,15 +1,15 @@
 'use client';
 import { cn } from '@/lib/helpers';
-import React, { useState } from 'react';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
 import CandidateProfile from './CandidateProfile';
 interface VoteFormProps {
   votes: string[][];
-  setVotes: React.Dispatch<React.SetStateAction<string[][]>>;
+  setVotes: Dispatch<SetStateAction<string[][]>>;
   candidates: { name: string; imageSrc: string; color: string }[];
   className?: string;
 }
 
-const VoteForm: React.FC<VoteFormProps> = ({ votes, setVotes, candidates, className = 'grid-cols-4' }) => {
+const VoteForm: FC<VoteFormProps> = ({ votes, setVotes, candidates, className = 'grid-cols-4' }) => {
   const [newVote, setNewVote] = useState<string[]>(Array(candidates.length).fill(''));
 
   const addVote = () => {

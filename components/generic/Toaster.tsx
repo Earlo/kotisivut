@@ -1,7 +1,7 @@
 'use client';
 
 import { XMarkIcon } from '@heroicons/react/20/solid';
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, FC, ReactNode, useContext, useState } from 'react';
 
 type Toast = {
   id: number;
@@ -15,7 +15,7 @@ type ToasterContextType = {
 
 const ToasterContext = createContext<ToasterContextType | undefined>(undefined);
 
-export const ToasterProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+export const ToasterProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
   const [nextId, setNextId] = useState(1);
 

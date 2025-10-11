@@ -1,88 +1,158 @@
 'use client';
-import * as cheerio from 'cheerio';
-import Image from 'next/image';
-import { useEffect, useState } from 'react';
 
-// Telegram Post Component
+import Image from 'next/image';
+import { useEffect, useMemo, useState } from 'react';
+
+type ParsedPost = {
+  authorName: string;
+  messageHtml: string;
+  messageDate?: string;
+  profilePicUrl?: string;
+  embeddedPicUrl?: string;
+  viewCount?: string;
+  linkPreview?: string;
+  previewTitle?: string;
+  previewDescription?: string;
+  linkPreviewRightImage?: string;
+};
+
+function extractUrlFromStyle(style?: string | null): string | undefined {
+  if (!style) return;
+  const m = /background-image\s*:\s*url\((['"])?(.*?)\1\)/i.exec(style);
+  const raw = m?.[2];
+  if (!raw) return;
+  const cleaned = raw.replace(/^['"]|['"]$/g, '').replace(/&amp;/g, '&');
+  return cleaned.startsWith('//') ? `https:${cleaned}` : cleaned;
+}
+
+function parseTelegramHtml(postHtml: string): ParsedPost {
+  const doc = new DOMParser().parseFromString(postHtml, 'text/html');
+
+  const authorName = doc.querySelector('.tgme_widget_message_owner_name')?.textContent?.trim() || 'Telegram';
+
+  const messageNode = doc.querySelector('.tgme_widget_message_text');
+  const messageHtml = messageNode ? messageNode.innerHTML : '';
+
+  const messageDate = doc.querySelector('.tgme_widget_message_date time')?.getAttribute('datetime') || undefined;
+
+  const profilePicUrl = (doc.querySelector('.tgme_widget_message_user_photo img') as HTMLImageElement | null)?.src;
+
+  const photoWrap =
+    doc.querySelector('.tgme_widget_message_photo_wrap') ||
+    doc.querySelector('.tgme_widget_message_video_thumb') ||
+    doc.querySelector('.tgme_widget_message_roundvideo_thumb') ||
+    doc.querySelector('.tgme_widget_message_document_thumb');
+
+  const embeddedPicUrl = extractUrlFromStyle(photoWrap?.getAttribute('style'));
+
+  const viewCount = doc.querySelector('.tgme_widget_message_views')?.textContent?.trim() || undefined;
+
+  const linkPreviewAnchor = doc.querySelector(
+    '.tgme_widget_message_link_preview, .tgme_widget_message_webpage',
+  ) as HTMLAnchorElement | null;
+
+  const linkPreview = linkPreviewAnchor?.href;
+
+  const previewTitle =
+    doc.querySelector('.link_preview_site_name, .webpage_site_name')?.textContent?.trim() || undefined;
+
+  const previewDescription =
+    doc.querySelector('.link_preview_description, .webpage_description')?.textContent?.trim() || undefined;
+
+  const rightImgEl = doc.querySelector('.link_preview_right_image, .webpage_right_image') as HTMLElement | null;
+
+  const linkPreviewRightImage = extractUrlFromStyle(rightImgEl?.getAttribute('style'));
+
+  return {
+    authorName,
+    messageHtml,
+    messageDate,
+    profilePicUrl,
+    embeddedPicUrl,
+    viewCount,
+    linkPreview,
+    previewTitle,
+    previewDescription,
+    linkPreviewRightImage,
+  };
+}
+
 const TelegramPost = ({ post }: { post: string }) => {
-  const $ = cheerio.load(post);
-  const messageText = $('.tgme_widget_message_text').last().html() || '';
-  const authorName = $('.tgme_widget_message_owner_name').text();
-  const messageDate = $('.tgme_widget_message_date time').attr('datetime');
-  const profilePicUrl = $('.tgme_widget_message_user_photo img').attr('src');
-  const embeddedPicUrl = $('.tgme_widget_message_photo_wrap')
-    .css('background-image')
-    ?.replace(/url\((['"])?(.*?)\1\)/gi, '$2')
-    .split(',')[0];
-  const viewCount = $('.tgme_widget_message_views').text();
-  const linkPreview = $('.tgme_widget_message_link_preview').attr('href');
-  const previewTitle = $('.link_preview_site_name').text();
-  const previewDescription = $('.link_preview_description').text();
-  const linkPreviewRightImage = $('.link_preview_right_image')
-    .css('background-image')
-    ?.replace(/url\((['"])?(.*?)\1\)/gi, '$2')
-    .split(',')[0];
+  const parsed = useMemo(() => parseTelegramHtml(post), [post]);
 
   return (
-    <div className="mb-4 w-full max-w-80 rounded-sm bg-gray-100 px-4 py-2 break-words shadow-sm">
-      <div className="flex items-center">
-        {profilePicUrl && (
-          <Image className="rounded-full" src={profilePicUrl} alt={authorName} width={32} height={32} />
+    <article className="mb-4 w-full max-w-2xl rounded-sm bg-gray-100 px-4 py-3 break-words shadow-sm">
+      <div className="mb-2 flex items-center gap-2">
+        {parsed.profilePicUrl ? (
+          <Image className="rounded-full" src={parsed.profilePicUrl} alt={parsed.authorName} width={32} height={32} />
+        ) : (
+          <div className="h-8 w-8 rounded-full bg-gray-300" aria-hidden />
         )}
-        <p className="font-bold">{authorName}</p>
+        <p className="font-bold">{parsed.authorName}</p>
       </div>
-      <p dangerouslySetInnerHTML={{ __html: messageText }} />
-      {embeddedPicUrl && (
-        <Image className="mt-2 rounded-sm" src={embeddedPicUrl} alt="" layout="responsive" width={500} height={300} />
+
+      <div className="prose prose-sm max-w-none break-words" dangerouslySetInnerHTML={{ __html: parsed.messageHtml }} />
+
+      {parsed.embeddedPicUrl && (
+        <div className="mt-2">
+          <Image
+            className="rounded-sm"
+            src={parsed.embeddedPicUrl}
+            alt=""
+            width={1200}
+            height={800}
+            sizes="(max-width: 768px) 100vw, 800px"
+          />
+        </div>
       )}
-      {linkPreview && (
+
+      {parsed.linkPreview && (
         <a
-          href={linkPreview}
+          href={parsed.linkPreview}
           target="_blank"
           rel="noopener noreferrer"
-          className="mt-2 flex items-center rounded-sm border bg-blue-50 p-2 break-words transition-colors duration-200 hover:bg-blue-100"
+          className="mt-3 flex items-center gap-3 rounded-sm border bg-blue-50 p-2 transition-colors hover:bg-blue-100"
         >
-          {linkPreviewRightImage && (
-            <div className="mr-2">
+          {parsed.linkPreviewRightImage && (
+            <div className="w-24 shrink-0">
               <Image
                 className="rounded-sm"
-                src={linkPreviewRightImage}
-                alt={previewTitle}
-                layout="responsive"
+                src={parsed.linkPreviewRightImage}
+                alt={parsed.previewTitle || 'Linkin esikatselu'}
                 width={100}
                 height={100}
               />
             </div>
           )}
-
-          <div className="mr-2">
-            <p className="font-bold text-blue-600">{previewTitle}</p>
-            <p className="text-blue-800">{previewDescription}</p>
+          <div className="min-w-0">
+            {parsed.previewTitle && <p className="truncate font-bold text-blue-700">{parsed.previewTitle}</p>}
+            {parsed.previewDescription && <p className="line-clamp-3 text-blue-900">{parsed.previewDescription}</p>}
           </div>
         </a>
       )}
-      <div className="flex items-center justify-between">
-        <p className="text-sm text-gray-500">{new Date(messageDate!).toLocaleString()}</p>
-        <p className="text-sm text-gray-500">Views: {viewCount}</p>
+
+      <div className="mt-2 flex items-center justify-between text-sm text-gray-600">
+        <time dateTime={parsed.messageDate}>
+          {parsed.messageDate ? new Date(parsed.messageDate).toLocaleString() : ''}
+        </time>
+        <span>{parsed.viewCount ? `Näytöt: ${parsed.viewCount}` : ''}</span>
       </div>
-    </div>
+    </article>
   );
 };
 
-// Telegram Component
 export const Telegram = () => {
   const [tgPosts, setTgPosts] = useState<string[]>([]);
+
   useEffect(() => {
     fetch('/api/telegram')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        // Reverse the array and take the first 5 posts
-        const latestPosts = data.reverse().slice(0, 5);
-        setTgPosts(latestPosts);
-      });
+      .then((res) => res.json())
+      .then((data: string[]) => setTgPosts(data.slice(-5).reverse()))
+      .catch(() => setTgPosts([]));
   }, []);
+
+  if (!tgPosts.length) return null;
+
   return (
     <section className="flex w-full flex-col items-center p-4 md:p-10">
       <h2 className="mb-4 text-2xl font-bold">Latest Telegram Posts</h2>
@@ -92,3 +162,5 @@ export const Telegram = () => {
     </section>
   );
 };
+
+export default Telegram;

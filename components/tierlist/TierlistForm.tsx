@@ -1,25 +1,18 @@
 'use client';
 import CandidateProfile from '@/components/stv/CandidateProfile';
 import { cn } from '@/lib/helpers';
-import React, { useState } from 'react';
+import { Dispatch, FC, SetStateAction, useState } from 'react';
 
 interface ListFormProps {
   votes: string[][];
-  setVotes: React.Dispatch<React.SetStateAction<string[][]>>;
+  setVotes: Dispatch<SetStateAction<string[][]>>;
   name: string;
-  setName: React.Dispatch<React.SetStateAction<string>>;
+  setName: Dispatch<SetStateAction<string>>;
   candidates: { name: string; imageSrc: string; color?: string }[];
   className?: string;
 }
 
-const ListForm: React.FC<ListFormProps> = ({
-  votes,
-  setVotes,
-  name,
-  setName,
-  candidates,
-  className = 'grid-cols-4',
-}) => {
+const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidates, className = 'grid-cols-4' }) => {
   const [newVote, setNewVote] = useState<string[]>(Array(candidates.length).fill(''));
 
   const addVote = () => {

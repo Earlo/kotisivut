@@ -1,48 +1,35 @@
-import * as cheerio from 'cheerio';
 import { NextResponse } from 'next/server';
-//import Cors from 'cors';
 
-/**
-const cors = Cors({
-  methods: ['POST'],
-});
+const MESSAGE_BLOCK_RE = /<div class="tgme_widget_message\b[\s\S]*?(?=<div class="tgme_widget_message\b|$)/g;
 
-// Helper method to wait for a middleware to execute before continuing
-// And to throw an error when an error happens in a middleware
-function runMiddleware(req: NextApiRequest, res: NextApiResponse<string[]>) {
-  return new Promise((resolve, reject) => {
-    cors(req, res, (result) => {
-      if (result instanceof Error) {
-        return reject(result);
-      }
-
-      return resolve(result);
-    });
-  });
-}
- */
-export async function GET(request: Request) {
+export async function GET() {
   try {
-    const response = await fetch(`https://t.me/s/visapollari`);
-    const htmlString = await response.text();
-    const $ = cheerio.load(htmlString);
-    const searchContext = `.tgme_widget_message`;
-    const telegramMessages = $(searchContext)
-      .toArray()
-      .map((x) => $(x).html())
-      .filter((x) => x !== null && x !== undefined);
-    telegramMessages.shift();
-    return NextResponse.json(telegramMessages, {
+    const res = await fetch('https://t.me/s/visapollari', {
       headers: {
-        'Cache-Control': 's-maxage=1, stale-while-revalidate',
+        'User-Agent': 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124 Safari/537.36',
+        Accept: 'text/html',
+      },
+    });
+
+    if (!res.ok) {
+      return NextResponse.json({ error: `Upstream ${res.status}` }, { status: 502 });
+    }
+
+    const html = await res.text();
+
+    const blocks = html.match(MESSAGE_BLOCK_RE) ?? [];
+
+    if (blocks.length > 0) {
+      blocks.shift();
+    }
+
+    return NextResponse.json(blocks, {
+      headers: {
+        'Cache-Control': 's-maxage=60, stale-while-revalidate=300',
       },
     });
   } catch (e) {
-    return NextResponse.json(
-      {
-        error: `Internal server error ${e instanceof Error ? e.message : JSON.stringify(e)}`,
-      },
-      { status: 500 },
-    );
+    const msg = e instanceof Error ? e.message : String(e);
+    return NextResponse.json({ error: `Internal server error ${msg}` }, { status: 500 });
   }
 }

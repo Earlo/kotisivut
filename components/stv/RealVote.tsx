@@ -1,8 +1,8 @@
 'use client';
-import React, { useEffect, useState } from 'react';
+import { FC, useEffect, useState } from 'react';
 import VoteForm from './VoteForm';
 
-const RealVote: React.FC = () => {
+const RealVote: FC = () => {
   const candidates = [
     { name: 'Li Andersson', imageSrc: '/stv/number_2.png', color: '#ff0000' },
     { name: 'Olli Rehn', imageSrc: '/stv/number_3.png', color: '#00ff00' },

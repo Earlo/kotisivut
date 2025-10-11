@@ -1,5 +1,5 @@
 'use client';
-import React, { useState } from 'react';
+import { FC, useState } from 'react';
 import Bar from './Bar';
 
 interface ResultGraphProps {
@@ -8,7 +8,7 @@ interface ResultGraphProps {
   depth?: number;
 }
 
-const ResultGraph: React.FC<ResultGraphProps> = ({ votes, candidates, depth = 0 }) => {
+const ResultGraph: FC<ResultGraphProps> = ({ votes, candidates, depth = 0 }) => {
   const voteCounts: { [key: string]: number } = {};
   const [showNextRound, setShowNextRound] = useState<boolean>(false);
 

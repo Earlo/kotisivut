@@ -1,6 +1,5 @@
 import { cn } from '@/lib/helpers';
 import Image from 'next/image';
-import React from 'react';
 
 interface CandidateProfileProps {
   name: string;

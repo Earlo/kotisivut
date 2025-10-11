@@ -3,14 +3,14 @@ import Text from '@/components/Text';
 import BudjettiKortti from '@/components/budjettipeli/budjettikortti';
 import EuroFormatter from '@/components/budjettipeli/euroja';
 import { useSearchParams } from 'next/navigation';
-import { useState } from 'react';
+import { FC, useState } from 'react';
 import { budjetti } from './budjetti';
 
 interface BudjettiKorttiProps {
   buduProp?: { [key: string]: number };
 }
 
-const Budjettipeli: React.FC<BudjettiKorttiProps> = ({ buduProp }) => {
+const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
   const searchParams = useSearchParams();
   const search = searchParams.get('data');
   const initialBudu = buduProp ? buduProp : { ...budjetti };
