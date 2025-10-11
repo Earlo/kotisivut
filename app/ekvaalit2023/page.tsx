@@ -38,7 +38,6 @@ const Home = () => {
       <Header />
       <section className="flex w-full flex-col items-center p-0 md:p-10">
         <Image
-          // show when mobile
           src="/ehdolla.jpg"
           className="m-5 block h-48 w-48 rounded-full md:hidden"
           width={192}
@@ -48,7 +47,6 @@ const Home = () => {
         <h2 className="text-2xl font-bold">Kuka olen?</h2>
         <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
           <Image
-            // hide when mobile
             src="/ehdolla.jpg"
             className="m-5 hidden h-48 w-48 rounded-full md:block"
             width={192}

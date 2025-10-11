@@ -1,5 +1,5 @@
 interface ListProps {
-  items: string[]; // Array of list items
+  items: string[];
 }
 
 const List: React.FC<ListProps> = ({ items }) => {

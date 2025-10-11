@@ -6,7 +6,6 @@ import { ClipboardDocumentCheckIcon, ClipboardIcon } from '@heroicons/react/20/s
 
 const CopyButton = ({ copyTarget }: { copyTarget: string }) => {
   const { copiedData, onCopy } = useClipboard();
-  //const copyTarget = parties.map((party) => party.siteInfo.email).join(', ');
   const isClipped = copiedData && copiedData === copyTarget;
 
   const copyEmails = () => {

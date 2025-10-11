@@ -4,11 +4,9 @@ import { candidates } from '../candidates';
 export const runtime = 'edge';
 
 export async function GET() {
-  // Shuffle the candidates array to randomize the order
   const shuffledCandidates = candidates.sort(() => 0.5 - Math.random());
 
-  // Define the number of rows and columns for the grid
-  const rows = 2; // You can adjust these based on the number of candidates and desired grid size
+  const rows = 2;
   const columns = Math.ceil(candidates.length / rows);
   const imageWidth = 1200 / columns;
   const imageHeight = 430 / rows;
@@ -22,7 +20,7 @@ export async function GET() {
           background: '#FFA500',
           width: '1200px',
           height: '630px',
-          position: 'relative', // Allows absolute positioning of children
+          position: 'relative',
           display: 'flex',
         }}
       >
@@ -45,7 +43,7 @@ export async function GET() {
               style={{
                 position: 'absolute',
                 left: `${column * imageWidth}px`,
-                top: `${row * imageHeight + 200}px`, // Adding 60px offset for the header
+                top: `${row * imageHeight + 200}px`,
                 width: `${imageWidth}px`,
                 height: `${imageHeight}px`,
                 display: 'flex',

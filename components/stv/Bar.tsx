@@ -2,7 +2,7 @@ interface BarProps {
   maxVotes: number;
   votes: number;
   label: string;
-  color?: string; // Optional color prop with a default value
+  color?: string;
 }
 
 const Bar: React.FC<BarProps> = ({ maxVotes, votes, label, color = '#aaaaaa' }) => {

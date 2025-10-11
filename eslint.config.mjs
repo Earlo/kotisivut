@@ -30,13 +30,11 @@ const config = [
     },
   }),
 
-  // File-specific tweaks
   {
     files: ['next-env.d.ts'],
     rules: { '@typescript-eslint/triple-slash-reference': 'off' },
   },
 
-  // Project rules
   {
     rules: {
       'react/react-in-jsx-scope': 'off',

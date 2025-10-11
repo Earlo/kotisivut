@@ -13,7 +13,7 @@ export async function GET() {
           background: '#FFA500',
           width: '1200px',
           height: '630px',
-          position: 'relative', // Allows absolute positioning of children
+          position: 'relative',
           display: 'flex',
         }}
       >

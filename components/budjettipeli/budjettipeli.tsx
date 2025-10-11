@@ -46,8 +46,8 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
 
   const Base64OfChangedPoints = () => {
     const json = JSON.stringify(changedObjects);
-    const utf8 = encodeURIComponent(json); // Encode JSON in UTF-8
-    return btoa(utf8); // Then encode it in Base64
+    const utf8 = encodeURIComponent(json);
+    return btoa(utf8);
   };
 
   const handleCopyURL = () => {
