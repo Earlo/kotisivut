@@ -1,31 +1,36 @@
+import { clientIpFromHeaders } from '@/lib/ip';
+import { supabase } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
-
-import { createClient } from '@supabase/supabase-js';
-
-const supabase = createClient(process.env.SUPABASE_URL || '', process.env.SUPABASE_KEY || '');
 
 export async function POST(request: Request) {
   try {
-    const headers = await request.headers;
-    const body = await request.json();
-    const ip = headers.get('X-Forwarded-For');
-    console.log(typeof body);
+    const headers = request.headers;
+    let body: unknown;
+    try {
+      body = await request.json();
+    } catch {
+      return NextResponse.json({ error: 'BAD_JSON' }, { status: 400 });
+    }
+    if (body == null) {
+      return NextResponse.json({ error: 'INVALID_BODY' }, { status: 400 });
+    }
+    const ip = clientIpFromHeaders(headers);
     const { data, error } = await supabase
       .from('siirtoäänet')
-      .insert([{ ip: ip, vote: body }])
+      .insert([{ ip, vote: body }])
       .select();
     if (error) {
-      console.log(error);
-      return NextResponse.json({ error: 'PostgrestError' }, { status: 500 });
+      return NextResponse.json(
+        { error: 'DB_ERROR', message: error.message, hint: error.hint ?? null },
+        { status: 500 },
+      );
     }
 
     return NextResponse.json(data, {
-      headers: {
-        'Cache-Control': 's-maxage=1, stale-while-revalidate',
-      },
+      headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate=300' },
     });
-  } catch (e) {
-    console.log(e);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+  } catch (err) {
+    const msg = err instanceof Error ? err.message : String(err);
+    return NextResponse.json({ error: 'INTERNAL_ERROR', message: msg }, { status: 500 });
   }
 }
