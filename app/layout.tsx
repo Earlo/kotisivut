@@ -41,8 +41,8 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fi" className="h-full">
+      <GoogleAnalytics gaId="G-9W2F6V6N7L" />
       <body className="flex min-h-screen flex-col items-center justify-between bg-gray-900 font-sans text-white">
-        <GoogleAnalytics gaId="G-9W2F6V6N7L" />
         <ToasterProvider>
           <header className="flex h-24 w-full items-center justify-between bg-black">
             <div className="flex grow flex-col items-start pl-2">
@@ -57,7 +57,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
             </nav>
           </header>
-          <main className="w-full flex-1">{children}</main>
+          {children}
           <Footer />
         </ToasterProvider>
       </body>
