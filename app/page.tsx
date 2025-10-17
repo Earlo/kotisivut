@@ -25,7 +25,7 @@ export default function Page() {
   };
 
   return (
-    <main className="flex flex-col items-center bg-white text-black">
+    <>
       <Script
         id="person-jsonld"
         type="application/ld+json"
@@ -76,6 +76,6 @@ export default function Page() {
         </div>
       </section>
       <Telegram />
-    </main>
+    </>
   );
 }

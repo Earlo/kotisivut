@@ -34,7 +34,7 @@ const Home = () => {
       });
   }, []);
   return (
-    <main className="flex flex-col items-center bg-white text-black">
+    <>
       <Header />
       <section className="flex w-full flex-col items-center p-0 md:p-10">
         <Image
@@ -163,7 +163,7 @@ const Home = () => {
         </a>
         <div className="mb-3 text-lg"></div>
       </footer>
-    </main>
+    </>
   );
 };
 
