@@ -6,8 +6,10 @@
     "build": "next build",
     "dev": "next dev",
     "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
     "prettier": "prettier --write .",
-    "start": "next start"
+    "start": "next start",
+    "typecheck": "tsc --noEmit"
   },
   "dependencies": {
     "@heroicons/react": "2.2.0",
@@ -46,6 +48,6 @@
     "typescript": "5.9.3"
   },
   "engines": {
-    "node": ">=18.0.0"
+    "node": ">=22.0.0"
   }
 }
