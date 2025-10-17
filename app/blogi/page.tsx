@@ -1,7 +1,7 @@
 import Text from '@/components/Text';
 import Link from 'next/link';
 
-const PartiesPage = () => {
+const BlogListing = () => {
   return (
     <div className="container mx-auto flex grow flex-col bg-black px-4 py-8">
       <h1 className="mb-4 text-3xl font-bold">Blogi</h1>
@@ -21,4 +21,4 @@ const PartiesPage = () => {
   );
 };
 
-export default PartiesPage;
+export default BlogListing;
