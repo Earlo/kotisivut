@@ -1,12 +1,12 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, type SupabaseClient } from '@supabase/supabase-js';
 
-const url = process.env.SUPABASE_URL;
-const key = process.env.SUPABASE_KEY;
+const url = process.env.SUPABASE_URL ?? '';
+const key = process.env.SUPABASE_KEY ?? '';
 
 if (!url || !key) {
-  throw new Error('Supabase env vars missing: SUPABASE_URL and SUPABASE_KEY are required');
+  throw new Error('Missing SUPABASE_URL or SUPABASE_KEY environment variable.');
 }
 
-export const supabase = createClient(url, key, {
+export const supabase: SupabaseClient = createClient(url, key, {
   auth: { persistSession: false },
 });
