@@ -1,34 +1,35 @@
-// @ts-check
-import { FlatCompat } from '@eslint/eslintrc';
+// eslint.config.mjs
 import js from '@eslint/js';
-import path from 'node:path';
-import { fileURLToPath } from 'node:url';
+import nextVitals from 'eslint-config-next/core-web-vitals';
+import importPlugin from 'eslint-plugin-import';
+import jsxA11y from 'eslint-plugin-jsx-a11y';
+import { defineConfig, globalIgnores } from 'eslint/config';
+import { configs as tseslint } from 'typescript-eslint';
 
-const __dirname = path.dirname(fileURLToPath(import.meta.url));
-const compat = new FlatCompat({ baseDirectory: __dirname });
-
-const config = [
-  { ignores: ['**/node_modules/**', '.next/**', 'dist/**', 'out/**'] },
-
+export default defineConfig([
+  globalIgnores(['**/node_modules/**', '.next/**', 'dist/**', 'out/**']),
   js.configs.recommended,
+  nextVitals,
+  ...tseslint.recommendedTypeChecked,
+  { rules: { ...importPlugin.flatConfigs.recommended.rules } },
+  { rules: { ...jsxA11y.flatConfigs.recommended.rules } },
 
-  ...compat.config({
-    extends: [
-      'next/core-web-vitals',
-      'plugin:@typescript-eslint/recommended',
-      'plugin:import/recommended',
-      'plugin:import/typescript',
-      'plugin:jsx-a11y/recommended',
-      'prettier',
-    ],
+  {
+    languageOptions: {
+      parserOptions: {
+        project: ['./tsconfig.json'],
+        tsconfigRootDir: import.meta.dirname ?? process.cwd(),
+      },
+    },
+  },
+  {
     settings: {
       'import/resolver': {
         typescript: { alwaysTryTypes: true, project: './tsconfig.json' },
         node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
       },
-      'import/parsers': { '@typescript-eslint/parser': ['.ts', '.tsx'] },
     },
-  }),
+  },
 
   {
     files: ['next-env.d.ts'],
@@ -54,6 +55,4 @@ const config = [
       '@typescript-eslint/no-unused-expressions': ['error', { allowShortCircuit: true, allowTernary: true }],
     },
   },
-];
-
-export default config;
+]);
