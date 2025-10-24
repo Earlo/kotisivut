@@ -3,7 +3,7 @@ import { candidates } from '../candidates';
 
 export const runtime = 'edge';
 
-export async function GET() {
+export function GET() {
   const shuffledCandidates = candidates.sort(() => 0.5 - Math.random());
 
   const rows = 2;

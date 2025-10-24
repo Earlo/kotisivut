@@ -2,40 +2,15 @@
 
 import CopyButton from '@/components/puolueet/CopyButton';
 import { cn } from '@/lib/helpers';
+import { Party } from '@/types/partyTable';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-type SiteInfo = {
-  id: number;
-  partyDesc: string | null;
-  partyDescSv: string | null;
-  registered: string;
-  language: string;
-  dualLanguage: boolean;
-  address: string;
-  addressAlt: string;
-  postcode: string;
-  postcodeAlt: string;
-  city: string;
-  cityAlt: string;
-  url: string;
-  urlAlt: string | null;
-  email: string;
-  emailAlt: string | null;
-  phoneNumber: string;
-};
-
-type Party = {
-  id: number;
-  name: string;
-  siteInfo: SiteInfo;
-};
-
 const fetchParties = async (): Promise<Party[]> => {
   const response = await fetch('/api/parties');
   if (!response.ok) {
     throw new Error('Failed to fetch parties');
   }
-  return response.json();
+  return (await response.json()) as Party[];
 };
 
 const PartyTable = () => {
@@ -52,7 +27,7 @@ const PartyTable = () => {
         setError((error as Error).message);
       }
     };
-    getParties();
+    void getParties();
   }, []);
 
   if (error) {

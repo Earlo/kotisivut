@@ -35,7 +35,8 @@ function parseTelegramHtml(postHtml: string): ParsedPost {
 
   const messageDate = doc.querySelector('.tgme_widget_message_date time')?.getAttribute('datetime') || undefined;
 
-  const profilePicUrl = (doc.querySelector('.tgme_widget_message_user_photo img') as HTMLImageElement | null)?.src;
+  const profilePicUrl =
+    (doc.querySelector('.tgme_widget_message_user_photo img') as HTMLImageElement)?.src || undefined;
 
   const photoWrap =
     doc.querySelector('.tgme_widget_message_photo_wrap') ||
@@ -47,11 +48,9 @@ function parseTelegramHtml(postHtml: string): ParsedPost {
 
   const viewCount = doc.querySelector('.tgme_widget_message_views')?.textContent?.trim() || undefined;
 
-  const linkPreviewAnchor = doc.querySelector(
-    '.tgme_widget_message_link_preview, .tgme_widget_message_webpage',
-  ) as HTMLAnchorElement | null;
-
-  const linkPreview = linkPreviewAnchor?.href;
+  const linkPreview =
+    (doc.querySelector('.tgme_widget_message_link_preview, .tgme_widget_message_webpage') as HTMLAnchorElement)?.href ||
+    undefined;
 
   const previewTitle =
     doc.querySelector('.link_preview_site_name, .webpage_site_name')?.textContent?.trim() || undefined;
@@ -59,7 +58,7 @@ function parseTelegramHtml(postHtml: string): ParsedPost {
   const previewDescription =
     doc.querySelector('.link_preview_description, .webpage_description')?.textContent?.trim() || undefined;
 
-  const rightImgEl = doc.querySelector('.link_preview_right_image, .webpage_right_image') as HTMLElement | null;
+  const rightImgEl = doc.querySelector('.link_preview_right_image, .webpage_right_image');
 
   const linkPreviewRightImage = extractUrlFromStyle(rightImgEl?.getAttribute('style'));
 
@@ -81,7 +80,7 @@ const TelegramPost = ({ post }: { post: string }) => {
   const parsed = useMemo(() => parseTelegramHtml(post), [post]);
 
   return (
-    <article className="mb-4 w-full max-w-2xl rounded-sm bg-gray-100 px-4 py-3 break-words shadow-sm">
+    <article className="mb-4 w-full max-w-2xl rounded-sm bg-gray-100 px-4 py-3 wrap-break-word shadow-sm">
       <div className="mb-2 flex items-center gap-2">
         {parsed.profilePicUrl ? (
           <Image className="rounded-full" src={parsed.profilePicUrl} alt={parsed.authorName} width={32} height={32} />
@@ -91,7 +90,10 @@ const TelegramPost = ({ post }: { post: string }) => {
         <p className="font-bold">{parsed.authorName}</p>
       </div>
 
-      <div className="prose prose-sm max-w-none break-words" dangerouslySetInnerHTML={{ __html: parsed.messageHtml }} />
+      <div
+        className="prose prose-sm max-w-none wrap-break-word"
+        dangerouslySetInnerHTML={{ __html: parsed.messageHtml }}
+      />
 
       {parsed.embeddedPicUrl && (
         <div className="mt-2">

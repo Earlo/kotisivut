@@ -12,7 +12,7 @@ export async function POST(request: Request) {
     const headers = request.headers;
     let body: RankingBody;
     try {
-      body = await request.json();
+      body = (await request.json()) as RankingBody;
     } catch {
       return NextResponse.json({ error: 'BAD_JSON' }, { status: 400 });
     }

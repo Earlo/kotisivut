@@ -13,22 +13,28 @@ interface BudjettiKorttiProps {
 const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
   const searchParams = useSearchParams();
   const search = searchParams.get('data');
-  const initialBudu = buduProp ? buduProp : { ...budjetti };
+  let initialBudu = buduProp ? buduProp : { ...budjetti };
 
   if (search) {
     try {
-      const decodedString = decodeURIComponent(atob(search));
-      const jsonData = JSON.parse(decodedString);
-      Object.keys(jsonData).forEach((key: string) => {
-        if (jsonData[key] !== undefined && budjetti[key] !== jsonData[key]) {
-          initialBudu[key] = jsonData[key];
+      const decoded = decodeURIComponent(atob(search));
+      const parsed = JSON.parse(decoded, (_, value) => {
+        return typeof value === 'number' && Number.isFinite(value) ? value : (value as string);
+      }) as Record<string, number>;
+
+      const merged = { ...initialBudu };
+
+      for (const [key, val] of Object.entries(parsed)) {
+        if (typeof val === 'number' && key in budjetti && budjetti[key as keyof typeof budjetti] !== val) {
+          merged[key as keyof typeof merged] = val;
         }
-      });
+      }
+
+      initialBudu = merged;
     } catch (error) {
       console.error('Failed to decode and parse query parameter:', error);
     }
   }
-
   const [budu, setBudu] = useState(initialBudu);
   const [currentIndex, setCurrentIndex] = useState(0);
   const currentItem = Object.keys(budu)[currentIndex];
@@ -92,7 +98,7 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
         const muutos = absAmount - originalAbsAmount;
         return (
           <div key={key} className="flex w-full justify-between">
-            <span>{key}:</span>
+            <span className="text-white">{key}:</span>
             <span className={`text-right ${sign * muutos > 0 ? 'text-green-500' : 'text-red-500'}`}>
               {sign === -1 && '-'}
               <EuroFormatter amount={absAmount} /> ({muutos > 0 ? '+' : '-'}

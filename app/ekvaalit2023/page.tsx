@@ -1,7 +1,7 @@
 'use client';
+import { Telegram } from '@/components/telegram';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useEffect, useState } from 'react';
 
 const Header = () => {
   return (
@@ -23,16 +23,6 @@ const Header = () => {
 };
 
 const Home = () => {
-  const [tgPosts, setTgPosts] = useState<string[]>([]);
-  useEffect(() => {
-    fetch('/api/telegram')
-      .then((res) => {
-        return res.json();
-      })
-      .then((data) => {
-        setTgPosts(data);
-      });
-  }, []);
   return (
     <>
       <Header />
@@ -136,21 +126,7 @@ const Home = () => {
         </ul>
       </section>
       {/** section with two columns, one for telegram one for twitter */}
-      <section className="flex w-full flex-row items-center justify-around p-0 md:p-10">
-        <div className="flex w-full flex-col items-center justify-center md:w-1/2">
-          <p className="mb-3 text-lg">
-            <b>
-              Telegram:{' '}
-              <Link href="https://t.me/visapollari" className="text-blue-800">
-                @VisaPollari
-              </Link>
-            </b>
-          </p>
-          {tgPosts.map((post) => (
-            <div className="w-full px-10 py-1" key={post} dangerouslySetInnerHTML={{ __html: post }} />
-          ))}
-        </div>
-      </section>
+      <Telegram />
       {/** footer */}
       <footer className="mt-4 grid w-full items-center justify-around bg-black py-10">
         <a href="https://twitter.com/VisaPollari">

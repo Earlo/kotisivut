@@ -13,9 +13,15 @@ const Page = () => {
   const [scores, setScores] = useState<ScoreState>({});
 
   useEffect(() => {
-    fetch('/api/tierlist', { method: 'GET' })
-      .then((r) => r.json())
-      .then((data: Guess[]) => setGuesses(data));
+    void (async () => {
+      try {
+        const r = await fetch('/api/tierlist');
+        const data = (await r.json()) as Guess[];
+        setGuesses(data);
+      } catch (err) {
+        console.error('Failed to fetch guesses', err);
+      }
+    })();
   }, []);
 
   const toggle = (madeBy: string, candidate: string) => {
@@ -37,7 +43,7 @@ const Page = () => {
       <Header>Eurovaalit LIB tulosveikkaus: Results</Header>
       <div className="flex max-w-[100vw] grow flex-row overflow-scroll">
         {guesses.map((guess, index) => {
-          const ranking: string[] = JSON.parse(guess.ranking);
+          const ranking = JSON.parse(guess.ranking) as string[];
           const sum = ranking.reduce<number>((acc, c) => acc + (scores[guess.made_by]?.[c] ? 1 : 0), 0);
           return (
             <div key={index} className="mb-4 ml-1 w-36 min-w-36 bg-gray-900 p-1">

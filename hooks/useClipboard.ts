@@ -6,13 +6,15 @@ export default function useClipboard() {
   const { addToast } = useToaster();
 
   useEffect(() => {
-    const handleCopy = async () => {
-      try {
-        const clipboardText = await navigator.clipboard.readText();
-        setCopiedData(clipboardText);
-      } catch {
-        setCopiedData('');
-      }
+    const handleCopy = () => {
+      void (async () => {
+        try {
+          const clipboardText = await navigator.clipboard.readText();
+          setCopiedData(clipboardText);
+        } catch {
+          setCopiedData('');
+        }
+      })();
     };
     document.addEventListener('copy', handleCopy);
     return () => {
@@ -21,7 +23,7 @@ export default function useClipboard() {
   }, []);
 
   const onCopy = (text: string) => {
-    navigator.clipboard.writeText(text).then(() => {
+    void navigator.clipboard.writeText(text).then(() => {
       setCopiedData(text);
       addToast('Copied to clipboard', 'success');
     });

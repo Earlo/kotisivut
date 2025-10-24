@@ -1,5 +1,3 @@
-// eslint.config.mjs
-import js from '@eslint/js';
 import nextVitals from 'eslint-config-next/core-web-vitals';
 import importPlugin from 'eslint-plugin-import';
 import jsxA11y from 'eslint-plugin-jsx-a11y';
@@ -7,9 +5,16 @@ import { defineConfig, globalIgnores } from 'eslint/config';
 import { configs as tseslint } from 'typescript-eslint';
 
 export default defineConfig([
-  globalIgnores(['**/node_modules/**', '.next/**', 'dist/**', 'out/**']),
-  js.configs.recommended,
-  nextVitals,
+  ...nextVitals,
+  globalIgnores([
+    '.next/**',
+    'out/**',
+    'build/**',
+    'next-env.d.ts',
+    'postcss.config.js',
+    'next.config.ts',
+    'eslint.config.mjs',
+  ]),
   ...tseslint.recommendedTypeChecked,
   { rules: { ...importPlugin.flatConfigs.recommended.rules } },
   { rules: { ...jsxA11y.flatConfigs.recommended.rules } },
@@ -21,19 +26,6 @@ export default defineConfig([
         tsconfigRootDir: import.meta.dirname ?? process.cwd(),
       },
     },
-  },
-  {
-    settings: {
-      'import/resolver': {
-        typescript: { alwaysTryTypes: true, project: './tsconfig.json' },
-        node: { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-      },
-    },
-  },
-
-  {
-    files: ['next-env.d.ts'],
-    rules: { '@typescript-eslint/triple-slash-reference': 'off' },
   },
 
   {

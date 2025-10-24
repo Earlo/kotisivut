@@ -1,3 +1,4 @@
+import { Party } from '@/types/partyTable';
 import { NextResponse } from 'next/server';
 
 export async function GET() {
@@ -9,8 +10,7 @@ export async function GET() {
     if (!res.ok) {
       return NextResponse.json({ error: 'UPSTREAM_ERROR', status: res.status }, { status: 502 });
     }
-
-    const data = await res.json();
+    const data = (await res.json()) as Party[];
     return NextResponse.json(data, {
       headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate=300' },
     });

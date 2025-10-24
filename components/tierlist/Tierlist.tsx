@@ -19,7 +19,7 @@ const TierList: FC<TierListProps> = ({ candidates }) => {
       const next = typeof updater === 'function' ? (updater as (p: string[][]) => string[][])(prev) : updater;
       if (next.length > 0) {
         const clientIp = typeof window !== 'undefined' ? window.location.hostname : 'unknown';
-        fetch('/api/tierlist', {
+        void fetch('/api/tierlist', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
