@@ -3,13 +3,31 @@ import type { NextConfig } from 'next';
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   images: {
-    domains: [
-      'web.telegram.org',
-      'cdn4.telegram-cdn.org',
-      'cdn4.cdn-telegram.org',
-      'puoluerekisteri.fi',
-      'liberaalipuolue.fi',
-      'cdn4.telesco.pe',
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'web.telegram.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn4.telegram-cdn.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn4.cdn-telegram.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'puoluerekisteri.fi',
+      },
+      {
+        protocol: 'https',
+        hostname: 'liberaalipuolue.fi',
+      },
+      {
+        protocol: 'https',
+        hostname: 'cdn4.telesco.pe',
+      },
     ],
   },
   async headers() {
@@ -31,4 +49,4 @@ const nextConfig: NextConfig = {
   },
 };
 
-module.exports = nextConfig;
+export default nextConfig;
