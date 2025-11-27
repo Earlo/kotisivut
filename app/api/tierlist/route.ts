@@ -26,7 +26,7 @@ export async function POST(request: Request) {
     const { data, error } = await supabase
       .from('rankings')
       .insert([{ ip, ranking: body.ranking, made_by: body.name ?? null }])
-      .select();
+      .select('id, made_by, ranking, created_at');
     if (error) {
       return NextResponse.json(
         { error: 'DB_ERROR', message: error.message, hint: error.hint ?? null },
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    const { data, error } = await supabase.from('rankings').select();
+    const { data, error } = await supabase.from('rankings').select('id, made_by, ranking, created_at');
     if (error) {
       return NextResponse.json(
         { error: 'DB_ERROR', message: error.message, hint: error.hint ?? null },
