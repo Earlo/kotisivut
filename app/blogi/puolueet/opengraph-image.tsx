@@ -1,7 +1,14 @@
 import { ImageResponse } from 'next/og';
 export const runtime = 'edge';
 
-export function GET() {
+export const size = {
+  width: 1200,
+  height: 630,
+};
+
+export const contentType = 'image/png';
+
+export default function Image() {
   return new ImageResponse(
     <div
       style={{
@@ -19,9 +26,6 @@ export function GET() {
       <h1>Suomen puolueet</h1>
       <p>puolueiden yhteystiedot kätevästi!</p>
     </div>,
-    {
-      width: 1200,
-      height: 630,
-    },
+    size,
   );
 }
