@@ -76,7 +76,7 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
           : `Budjetissasi on alijäämää, eli valtionvelka kasvaa `}
         <EuroFormatter amount={Math.abs(total)} />
       </Text>
-      <div className="relative mt-6 flex w-[94%] max-w-[600px]">
+      <div className="relative mt-6 flex w-[94%] max-w-150">
         <div className="relative m-0 flex h-0 w-full pb-[100%]">
           <BudjettiKortti
             className="top-0 left-0 z-100"

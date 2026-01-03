@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Kokeile kuinka hallitset Suomen valtion budjettia ja tee päätöksiä.',
     images: [
       {
-        url: 'https://visapollari.fi/budjettipeli/og-image.jpg',
+        url: 'https://visapollari.fi/budjettipeli/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Budjettipeli esikatselukuva',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary',
     site: '@visapollari',
     creator: '@visapollari',
-    images: 'https://visapollari.fi/budjettipeli/og-image.jpg',
+    images: 'https://visapollari.fi/budjettipeli/opengraph-image',
     description: 'Tutustu Suomen valtion budjetin suunnitteluun uudella interaktiivisella työkalulla.',
   },
 };

@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     description: 'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
     images: [
       {
-        url: 'https://visapollari.fi/blogi/puolueet/og-image.jpg',
+        url: 'https://visapollari.fi/blogi/puolueet/opengraph-image.jpg',
         width: 1200,
         height: 630,
         alt: 'Rekisteröityneet puolueet esikatselukuva',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     card: 'summary',
     site: '@visapollari',
     creator: '@visapollari',
-    images: 'https://visapollari.fi/blogi/puolueet/og-image.jpg',
+    images: 'https://visapollari.fi/blogi/puolueet/opengraph-image.jpg',
     description: 'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
   },
 };

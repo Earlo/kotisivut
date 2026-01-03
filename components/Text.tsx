@@ -1,4 +1,3 @@
-//components/Text.tsx
 import { cn } from '@/lib/helpers';
 interface TextProps {
   children: React.ReactNode;

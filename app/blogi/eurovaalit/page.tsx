@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     description: 'Veikkaa Liberaalin listan järjestystä ja voita mainetta ja kunniaa.',
     images: [
       {
-        url: 'https://visapollari.fi/blogi/eurovaalit/og-image',
+        url: 'https://visapollari.fi/blogi/eurovaalit/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Eurovaalit LIB tulosveikkaus esikatselukuva',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
     card: 'summary',
     site: '@visapollari',
     creator: '@visapollari',
-    images: 'https://visapollari.fi/blogi/eurovaalit/og-image',
+    images: 'https://visapollari.fi/blogi/eurovaalit/opengraph-image',
     description: 'Veikkaa Liberaalin listan järjestystä ja voita mainetta ja kunniaa.',
   },
 };

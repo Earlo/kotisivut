@@ -1,4 +1,3 @@
-//components/BlogHeader.tsx
 interface HeaderProps {
   children: React.ReactNode;
 }

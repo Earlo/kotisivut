@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',
     images: [
       {
-        url: 'https://visapollari.fi/blogi/tuotantofutuuri/og-image',
+        url: 'https://visapollari.fi/blogi/tuotantofutuuri/opengraph-image',
         width: 1200,
         height: 630,
         alt: 'Tuotantofutuurimalli esikatselukuva',
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     card: 'summary',
     site: '@visapollari',
     creator: '@visapollari',
-    images: 'https://visapollari.fi/blogi/tuotantofutuuri/og-image',
+    images: 'https://visapollari.fi/blogi/tuotantofutuuri/opengraph-image',
     description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',
   },
 };
