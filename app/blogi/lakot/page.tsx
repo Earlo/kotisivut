@@ -3,6 +3,13 @@ import List from '@/components/List';
 import Subheader from '@/components/Subheader';
 import Text from '@/components/Text';
 import Image from 'next/image';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Lakot ja metariita',
+  description: 'Pohdintaa poliittisten lakkojen säätelystä ja vaikutuksista.',
+  alternates: { canonical: '/blogi/lakot' },
+};
 
 const Page = () => {
   return (

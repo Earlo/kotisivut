@@ -7,6 +7,7 @@ import { candidates } from './candidates';
 export const metadata: Metadata = {
   title: 'Eurovaalit LIB tulosveikkaus',
   description: 'Veikkaa Liberaalin listan järjestystä ja voita mainetta ja kunniaa.',
+  alternates: { canonical: '/blogi/eurovaalit' },
   openGraph: {
     title: 'Eurovaalit LIB tulosveikkaus',
     description: 'Veikkaa Liberaalin listan järjestystä ja voita mainetta ja kunniaa.',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://visapollari.fi/blogi/eurovaalit',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     site: '@visapollari',
     creator: '@visapollari',
     images: 'https://visapollari.fi/blogi/eurovaalit/opengraph-image',

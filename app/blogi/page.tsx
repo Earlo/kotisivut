@@ -1,5 +1,12 @@
 import Text from '@/components/Text';
 import Link from 'next/link';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Blogi | Visa Pollari',
+  description: 'Visa Pollarin blogi: kirjoituksia ja kokeiluja politiikasta ja teknologiasta.',
+  alternates: { canonical: '/blogi' },
+};
 
 const BlogListing = () => {
   return (

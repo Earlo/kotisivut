@@ -5,6 +5,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Tuotantofutuurimalli',
   description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',
+  alternates: { canonical: '/blogi/tuotantofutuuri' },
   openGraph: {
     title: 'Tuotantofutuurimalli',
     description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
     url: 'https://visapollari.fi/blogi/tuotantofutuuri',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     site: '@visapollari',
     creator: '@visapollari',
     images: 'https://visapollari.fi/blogi/tuotantofutuuri/opengraph-image',

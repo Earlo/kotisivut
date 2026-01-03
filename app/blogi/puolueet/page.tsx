@@ -6,6 +6,7 @@ import type { Metadata } from 'next';
 export const metadata: Metadata = {
   title: 'Rekisteröityneet puolueet - Yhteystiedot',
   description: 'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
+  alternates: { canonical: '/blogi/puolueet' },
   openGraph: {
     title: 'Rekisteröityneet puolueet - Yhteystiedot',
     description: 'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     url: 'https://visapollari.fi/blogi/puolueet',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     site: '@visapollari',
     creator: '@visapollari',
     images: 'https://visapollari.fi/blogi/puolueet/opengraph-image',

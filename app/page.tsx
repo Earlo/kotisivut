@@ -2,6 +2,13 @@ import { Telegram } from '@/components/telegram';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
+import type { Metadata } from 'next';
+
+export const metadata: Metadata = {
+  title: 'Visa Pollari',
+  description: 'Ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika kahville tai soita.',
+  alternates: { canonical: '/' },
+};
 
 export default function Page() {
   const phone = '+358456350724';

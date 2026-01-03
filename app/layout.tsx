@@ -12,7 +12,6 @@ export const metadata: Metadata = {
     template: '%s | Visa Pollari',
   },
   description: 'Visa Pollari – ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika kahville tai soita.',
-  alternates: { canonical: '/' },
   openGraph: {
     title: 'Visa Pollari',
     description: 'Ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika tai soita.',
@@ -50,7 +49,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               className="flex flex-col pl-2 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
               aria-label="Etusivu"
             >
-              <h1 className="text-2xl leading-tight font-bold">Visa Pollari</h1>
+              <span className="text-2xl leading-tight font-bold">Visa Pollari</span>
               <p className="font-bold text-white/70">Tärkeintä on osallistuminen</p>
             </Link>
             <Link

@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Budjettipeli - Säädä budjettiasi',
   description:
     'Tee päätökset ja suunnittele valtion budjetti käyttäen tarkempaa ja kattavampaa työkalua kuin koskaan ennen.',
+  alternates: { canonical: '/budjettipeli' },
   openGraph: {
     title: 'Budjettipeli - Interaktiivinen Budjetin Suunnittelutyökalu',
     description: 'Kokeile kuinka hallitset Suomen valtion budjettia ja tee päätöksiä.',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     url: 'https://visapollari.fi/budjettipeli',
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     site: '@visapollari',
     creator: '@visapollari',
     images: 'https://visapollari.fi/budjettipeli/opengraph-image',
