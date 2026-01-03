@@ -15,7 +15,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'INVALID_BODY' }, { status: 400 });
     }
     const ip = clientIpFromHeaders(headers);
-    const { data, error } = await supabase
+    const { data, error } = await supabase()
       .from('siirtoäänet')
       .insert([{ ip, vote: body }])
       .select();

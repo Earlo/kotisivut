@@ -23,7 +23,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: 'MISSING_FIELD', field: 'ranking' }, { status: 400 });
     }
     const ip = clientIpFromHeaders(headers);
-    const { data, error } = await supabase
+    const { data, error } = await supabase()
       .from('rankings')
       .insert([{ ip, ranking: body.ranking, made_by: body.name ?? null }])
       .select('id, made_by, ranking, created_at');
@@ -45,7 +45,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    const { data, error } = await supabase.from('rankings').select('id, made_by, ranking, created_at');
+    const { data, error } = await supabase().from('rankings').select('id, made_by, ranking, created_at');
     if (error) {
       return NextResponse.json(
         { error: 'DB_ERROR', message: error.message, hint: error.hint ?? null },

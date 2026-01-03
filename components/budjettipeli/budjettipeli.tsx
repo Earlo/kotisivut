@@ -57,7 +57,8 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
   };
 
   const handleCopyURL = () => {
-    const url = `${window.location.origin}${window.location.pathname}?data=${Base64OfChangedPoints()}`;
+    const token = encodeURIComponent(Base64OfChangedPoints());
+    const url = `${window.location.origin}${window.location.pathname}?data=${token}`;
     navigator.clipboard
       .writeText(url)
       .then(() => alert('URL copied to clipboard!'))
