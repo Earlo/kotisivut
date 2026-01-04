@@ -7,6 +7,7 @@ export const metadata: Metadata = {
   title: 'Tuotantofutuurimalli',
   description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',
   alternates: { canonical: '/blogi/tuotantofutuuri' },
+  robots: { index: false, follow: true },
   openGraph: {
     title: 'Tuotantofutuurimalli',
     description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',

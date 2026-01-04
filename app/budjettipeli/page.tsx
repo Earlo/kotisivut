@@ -42,6 +42,14 @@ const Page = () => {
     description: metadata.description,
     url: 'https://visapollari.fi/budjettipeli',
   };
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Etusivu', item: 'https://visapollari.fi/' },
+      { '@type': 'ListItem', position: 2, name: 'Budjettipeli', item: 'https://visapollari.fi/budjettipeli' },
+    ],
+  };
 
   return (
     <div className="max-w-8xl mx-auto flex flex-col items-center bg-gray-950 p-4">
@@ -49,6 +57,11 @@ const Page = () => {
         id="budjettipeli-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
+      />
+      <Script
+        id="budjettipeli-breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article className="w-full max-w-5xl" aria-labelledby="budjettipeli-heading">
         <Header>
