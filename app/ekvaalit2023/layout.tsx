@@ -9,13 +9,15 @@ export const metadata: Metadata = {
     description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
     url: 'https://visapollari.fi/ekvaalit2023',
     type: 'website',
-    images: [{ url: 'https://visapollari.fi/ehdolla.jpg', width: 1200, height: 630, alt: 'Visa Pollari' }],
+    images: [
+      { url: 'https://visapollari.fi/ekvaalit2023/opengraph-image', width: 1200, height: 630, alt: 'Visa Pollari' },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@visapollari',
     creator: '@visapollari',
-    images: ['https://visapollari.fi/ehdolla.jpg'],
+    images: ['https://visapollari.fi/ekvaalit2023/opengraph-image'],
     description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
   },
 };

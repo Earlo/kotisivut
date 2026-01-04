@@ -9,12 +9,14 @@ export const metadata: Metadata = {
     description: 'Kokeile siirtoäänivaalia interaktiivisella työkalulla.',
     url: 'https://visapollari.fi/blogi/stv',
     type: 'website',
+    images: [{ url: 'https://visapollari.fi/blogi/stv/opengraph-image', width: 1200, height: 630 }],
   },
   twitter: {
-    card: 'summary',
+    card: 'summary_large_image',
     site: '@visapollari',
     creator: '@visapollari',
     description: 'Kokeile siirtoäänivaalia interaktiivisella työkalulla.',
+    images: ['https://visapollari.fi/blogi/stv/opengraph-image'],
   },
 };
 

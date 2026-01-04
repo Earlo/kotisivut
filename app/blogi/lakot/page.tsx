@@ -10,6 +10,21 @@ export const metadata: Metadata = {
   title: 'Lakot ja metariita',
   description: 'Pohdintaa poliittisten lakkojen säätelystä ja vaikutuksista.',
   alternates: { canonical: '/blogi/lakot' },
+  robots: { index: false, follow: true },
+  openGraph: {
+    title: 'Lakot ja metariita',
+    description: 'Pohdintaa poliittisten lakkojen säätelystä ja vaikutuksista.',
+    url: 'https://visapollari.fi/blogi/lakot',
+    type: 'article',
+    images: [{ url: 'https://visapollari.fi/blogi/lakot/opengraph-image', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@visapollari',
+    creator: '@visapollari',
+    images: ['https://visapollari.fi/blogi/lakot/opengraph-image'],
+    description: 'Pohdintaa poliittisten lakkojen säätelystä ja vaikutuksista.',
+  },
 };
 
 const Page = () => {
@@ -62,7 +77,12 @@ const Page = () => {
           vaikealta lailta säätää ja valvoa. En usko että tällaisien ajatusrikosten pohtiminen tai
           ajatusrikoslainsäädännön kiertäminen tulee olemaan yhteiskunnalle hirveän hyödyllistä puuhaa. Toisaalta jopa
           Github Copilot tarjosi tähän kirjoitukseen tällaista määritelmää lakoille:
-          <Image src="/CopilotLakko.png" alt="Lakko" width={500} height={500} />
+          <Image
+            src="/CopilotLakko.png"
+            alt="Kuvakaappaus GitHub Copilotin tarjoamasta lakon määritelmästä"
+            width={500}
+            height={500}
+          />
           Jonka alle hallitukseen kohdistunut lakko ei millään tavalla sovi.
         </Text>
         <Text>

@@ -2,6 +2,7 @@
 import { Telegram } from '@/components/telegram';
 import Image from 'next/image';
 import Link from 'next/link';
+import Script from 'next/script';
 
 const Header = () => {
   return (
@@ -15,116 +16,155 @@ const Header = () => {
         src="/lib-logo-1-fin.png"
         width={500}
         height={150}
-        alt="logo"
+        alt="Liberaalipuolueen logo"
       />
-      <Image className="mr-4 flex h-3/5 w-auto md:hidden" src="/libLogo.png" width={256} height={256} alt="logo" />
+      <Image
+        className="mr-4 flex h-3/5 w-auto md:hidden"
+        src="/libLogo.png"
+        width={256}
+        height={256}
+        alt="Liberaalipuolueen logo"
+      />
     </section>
   );
 };
 
 const Home = () => {
+  const articleJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: 'Eduskuntavaalit 2023 - Visa Pollari',
+    description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
+    author: { '@type': 'Person', name: 'Visa Pollari' },
+    mainEntityOfPage: 'https://visapollari.fi/ekvaalit2023',
+  };
+
+  const breadcrumbJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Etusivu', item: 'https://visapollari.fi/' },
+      { '@type': 'ListItem', position: 2, name: 'Eduskuntavaalit 2023', item: 'https://visapollari.fi/ekvaalit2023' },
+    ],
+  };
+
   return (
     <>
+      <Script
+        id="ekvaalit2023-article-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
+      <Script
+        id="ekvaalit2023-breadcrumb-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <Header />
-      <section className="flex w-full flex-col items-center p-0 md:p-10">
-        <Image
-          src="/ehdolla.jpg"
-          className="m-5 block h-48 w-48 rounded-full md:hidden"
-          width={192}
-          height={192}
-          alt="Visa Pollari"
-        />
-        <h2 className="text-2xl font-bold">Kuka olen?</h2>
-        <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
+      <article aria-labelledby="ekvaalit2023-heading">
+        <section className="flex w-full flex-col items-center p-0 md:p-10">
           <Image
             src="/ehdolla.jpg"
-            className="m-5 hidden h-48 w-48 rounded-full md:block"
+            className="m-5 block h-48 w-48 rounded-full md:hidden"
             width={192}
             height={192}
             alt="Visa Pollari"
           />
-          <p className="text-lg">
-            Visa Pollari, ohjelmistokehittäjä, yhdistysaktiivi, ja teekkari Espoosta.
-            <br />
-            Opiskelen töitteni ohella tietototekniikkaa Aalto-yliopistossa, ja toiminut laajasti yliopistoa ympäröivässä
-            yhdistys- ja yhteisökentässä. Tämä on tietyllä tavalla ollut myös yhteiskunnallisen heräämiseni kipinä.
-            Upeat projektit ja hankkeeet joita olen nähnyt ihmisten ympärilläni tekevän ja joita olen päässyt itse
-            tekemään, on luonut uskoa siihen, että ihmisillä voi todella olla omistajuus heitä ympäröivästä maailmasta,
-            <br />
-            Vapaa-aikani kuluu suurelta osin erinäisten projektiluontoisten harrastusten parissa, tapahtumia järjestäen,
-            ohjelmoiden, tai milloin mitäkin. Nautin suuresti filosofisista keskusteluista, sekä leipomisesta.
-            Lenkkeilen säännöllisen epäsäännöllisesti.
-            <br />
-            Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä. Mennään vaikka kahville.{' '}
-            <Link href="https://cal.com/visap/30min" className="text-blue-500">
-              Varaa aika
-            </Link>
-          </p>
-        </div>
-      </section>
-      <section className="flex w-full flex-col items-center p-0 md:p-10">
-        <h2 className="text-2xl font-bold">Miksi olen ehdolla?</h2>
-        <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
-          <p className="text-lg">
-            Olen aktiivisesti seurannut suomen politiikkaa viimeiset 10 vuotta ja olen tietyillä tasoilla turhautunut
-            siihen kuinka politiikkaa tehdään, ja erityisesti kuinka yhteiskunnallista keskustelua käydään.
-            <br />
-            Vaikka en olekaan täysin samaa mieltä kaikista Liberaalipuolueen puolueohjelman tai vaihtoehtobudjetin
-            kohdista, niin itselleni se on vaikuttanut ensimmäiseltä kokonaisvaltaiselta visiolta siitä, mikä valtion
-            rooli on yhteiskunnassa. Valtapuolueet eivät ole kyenneet samalla tavalla tarjoamaan visiota siitä mikä on
-            valtion rooli yhteiskunnassa, vaan monelta osin ottavat nykytilanteen jonain ennalta-annettuna totuutena, ja
-            pyrkivät hiomaan sitä haluamaansa muotoon.
-            <br />
-            <i>
-              Muiden puolueiden etsiessä siis lokaalia maksimia, koen että Liberaalipuolueen tähtäimessä globaali
-              maksimi.
-            </i>
-          </p>
-        </div>
-      </section>
-
-      <section className="flex w-full flex-col items-center p-4 md:p-10">
-        <h2 className="text-2xl font-bold">Tavoitteeni politiikassa</h2>
-        <ul className="list-disc pl-5">
-          <div className="mb-3 text-lg">
-            <p>
-              <b>
-                1. Puolueen vaalikampanjan mukaisesi:{' '}
-                <Link href="https://liberaalipuolue.fi/leikattavaaloytyy" className="text-blue-800">
-                  #Leikattavaalöytyy
-                </Link>
-              </b>
+          <h2 id="ekvaalit2023-heading" className="text-2xl font-bold">
+            Kuka olen?
+          </h2>
+          <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
+            <Image
+              src="/ehdolla.jpg"
+              className="m-5 hidden h-48 w-48 rounded-full md:block"
+              width={192}
+              height={192}
+              alt="Visa Pollari"
+            />
+            <p className="text-lg">
+              Visa Pollari, ohjelmistokehittäjä, yhdistysaktiivi, ja teekkari Espoosta.
               <br />
-              Vaikka en uskokaan että vuoden 2024 budjetti tulee vastaamaan liberaalipuolueen varjobudjettia, tai
-              allekirjoita aivan jokaista leikkauskohdetta, on se kuitenkin hyvä rima asettaa. <br />
-              Euromäärien sijaan omasta mielestäni leikkauslistan pointti on käydä keskustelua siitä, mitkä valtion
-              tehtävät ovat oikeasti välttämättömiä jotta yhteiskunta sen ympärillä voi toimia
+              Opiskelen töitteni ohella tietototekniikkaa Aalto-yliopistossa, ja toiminut laajasti yliopistoa
+              ympäröivässä yhdistys- ja yhteisökentässä. Tämä on tietyllä tavalla ollut myös yhteiskunnallisen
+              heräämiseni kipinä. Upeat projektit ja hankkeeet joita olen nähnyt ihmisten ympärilläni tekevän ja joita
+              olen päässyt itse tekemään, on luonut uskoa siihen, että ihmisillä voi todella olla omistajuus heitä
+              ympäröivästä maailmasta,
+              <br />
+              Vapaa-aikani kuluu suurelta osin erinäisten projektiluontoisten harrastusten parissa, tapahtumia
+              järjestäen, ohjelmoiden, tai milloin mitäkin. Nautin suuresti filosofisista keskusteluista, sekä
+              leipomisesta. Lenkkeilen säännöllisen epäsäännöllisesti.
+              <br />
+              Haluatko tutustua minuun paremmin? Varaa aika oheisesta linkistä. Mennään vaikka kahville.{' '}
+              <Link href="https://cal.com/visap/30min" className="text-blue-500">
+                Varaa aika
+              </Link>
             </p>
           </div>
-          <div className="mb-3 text-lg">
-            <p>
-              <b>2. Sääntelyn keventäminen ja lainsäädännön yksinkertaistaminen</b>
+        </section>
+        <section className="flex w-full flex-col items-center p-0 md:p-10">
+          <h2 className="text-2xl font-bold">Miksi olen ehdolla?</h2>
+          <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
+            <p className="text-lg">
+              Olen aktiivisesti seurannut suomen politiikkaa viimeiset 10 vuotta ja olen tietyillä tasoilla turhautunut
+              siihen kuinka politiikkaa tehdään, ja erityisesti kuinka yhteiskunnallista keskustelua käydään.
+              <br />
+              Vaikka en olekaan täysin samaa mieltä kaikista Liberaalipuolueen puolueohjelman tai vaihtoehtobudjetin
+              kohdista, niin itselleni se on vaikuttanut ensimmäiseltä kokonaisvaltaiselta visiolta siitä, mikä valtion
+              rooli on yhteiskunnassa. Valtapuolueet eivät ole kyenneet samalla tavalla tarjoamaan visiota siitä mikä on
+              valtion rooli yhteiskunnassa, vaan monelta osin ottavat nykytilanteen jonain ennalta-annettuna totuutena,
+              ja pyrkivät hiomaan sitä haluamaansa muotoon.
+              <br />
+              <i>
+                Muiden puolueiden etsiessä siis lokaalia maksimia, koen että Liberaalipuolueen tähtäimessä globaali
+                maksimi.
+              </i>
             </p>
-            Valtio on liian suuri ja liian monipuolinen toimija, ja se näännyttää itse itseään laajenemalla liian
-            usealle sektorille. Lista asioista joita tulisi laillistaa tai valvoa vähemmän on mittava. Joukkorahoitus,
-            alkoholin anniskelu, dyykkaaminen, kannabis, jumalanpilkka, sähköpyörät, juridinen sukupuoli, ja niin
-            edelleen ovat kaikki asioita joiden syynäämiseen valtion tulisi käyttää huomattavasti vähemmän resursseja.
           </div>
-          <div className="mb-3 text-lg">
-            <p>
-              <b>3. Yhteiskunnan rakenne ja poliittinen järjestelmä</b>
-            </p>
-            Nykyinen poliittinen järjestelmä edistää vallan keskittymistä puolueille. Suomen tulisi poistaa vaalipiirit
-            ja siirtyä siirtoäänijärjestelmään. Eduskunta-, Alue-, sekä kuntavaalit voitaisiin yhdistää yksiksi
-            vaaleiksi, jolloin tilanteet jossa poliitikko päätyy useaan pestiin samanaikaisesti olisi harvinaisempaa.
-            Yhdistetyt vaalit antaisivat myös poliitikoille mahdollisuuden keskittyä hallinnollisiin tehtäviin,
-            vaalityön sijasta. <br />
-            Puoluetukea tulisi vähentää, ja kansanedustajien sopeutumisrahan kaltaiset välineitä jotka kannustavat
-            ammattipoliitikon uraan tulisi poistaa. Valtion rahoitus 3. sektorin järjestöille, ajatuspajoille, tai
-            muille ulkoisille organisaatiolle tulisi lopettaa.
-          </div>
-        </ul>
-      </section>
+        </section>
+
+        <section className="flex w-full flex-col items-center p-4 md:p-10">
+          <h2 className="text-2xl font-bold">Tavoitteeni politiikassa</h2>
+          <ul className="list-disc pl-5">
+            <div className="mb-3 text-lg">
+              <p>
+                <b>
+                  1. Puolueen vaalikampanjan mukaisesi:{' '}
+                  <Link href="https://liberaalipuolue.fi/leikattavaaloytyy" className="text-blue-800">
+                    #Leikattavaalöytyy
+                  </Link>
+                </b>
+                <br />
+                Vaikka en uskokaan että vuoden 2024 budjetti tulee vastaamaan liberaalipuolueen varjobudjettia, tai
+                allekirjoita aivan jokaista leikkauskohdetta, on se kuitenkin hyvä rima asettaa. <br />
+                Euromäärien sijaan omasta mielestäni leikkauslistan pointti on käydä keskustelua siitä, mitkä valtion
+                tehtävät ovat oikeasti välttämättömiä jotta yhteiskunta sen ympärillä voi toimia
+              </p>
+            </div>
+            <div className="mb-3 text-lg">
+              <p>
+                <b>2. Sääntelyn keventäminen ja lainsäädännön yksinkertaistaminen</b>
+              </p>
+              Valtio on liian suuri ja liian monipuolinen toimija, ja se näännyttää itse itseään laajenemalla liian
+              usealle sektorille. Lista asioista joita tulisi laillistaa tai valvoa vähemmän on mittava. Joukkorahoitus,
+              alkoholin anniskelu, dyykkaaminen, kannabis, jumalanpilkka, sähköpyörät, juridinen sukupuoli, ja niin
+              edelleen ovat kaikki asioita joiden syynäämiseen valtion tulisi käyttää huomattavasti vähemmän resursseja.
+            </div>
+            <div className="mb-3 text-lg">
+              <p>
+                <b>3. Yhteiskunnan rakenne ja poliittinen järjestelmä</b>
+              </p>
+              Nykyinen poliittinen järjestelmä edistää vallan keskittymistä puolueille. Suomen tulisi poistaa
+              vaalipiirit ja siirtyä siirtoäänijärjestelmään. Eduskunta-, Alue-, sekä kuntavaalit voitaisiin yhdistää
+              yksiksi vaaleiksi, jolloin tilanteet jossa poliitikko päätyy useaan pestiin samanaikaisesti olisi
+              harvinaisempaa. Yhdistetyt vaalit antaisivat myös poliitikoille mahdollisuuden keskittyä hallinnollisiin
+              tehtäviin, vaalityön sijasta. <br />
+              Puoluetukea tulisi vähentää, ja kansanedustajien sopeutumisrahan kaltaiset välineitä jotka kannustavat
+              ammattipoliitikon uraan tulisi poistaa. Valtion rahoitus 3. sektorin järjestöille, ajatuspajoille, tai
+              muille ulkoisille organisaatiolle tulisi lopettaa.
+            </div>
+          </ul>
+        </section>
+      </article>
       {/** section with two columns, one for telegram one for twitter */}
       <Telegram />
       {/** footer */}
