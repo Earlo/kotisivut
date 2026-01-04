@@ -1,6 +1,7 @@
 import Header from '@/components/BlogHeader';
 import Budjettipeli from '@/components/budjettipeli/budjettipeli';
 import type { Metadata } from 'next';
+import Script from 'next/script';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -32,12 +33,31 @@ export const metadata: Metadata = {
 };
 
 const Page = () => {
+  const toolJsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'SoftwareApplication',
+    name: 'Budjettipeli',
+    operatingSystem: 'Web',
+    applicationCategory: 'ProductivityApplication',
+    description: metadata.description,
+    url: 'https://visapollari.fi/budjettipeli',
+  };
+
   return (
     <div className="max-w-8xl mx-auto flex flex-col items-center bg-gray-950 p-4">
-      <Header>Budjettipeli</Header>
-      <Suspense>
-        <Budjettipeli />
-      </Suspense>
+      <Script
+        id="budjettipeli-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
+      />
+      <article className="w-full max-w-5xl" aria-labelledby="budjettipeli-heading">
+        <Header>
+          <span id="budjettipeli-heading">Budjettipeli</span>
+        </Header>
+        <Suspense>
+          <Budjettipeli />
+        </Suspense>
+      </article>
     </div>
   );
 };

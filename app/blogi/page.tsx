@@ -1,6 +1,6 @@
 import Text from '@/components/Text';
-import Link from 'next/link';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 
 export const metadata: Metadata = {
   title: 'Blogi | Visa Pollari',

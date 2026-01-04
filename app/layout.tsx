@@ -44,20 +44,22 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body className="flex min-h-screen flex-col items-center justify-between bg-gray-900 font-sans text-white">
         <ToasterProvider>
           <header className="flex h-24 w-full items-center justify-between border-b border-white/10 bg-black">
-            <Link
-              href="/"
-              className="flex flex-col pl-2 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-              aria-label="Etusivu"
-            >
-              <span className="text-2xl leading-tight font-bold">Visa Pollari</span>
-              <p className="font-bold text-white/70">Tärkeintä on osallistuminen</p>
-            </Link>
-            <Link
-              href="/blogi"
-              className="pr-6 text-2xl font-bold hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
-            >
-              Blogitekstejä
-            </Link>
+            <nav className="flex w-full items-center justify-between" aria-label="Päävalikko">
+              <Link
+                href="/"
+                className="flex flex-col pl-2 hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+                aria-label="Etusivu"
+              >
+                <span className="text-2xl leading-tight font-bold">Visa Pollari</span>
+                <p className="font-bold text-white/70">Tärkeintä on osallistuminen</p>
+              </Link>
+              <Link
+                href="/blogi"
+                className="pr-6 text-2xl font-bold hover:opacity-80 focus:outline-none focus-visible:ring-2 focus-visible:ring-white/40"
+              >
+                Blogitekstejä
+              </Link>
+            </nav>
           </header>
           <main className="w-full flex-1 flex-col items-center bg-white text-black">{children}</main>
           <Footer />

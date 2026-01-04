@@ -143,14 +143,16 @@ const TelegramPost = ({ post }: { post: string }) => {
   );
 };
 
-export const Telegram = () => {
-  const [tgPosts, setTgPosts] = useState<string[]>([]);
+export const Telegram = ({ initialPosts = [] }: { initialPosts?: string[] }) => {
+  const [tgPosts, setTgPosts] = useState<string[]>(initialPosts);
 
   useEffect(() => {
-    fetch('/api/telegram')
+    fetch('/api/telegram', { cache: 'no-store' })
       .then((res) => res.json())
       .then((data: string[]) => setTgPosts(data.slice(-5).reverse()))
-      .catch(() => setTgPosts([]));
+      .catch(() => {
+        // keep whatever we already had on failure
+      });
   }, []);
 
   if (!tgPosts.length) return null;

@@ -1,8 +1,8 @@
 import { Telegram } from '@/components/telegram';
+import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
 import Script from 'next/script';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Visa Pollari',
@@ -10,9 +10,22 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
 
-export default function Page() {
+async function fetchTelegramPosts() {
+  const baseUrl = process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : 'http://localhost:3000';
+  try {
+    const res = await fetch(`${baseUrl}/api/telegram`, { cache: 'no-store' });
+    if (!res.ok) return [];
+    const data = (await res.json()) as string[];
+    return data.slice(-5).reverse();
+  } catch {
+    return [];
+  }
+}
+
+export default async function Page() {
   const phone = '+358456350724';
   const calUrl = 'https://cal.com/visap/30min';
+  const tgPosts = await fetchTelegramPosts();
 
   const orgJsonLd = {
     '@context': 'https://schema.org',
@@ -82,7 +95,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-      <Telegram />
+      <Telegram initialPosts={tgPosts} />
     </>
   );
 }
