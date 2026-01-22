@@ -33,25 +33,28 @@ const BlogListing = () => {
   };
 
   return (
-    <div className="container mx-auto flex grow flex-col bg-black px-4 py-8">
+    <div className="flex w-full flex-1 flex-col bg-black text-white">
       <Script
         id="blog-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <article aria-labelledby="blog-heading">
+      <article
+        aria-labelledby="blog-heading"
+        className="mx-auto flex w-full max-w-5xl flex-col px-4 py-8"
+      >
         <h1 id="blog-heading" className="mb-4 text-3xl font-bold">
           Blogi
         </h1>
         <Text>Tässä muutamia kirjoittamiani tekstejä tai muita virtuaalisyhteiskunnallisia kokemuksia:</Text>
         <div className="flex flex-col space-y-2">
-          <Link href="/blogi/puolueet" className="text-blue-500 hover:text-blue-700">
+          <Link href="/blogi/puolueet" className="text-blue-400 hover:text-blue-300">
             Puolueet
           </Link>
-          <Link href="/blogi/stv" className="text-blue-500 hover:text-blue-700">
+          <Link href="/blogi/stv" className="text-blue-400 hover:text-blue-300">
             STV
           </Link>
-          <Link href="/budjettipeli" className="text-blue-500 hover:text-blue-700">
+          <Link href="/budjettipeli" className="text-blue-400 hover:text-blue-300">
             Budjettipeli
           </Link>
         </div>

@@ -26,6 +26,20 @@ function extractUrlFromStyle(style?: string | null): string | undefined {
 }
 
 function parseTelegramHtml(postHtml: string): ParsedPost {
+  if (typeof window === 'undefined' || typeof DOMParser === 'undefined') {
+    return {
+      authorName: 'Telegram',
+      messageHtml: '',
+      messageDate: undefined,
+      profilePicUrl: undefined,
+      embeddedPicUrl: undefined,
+      viewCount: undefined,
+      linkPreview: undefined,
+      previewTitle: undefined,
+      previewDescription: undefined,
+      linkPreviewRightImage: undefined,
+    };
+  }
   const doc = new DOMParser().parseFromString(postHtml, 'text/html');
 
   const authorName = doc.querySelector('.tgme_widget_message_owner_name')?.textContent?.trim() || 'Telegram';

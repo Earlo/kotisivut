@@ -61,7 +61,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               </Link>
             </nav>
           </header>
-          <main className="w-full flex-1 flex-col items-center bg-white text-black">{children}</main>
+          <main className="flex w-full flex-1 flex-col items-center bg-white text-black">{children}</main>
           <Footer />
         </ToasterProvider>
       </body>
