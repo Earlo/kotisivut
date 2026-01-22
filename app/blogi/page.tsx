@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Blogi | Visa Pollari',
+  title: { absolute: 'Blogi | Visa Pollari' },
   description: 'Visa Pollarin blogi: kirjoituksia ja kokeiluja politiikasta ja teknologiasta.',
   alternates: { canonical: '/blogi' },
   openGraph: {

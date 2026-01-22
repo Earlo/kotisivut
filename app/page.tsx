@@ -5,7 +5,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 
 export const metadata: Metadata = {
-  title: 'Visa Pollari',
+  title: { absolute: 'Visa Pollari' },
   description: 'Ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika kahville tai soita.',
   alternates: { canonical: '/' },
 };
@@ -60,7 +60,7 @@ export default async function Page() {
           alt="Visa Pollari"
           priority
         />
-        <h2 className="text-2xl font-bold">Kuka olen?</h2>
+        <h1 className="text-2xl font-bold">Kuka olen?</h1>
         <div className="flex w-full max-w-5xl flex-col items-center p-4 md:flex-row md:p-10">
           <Image
             src="/vaalikuva_rect.jpg"

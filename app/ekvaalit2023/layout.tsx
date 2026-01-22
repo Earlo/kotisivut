@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Eduskuntavaalit 2023 - Visa Pollari',
+  title: { absolute: 'Eduskuntavaalit 2023 - Visa Pollari' },
   description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
   alternates: { canonical: '/ekvaalit2023' },
   openGraph: {
