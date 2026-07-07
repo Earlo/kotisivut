@@ -1,11 +1,10 @@
-import nextVitals from 'eslint-config-next/core-web-vitals';
-import importPlugin from 'eslint-plugin-import';
-import jsxA11y from 'eslint-plugin-jsx-a11y';
+import nextPlugin from '@next/eslint-plugin-next';
+import prettier from 'eslint-config-prettier/flat';
+import reactHooks from 'eslint-plugin-react-hooks';
 import { defineConfig, globalIgnores } from 'eslint/config';
 import { configs as tseslint } from 'typescript-eslint';
 
 export default defineConfig([
-  ...nextVitals,
   globalIgnores([
     '.next/**',
     'out/**',
@@ -15,31 +14,22 @@ export default defineConfig([
     'next.config.ts',
     'eslint.config.mjs',
   ]),
+  nextPlugin.configs['core-web-vitals'],
+  reactHooks.configs.flat.recommended,
   ...tseslint.recommendedTypeChecked,
-  { rules: { ...importPlugin.flatConfigs.recommended.rules } },
-  { rules: { ...jsxA11y.flatConfigs.recommended.rules } },
+  prettier,
 
   {
     languageOptions: {
       parserOptions: {
-        project: ['./tsconfig.json'],
-        tsconfigRootDir: import.meta.dirname ?? process.cwd(),
+        projectService: true,
+        tsconfigRootDir: import.meta.dirname,
       },
     },
   },
 
   {
     rules: {
-      'react/react-in-jsx-scope': 'off',
-      'jsx-a11y/alt-text': 'warn',
-      'jsx-a11y/anchor-is-valid': 'warn',
-      'import/no-extraneous-dependencies': ['error'],
-      'import/no-unresolved': 'off',
-      'import/named': 'error',
-      'import/namespace': 'error',
-      'import/default': 'error',
-      'import/export': 'error',
-      'comma-dangle': ['error', 'always-multiline'],
       'no-unused-vars': 'off',
       '@typescript-eslint/no-explicit-any': 'error',
       '@typescript-eslint/no-var-requires': 'off',

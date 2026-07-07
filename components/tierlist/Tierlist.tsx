@@ -16,7 +16,7 @@ const TierList: FC<TierListProps> = ({ candidates }) => {
 
   const handleVotesUpdate: Dispatch<SetStateAction<string[][]>> = (updater) => {
     setVotes((prev) => {
-      const next = typeof updater === 'function' ? (updater as (p: string[][]) => string[][])(prev) : updater;
+      const next = typeof updater === 'function' ? updater(prev) : updater;
       if (next.length > 0) {
         const clientIp = typeof window !== 'undefined' ? window.location.hostname : 'unknown';
         void fetch('/api/tierlist', {
