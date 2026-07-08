@@ -97,7 +97,14 @@ const TelegramPost = ({ post }: { post: string }) => {
     <article className="mb-4 w-full max-w-2xl rounded-sm bg-gray-100 px-4 py-3 wrap-break-word shadow-sm">
       <div className="mb-2 flex items-center gap-2">
         {parsed.profilePicUrl ? (
-          <Image className="rounded-full" src={parsed.profilePicUrl} alt={parsed.authorName} width={32} height={32} />
+          <Image
+            className="h-8 w-8 rounded-full object-cover"
+            src={parsed.profilePicUrl}
+            alt={parsed.authorName}
+            width={32}
+            height={32}
+            unoptimized
+          />
         ) : (
           <div className="h-8 w-8 rounded-full bg-gray-300" aria-hidden />
         )}
@@ -112,12 +119,13 @@ const TelegramPost = ({ post }: { post: string }) => {
       {parsed.embeddedPicUrl && (
         <div className="mt-2">
           <Image
-            className="rounded-sm"
+            className="h-auto w-full rounded-sm"
             src={parsed.embeddedPicUrl}
             alt=""
             width={1200}
             height={800}
             sizes="(max-width: 768px) 100vw, 800px"
+            unoptimized
           />
         </div>
       )}
@@ -132,11 +140,12 @@ const TelegramPost = ({ post }: { post: string }) => {
           {parsed.linkPreviewRightImage && (
             <div className="w-24 shrink-0">
               <Image
-                className="rounded-sm"
+                className="h-24 w-24 rounded-sm object-cover"
                 src={parsed.linkPreviewRightImage}
                 alt={parsed.previewTitle || 'Linkin esikatselu'}
                 width={100}
                 height={100}
+                unoptimized
               />
             </div>
           )}
@@ -157,13 +166,17 @@ const TelegramPost = ({ post }: { post: string }) => {
   );
 };
 
-export const Telegram = ({ initialPosts = [] }: { initialPosts?: string[] }) => {
-  const [tgPosts, setTgPosts] = useState<string[]>(initialPosts);
+export const Telegram = () => {
+  const [tgPosts, setTgPosts] = useState<string[]>([]);
 
   useEffect(() => {
     fetch('/api/telegram', { cache: 'no-store' })
-      .then((res) => res.json())
-      .then((data: string[]) => setTgPosts(data.slice(-5).reverse()))
+      .then((res) => (res.ok ? res.json() : Promise.reject(new Error(`Telegram fetch failed: ${res.status}`))))
+      .then((data: unknown) => {
+        if (Array.isArray(data)) {
+          setTgPosts(data.filter((post): post is string => typeof post === 'string').slice(-5).reverse());
+        }
+      })
       .catch(() => {
         // keep whatever we already had on failure
       });
