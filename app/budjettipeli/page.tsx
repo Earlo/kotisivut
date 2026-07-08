@@ -52,7 +52,7 @@ const Page = () => {
   };
 
   return (
-    <div className="max-w-8xl mx-auto flex flex-col items-center bg-gray-950 p-4">
+    <div className="flex w-full flex-1 bg-gray-950 px-4 py-8 text-white sm:px-6 lg:px-8">
       <Script
         id="budjettipeli-jsonld"
         type="application/ld+json"
@@ -63,7 +63,7 @@ const Page = () => {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <article className="w-full max-w-5xl" aria-labelledby="budjettipeli-heading">
+      <article className="mx-auto flex w-full max-w-7xl flex-col" aria-labelledby="budjettipeli-heading">
         <Header>
           <span id="budjettipeli-heading">Budjettipeli</span>
         </Header>

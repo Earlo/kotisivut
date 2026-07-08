@@ -1,4 +1,5 @@
 import { cn } from '@/lib/helpers';
+import { useId } from 'react';
 import EuroFormatter from './euroja';
 interface BudjettiKorttiProps {
   className?: string;
@@ -21,43 +22,58 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
   index,
   numberOfKeys,
 }) => {
+  const rangeId = useId();
   const sign = originalAmount > 0 ? 1 : -1;
   const originalAbsAmount = Math.abs(originalAmount);
   const absAmount = Math.abs(amount);
+  const percentage = originalAbsAmount !== 0 ? `${((absAmount / originalAbsAmount) * 100).toFixed(2)}%` : undefined;
+
   return (
     <div
       className={cn(
-        'absolute box-border flex h-full w-full flex-col justify-between rounded-[30px] bg-[#FFB000]',
-        'p-4 shadow-lg',
+        'relative box-border flex min-h-[26rem] w-full flex-col justify-between rounded-lg bg-[#FFB000]',
+        'p-5 shadow-2xl shadow-black/30 sm:p-6',
         className,
       )}
     >
-      <span className="absolute top-2 right-2 rounded-bl-lg p-2 text-center text-white">
+      <span className="absolute top-4 right-4 rounded-full bg-black/10 px-3 py-1 text-center text-sm font-bold text-black/70">
         {index + 1 + '/' + numberOfKeys}
       </span>
-      <div className="flex max-h-80 grow flex-col justify-between">
-        <h2 className="pt-5 text-center text-xl font-bold text-black">
-          {index + 1 + '. '}
-          {name} ({sign === 1 ? 'Tulo' : 'Meno'})
-        </h2>
-        <h3 className="text-l font-bold text-black">
-          Alkuperäinen summa: <EuroFormatter amount={originalAbsAmount} />
-        </h3>
-        <h3 className="text-l font-bold text-black">
-          sinun budjetissasi: <EuroFormatter amount={absAmount} /> (
-          {originalAbsAmount !== 0 ? (
-            ((absAmount / originalAbsAmount) * 100).toFixed(2) + '%'
-          ) : (
-            <EuroFormatter amount={absAmount} />
-          )}
-          )
-        </h3>
-        <div className="flex flex-col items-center">
-          <span className="text-sm text-black">Käytä säädintä muuttaaksesi budjettikohtaa</span>
+      <div className="flex grow flex-col gap-6">
+        <div className="pr-16">
+          <p className="text-sm font-bold tracking-wide text-black/60 uppercase">{sign === 1 ? 'Tulo' : 'Meno'}</p>
+          <h2 className="mt-2 text-2xl leading-tight font-bold break-words text-black sm:text-3xl">
+            {index + 1}. {name}
+          </h2>
+        </div>
+
+        <div className="grid gap-3 sm:grid-cols-2">
+          <div className="rounded-lg bg-black/10 p-3">
+            <span className="text-xs font-bold tracking-wide text-black/60 uppercase">Alkuperäinen summa</span>
+            <strong className="mt-1 block text-lg font-bold text-black">
+              <EuroFormatter amount={originalAbsAmount} />
+            </strong>
+          </div>
+          <div className="rounded-lg bg-black/10 p-3">
+            <span className="text-xs font-bold tracking-wide text-black/60 uppercase">Sinun budjetissasi</span>
+            <strong className="mt-1 block text-lg font-bold text-black">
+              <EuroFormatter amount={absAmount} />
+            </strong>
+            <span className="mt-1 block text-sm font-semibold text-black/70">
+              {percentage ?? <EuroFormatter amount={absAmount} />}
+            </span>
+          </div>
+        </div>
+
+        <div className="mt-auto">
+          <div className="flex items-center justify-between gap-4 text-sm font-bold text-black">
+            <label htmlFor={rangeId}>Säädä arvoa</label>
+            <span>{percentage ?? <EuroFormatter amount={absAmount} />}</span>
+          </div>
           <input
             type="range"
-            id="myRange"
-            className="w-11/12"
+            id={rangeId}
+            className="mt-3 w-full accent-emerald-700"
             min={0}
             max={Math.max(originalAbsAmount * 2, 1000000)}
             value={absAmount}
@@ -71,13 +87,15 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
         </div>
       </div>
       <div
-        className={cn('mt-4 flex justify-between', {
-          'justify-center': index === 0 || index === numberOfKeys - 1,
+        className={cn('mt-6 flex items-center justify-between gap-3', {
+          'justify-end': index === 0,
+          'justify-start': index === numberOfKeys - 1,
         })}
       >
         {index >= 1 && (
           <button
-            className="rounded-full bg-[#131415] px-4 py-2 font-bold text-[#F8F9FA]"
+            type="button"
+            className="min-h-10 rounded-lg bg-[#131415] px-4 py-2 text-sm font-bold text-[#F8F9FA] transition hover:bg-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
             onClick={() => setCurrentIndex(index - 1)}
           >
             Edellinen
@@ -85,7 +103,8 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
         )}
         {index < numberOfKeys - 1 && (
           <button
-            className="rounded-full bg-[#131415] px-4 py-2 font-bold text-[#F8F9FA]"
+            type="button"
+            className="min-h-10 rounded-lg bg-[#131415] px-4 py-2 text-sm font-bold text-[#F8F9FA] transition hover:bg-black focus:outline-none focus-visible:ring-2 focus-visible:ring-black/40"
             onClick={() => setCurrentIndex(index + 1)}
           >
             Seuraava
