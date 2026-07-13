@@ -1,8 +1,9 @@
-'use client';
+import ArticleDates from '@/components/ArticleDates';
 import { Telegram } from '@/components/telegram';
+import { contentDates } from '@/lib/contentDates';
+import { articleAuthorJsonLd } from '@/lib/schema';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
 
 const Header = () => {
   return (
@@ -35,7 +36,11 @@ const Home = () => {
     '@type': 'Article',
     headline: 'Eduskuntavaalit 2023 - Visa Pollari',
     description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
-    author: { '@type': 'Person', name: 'Visa Pollari' },
+    author: articleAuthorJsonLd,
+    datePublished: contentDates.ekvaalit2023.published,
+    dateModified: contentDates.ekvaalit2023.modified,
+    image: 'https://visapollari.fi/ekvaalit2023/opengraph-image',
+    url: 'https://visapollari.fi/ekvaalit2023',
     mainEntityOfPage: 'https://visapollari.fi/ekvaalit2023',
   };
 
@@ -50,12 +55,12 @@ const Home = () => {
 
   return (
     <>
-      <Script
+      <script
         id="ekvaalit2023-article-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Script
+      <script
         id="ekvaalit2023-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -73,6 +78,7 @@ const Home = () => {
           <h2 id="ekvaalit2023-heading" className="text-2xl font-bold">
             Kuka olen?
           </h2>
+          <ArticleDates {...contentDates.ekvaalit2023} />
           <div className="flex w-full flex-col items-center p-4 md:flex-row md:p-10">
             <Image
               src="/ehdolla.jpg"

@@ -1,6 +1,9 @@
+import ArticleDates from '@/components/ArticleDates';
 import Header from '@/components/BlogHeader';
 import Text from '@/components/Text';
 import TierList from '@/components/tierlist/Tierlist';
+import { contentDates } from '@/lib/contentDates';
+import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
 import Script from 'next/script';
 import { candidates } from './candidates';
@@ -39,9 +42,12 @@ const Page = () => {
     headline: metadata.title,
     description: metadata.description,
     author: {
-      '@type': 'Person',
-      name: 'Visa Pollari',
+      ...articleAuthorJsonLd,
     },
+    datePublished: contentDates.eurovaalit.published,
+    dateModified: contentDates.eurovaalit.modified,
+    image: 'https://visapollari.fi/blogi/eurovaalit/opengraph-image',
+    url: 'https://visapollari.fi/blogi/eurovaalit',
     mainEntityOfPage: 'https://visapollari.fi/blogi/eurovaalit',
   };
 
@@ -71,6 +77,7 @@ const Page = () => {
         <Header>
           <span id="eurovaalit-heading">Eurovaalit LIB tulosveikkaus</span>
         </Header>
+        <ArticleDates {...contentDates.eurovaalit} />
         <Text>
           Tänään on eurovaalit ja Liberaalipuolueeella on täysi lista ehdokkaita. Veikkaa listan sisäistä järjestystä
           alla olevalla lomakkeella.

@@ -1,12 +1,14 @@
 'use client';
+import ArticleDates from '@/components/ArticleDates';
 import Header from '@/components/BlogHeader';
 import BallotBox from '@/components/stv/BallotBox';
 import RealVote from '@/components/stv/RealVote';
 import ResultGraph from '@/components/stv/ResultsGraph';
 import Subheader from '@/components/Subheader';
 import Text from '@/components/Text';
+import { contentDates } from '@/lib/contentDates';
+import { articleAuthorJsonLd } from '@/lib/schema';
 import Link from 'next/link';
-import Script from 'next/script';
 import { useState } from 'react';
 import { defaultVotes } from './votes';
 
@@ -31,7 +33,11 @@ const Page = () => {
     '@type': 'Article',
     headline: 'Siirtoäänivaali (STV) simulaattori',
     description: 'Kokeile siirtoäänivaalia interaktiivisella työkalulla.',
-    author: { '@type': 'Person', name: 'Visa Pollari' },
+    author: articleAuthorJsonLd,
+    datePublished: contentDates.stv.published,
+    dateModified: contentDates.stv.modified,
+    image: 'https://visapollari.fi/blogi/stv/opengraph-image',
+    url: 'https://visapollari.fi/blogi/stv',
     mainEntityOfPage: 'https://visapollari.fi/blogi/stv',
   };
 
@@ -46,12 +52,12 @@ const Page = () => {
   };
   return (
     <div className="max-w-8xl mx-auto bg-gray-950 p-4">
-      <Script
+      <script
         id="stv-article-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Script
+      <script
         id="stv-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -60,6 +66,7 @@ const Page = () => {
         <Header>
           <span id="stv-heading">Siirtoäänivaali</span>
         </Header>
+        <ArticleDates {...contentDates.stv} />
         <Text>
           Presidentinvaalien ennakkoäänestys on meneillään. Ehdokkaat ovat 99-prosenttisesti samaa mieltä kaikesta,
           joten mitään järkyttävän suurta jännitysnäytelmää ei ole luvassa. Tästä syystä tilaisuus onkin mitä parhain

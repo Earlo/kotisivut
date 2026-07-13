@@ -1,7 +1,9 @@
+import ArticleDates from '@/components/ArticleDates';
 import Header from '@/components/BlogHeader';
 import Text from '@/components/Text';
+import { contentDates } from '@/lib/contentDates';
+import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Tuotantofutuurimalli',
@@ -37,10 +39,11 @@ const Page = () => {
     '@type': 'Article',
     headline: metadata.title,
     description: metadata.description,
-    author: {
-      '@type': 'Person',
-      name: 'Visa Pollari',
-    },
+    author: articleAuthorJsonLd,
+    datePublished: contentDates.tuotantofutuuri.published,
+    dateModified: contentDates.tuotantofutuuri.modified,
+    image: 'https://visapollari.fi/blogi/tuotantofutuuri/opengraph-image',
+    url: 'https://visapollari.fi/blogi/tuotantofutuuri',
     mainEntityOfPage: 'https://visapollari.fi/blogi/tuotantofutuuri',
   };
 
@@ -61,12 +64,12 @@ const Page = () => {
 
   return (
     <div className="max-w-8xl mx-auto bg-gray-950 p-4">
-      <Script
+      <script
         id="tuotantofutuuri-article-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Script
+      <script
         id="tuotantofutuuri-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -75,6 +78,7 @@ const Page = () => {
         <Header>
           <span id="tuotantofutuuri-heading">Tuotantofutuurimalli</span>
         </Header>
+        <ArticleDates {...contentDates.tuotantofutuuri} />
         <Text>
           Suomessa maksettiin erinäisiä maataloustukia lähes 2 miljardia euroa vuonna 2023. Tätä tukipottia usein
           perustellaan huoltovarmuudella kriisiolosuhteita varten, mutta toteutuuko tämä? Venäjän vastaisia pakotteita

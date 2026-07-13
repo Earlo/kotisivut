@@ -1,8 +1,10 @@
-import Text from '@/components/Text';
+import ArticleDates from '@/components/ArticleDates';
 import PartyTable from '@/components/puolueet/PartyTable';
+import Text from '@/components/Text';
+import { contentDates } from '@/lib/contentDates';
+import { articleAuthorJsonLd } from '@/lib/schema';
 
 import type { Metadata } from 'next';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Rekisteröityneet puolueet - Yhteystiedot',
@@ -37,10 +39,11 @@ const PartiesPage = () => {
     '@type': 'Article',
     headline: metadata.title,
     description: metadata.description,
-    author: {
-      '@type': 'Person',
-      name: 'Visa Pollari',
-    },
+    author: articleAuthorJsonLd,
+    datePublished: contentDates.puolueet.published,
+    dateModified: contentDates.puolueet.modified,
+    image: 'https://visapollari.fi/blogi/puolueet/opengraph-image',
+    url: 'https://visapollari.fi/blogi/puolueet',
     mainEntityOfPage: 'https://visapollari.fi/blogi/puolueet',
   };
 
@@ -56,12 +59,12 @@ const PartiesPage = () => {
 
   return (
     <div className="container mx-auto bg-black px-4 py-8">
-      <Script
+      <script
         id="puolueet-article-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Script
+      <script
         id="puolueet-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -70,6 +73,7 @@ const PartiesPage = () => {
         <h1 id="puolueet-heading" className="mb-4 text-3xl font-bold">
           Rekisteröityneet puolueet
         </h1>
+        <ArticleDates {...contentDates.puolueet} />
         <Text>
           Eurovaalien alla olen huomannut erään selkeästi suomalaista kansalaisyhteiskuntaa piinaavan vaivan:
           poliittisten puolueiden tavoittaminen tuntuu olevan suunnattoman vaikeaa. On täysin ymmärrettävää, että

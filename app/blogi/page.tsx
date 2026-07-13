@@ -1,7 +1,6 @@
 import Text from '@/components/Text';
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: { absolute: 'Blogi | Visa Pollari' },
@@ -34,15 +33,12 @@ const BlogListing = () => {
 
   return (
     <div className="flex w-full flex-1 flex-col bg-black text-white">
-      <Script
+      <script
         id="blog-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
-      <article
-        aria-labelledby="blog-heading"
-        className="mx-auto flex w-full max-w-5xl flex-col px-4 py-8"
-      >
+      <article aria-labelledby="blog-heading" className="mx-auto flex w-full max-w-5xl flex-col px-4 py-8">
         <h1 id="blog-heading" className="mb-4 text-3xl font-bold">
           Blogi
         </h1>

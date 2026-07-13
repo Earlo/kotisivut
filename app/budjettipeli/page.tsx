@@ -1,7 +1,8 @@
+import ArticleDates from '@/components/ArticleDates';
 import Header from '@/components/BlogHeader';
 import Budjettipeli from '@/components/budjettipeli/budjettipeli';
+import { contentDates } from '@/lib/contentDates';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { Suspense } from 'react';
 
 export const metadata: Metadata = {
@@ -41,6 +42,8 @@ const Page = () => {
     applicationCategory: 'ProductivityApplication',
     description: metadata.description,
     url: 'https://visapollari.fi/budjettipeli',
+    datePublished: contentDates.budjettipeli.published,
+    dateModified: contentDates.budjettipeli.modified,
   };
   const breadcrumbJsonLd = {
     '@context': 'https://schema.org',
@@ -53,12 +56,12 @@ const Page = () => {
 
   return (
     <div className="flex w-full flex-1 bg-gray-950 px-4 py-8 text-white sm:px-6 lg:px-8">
-      <Script
+      <script
         id="budjettipeli-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(toolJsonLd) }}
       />
-      <Script
+      <script
         id="budjettipeli-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -67,6 +70,7 @@ const Page = () => {
         <Header>
           <span id="budjettipeli-heading">Budjettipeli</span>
         </Header>
+        <ArticleDates {...contentDates.budjettipeli} />
         <Suspense>
           <Budjettipeli />
         </Suspense>

@@ -1,38 +1,19 @@
-'use client';
-
 import CopyButton from '@/components/puolueet/CopyButton';
 import { cn } from '@/lib/helpers';
-import { Party } from '@/types/partyTable';
+import { getParties } from '@/lib/parties';
 import Image from 'next/image';
-import { useEffect, useState } from 'react';
-const fetchParties = async (): Promise<Party[]> => {
-  const response = await fetch('/api/parties');
-  if (!response.ok) {
-    throw new Error('Failed to fetch parties');
-  }
-  return (await response.json()) as Party[];
-};
 
-const PartyTable = () => {
-  const [parties, setParties] = useState<Party[]>([]);
-  const [error, setError] = useState<string | null>(null);
+const PartyTable = async () => {
+  let parties;
+
+  try {
+    parties = await getParties();
+  } catch {
+    return <p className="text-red-400">Puolueiden yhteystietoja ei saatu ladattua juuri nyt.</p>;
+  }
+
   const partyString = parties.map((party) => party.siteInfo.email).join(', ');
 
-  useEffect(() => {
-    const getParties = async () => {
-      try {
-        const data = await fetchParties();
-        setParties(data);
-      } catch (error) {
-        setError((error as Error).message);
-      }
-    };
-    void getParties();
-  }, []);
-
-  if (error) {
-    return <div className="text-red-500">Error: {error}</div>;
-  }
   return (
     <>
       <CopyButton copyTarget={partyString} />

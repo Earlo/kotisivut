@@ -1,4 +1,5 @@
 import { clientIpFromHeaders } from '@/lib/ip';
+import { getRankingGuesses } from '@/lib/rankings';
 import { supabase } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
 
@@ -45,13 +46,7 @@ export async function POST(request: Request) {
 
 export async function GET() {
   try {
-    const { data, error } = await supabase().from('rankings').select('id, made_by, ranking, created_at');
-    if (error) {
-      return NextResponse.json(
-        { error: 'DB_ERROR', message: error.message, hint: error.hint ?? null },
-        { status: 500 },
-      );
-    }
+    const data = await getRankingGuesses();
 
     return NextResponse.json(data, {
       headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate=300' },

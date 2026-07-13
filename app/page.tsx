@@ -1,8 +1,8 @@
 import { Telegram } from '@/components/telegram';
+import { personJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: { absolute: 'Visa Pollari' },
@@ -10,33 +10,24 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
 
+export const revalidate = 300;
+
 export default function Page() {
   const phone = '+358456350724';
   const calUrl = 'https://cal.com/visap/30min';
 
-  const orgJsonLd = {
+  const personSchema = {
     '@context': 'https://schema.org',
-    '@type': 'Person',
-    name: 'Visa Pollari',
-    jobTitle: 'Ohjelmistokonsultti',
-    address: { '@type': 'PostalAddress', addressLocality: 'Espoo', addressCountry: 'FI' },
-    url: 'https://visapollari.fi',
-    image: 'https://visapollari.fi/vaalikuva_rect.jpg',
-    sameAs: [
-      'https://t.me/visapollari',
-      'https://x.com/VisaPollari',
-      'https://bsky.app/profile/visapollari.fi',
-      'https://threads.net/@visapollari',
-    ],
+    ...personJsonLd,
     telephone: phone,
   };
 
   return (
     <>
-      <Script
+      <script
         id="person-jsonld"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
       <section className="flex w-full flex-col items-center p-0 md:p-4 xl:p-10">
         <Image

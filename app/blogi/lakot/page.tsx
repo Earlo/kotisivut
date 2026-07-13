@@ -1,10 +1,12 @@
+import ArticleDates from '@/components/ArticleDates';
 import Header from '@/components/BlogHeader';
 import List from '@/components/List';
 import Subheader from '@/components/Subheader';
 import Text from '@/components/Text';
+import { contentDates } from '@/lib/contentDates';
+import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import Script from 'next/script';
 
 export const metadata: Metadata = {
   title: 'Lakot ja metariita',
@@ -33,7 +35,11 @@ const Page = () => {
     '@type': 'Article',
     headline: metadata.title,
     description: metadata.description,
-    author: { '@type': 'Person', name: 'Visa Pollari' },
+    author: articleAuthorJsonLd,
+    datePublished: contentDates.lakot.published,
+    dateModified: contentDates.lakot.modified,
+    image: 'https://visapollari.fi/blogi/lakot/opengraph-image',
+    url: 'https://visapollari.fi/blogi/lakot',
     mainEntityOfPage: 'https://visapollari.fi/blogi/lakot',
   };
 
@@ -49,12 +55,12 @@ const Page = () => {
 
   return (
     <div className="max-w-8xl mx-auto bg-gray-950 p-4">
-      <Script
+      <script
         id="lakot-article-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Script
+      <script
         id="lakot-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
@@ -63,6 +69,7 @@ const Page = () => {
         <Header>
           <span id="lakot-heading">TÄÄ on ihan kesken :D.</span>
         </Header>
+        <ArticleDates {...contentDates.lakot} />
         <Header>Lakkoja löytyy soilta.</Header>
         <Text>
           Viimepäivinä oon suhteellisen etäisesi seurannut lakoista käytävää julkista keskustelua, ja itselleni
