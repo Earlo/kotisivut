@@ -1,4 +1,5 @@
 'use client';
+
 import CandidateProfile from '@/components/stv/CandidateProfile';
 import { cn } from '@/lib/helpers';
 import { Dispatch, FC, SetStateAction, useState } from 'react';

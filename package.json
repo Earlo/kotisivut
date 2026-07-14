@@ -3,10 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "next build",
+    "build": "npm run typecheck && next build",
     "dev": "next dev",
-    "lint": "eslint .",
-    "lint:fix": "eslint . --fix",
+    "lint": "oxlint",
+    "lint:fix": "oxlint --fix",
     "prettier": "prettier --write .",
     "start": "next start",
     "typecheck": "tsc --noEmit"
@@ -23,23 +23,23 @@
     "tailwind-merge": "3.6.0"
   },
   "devDependencies": {
+    "@ianvs/prettier-plugin-sort-imports": "4.7.1",
     "@tailwindcss/postcss": "4.3.2",
     "@types/cors": "2.8.19",
     "@types/node": "26.1.1",
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
-    "@next/eslint-plugin-next": "16.2.10",
+    "@typescript/native-preview": "7.0.0-dev.20260707.2",
     "eslint": "10.7.0",
-    "eslint-config-prettier": "10.1.8",
     "eslint-plugin-react-hooks": "7.1.1",
+    "oxlint": "1.74.0",
+    "oxlint-tsgolint": "0.24.0",
     "postcss": "8.5.19",
     "prettier": "3.9.5",
-    "prettier-plugin-organize-imports": "4.3.0",
     "prettier-plugin-packagejson": "3.0.2",
     "prettier-plugin-tailwindcss": "0.8.0",
     "tailwindcss": "4.3.2",
-    "typescript": "7.0.2",
-    "typescript-eslint": "8.64.0"
+    "typescript": "7.0.2"
   },
   "engines": {
     "node": ">=24.0.0"

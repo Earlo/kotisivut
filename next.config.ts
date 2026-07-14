@@ -2,6 +2,11 @@ import type { NextConfig } from 'next';
 
 const nextConfig: NextConfig = {
   reactStrictMode: true,
+  // TypeScript 7 uses the native compiler and no longer exposes the JS API Next's checker expects.
+  // The build script runs `tsc --noEmit` before `next build`, so type errors still block deployment.
+  typescript: {
+    ignoreBuildErrors: true,
+  },
   images: {
     remotePatterns: [
       {

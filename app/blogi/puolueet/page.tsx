@@ -3,7 +3,6 @@ import PartyTable from '@/components/puolueet/PartyTable';
 import Text from '@/components/Text';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
-
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {

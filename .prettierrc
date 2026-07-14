@@ -3,8 +3,11 @@
   "useTabs": false,
   "singleQuote": true,
   "trailingComma": "all",
-  "plugins": ["prettier-plugin-organize-imports", "prettier-plugin-tailwindcss", "prettier-plugin-packagejson"],
+  "plugins": ["prettier-plugin-packagejson", "@ianvs/prettier-plugin-sort-imports", "prettier-plugin-tailwindcss"],
+  "importOrder": ["^@/(.*)$", "<THIRD_PARTY_MODULES>", "^[./]"],
+  "importOrderParserPlugins": ["typescript", "jsx"],
   "printWidth": 120,
+  "tailwindStylesheet": "./styles/globals.css",
   "tailwindAttributes": ["className"],
   "tailwindFunctions": ["cn", "twMerge", "clsx"],
   "tailwindPreserveWhitespace": false

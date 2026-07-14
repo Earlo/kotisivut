@@ -1,8 +1,9 @@
 'use client';
-import Text from '@/components/Text';
+
 import BudjettiKortti from '@/components/budjettipeli/budjettikortti';
 import EuroFormatter from '@/components/budjettipeli/euroja';
 import { useToaster } from '@/components/generic/Toaster';
+import Text from '@/components/Text';
 import { cn } from '@/lib/helpers';
 import { useSearchParams } from 'next/navigation';
 import { FC, useState } from 'react';

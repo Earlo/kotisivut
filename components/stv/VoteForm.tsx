@@ -1,7 +1,9 @@
 'use client';
+
 import { cn } from '@/lib/helpers';
 import { Dispatch, FC, SetStateAction, useState } from 'react';
 import CandidateProfile from './CandidateProfile';
+
 interface VoteFormProps {
   votes: string[][];
   setVotes: Dispatch<SetStateAction<string[][]>>;

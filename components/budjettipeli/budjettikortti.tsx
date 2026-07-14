@@ -1,6 +1,7 @@
 import { cn } from '@/lib/helpers';
 import { useId } from 'react';
 import EuroFormatter from './euroja';
+
 interface BudjettiKorttiProps {
   className?: string;
   name: string;
