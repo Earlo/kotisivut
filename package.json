@@ -35,7 +35,7 @@
     "oxlint": "1.74.0",
     "oxlint-tsgolint": "7.0.2001",
     "postcss": "8.5.20",
-    "prettier": "3.9.5",
+    "prettier": "3.9.6",
     "prettier-plugin-packagejson": "3.0.2",
     "prettier-plugin-tailwindcss": "0.8.1",
     "tailwindcss": "4.3.3",
