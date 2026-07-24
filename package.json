@@ -30,7 +30,7 @@
     "@types/react": "19.2.17",
     "@types/react-dom": "19.2.3",
     "@typescript/native-preview": "7.0.0-dev.20260707.2",
-    "eslint": "10.7.0",
+    "eslint": "10.8.0",
     "eslint-plugin-react-hooks": "7.1.1",
     "oxlint": "1.75.0",
     "oxlint-tsgolint": "7.0.2001",
