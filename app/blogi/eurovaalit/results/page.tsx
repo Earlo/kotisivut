@@ -5,10 +5,8 @@ import { getRankingGuesses } from '@/lib/rankings';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import ResultsClient from './ResultsClient';
 
-export const revalidate = 300;
-
 export default async function Page() {
-  const guesses = await getRankingGuesses().catch(() => []);
+  const guesses = await getRankingGuesses();
   const url = 'https://visapollari.fi/blogi/eurovaalit/results';
   const articleJsonLd = {
     '@context': 'https://schema.org',

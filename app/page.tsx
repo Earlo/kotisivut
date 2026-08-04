@@ -10,8 +10,6 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
 
-export const revalidate = 300;
-
 export default function Page() {
   const phone = '+358456350724';
   const calUrl = 'https://cal.com/visap/30min';

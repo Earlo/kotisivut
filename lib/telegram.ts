@@ -1,3 +1,5 @@
+import { cacheLife } from 'next/cache';
+
 export type TelegramPost = {
   id: string;
   authorName: string;
@@ -73,12 +75,14 @@ function parseTelegramPost(block: string): TelegramPost | null {
 }
 
 export async function getTelegramPosts(): Promise<TelegramPost[]> {
+  'use cache';
+  cacheLife({ stale: 300, revalidate: 300, expire: 3600 });
+
   const res = await fetch('https://t.me/s/visapollari', {
     headers: {
       'User-Agent': 'Mozilla/5.0 (compatible; visapollari.fi/1.0)',
       Accept: 'text/html',
     },
-    next: { revalidate: 300 },
     signal: AbortSignal.timeout(8000),
   });
 

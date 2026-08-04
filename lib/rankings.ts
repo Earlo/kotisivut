@@ -1,4 +1,5 @@
 import { supabase } from '@/lib/supabase';
+import { cacheLife } from 'next/cache';
 
 export type RankingGuess = {
   id: number;
@@ -8,8 +9,15 @@ export type RankingGuess = {
 };
 
 export async function getRankingGuesses(): Promise<RankingGuess[]> {
-  const { data, error } = await supabase().from('rankings').select('id, made_by, ranking, created_at');
+  'use cache';
+  cacheLife({ stale: 300, revalidate: 300, expire: 3600 });
 
-  if (error) throw error;
-  return data ?? [];
+  try {
+    const { data, error } = await supabase().from('rankings').select('id, made_by, ranking, created_at');
+
+    if (error) return [];
+    return data ?? [];
+  } catch {
+    return [];
+  }
 }
