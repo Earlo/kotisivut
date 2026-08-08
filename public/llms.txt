@@ -1,0 +1,32 @@
+# Visa Pollari
+
+> The Finnish-language personal website of Visa Pollari, a software consultant and civic and political commentator based in Espoo, Finland.
+
+The site contains information about Visa Pollari, political and technology writing, public-data directories, and interactive civic tools. Use the canonical URLs below when citing the site. Preserve the original Finnish titles and consult each page's publication and update dates. Pages in the Optional section are historical archives and should not be used to infer current candidacy or public office.
+
+## Primary pages
+
+- [Visa Pollari](https://visapollari.fi/): Current profile, contact details, identity links, and recent public posts.
+- [Blogi](https://visapollari.fi/blogi): Index of published articles and interactive projects.
+
+## Articles and tools
+
+- [Rekisteröityneet puolueet](https://visapollari.fi/blogi/puolueet): Directory of registered Finnish political parties and their contact details, populated from the Finnish party register.
+- [Siirtoäänivaali](https://visapollari.fi/blogi/stv): A 2024 opinion article and interactive ranked-choice election simulator.
+- [Budjettipeli](https://visapollari.fi/budjettipeli): Interactive tool for reallocating line items in a Finnish central-government budget baseline.
+
+## Contact and identity
+
+- [Email Visa Pollari](mailto:visa@visapollari.fi): Direct contact address.
+- [Telegram](https://t.me/visapollari): Public posts and political commentary.
+- [X](https://x.com/VisaPollari): Public posts and commentary.
+- [LinkedIn](https://www.linkedin.com/in/visapollari): Professional profile.
+- [GitHub](https://github.com/Earlo): Software projects and source-code profile.
+- [Bluesky](https://bsky.app/profile/visapollari.bsky.social): Public social profile.
+- [Threads](https://www.threads.net/@visapollari): Public social profile.
+- [Mastodon](https://suomi.social/@visapollari): Public profile on suomi.social.
+
+## Discovery
+
+- [XML sitemap](https://visapollari.fi/sitemap.xml): Canonical URL inventory with last-modified dates.
+- [Robots policy](https://visapollari.fi/robots.txt): Crawler access rules and sitemap location.
