@@ -6,16 +6,16 @@ type SiteInfo = {
   language: string;
   dualLanguage: boolean;
   address: string;
-  addressAlt: string;
+  addressAlt: string | null;
   postcode: string;
-  postcodeAlt: string;
+  postcodeAlt: string | null;
   city: string;
-  cityAlt: string;
-  url: string;
+  cityAlt: string | null;
+  url: string | null;
   urlAlt: string | null;
   email: string;
   emailAlt: string | null;
-  phoneNumber: string;
+  phoneNumber: string | null;
 };
 
 export type Party = {

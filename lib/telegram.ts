@@ -53,25 +53,32 @@ function parseTelegramPost(block: string): TelegramPost | null {
   const authorHtml = capture(block, /class="tgme_widget_message_owner_name[^"]*"[^>]*>([\s\S]*?)<\/a>/i);
   const profilePicUrl = capture(block, /class="tgme_widget_message_user_photo[^"]*"[\s\S]*?<img[^>]+src="([^"]+)"/i);
   const linkPreview = capture(block, /class="tgme_widget_message_link_preview[^"]*"[^>]+href="([^"]+)"/i);
+  const messageDate = capture(block, /<time[^>]+datetime="([^"]+)"/i);
+  const embeddedPicUrl = imageFromStyle(block, 'tgme_widget_message_photo_wrap');
+  const viewCount = capture(block, /class="tgme_widget_message_views"[^>]*>([^<]+)</i)?.trim();
+  const linkPreviewRightImage = imageFromStyle(block, '(?:link_preview_right_image|webpage_right_image)');
 
-  return {
+  const post: TelegramPost = {
     id,
     authorName: decodeHtml(authorHtml ?? 'Visa Pollari'),
     messageText: decodeHtml(messageHtml),
-    messageDate: capture(block, /<time[^>]+datetime="([^"]+)"/i),
     postUrl: `https://t.me/${id}`,
-    profilePicUrl,
-    embeddedPicUrl: imageFromStyle(block, 'tgme_widget_message_photo_wrap'),
-    viewCount: capture(block, /class="tgme_widget_message_views"[^>]*>([^<]+)</i)?.trim(),
-    linkPreview,
     previewTitle: decodeHtml(
       capture(block, /class="(?:link_preview_title|webpage_title)[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ?? '',
     ),
     previewDescription: decodeHtml(
       capture(block, /class="(?:link_preview_description|webpage_description)[^"]*"[^>]*>([\s\S]*?)<\/div>/i) ?? '',
     ),
-    linkPreviewRightImage: imageFromStyle(block, '(?:link_preview_right_image|webpage_right_image)'),
   };
+
+  if (messageDate !== undefined) post.messageDate = messageDate;
+  if (profilePicUrl !== undefined) post.profilePicUrl = profilePicUrl;
+  if (embeddedPicUrl !== undefined) post.embeddedPicUrl = embeddedPicUrl;
+  if (viewCount !== undefined) post.viewCount = viewCount;
+  if (linkPreview !== undefined) post.linkPreview = linkPreview;
+  if (linkPreviewRightImage !== undefined) post.linkPreviewRightImage = linkPreviewRightImage;
+
+  return post;
 }
 
 export async function getTelegramPosts(): Promise<TelegramPost[]> {
@@ -95,5 +102,5 @@ export async function getTelegramPosts(): Promise<TelegramPost[]> {
     .map(parseTelegramPost)
     .filter((post): post is TelegramPost => post !== null)
     .slice(-5)
-    .reverse();
+    .toReversed();
 }

@@ -175,7 +175,7 @@ const Home = () => {
       <Telegram />
       {/** footer */}
       <footer className="mt-4 grid w-full items-center justify-around bg-black py-10">
-        <a href="https://twitter.com/VisaPollari">
+        <a href="https://twitter.com/VisaPollari" aria-label="Visa Pollari X:ssä">
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" className="h-10 w-10">
             <path
               fill="white"

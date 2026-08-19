@@ -1,38 +1,74 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# visapollari.fi
 
-## Getting Started
+The source for [visapollari.fi](https://visapollari.fi), Visa Pollari's Finnish-language personal website. It contains the main profile, articles, election material, and interactive voting and budget tools.
 
-First, run the development server:
+## Technology
+
+- Next.js App Router and React
+- TypeScript
+- Tailwind CSS
+- Supabase for database-backed features
+
+## Local development
+
+Requirements:
+
+- Node.js 24 (see `.node-version`)
+- npm 11.19.0 or newer within the npm 11 release line
+
+Install the locked dependencies and start the development server:
 
 ```bash
+npm ci
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000). Most content works without database credentials, but the database-backed API routes require the environment variables below.
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+## Environment variables
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Copy `.env.example` to `.env.local` and provide:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+| Variable       | Purpose                                             |
+| -------------- | --------------------------------------------------- |
+| `SUPABASE_URL` | Supabase project URL used by the server-side client |
+| `SUPABASE_KEY` | Supabase key used by the server-side client         |
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Do not commit real credentials or expose the key through a `NEXT_PUBLIC_` variable.
 
-## Learn More
+## Scripts
 
-To learn more about Next.js, take a look at the following resources:
+| Command                | Purpose                                         |
+| ---------------------- | ----------------------------------------------- |
+| `npm run dev`          | Start the local development server              |
+| `npm run build`        | Create a production build                       |
+| `npm start`            | Run the production server after a build         |
+| `npm run format`       | Format the repository with Prettier             |
+| `npm run format:check` | Check formatting without changing files         |
+| `npm run lint`         | Run Oxlint and reject warnings                  |
+| `npm run lint:fix`     | Apply safe lint fixes                           |
+| `npm test`             | Run the Node.js test suite                      |
+| `npm run typecheck`    | Generate Next.js route types and run TypeScript |
+| `npm run check`        | Check formatting, lint, types, and tests        |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Before opening a pull request, run:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run check
+npm run build
+```
 
-## Deploy on Vercel
+The same commands run in GitHub Actions for every pull request and every push to `main`.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+- `app/` contains App Router pages, metadata, and route handlers.
+- `components/` contains shared UI and interactive features.
+- `lib/` contains data access, schemas, and other server-side utilities.
+- `public/` contains static images and public files.
+- `styles/` contains the global Tailwind stylesheet.
+
+## Deployment
+
+The application can be deployed to any Node.js platform that supports Next.js. Install with `npm ci`, build with `npm run build`, and start with `npm start`. Configure `SUPABASE_URL` and `SUPABASE_KEY` in the deployment environment for database-backed routes.

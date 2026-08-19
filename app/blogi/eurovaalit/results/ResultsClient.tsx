@@ -7,6 +7,11 @@ import { candidates } from '../candidates';
 
 type ScoreState = { [madeBy: string]: { [candidate: string]: boolean } };
 
+function parseRanking(value: string): string[] {
+  const parsed: unknown = JSON.parse(value);
+  return Array.isArray(parsed) && parsed.every((candidate) => typeof candidate === 'string') ? parsed : [];
+}
+
 export default function ResultsClient({ guesses }: { guesses: RankingGuess[] }) {
   const [scores, setScores] = useState<ScoreState>({});
 
@@ -21,7 +26,7 @@ export default function ResultsClient({ guesses }: { guesses: RankingGuess[] }) 
   return (
     <div className="flex max-w-[100vw] grow flex-row overflow-scroll">
       {guesses.map((guess) => {
-        const ranking = JSON.parse(guess.ranking) as string[];
+        const ranking = parseRanking(guess.ranking);
         const sum = ranking.reduce<number>((acc, candidate) => {
           return acc + (scores[guess.made_by]?.[candidate] ? 1 : 0);
         }, 0);

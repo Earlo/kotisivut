@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 import { candidates } from '../candidates';
 
 export function GET() {
-  const shuffledCandidates = candidates.sort(() => 0.5 - Math.random());
+  const shuffledCandidates = candidates.toSorted(() => 0.5 - Math.random());
 
   const rows = 2;
   const columns = Math.ceil(candidates.length / rows);
@@ -46,6 +46,7 @@ export function GET() {
               display: 'flex',
             }}
           >
+            {/* oxlint-disable-next-line nextjs/no-img-element -- ImageResponse cannot use next/image. */}
             <img
               src={candidate.imageSrc}
               alt={`${candidate.name} Eurovaalit LIB tulosveikkaus esikatselukuva`}

@@ -13,6 +13,14 @@ interface BudjettiKorttiProps {
   buduProp?: { [key: string]: number };
 }
 
+function isNumberRecord(value: unknown): value is Record<string, number> {
+  return (
+    typeof value === 'object' &&
+    value !== null &&
+    Object.values(value).every((item) => typeof item === 'number' && Number.isFinite(item))
+  );
+}
+
 const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
   const searchParams = useSearchParams();
   const { addToast } = useToaster();
@@ -23,14 +31,16 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
   if (search) {
     try {
       const decoded = decodeURIComponent(atob(search));
-      const parsed = JSON.parse(decoded, (_, value) => {
-        return typeof value === 'number' && Number.isFinite(value) ? value : (value as string);
-      }) as Record<string, number>;
+      const parsed: unknown = JSON.parse(decoded);
+      if (!isNumberRecord(parsed)) {
+        throw new Error('Budget data must contain only finite numbers');
+      }
 
       const merged: Record<string, number> = { ...initialBudu };
 
       for (const [key, val] of Object.entries(parsed)) {
-        if (typeof val === 'number' && key in baselineBudget && baselineBudget[key] !== val) {
+        const baselineValue = baselineBudget[key];
+        if (baselineValue !== undefined && baselineValue !== val) {
           merged[key] = val;
         }
       }
@@ -44,12 +54,16 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const budgetKeys = Object.keys(budu);
   const currentItem = budgetKeys[currentIndex] ?? budgetKeys[0] ?? '';
+  const currentAmount = budu[currentItem] ?? 0;
+  const currentOriginalAmount = baselineBudget[currentItem] ?? currentAmount;
   const total = Object.values(budu).reduce((acc, val) => acc + val, 0);
   const numberOfKeys = budgetKeys.length;
   const changedObjects = Object.keys(budu).reduce(
     (acc, key) => {
-      if (budu[key] !== baselineBudget[key]) {
-        acc[key] = budu[key];
+      const amount = budu[key];
+      const originalAmount = baselineBudget[key];
+      if (amount !== undefined && originalAmount !== undefined && amount !== originalAmount) {
+        acc[key] = amount;
       }
       return acc;
     },
@@ -126,10 +140,11 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
             <p className="mt-3 text-sm text-slate-400">Ei muutoksia vielä.</p>
           ) : (
             <ul className="mt-3 max-h-80 space-y-3 overflow-y-auto pr-2">
-              {changedEntries.map(([key]) => {
-                const sign = baselineBudget[key] > 0 ? 1 : -1;
-                const originalAbsAmount = Math.abs(baselineBudget[key]);
-                const absAmount = Math.abs(budu[key]);
+              {changedEntries.map(([key, amount]) => {
+                const originalAmount = baselineBudget[key] ?? amount;
+                const sign = originalAmount > 0 ? 1 : -1;
+                const originalAbsAmount = Math.abs(originalAmount);
+                const absAmount = Math.abs(amount);
                 const muutos = absAmount - originalAbsAmount;
                 return (
                   <li key={key} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
@@ -163,8 +178,8 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
       <section className="min-w-0 lg:sticky lg:top-6" aria-label="Muokattava budjettikohta">
         <BudjettiKortti
           name={currentItem}
-          originalAmount={baselineBudget[currentItem]}
-          amount={budu[currentItem]}
+          originalAmount={currentOriginalAmount}
+          amount={currentAmount}
           setBudu={setBudu}
           setCurrentIndex={setCurrentIndex}
           index={currentIndex}

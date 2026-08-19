@@ -17,7 +17,7 @@ const RealVote: FC = () => {
   ];
   const [votes, setVotes] = useState<string[][]>([]);
   useEffect(() => {
-    if (votes.length === 0) return;
+    if (votes.length === 0) return undefined;
 
     const controller = new AbortController();
     const clientIp = window.location.hostname;

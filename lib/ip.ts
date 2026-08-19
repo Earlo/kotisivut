@@ -10,7 +10,7 @@ export function clientIpFromHeaders(h: Headers): string | undefined {
     h.get('Fly-Client-IP'),
     h.get('x-client-ip'),
     h.get('X-Client-IP'),
-  ].filter(Boolean) as string[];
+  ].filter((value): value is string => value !== null);
 
   for (const v of candidates) {
     for (const part of v.split(',').map((s) => s.trim())) {
@@ -23,10 +23,10 @@ export function clientIpFromHeaders(h: Headers): string | undefined {
 function isPrivate(ip: string): boolean {
   if (ip === '127.0.0.1' || ip === '::1') return true;
   // 10.0.0.0/8
-  if (/^10\./.test(ip)) return true;
+  if (ip.startsWith('10.')) return true;
   // 172.16.0.0/12
   if (/^172\.(1[6-9]|2\d|3[0-1])\./.test(ip)) return true;
   // 192.168.0.0/16
-  if (/^192\.168\./.test(ip)) return true;
+  if (ip.startsWith('192.168.')) return true;
   return false;
 }

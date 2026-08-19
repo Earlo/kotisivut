@@ -81,7 +81,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
             onInput={(e) =>
               setBudu((prev) => ({
                 ...prev,
-                [name]: sign * parseInt((e.target as HTMLInputElement).value, 10),
+                [name]: sign * parseInt(e.currentTarget.value, 10),
               }))
             }
           />

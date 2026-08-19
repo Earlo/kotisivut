@@ -5,23 +5,40 @@ import { NextResponse } from 'next/server';
 
 type RankingBody = {
   name?: string;
-  ranking?: unknown;
+  ranking: string[];
 };
+
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null;
+}
+
+function isRankingBody(value: unknown): value is RankingBody {
+  return (
+    isRecord(value) &&
+    'ranking' in value &&
+    Array.isArray(value.ranking) &&
+    value.ranking.every((candidate) => typeof candidate === 'string') &&
+    (!('name' in value) || typeof value.name === 'string')
+  );
+}
 
 export async function POST(request: Request) {
   try {
     const headers = request.headers;
-    let body: RankingBody;
+    let body: unknown;
     try {
-      body = (await request.json()) as RankingBody;
+      body = await request.json();
     } catch {
       return NextResponse.json({ error: 'BAD_JSON' }, { status: 400 });
     }
-    if (body == null || typeof body !== 'object') {
+    if (!isRecord(body)) {
       return NextResponse.json({ error: 'INVALID_BODY' }, { status: 400 });
     }
-    if (body.ranking == null) {
+    if (!('ranking' in body) || body.ranking == null) {
       return NextResponse.json({ error: 'MISSING_FIELD', field: 'ranking' }, { status: 400 });
+    }
+    if (!isRankingBody(body)) {
+      return NextResponse.json({ error: 'INVALID_BODY' }, { status: 400 });
     }
     const ip = clientIpFromHeaders(headers);
     const { data, error } = await supabase()

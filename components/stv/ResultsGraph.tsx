@@ -13,7 +13,7 @@ const ResultGraph: FC<ResultGraphProps> = ({ votes, candidates, depth = 0 }) => 
   const voteCounts: Record<string, number> = {};
   const [showNextRound, setShowNextRound] = useState(false);
   votes.forEach((v) => {
-    const candidate = v.vote.length > 0 ? v.vote[0] : 'Tyhjät / Hylätyt';
+    const candidate = v.vote[0] ?? 'Tyhjät / Hylätyt';
     voteCounts[candidate] = (voteCounts[candidate] ?? 0) + 1;
   });
   const candidateWithLeastVotes = candidates.reduce((prev, curr) => {
@@ -52,7 +52,7 @@ const ResultGraph: FC<ResultGraphProps> = ({ votes, candidates, depth = 0 }) => 
               maxVotes={maxVotes}
               votes={count}
               label={candidate}
-              color={candidates.find((c) => c.name === candidate)?.color}
+              color={candidates.find((c) => c.name === candidate)?.color ?? '#aaaaaa'}
             />
           ))}
         </div>
