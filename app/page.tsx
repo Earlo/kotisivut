@@ -1,3 +1,4 @@
+import ActivityCard, { type ActivityCardProps } from '@/components/ActivityCard';
 import { Telegram } from '@/components/telegram';
 import { personJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
@@ -10,10 +11,71 @@ export const metadata: Metadata = {
   alternates: { canonical: '/' },
 };
 
-export default function Page() {
-  const phone = '+358456350724';
-  const calUrl = 'https://cal.com/visap/30min';
+const phone = '+358456350724';
+const calUrl = 'https://cal.com/visap/30min';
 
+const activities: ActivityCardProps[] = [
+  {
+    title: 'Konsultointi',
+    description:
+      'Teen ohjelmistokonsultointia ja rakennan digitaalisia palveluita. Tällä hetkellä uusille projekteille ei lähtökohtaisesti ole kaistaa, mutta keskustelen mielelläni. Ensimmäinen annos on ilmainen.',
+    logo: {
+      src: '/OpenSauce.svg',
+      alt: 'OpenSauce',
+      width: 105,
+      height: 384,
+      className: 'h-12 w-auto',
+      containerClassName: 'rounded-xl bg-orange-50',
+    },
+    links: [
+      { label: 'GitHub', href: 'https://github.com/Earlo', external: true },
+      { label: 'LinkedIn', href: 'https://www.linkedin.com/in/visapollari', external: true },
+      { label: 'Varaa tapaaminen', href: calUrl, external: true },
+    ],
+    linksLabel: 'Koodiin liittyvät linkit',
+    linkHoverClassName: 'hover:text-blue-700',
+  },
+  {
+    title: 'Politiikka',
+    description:
+      'Olen mukana rakentamassa suomeen todellista Liberaalia vaihtoehtoa puoluekentälle. Osallistun yhteiskunnalliseen keskusteluun huutamalla mielipiteitäni internetin tyhjyyteen. Tsekkaa alapuolella oleva Telegram-feedi nähdäksesi horinoitani.',
+    logo: {
+      src: '/libLogo.png',
+      alt: 'Liberaalipuolue',
+      width: 462,
+      height: 462,
+      className: 'h-16 w-16 rounded-xl',
+    },
+    links: [
+      {
+        label: 'Liberaalipuolue',
+        href: 'https://liberaalipuolue.fi/piirijarjestot/uusimaa/',
+        external: true,
+      },
+      { label: 'Kirjoitukset ja työkalut', href: '/blogi' },
+      { label: 'Varaa tapaaminen', href: calUrl, external: true },
+    ],
+    linksLabel: 'Politiikkaan liittyvät linkit',
+    linkHoverClassName: 'hover:text-violet-700',
+  },
+  {
+    title: 'Kattilalaakson Tislaamo',
+    description:
+      'Olen mukana rakentamassa espoolaista tislaamoa. Ensisijaisia tavoitteitamme on laatu, raaka-aineiden kotimaisuus, ja uteliaisuus.',
+    logo: {
+      src: '/kattila_logo_dark.svg',
+      alt: 'Kattilalaakson Tislaamo',
+      width: 123,
+      height: 139,
+      className: 'h-16 w-auto',
+    },
+    links: [{ label: 'Kattilalaakson Tislaamo', href: 'https://www.kattilalaakso.fi/', external: true }],
+    linksLabel: 'Kattilalaakson Tislaamon linkit',
+    linkHoverClassName: 'hover:text-amber-800',
+  },
+];
+
+export default function Page() {
   const personSchema = {
     '@context': 'https://schema.org',
     ...personJsonLd,
@@ -68,6 +130,21 @@ export default function Page() {
                 Sähköposti
               </a>
             </div>
+          </div>
+        </div>
+      </section>
+      <section aria-labelledby="what-i-do-heading" className="w-full bg-gray-50 px-4 py-12 md:px-10 md:py-16">
+        <div className="mx-auto w-full max-w-5xl">
+          <div className="mb-8 max-w-2xl">
+            <h2 id="what-i-do-heading" className="text-3xl font-bold tracking-tight">
+              Mitä teen?
+            </h2>
+          </div>
+
+          <div className="grid gap-5 md:grid-cols-3">
+            {activities.map((activity) => (
+              <ActivityCard key={activity.title} {...activity} />
+            ))}
           </div>
         </div>
       </section>
