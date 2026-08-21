@@ -28,7 +28,6 @@ const activities: ActivityCardProps[] = [
       containerClassName: 'rounded-xl bg-orange-50',
     },
     links: [
-      { label: 'GitHub', href: 'https://github.com/Earlo', external: true },
       { label: 'LinkedIn', href: 'https://www.linkedin.com/in/visapollari', external: true },
       { label: 'Varaa tapaaminen', href: calUrl, external: true },
     ],
