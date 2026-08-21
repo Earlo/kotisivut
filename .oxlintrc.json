@@ -9,6 +9,7 @@
   ],
   "categories": {
     "correctness": "error",
+    "perf": "error",
     "suspicious": "warn"
   },
   "options": {

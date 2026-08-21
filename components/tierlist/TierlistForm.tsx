@@ -2,7 +2,7 @@
 
 import CandidateProfile from '@/components/stv/CandidateProfile';
 import { cn } from '@/lib/helpers';
-import { Dispatch, FC, SetStateAction, useState } from 'react';
+import { useState, type Dispatch, type FC, type SetStateAction } from 'react';
 
 interface ListFormProps {
   votes: string[][];
@@ -15,6 +15,7 @@ interface ListFormProps {
 
 const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidates, className = 'grid-cols-4' }) => {
   const [newVote, setNewVote] = useState<string[]>(Array(candidates.length).fill(''));
+  const rankingSlots = candidates.map(({ name: candidateName }) => `ranking-slot-${candidateName}`);
 
   const addVote = () => {
     const validVote = newVote.filter((choice) => choice);
@@ -83,32 +84,30 @@ const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidate
         ))}
       </div>
       <div className="mb-4 flex flex-col space-y-2">
-        {Array(candidates.length)
-          .fill(null)
-          .map((_, index) =>
-            index === 0 || newVote[index - 1] || newVote[index] ? (
-              <div key={index}>
-                <span className="inline-block w-10 text-white">{'#' + (index + 1)}</span>
-                <input
-                  type="text"
-                  value={newVote[index]}
-                  onChange={(e) => updateVote(index, e.target.value)}
-                  placeholder={`#${index + 1} valinta`}
-                  className="rounded-sm border border-gray-300 bg-slate-900 p-2"
-                  disabled
-                />
-                {newVote[index] ? (
-                  <button
-                    type="button"
-                    onClick={() => updateVote(index, '')}
-                    className="ml-2 rounded-sm bg-red-500 p-2 text-white hover:bg-red-700"
-                  >
-                    X
-                  </button>
-                ) : null}
-              </div>
-            ) : null,
-          )}
+        {rankingSlots.map((slotId, index) =>
+          index === 0 || newVote[index - 1] || newVote[index] ? (
+            <div key={slotId}>
+              <span className="inline-block w-10 text-white">{'#' + (index + 1)}</span>
+              <input
+                type="text"
+                value={newVote[index]}
+                onChange={(e) => updateVote(index, e.target.value)}
+                placeholder={`#${index + 1} valinta`}
+                className="rounded-sm border border-gray-300 bg-slate-900 p-2"
+                disabled
+              />
+              {newVote[index] ? (
+                <button
+                  type="button"
+                  onClick={() => updateVote(index, '')}
+                  className="ml-2 rounded-sm bg-red-500 p-2 text-white hover:bg-red-700"
+                >
+                  X
+                </button>
+              ) : null}
+            </div>
+          ) : null,
+        )}
         <button
           type="button"
           onClick={addVote}

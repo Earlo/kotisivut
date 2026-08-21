@@ -1,6 +1,6 @@
 'use client';
 
-import { FC, useState } from 'react';
+import { useState, type FC } from 'react';
 import Bar from './Bar';
 
 interface ResultGraphProps {

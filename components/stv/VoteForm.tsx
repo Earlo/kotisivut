@@ -1,7 +1,7 @@
 'use client';
 
 import { cn } from '@/lib/helpers';
-import { Dispatch, FC, SetStateAction, useState } from 'react';
+import { useState, type Dispatch, type FC, type SetStateAction } from 'react';
 import CandidateProfile from './CandidateProfile';
 
 interface VoteFormProps {
@@ -13,6 +13,7 @@ interface VoteFormProps {
 
 const VoteForm: FC<VoteFormProps> = ({ votes, setVotes, candidates, className = 'grid-cols-4' }) => {
   const [newVote, setNewVote] = useState<string[]>(Array(candidates.length).fill(''));
+  const rankingSlots = candidates.map(({ name }) => `ranking-slot-${name}`);
 
   const addVote = () => {
     const validVote = newVote.filter((choice) => choice);
@@ -52,20 +53,18 @@ const VoteForm: FC<VoteFormProps> = ({ votes, setVotes, candidates, className = 
         ))}
       </div>
       <div className="mb-4 flex flex-col space-y-2">
-        {Array(candidates.length)
-          .fill(null)
-          .map((_, index) =>
-            index === 0 || newVote[index - 1] ? (
-              <input
-                key={index}
-                type="text"
-                value={newVote[index]}
-                onChange={(e) => updateVote(index, e.target.value)}
-                placeholder={`#${index + 1} valinta`}
-                className={'rounded-sm border border-gray-300 p-2'}
-              />
-            ) : null,
-          )}
+        {rankingSlots.map((slotId, index) =>
+          index === 0 || newVote[index - 1] ? (
+            <input
+              key={slotId}
+              type="text"
+              value={newVote[index]}
+              onChange={(e) => updateVote(index, e.target.value)}
+              placeholder={`#${index + 1} valinta`}
+              className={'rounded-sm border border-gray-300 p-2'}
+            />
+          ) : null,
+        )}
         <button onClick={addVote} className="mt-2 rounded-sm bg-blue-500 p-2 text-white">
           Add Vote
         </button>

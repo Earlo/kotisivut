@@ -2,23 +2,30 @@
   "compilerOptions": {
     "target": "ESNext",
     "lib": ["dom", "dom.iterable", "esnext"],
+    "allowArbitraryExtensions": true,
     "allowImportingTsExtensions": true,
-    "allowJs": true,
     "skipLibCheck": true,
     "strict": true,
+    "allowUnreachableCode": false,
+    "allowUnusedLabels": false,
+    "erasableSyntaxOnly": true,
     "exactOptionalPropertyTypes": true,
     "forceConsistentCasingInFileNames": true,
+    "moduleDetection": "force",
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noUncheckedIndexedAccess": true,
     "noUncheckedSideEffectImports": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "noEmit": true,
     "esModuleInterop": true,
-    "module": "esnext",
+    "module": "preserve",
     "moduleResolution": "bundler",
     "resolveJsonModule": true,
     "isolatedModules": true,
+    "verbatimModuleSyntax": true,
     "jsx": "react-jsx",
     "incremental": true,
     "paths": {
@@ -28,7 +35,8 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "allowJs": true
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", ".next/dev/types/**/*.ts", "**/*.mts"],
   "exclude": ["node_modules"]

@@ -1,0 +1,43 @@
+name: Canary compatibility
+
+on:
+  schedule:
+    - cron: '0 4 * * 1'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: canary-compatibility
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    name: Next, React, and TypeScript canaries
+    continue-on-error: true
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+
+      - name: Set up Node.js
+        uses: actions/setup-node@820762786026740c76f36085b0efc47a31fe5020 # v7.0.0
+        with:
+          node-version-file: '.node-version'
+          cache: 'npm'
+
+      - name: Install locked dependencies
+        run: npm ci
+
+      - name: Install canary framework versions
+        run: npm install --no-save --package-lock=false next@canary react@canary react-dom@canary typescript@next
+
+      - name: Run quality checks
+        run: npm run check
+
+      - name: Build application
+        run: npm run build

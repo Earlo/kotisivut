@@ -1,7 +1,7 @@
 'use client';
 
 import { useToaster } from '@/components/generic/Toaster';
-import { Dispatch, FC, SetStateAction, useState } from 'react';
+import { useState, type Dispatch, type FC, type SetStateAction } from 'react';
 import ListForm from './TierlistForm';
 
 interface TierListProps {

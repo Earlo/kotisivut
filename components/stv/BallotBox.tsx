@@ -15,6 +15,8 @@ const BallotBox: React.FC<BallotBoxProps> = ({ votes, setVotes, candidates }) =>
       <div className="h-64 overflow-y-auto">
         <div className="space-y-4">
           {votes.map((vote, index) => (
+            // Duplicate ballots are valid, so their position is the only available identity.
+            // oxlint-disable-next-line react/no-array-index-key
             <Vote key={index} candidates={vote} />
           ))}
         </div>

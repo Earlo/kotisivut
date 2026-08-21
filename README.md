@@ -11,11 +11,6 @@ The source for [visapollari.fi](https://visapollari.fi), Visa Pollari's Finnish-
 
 ## Local development
 
-Requirements:
-
-- Node.js 24 (see `.node-version`)
-- npm 11.19.0 or newer within the npm 11 release line
-
 Install the locked dependencies and start the development server:
 
 ```bash

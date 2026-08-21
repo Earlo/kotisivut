@@ -6,7 +6,7 @@ import { useToaster } from '@/components/generic/Toaster';
 import Text from '@/components/Text';
 import { cn } from '@/lib/helpers';
 import { useSearchParams } from 'next/navigation';
-import { FC, useState } from 'react';
+import { useState, type FC } from 'react';
 import { budjetti } from './budjetti';
 
 interface BudjettiKorttiProps {
@@ -106,7 +106,7 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
         </Text>
 
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
-          <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
+          <div className="rounded-lg border border-white/10 bg-white/4 p-4">
             <span className="text-xs font-bold tracking-wide text-slate-400 uppercase">Budjetin saldo</span>
             <strong className={cn('mt-2 block text-3xl leading-tight font-bold', balanceTone)}>
               {total > 0 && '+'}
@@ -118,17 +118,17 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
             </p>
           </div>
 
-          <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
+          <div className="rounded-lg border border-white/10 bg-white/4 p-4">
             <span className="text-xs font-bold tracking-wide text-slate-400 uppercase">Käsittelyssä</span>
             <strong className="mt-2 block text-3xl leading-tight font-bold text-white">
               {currentIndex + 1}
               <span className="text-lg text-slate-400">/{numberOfKeys}</span>
             </strong>
-            <p className="mt-2 text-sm leading-relaxed break-words text-slate-300">{currentItem}</p>
+            <p className="mt-2 text-sm leading-relaxed wrap-break-word text-slate-300">{currentItem}</p>
           </div>
         </div>
 
-        <div className="rounded-lg border border-white/10 bg-white/[0.04] p-4">
+        <div className="rounded-lg border border-white/10 bg-white/4 p-4">
           <div className="flex items-center justify-between gap-3">
             <h2 className="text-base font-semibold text-white">Muutoksesi budjettiin</h2>
             <span className="rounded-full bg-white/10 px-2.5 py-1 text-xs font-bold text-slate-200">
@@ -148,7 +148,7 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
                 const muutos = absAmount - originalAbsAmount;
                 return (
                   <li key={key} className="border-b border-white/10 pb-3 last:border-b-0 last:pb-0">
-                    <span className="block text-sm leading-snug break-words text-slate-100">{key}</span>
+                    <span className="block text-sm leading-snug wrap-break-word text-slate-100">{key}</span>
                     <span
                       className={cn(
                         'mt-1 block text-sm font-semibold',

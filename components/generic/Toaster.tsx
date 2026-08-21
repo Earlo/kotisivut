@@ -1,7 +1,7 @@
 'use client';
 
 import { XMarkIcon } from '@heroicons/react/20/solid';
-import { createContext, FC, ReactNode, useContext, useState } from 'react';
+import { createContext, useCallback, useContext, useMemo, useRef, useState, type FC, type ReactNode } from 'react';
 
 type Toast = {
   id: number;
@@ -17,18 +17,19 @@ const ToasterContext = createContext<ToasterContextType | undefined>(undefined);
 
 export const ToasterProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [toasts, setToasts] = useState<Toast[]>([]);
-  const [nextId, setNextId] = useState(1);
+  const nextId = useRef(1);
 
-  const addToast = (message: string, type: 'success' | 'error' | 'info') => {
-    setToasts((prev) => [...prev, { id: nextId, message, type }]);
-    setNextId((prev) => prev + 1);
+  const addToast = useCallback((message: string, type: 'success' | 'error' | 'info') => {
+    const id = nextId.current++;
+    setToasts((prev) => [...prev, { id, message, type }]);
     setTimeout(() => {
       setToasts((prev) => prev.slice(1));
     }, 3000);
-  };
+  }, []);
+  const contextValue = useMemo(() => ({ addToast }), [addToast]);
 
   return (
-    <ToasterContext.Provider value={{ addToast }}>
+    <ToasterContext.Provider value={contextValue}>
       {children}
       <div className="fixed right-0 bottom-0 z-40 m-4 space-y-2">
         {toasts.map((toast) => (
