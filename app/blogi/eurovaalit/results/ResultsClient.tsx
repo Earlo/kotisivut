@@ -36,11 +36,11 @@ export default function ResultsClient({ guesses }: { guesses: RankingGuess[] }) 
             <span>
               {guess.made_by} {sum}
             </span>
-            {ranking.map((candidate, index) => {
+            {ranking.map((candidate) => {
               const imageSrc = candidates.find(({ name }) => name === candidate)?.imageSrc;
               return imageSrc ? (
                 <CandidateProfile
-                  key={`${candidate}-${index}`}
+                  key={candidate}
                   name={candidate}
                   imageSrc={imageSrc}
                   onClick={() => toggle(guess.made_by, candidate)}

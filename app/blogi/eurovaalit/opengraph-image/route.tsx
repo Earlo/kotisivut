@@ -36,7 +36,7 @@ export function GET() {
         const column = index % columns;
         return (
           <div
-            key={index}
+            key={candidate.name}
             style={{
               position: 'absolute',
               left: `${column * imageWidth}px`,
