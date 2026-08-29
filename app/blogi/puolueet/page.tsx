@@ -1,6 +1,7 @@
 import ArticleDates from '@/components/ArticleDates';
 import PartyTable from '@/components/puolueet/PartyTable';
 import Text from '@/components/Text';
+import Title from '@/components/Title';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
@@ -69,9 +70,7 @@ const PartiesPage = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article aria-labelledby="puolueet-heading">
-        <h1 id="puolueet-heading" className="mb-4 text-3xl font-bold">
-          Rekisteröityneet puolueet
-        </h1>
+        <Title id="puolueet-heading">Rekisteröityneet puolueet</Title>
         <ArticleDates {...contentDates.puolueet} />
         <Text>
           Eurovaalien alla olen huomannut erään selkeästi suomalaista kansalaisyhteiskuntaa piinaavan vaivan:

@@ -1,5 +1,6 @@
 import ArticleDates from '@/components/ArticleDates';
 import Text from '@/components/Text';
+import Title from '@/components/Title';
 import Tapahtumakortti from '@/components/vaalirahoitus/Tapahtumakortti';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
@@ -70,9 +71,9 @@ const PartiesPage = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article aria-labelledby="vaalirahoitus-heading">
-        <h1 id="vaalirahoitus-heading" className="mb-4 text-3xl font-bold">
+        <Title id="vaalirahoitus-heading" className="mb-4 text-3xl font-bold">
           Suomen vaalirahoitusvalvonnan puutteet.
-        </h1>
+        </Title>
         <ArticleDates {...contentDates.vaalirahoitus} />
         <Text>
           Vuonna 2008 oli Suomen mediassa pinnalla ns. "vaalirahoituskohu". Keskustan kansanedustaja Timo Kallin
@@ -121,8 +122,7 @@ const PartiesPage = () => {
           ylityksiä että ilmoituksia, joista ei pysty edes yksiselitteisesti selvittämään, kuka rahoituksen alkuperäinen
           antaja on. [TODO: nosto tapaukseen Jäntti]. Kyseinen tapaus sattui omiin näppeihin ihan summanmutikassa VTV:n
           rahoitusportaalia selatessa. Mikäli rahoituksen lähteitä halutaan peittää, on se täysin triviaalia
-          reitittämällä raha useampien välikäsien kautta. Ja mikäli rahoituksen alkuperäinen lähde on ulkomainen, ei
-          sitä edes tarvitse ilmoittaa. [TODO: nosto tapaukseen Orpo].
+          reitittämällä raha useampien välikäsien kautta.
         </Text>
         <Text>
           Valvonta perustuu pitkälti siihen, että media ja kansalaiset jaksavat toimia vallan vahtikoirina. Muutamia

@@ -1,4 +1,5 @@
 import Text from '@/components/Text';
+import Title from '@/components/Title';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -39,9 +40,7 @@ const BlogListing = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <article aria-labelledby="blog-heading" className="mx-auto flex w-full max-w-5xl flex-col px-4 py-8">
-        <h1 id="blog-heading" className="mb-4 text-3xl font-bold">
-          Blogi
-        </h1>
+        <Title id="blog-heading">Blogi</Title>
         <Text>Tässä muutamia kirjoittamiani tekstejä tai muita virtuaalisyhteiskunnallisia kokemuksia:</Text>
         <div className="flex flex-col space-y-2">
           <Link href="/blogi/puolueet" className="text-blue-400 hover:text-blue-300">
