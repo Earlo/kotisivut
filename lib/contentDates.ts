@@ -47,4 +47,8 @@ export const contentDates = {
     published: '2023-02-08T13:28:12+02:00',
     modified: '2023-03-05T02:21:36+02:00',
   },
+  vaalirahoitus: {
+    published: '2026-08-29T15:00:00+03:00',
+    modified: '2026-08-29T15:00:00+03:00',
+  },
 } satisfies Record<string, ContentDates>;
