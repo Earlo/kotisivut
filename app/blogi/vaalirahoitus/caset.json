@@ -177,8 +177,8 @@
     "ylitys_euroa": null,
     "rikkeen_taso": "Ei rikettä",
     "status": "Rahoittajat eivät ole julkisia",
-    "tausta": "Esimerkkitapaus, kuinka merkittävä vaalirahoitus on mahdollista kerätä ilman että yhtään mitään ilmoitettavaa syntyy.",
-    "kysymys": "Mistä 26 435 euroa tuli? Julkisesta ilmoituksesta yksittäisiä yrityksiä ei voi tunnistaa.",
+    "tausta": "Esimerkkitapaus, kuinka merkittävä vaalirahoitus on mahdollista kerätä ilman että yhtään mitään ilmoitettavaa syntyy. Potin kasaaminen vaatii toistakymmentä firmaa tukijoukkoihin.",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/07/0085/vaalirahoitusilmoitus.html",
     "media": []
   },
