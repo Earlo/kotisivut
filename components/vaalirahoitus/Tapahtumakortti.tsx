@@ -45,19 +45,19 @@ const partyLogos: Record<string, { id: number; shortName: string }> = {
 
 export const levelStyles = {
   selvä: {
-    label: 'Selvä ylitys',
+    label: 'Ylitys',
     badge: 'bg-red-400 text-red-950',
     accent: 'bg-red-400',
     text: 'text-red-300',
   },
   selvä_varauksin: {
-    label: 'Ylitys varauksin',
+    label: 'Mahdollinen ylitys',
     badge: 'bg-orange-300 text-orange-950',
     accent: 'bg-orange-300',
     text: 'text-orange-200',
   },
   epäselvä: {
-    label: 'Epäselvä',
+    label: 'Teknisesti ok',
     badge: 'bg-amber-300 text-amber-950',
     accent: 'bg-amber-300',
     text: 'text-amber-200',

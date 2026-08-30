@@ -1,6 +1,7 @@
 interface MoneyProps {
   amount: number;
   showPlus?: boolean;
+  suffix?: string;
 }
 
 const moneyFormatter = new Intl.NumberFormat('fi-FI', {
@@ -10,10 +11,11 @@ const moneyFormatter = new Intl.NumberFormat('fi-FI', {
   maximumFractionDigits: 2,
 });
 
-const Money = ({ amount, showPlus = false }: MoneyProps) => (
+const Money = ({ amount, showPlus = false, suffix }: MoneyProps) => (
   <span className="whitespace-nowrap">
     {showPlus && amount > 0 ? '+' : ''}
     {moneyFormatter.format(amount)}
+    {suffix}
   </span>
 );
 

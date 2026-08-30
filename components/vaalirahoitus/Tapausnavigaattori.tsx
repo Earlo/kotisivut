@@ -3,6 +3,7 @@
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Tapahtumakortti, { getLevelStyle, type VaalirahoitusCase } from './Tapahtumakortti';
+import { SELECT_VAALIRAHOITUS_CASE_EVENT, type SelectVaalirahoitusCaseDetail } from './Tapauspainike';
 
 interface TapausnavigaattoriProps {
   tapaukset: VaalirahoitusCase[];
@@ -70,6 +71,24 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
     };
   }, [mobileOpen]);
 
+  useEffect(() => {
+    const selectCase = (event: CustomEvent<SelectVaalirahoitusCaseDetail>) => {
+      const { nimi } = event.detail;
+      const selectedIndex = tapaukset.findIndex((tapaus) => tapaus.nimi === nimi);
+      if (selectedIndex === -1) return;
+
+      setCurrentIndex(selectedIndex);
+
+      if (window.matchMedia('(min-width: 64rem)').matches) return;
+
+      setMobileVisible(true);
+      setMobileOpen(true);
+    };
+
+    window.addEventListener(SELECT_VAALIRAHOITUS_CASE_EVENT, selectCase);
+    return () => window.removeEventListener(SELECT_VAALIRAHOITUS_CASE_EVENT, selectCase);
+  }, [tapaukset]);
+
   if (tapaukset.length === 0) return null;
 
   const current = tapaukset[currentIndex];
@@ -88,8 +107,8 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
 
   return (
     <>
-      <aside className="hidden lg:block" aria-label="Vaalirahoituksen tapauskortit">
-        <div className="sticky top-6 rounded-xl bg-zinc-900/75 p-3 shadow-2xl shadow-black/30 backdrop-blur-xl">
+      <aside className="hidden lg:sticky lg:top-6 lg:block" aria-label="Vaalirahoituksen tapauskortit">
+        <div className="rounded-xl bg-zinc-900/75 p-3 shadow-2xl shadow-black/30 backdrop-blur-xl">
           <div className="mb-3 px-1 pt-1">
             <div className="flex items-center justify-between gap-3">
               <div>
