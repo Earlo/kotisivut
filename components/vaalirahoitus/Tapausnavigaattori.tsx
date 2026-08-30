@@ -22,7 +22,7 @@ const Vaihtopainike = ({ direction, onClick, compact = false }: VaihtopainikePro
     <button
       type="button"
       onClick={onClick}
-      className={`grid shrink-0 place-items-center rounded-full border border-white/10 bg-white/5 text-zinc-200 transition hover:border-white/20 hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${compact ? 'h-9 w-9' : 'h-10 w-10'}`}
+      className={`grid shrink-0 place-items-center rounded-full bg-white/[0.07] text-zinc-200 transition hover:bg-white/15 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300 ${compact ? 'h-9 w-9' : 'h-10 w-10'}`}
       aria-label={previous ? 'Edellinen tapaus' : 'Seuraava tapaus'}
     >
       <Icon className={compact ? 'h-4 w-4' : 'h-5 w-5'} aria-hidden="true" />
@@ -89,7 +89,7 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
   return (
     <>
       <aside className="hidden lg:block" aria-label="Vaalirahoituksen tapauskortit">
-        <div className="sticky top-6 max-h-[calc(100vh-3rem)] overflow-y-auto overscroll-contain rounded-3xl border border-white/10 bg-zinc-900/80 p-3 shadow-2xl shadow-black/30 backdrop-blur-xl">
+        <div className="sticky top-6 rounded-4xl bg-zinc-900/75 p-3 shadow-2xl shadow-black/30 backdrop-blur-xl">
           <div className="mb-3 px-1 pt-1">
             <div className="flex items-center justify-between gap-3">
               <div>
@@ -112,8 +112,8 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
               />
             </div>
           </div>
-          <div aria-live="polite">
-            <Tapahtumakortti key={currentIndex} tapaus={current} tiivis />
+          <div className="h-128" aria-live="polite">
+            <Tapahtumakortti key={currentIndex} tapaus={current} />
           </div>
           <p className="px-2 pt-3 pb-1 text-center text-[0.65rem] leading-4 text-zinc-500">
             Luokitus perustuu julkisen ilmoituksen tulkintaan.
@@ -126,7 +126,7 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
         aria-hidden={!mobileVisible || mobileOpen}
         inert={!mobileVisible || mobileOpen}
       >
-        <div className="mx-auto flex max-w-lg items-center gap-2 rounded-2xl border border-white/15 bg-zinc-950/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl">
+        <div className="mx-auto flex h-14 max-w-lg items-center gap-2 rounded-2xl bg-zinc-950/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl">
           <Vaihtopainike direction="previous" onClick={previous} compact />
           <button
             type="button"
@@ -161,7 +161,7 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
             aria-label="Sulje tapauskortti"
           />
           <div
-            className="absolute inset-x-0 bottom-0 flex max-h-[85dvh] flex-col rounded-t-3xl border-t border-white/15 bg-zinc-900 shadow-2xl"
+            className="absolute inset-x-0 bottom-0 flex h-[min(42rem,calc(100dvh-0.75rem))] flex-col rounded-t-[2rem] bg-zinc-900 shadow-2xl"
             onTouchStart={(event) => (touchStartX.current = event.changedTouches[0]?.clientX ?? null)}
             onTouchEnd={endTouch}
           >
@@ -190,11 +190,8 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
             <div className="h-0.5 bg-white/10">
               <div className={`h-full transition-[width] duration-300 ${level.accent}`} style={{ width: progress }} />
             </div>
-            <div
-              className="overflow-y-auto overscroll-contain px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
-              aria-live="polite"
-            >
-              <Tapahtumakortti key={currentIndex} tapaus={current} tiivis />
+            <div className="min-h-0 flex-1 px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]" aria-live="polite">
+              <Tapahtumakortti key={currentIndex} tapaus={current} />
             </div>
           </div>
         </dialog>
