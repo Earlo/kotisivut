@@ -50,7 +50,7 @@ export const metadata: Metadata = {
         url: 'https://visapollari.fi/blogi/vaalirahoitus/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Vaalirahoitus esikatselukuva',
+        alt: 'Vaalirahoituslain porsaanreiät',
       },
     ],
     type: 'website',
