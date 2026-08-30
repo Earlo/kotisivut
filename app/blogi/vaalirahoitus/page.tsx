@@ -247,7 +247,16 @@ const PartiesPage = () => {
               kohtaan. Mikäli ehdokaan etupiirien ymmärätäminen ei paina paljoa vaakakupissa äänestyspäätöstä tehdessä,
               tulee myös vaalirahoitusilmoitusten tekemisestä aikalailla tyhjäpäiväistä teatteria.
             </Text>
-            <Text>T. Visa Pollari</Text>
+            <aside className="mt-8 border-l border-zinc-700 pl-4 text-sm leading-relaxed text-zinc-400">
+              Mikäli huomaat kirjoituksessa asiavirheitä, tai muuta kommentoitavaa, ole yhteydessä{' '}
+              <a
+                href="mailto:visa@visapollari.fi"
+                className="text-zinc-300 underline decoration-zinc-600 underline-offset-4 transition-colors hover:text-white"
+              >
+                visa@visapollari.fi
+              </a>
+              .
+            </aside>
           </div>
           <Tapausnavigaattori tapaukset={tapaukset} />
         </div>
