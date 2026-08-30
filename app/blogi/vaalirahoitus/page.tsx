@@ -93,39 +93,57 @@ const PartiesPage = () => {
             <Text>
               Noh, tilanne vuonna 2026 on edelleen sama. Vaalirahoituslaki on edelleen olemassa, muutamia
               ilmoituskynnyksiä on rukattu alaspäin, ja vaaditaan tarkempaa erittelyä, ja asetettu kattoja yhden
-              lahjoittajan tekemille lahjoituksille. Mutta erot ovat pääosin täysin kosmeettisia. Muunmmuassa asetettu
-              katto lahjoitusten koolle ei ole millään tavalla sitova. Rajan ylittäimisestä ei ole mitään säädettyä
-              sanktiota.
+              lahjoittajan tekemille lahjoituksille. Mutta yksi ongelman keskeisistä piirteistä jäi ennalleen:
+              aineellisen kiellon rikkomisesta ei säädetty varsinaista rangaistusta. Siten asetettu katto lahjoitusten
+              koolle ei ole millään tavalla sitova.
             </Text>
-
+            <Text>
+              Ilmoituskynnyksessä on myös viime vuosina otettu takapakkia. Vuoden 2025 uudistuksella kuntavaalien
+              nimetyn ilmoituksen kynnystä nostettiin 800 to 1 100 ja alue- ja eudskunta- alue- tai presidentinvaaleissa
+              1 500 to 2000 [TODO, kirjoita puhtaaksi]. Varsinkin Alue- ja kuntavaalien eroavat rajat tulevat varmasti
+              olemaan ongelma, mikäli vaaleja jatkossakin toteutetaan päällekkäisinä vaaleina. Vielä 2025 vaaliessa oli
+              Aluevaalien ilmoitusraja sama kuin kuntavaalien 800. Nostoa argumentointiin indeksikorotuksena. [lähde
+              tähän]
+            </Text>
             <Text>
               Tämänhetkiset rajat yksittäisen lahjoittajan tekemille lahjoituksille ovat seuraavanlaiset: Kuntavaaleissa{' '}
               <Money amount={3000} />, eduskunta- ja aluevaaleissa <Money amount={6000} /> ja europarlamenttivaaleissa{' '}
               <Money amount={10000} />. Rajat ovat vaalikohtaisia, eli yhdistetyissä alue- ja kuntavaaleissa raja on
-              käytännössä <Money amount={9000} />. Lahjaveron <Money amount={5000} />
-              :n kynnys ei tietenkään koske vaalirahoitusta, vaan on täysin eri asia™. Mikäli ehdokkaan itse omistama
-              firma maksaa ehdokkaalle tukea, on se myös keino käytännössä nostaa verottomia osinkoja. [lähde]
+              käytännössä <Money amount={9000} />. Lahjaveron nykyinen <Money amount={7500} /> tai eninen{' '}
+              <Money amount={5000} />
+              :n kynnys ei tietenkään koske vaalirahoitusta, vaan on täysin eri asia™. Mikäli lahjoituksen antaa
+              henkilön itse omistama firma, voidaan verittajan mukaan lahjoitus tulkita peitetltynä osinkona. Se,
+              tehdäänkö todella näin ja millä reunaehdoin, ei ole selkeää [linkki:
+              https://www.vero.fi/syventavat-vero-ohjeet/ohje-hakusivu/48072/vaaliavustusten-ja-vaalimenojen-k%C3%A4sittely-verotuksessa/].
             </Text>
             <Text>
               Vielä ongelmallisempaa on, että valvonta perustuu pitkälti ehdokkaiden itse tekemiin ilmoituksiin. Kun
               julkisia vaalirahoitusilmoituksia alkaa käydä järjestelmällisesti läpi, vastaan tulee sekä ilmeisiä
               tukikaton ylityksiä että ilmoituksia, joista ei pysty edes yksiselitteisesti selvittämään, kuka
               rahoituksen alkuperäinen antaja on. [TODO: nosto tapaukseen Jäntti]. Kyseinen tapaus sattui omiin
-              näppeihin ihan summanmutikassa VTV:n rahoitusportaalia selatessa. Mikäli rahoituksen lähteitä halutaan
-              peittää, on se täysin triviaalia reitittämällä raha useampien välikäsien kautta.
+              näppeihin ihan summanmutikassa VTV:n rahoitusportaalia selatessa. Käytännössä ulkopuolisen on kuitenkin
+              hyvin vaikea tarkistaa, mistä välitetty rahoitus tosiasiassa on lähtöisin, jos ilmoituksen erittely on
+              puutteellinen tai raha kulkee useamman toimijan kautta. Mikäli rahoituksen lähteitä halutttaisiin peittää,
+              uskoisin sen olevan varsin triviaalia reitittämällä raha useampien välikäsien tai muiden bulvaanien
+              kautta.
             </Text>
             <Subheader>Kuinka piilottaisin vaalirahoitusta jos haluaisin Tips and Tricks</Subheader>
             <Text>TODO</Text>
             <Text>
               Valvonta perustuu pitkälti siihen, että media ja kansalaiset jaksavat toimia vallan vahtikoirina. Muutamia
-              tapauksia on mm. [Case Orpo ja Case Harakka]. Näissäkin, lakia ilmiselvästi rikottiin, mutta ainoa
-              seuraamus oli se, että ylitetty määrä palautettiin lahjoittajalle.
+              tapauksia on mm. [Case Harakka] jossa ehdokas sai julkisesti näpeilleen ja korjasi tilanteen sen
+              seurauksen. VTV:n tarkastus ei kohdistu siihen, että onko rajoituksia rikottu vai ei, vaan pelkästään
+              siihen että ilmoitus täytetään. Mikäli VTV:n ulkopuoliset tahot eivät ole raporteista kiinnostuneita,
+              hautautuva ne unholaan.
             </Text>
             <Text>
               Vaalrahoituksen vastaanottanut ehdokas tai tukiyhdistys on täysin vapaa käyttämään vastaanottamansa rahat
-              täysin itselleen parhaalla katsomallaan tavallaan. Tämä tiedän hyvin, sillä nurkissani taitaa vieläkin
-              lojua Pro Markkinatalouden minulle vuoden 2023 vaaleihin myöntämällä <Money amount={1500} />
-              :lla ostama pullo Puolustuslaitoksen Leikattua. Korkkaamaton. [TODO mieti haluunko sanoa tän :D]
+              täysin itselleen parhaalla katsomallaan tavallaan. Ja homma käy vielä lepsummaksi vaalien jälkeen.
+              Vaalirahoituslain mukaan, mikäli vaalirahoitusta jää käyttämättä, ja ehdokkaalla ei ole esim.
+              tukiyhdistystä jolla on ennaltamäärätty loppusijoituspaikka kerätyille varoille, siirtyy varat ehdokkaan
+              omiin varoihin. Tämä tiedän hyvin, sillä nurkissani taitaa vieläkin lojua Pro Markkinatalouden minulle
+              vuoden 2023 vaaleihin myöntämällä <Money amount={1500} />
+              :lla ostama pullo Puolustuslaitoksen Leikattua. Korkkaamaton.
             </Text>
             <Text>
               Tämän lisäksi, ilmoituvelvollisia on pelkästään vaaleissa valituksi tai varasijalle tulleet ehdokkaat.
