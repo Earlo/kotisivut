@@ -25,6 +25,19 @@ const references = [
   },
 ] satisfies readonly ReferenceSource[];
 
+const ehdokkaatIlmanIlmoitusta = [
+  { puolue: 'Liberaalipuolue – Vapaus valita', maara: '72', osuus: '22,6 %' },
+  { puolue: 'Vihreä liitto', maara: '1 114', osuus: '23,6 %' },
+  { puolue: 'Vasemmistoliitto', maara: '2 276', osuus: '41,8 %' },
+  { puolue: 'Suomen Sosialidemokraattinen Puolue', maara: '4 613', osuus: '53,2 %' },
+  { puolue: 'Suomen Keskusta', maara: '4 884', osuus: '53,2 %' },
+  { puolue: 'Kansallinen Kokoomus', maara: '5 561', osuus: '60,6 %' },
+  { puolue: 'Suomen ruotsalainen kansanpuolue', maara: '1 215', osuus: '61,2 %' },
+  { puolue: 'Suomen Kristillisdemokraatit (KD)', maara: '2 434', osuus: '67,5 %' },
+  { puolue: 'Perussuomalaiset', maara: '4 721', osuus: '68,8 %' },
+  { puolue: 'Liike Nyt', maara: '707', osuus: '82,1 %' },
+] as const;
+
 export const metadata: Metadata = {
   title: 'Vaalirahoituslaki ja -valvonta on yksi vitsi',
   description: 'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan.',
@@ -119,17 +132,20 @@ const PartiesPage = () => {
               <Money amount={1100} suffix=":oon" /> ja alue- ja eudskunta- alue- tai presidentinvaaleissa{' '}
               <Money amount={1500} suffix=":sta" /> <Money amount={2000} suffix=":oon" />. Varsinkin Alue- ja
               kuntavaalien eroavat rajat tulevat varmasti olemaan ongelma, mikäli vaaleja jatkossakin toteutetaan
-              päällekkäisinä vaaleina. Vielä 2025 vaaliessa oli Aluevaalien ilmoitusraja sama kuin kuntavaalien{' '}
-              <Money amount={800} />. Nostoa argumentoitiin indeksikorotuksena
+              päällekkäisinä vaaleina. Vielä 2025 vaaliessa oli aluevaalien ilmoitusraja sama kuin kuntavaalien{' '}
+              <Money amount={800} /> mikäli ehdokas oli ehdolla molemmissa (<Money amount={1500} /> jos vain
+              aluevaaleissa). Nostoa argumentoitiin indeksikorotuksena
               <Reference number={1} />. VTV:n aluevaalirahoitusraportin mukaan "Yhdistelmäehdokkaiden osalta erikseen
               ilmoitettavan tuen raja nousi vuoden 2025 lakimuutoksen myötä <Money amount={800} suffix=":sta" />{' '}
               <Money amount={2000} suffix=":oon" />. Siten yhdistelmäehdokas voi jat- kossa ottaa vastaan 150 prosenttia
               enemmän ulkopuolista rahoitusta ilman, että hänen tarvitsee nimetä tuen antajaa
               vaalirahoitusilmoituksella". Eli käytännössä jatkossa olemalla ehdolla myös aluevaaleissa,
-              kuntavaaliehdokas voi vastaanottaa nimettömänä lahjoituksena <Money amount={2000} />{' '}
-              <Money amount={800} suffix=":n" /> sijasta
+              kuntavaaliehdokas voi vastaanottaa nimettömänä lahjoituksena <Money amount={1999.99} />{' '}
+              <Money amount={799.99} suffix=":n" /> sijasta
               <Reference number={2} />. Kun näitä rajoja mietitään suhteessa siihen uskomattomaan määrään ehdokkaita
-              joita jokaisissa vaaleissa on ehdolla, aukeaa väylä syytää aivan suunnattomia summia puoluekoneistoille.
+              joita jokaisissa vaaleissa on ehdolla, aukeaa väylä kanavoida erittäin suuria kokonaissummia
+              puoluekoneistoille. Tilastotietoina, 2025 alue- ja kuntavaaleissa oli 29 950 kuntavaaliehdokasta, ja 10
+              097 aluevaaliehdokasta.
             </Text>
             <Text>
               Tämänhetkiset rajat yksittäisen lahjoittajan tekemille lahjoituksille ovat seuraavanlaiset: Kuntavaaleissa{' '}
@@ -137,46 +153,94 @@ const PartiesPage = () => {
               <Money amount={10000} />. Rajat ovat vaalikohtaisia, eli yhdistetyissä alue- ja kuntavaaleissa raja on
               käytännössä <Money amount={9000} />. Lahjaveron nykyinen <Money amount={7500} /> tai eninen{' '}
               <Money amount={5000} suffix=":n" /> kynnys ei tietenkään koske vaalirahoitusta, vaan on tietenkin täysin
-              eri asia™. Mikäli lahjoituksen antaa henkilön itse omistama firma, voidaan verittajan mukaan lahjoitus
-              tulkita peitetltynä osinkona. Se, tehdäänkö todella näin ja millä reunaehdoin, ei ole selkeää
-              <Reference number={3} />.
+              eri asia™. Lisäpoikkeuksen muodostavat puolueet ja puolueyhdistykset, joilta ehdokas voi vastaanottaa tätä
+              suurempia summia. Niidenkään kautta ei kuitenkaan saa välittää yhdeltä muulta tukijalta tukikaton
+              ylittävää summaa, mutta mikäli tässä on vaikkapa puoluetuista saadusta "puolueen omasta rahasta", ei
+              lahjoituksen määrälle ole mitään rajaa.
             </Text>
             <Text>
-              Valvonta perustuu pitkälti siihen, että media ja kansalaiset jaksavat toimia vallan vahtikoirina. Muutamia
-              tapauksia on mm. <Tapauspainike nimi="Timo Harakka">Näytä Harakan tapaus</Tapauspainike>, jossa ehdokas
-              sai julkisesti näpeilleen ja korjasi tilanteen sen seurauksena. VTV:n tarkastus ei kohdistu siihen, että
-              onko rajoituksia rikottu vai ei, vaan pelkästään siihen että ilmoitus täytetään. Mikäli VTV:n ulkopuoliset
-              tahot eivät ole raporteista kiinnostuneita, hautautuva ne unholaan.
+              Valvonta perustuu pitkälti siihen, että media ja kansalaiset jaksavat toimia vallan vahtikoirina. Yksi
+              tällainen on <Tapauspainike nimi="Timo Harakka">Harakan tapaus</Tapauspainike>, jossa ehdokas sai
+              julkisesti näpeilleen ja korjasi tilanteen sen seurauksena. VTV:n tarkastus ei kohdistu siihen, että onko
+              rajoituksia rikottu vai ei, vaan pelkästään siihen että ilmoitus täytetään. Mikäli VTV:n ulkopuoliset
+              tahot eivät ole raporteista kiinnostuneita, hautautuva ne unholaan. Toinen kiinnostava seikka tässä on se,
+              mutiten verottajan mukaan oman firman ehdokkaalle tekemä lahjoitus voidaan tulkita peitetltynä osinkona
+              <Reference number={3} />. Harakan tapauksessa myös mahdollinen peitelty osinko nousi mediassa esiin.
+              Julkista tietoa siitä, miten asia lopulta vaikutti hänen verotuksessaan, en kuitenkaan löytänyt.
             </Text>
             <Text>
               Vielä ongelmallisempaa on, että itvalvonta perustuu pitkälti ehdokkaidense tekemiin ilmoituksiin. Kun
               julkisia vaalirahoitusilmoituksia alkaa käydä järjestelmällisesti läpi, vastaan tulee sekä ilmeisiä
               tukikaton ylityksiä että ilmoituksia, joista ei pysty edes yksiselitteisesti selvittämään, kuka
-              rahoituksen alkuperäinen antaja on.{' '}
-              <Tapauspainike nimi="Aleksi Jäntti">Näytä Jäntin tapaus</Tapauspainike>. Kyseinen tapaus sattui omiin
-              näppeihin ihan summanmutikassa VTV:n rahoitusportaalia selatessa. Käytännössä ulkopuolisen on kuitenkin
-              hyvin vaikea tarkistaa, mistä välitetty rahoitus tosiasiassa on lähtöisin, jos ilmoituksen erittely on
-              puutteellinen tai raha kulkee useamman toimijan kautta. Mikäli rahoituksen lähteitä halutttaisiin peittää,
-              uskoisin sen olevan varsin triviaalia reitittämällä raha useampien välikäsien tai muiden bulvaanien
-              kautta.
+              rahoituksen alkuperäinen antaja on. Esimerkiksi{' '}
+              <Tapauspainike nimi="Aleksi Jäntti">Jäntin tapaus</Tapauspainike> tuli itselle vastaan ihan
+              summanmutikassa VTV:n rahoitusportaalia selatessa. Ilmoituksessahan ei itsessään ole yhtään mitään vikaa.
+              Mutta se havainnollistaa hyvin kuinka huomattaviakin vaalikassoja on mahdollista kerätä ilman että
+              yksikään yksittäinen lahoitus ylittää nimeämisrajan kynnystä. Mikäli rahoituksen lähteitä halutttaisiin
+              peittää, uskoisin sen olevan varsin triviaalia reitittämällä raha useampien välikäsien tai muiden
+              bulvaanien kautta.
             </Text>
-
             <Text>
-              Vaalrahoituksen vastaanottanut ehdokas tai tukiyhdistys on täysin vapaa käyttämään vastaanottamansa rahat
-              täysin itselleen parhaalla katsomallaan tavallaan. Ja homma käy vielä lepsummaksi vaalien jälkeen.
-              Vaalirahoituslain mukaan, mikäli vaalirahoitusta jää käyttämättä, ja ehdokkaalla ei ole esim.
-              tukiyhdistystä jolla on ennaltamäärätty loppusijoituspaikka kerätyille varoille, siirtyy varat ehdokkaan
-              omiin varoihin. Tämä tiedän hyvin, sillä nurkissani taitaa vieläkin lojua Pro Markkinatalouden minulle
-              vuoden 2023 vaaleihin myöntämällä <Money amount={1500} suffix=":lla" /> ostama pullo Puolustuslaitoksen
-              Leikattua. Korkkaamaton.
+              Ylipäätään vaalirahoitusilmoitusia selatessa, tuntuun ett ne ovat täytetty hyvinkin leväperäisesti. Jos
+              katsomme vaikkapa <Tapauspainike nimi="Petteri Orpo">Petter Orpon</Tapauspainike> 2023
+              vaalirahoitusilmoitusta. Tuon <Money amount={300} /> ylityksen lisäksi, on lomakkeessa kohta 2.8. jätetty
+              täysin tyhjäksi, vaikka kohda 2.5. lisätiedoissa lukee "c. Lisätietoja Puolueelta saatu tuki sisältää
+              välitettyä tukea seuraavilta tahoilta: T2H Group Oy 5000 €, Notalar Oy 4000 €, Versowood Oy 4000 €, Troll
+              Capital Oy 4000 € sekä Paananen Elmar Jalo 5000 €.", eli nämä kyseiset seikat olisi tulleet olla
+              eriteltynä viimeiseen kohtaan taulukkomuodossa. Tällaisen epästrukturoidun datan johdosta, on
+              vaalirahoitusilmoitusten systemaattinen läpikäyminen on hyvin haastavaa. Ja jos kyseisenlainen datapuute
+              menee VTV:n lävitse juuri vaalit voittaneen puolueen puheenjohtajan ilmoituksen osalta, niin voitte vain
+              kuvitella minkälaista sekoilua muista ilmoituksista löytyy.
+            </Text>
+            <Text>
+              Vaalrahoituksen vastaanottanut ehdokas tai tukiyhdistys on vapaa käyttämään vastaanottamansa rahat
+              parhaalla katsomallaan tavallaan. Ja homma käy vielä lepsummaksi vaalien jälkeen. Vaalirahoituslain
+              mukaan, mikäli vaalirahoitusta jää käyttämättä, ja ehdokkaalla ei ole esim. tukiyhdistystä jolla on
+              ennaltamäärätty loppusijoituspaikka kerätyille varoille, siirtyy varat ehdokkaan omiin varoihin. Tämä
+              tiedän hyvin, sillä nurkissani taitaa vieläkin lojua Pro Markkinatalouden minulle vuoden 2023 vaaleihin
+              myöntämällä <Money amount={1500} suffix=":lla" /> ostama pullo Puolustuslaitoksen Leikattua. Korkkaamaton.
             </Text>
             <Text>
               Tämän lisäksi, ilmoituvelvollisia on pelkästään vaaleissa valituksi tai varasijalle tulleet ehdokkaat.
-              Muut voivat halutessaan täyttää ennakkoilmoituksen, mutta näiden osalta prosenttimäärät ovat surullisen
-              pieniä. [TODO: lisää tilastoja tähän]. Suomen listavaalitavasta johtuen kuitenkin, jokainen yhden
-              ehdokkaan näkyvyyteen käytetty euro on käytännössä hyödyttää koko listaa. Ja kunta- ja aluetason
-              luottamustoimikäyntäntöjen takia, yleensä jopa varapaikasta kausa jääneillä ehdokkailla on täysin
-              mahdollista päästä julkisen valmisteluvallan käyttäjiksi ja luottamustoimipallille istumaan.
+              Muut voivat halutessaan täyttää ennakkoilmoituksen, mutta suuri osa ehdokkaista jää kokonaan ilman
+              ilmoitusta:
+            </Text>
+            <div className="mb-6 overflow-hidden rounded-xl border border-white/10 bg-zinc-900/60">
+              <div className="overflow-x-auto">
+                <table className="w-full min-w-lg border-collapse text-left text-sm text-zinc-300">
+                  <caption className="px-4 pt-4 pb-3 text-left text-base font-semibold text-zinc-100">
+                    Vaalirahoitusilmoituksetta olevat ehdokkaat puolueittain
+                  </caption>
+                  <thead className="border-y border-white/10 bg-white/4 text-[0.65rem] tracking-wider text-zinc-500 uppercase">
+                    <tr>
+                      <th scope="col" className="px-4 py-2.5 font-semibold">
+                        Puolue
+                      </th>
+                      <th scope="col" className="px-4 py-2.5 text-right font-semibold">
+                        Ehdokkaita Ilman ilmoitusta (Tarkasteluväli vaalit 2019 - 2026)
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody className="divide-y divide-white/[0.07]">
+                    {ehdokkaatIlmanIlmoitusta.map((rivi) => (
+                      <tr key={rivi.puolue}>
+                        <th scope="row" className="px-4 py-3 font-medium text-zinc-200">
+                          {rivi.puolue}
+                        </th>
+                        <td className="px-4 py-3 text-right font-semibold whitespace-nowrap text-white">
+                          {rivi.osuus} <p className="font-light text-gray-500">({rivi.maara}kpl)</p>
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+            <Text>
+              Suomen listavaalitavasta johtuen kuitenkin, jokainen yhden ehdokkaan näkyvyyteen käytetty euro on
+              käytännössä hyödyttää koko listaa. Ja kunta- ja aluetason luottamustoimikäyntäntöjen takia, yleensä jopa
+              varapaikasta kausa jääneillä ehdokkailla on täysin mahdollista päästä julkisen valmisteluvallan
+              käyttäjiksi ja luottamustoimipallille istumaan.
             </Text>
             <Text>
               Lopultahan ongelma tässäkin on äänestäjäkunnan ja siten median kiinnostuksen puute vaalirahoitusta
