@@ -40,11 +40,13 @@ const ehdokkaatIlmanIlmoitusta = [
 
 export const metadata: Metadata = {
   title: 'Suomen vaalirahoitusvalvonnan puutteet',
-  description: 'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan.',
+  description:
+    'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan. Nostoja vallan vahtikoiran hampaattomuudesta, ja turhapäiväistä nillitystä.',
   alternates: { canonical: '/blogi/vaalirahoitus' },
   openGraph: {
     title: 'Suomen vaalirahoitusvalvonnan puutteet',
-    description: 'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan.',
+    description:
+      'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan. Nostoja vallan vahtikoiran hampaattomuudesta, ja turhapäiväistä nillitystä.',
     images: [
       {
         url: 'https://visapollari.fi/blogi/vaalirahoitus/opengraph-image',
@@ -61,7 +63,8 @@ export const metadata: Metadata = {
     site: '@visapollari',
     creator: '@visapollari',
     images: 'https://visapollari.fi/blogi/vaalirahoitus/opengraph-image',
-    description: 'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan.',
+    description:
+      'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan. Nostoja vallan vahtikoiran hampaattomuudesta, ja turhapäiväistä nillitystä.',
   },
 };
 
