@@ -5,6 +5,7 @@ import {
   QuestionMarkCircleIcon,
 } from '@heroicons/react/24/outline';
 import Image from 'next/image';
+import Money from './Money';
 
 interface MediaSource {
   nimi: string;
@@ -39,13 +40,6 @@ export interface VaalirahoitusCase {
 interface TapahtumakorttiProps {
   tapaus: VaalirahoitusCase;
 }
-
-const euroFormatter = new Intl.NumberFormat('fi-FI', {
-  style: 'currency',
-  currency: 'EUR',
-  minimumFractionDigits: 0,
-  maximumFractionDigits: 2,
-});
 
 const partyLogos: Record<string, { id: number; shortName: string }> = {
   'Suomen Sosialidemokraattinen Puolue': { id: 1, shortName: 'SDP' },
@@ -121,7 +115,7 @@ const Tapahtumakortti = ({ tapaus }: TapahtumakorttiProps) => {
   const party = tapaus.puolue ? partyLogos[tapaus.puolue] : undefined;
 
   return (
-    <article className="flex h-full min-h-0 flex-col overflow-hidden rounded-[1.75rem] bg-[#121214] shadow-2xl shadow-black/35">
+    <article className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-[#121214] shadow-2xl shadow-black/35">
       <header className="h-24 shrink-0 px-5 pt-4 sm:px-6">
         <div className="flex items-center justify-between gap-3">
           <p className="truncate text-[0.65rem] font-bold tracking-[0.16em] text-zinc-400 uppercase">{tapaus.vaalit}</p>
@@ -165,13 +159,13 @@ const Tapahtumakortti = ({ tapaus }: TapahtumakorttiProps) => {
         <div className="flex min-w-0 flex-col justify-center px-2">
           <dt className="truncate text-[0.58rem] font-bold tracking-widest text-zinc-500 uppercase">Tuki</dt>
           <dd className="mt-1 truncate text-[0.72rem] font-extrabold text-white sm:text-sm">
-            {euroFormatter.format(tapaus.tuki_euroa)}
+            <Money amount={tapaus.tuki_euroa} />
           </dd>
         </div>
         <div className="flex min-w-0 flex-col justify-center px-2">
           <dt className="truncate text-[0.58rem] font-bold tracking-widest text-zinc-500 uppercase">Lain raja</dt>
           <dd className="mt-1 truncate text-[0.72rem] font-extrabold text-white sm:text-sm">
-            {euroFormatter.format(tapaus.lakisaateinen_raja_euroa)}
+            <Money amount={tapaus.lakisaateinen_raja_euroa} />
           </dd>
         </div>
         <div className="flex min-w-0 flex-col justify-center px-2">
@@ -181,7 +175,7 @@ const Tapahtumakortti = ({ tapaus }: TapahtumakorttiProps) => {
           <dd
             className={`mt-1 truncate text-[0.72rem] font-extrabold sm:text-sm ${overage ? level.text : 'text-zinc-500'}`}
           >
-            {overage ? `+${euroFormatter.format(overage.value)}` : '—'}
+            {overage ? <Money amount={overage.value} showPlus /> : '—'}
           </dd>
         </div>
       </dl>
@@ -192,13 +186,13 @@ const Tapahtumakortti = ({ tapaus }: TapahtumakorttiProps) => {
         <p className="mt-3 text-sm leading-6 text-zinc-400">{tapaus.tausta}</p>
 
         {tapaus.kysymys && (
-          <div className="mt-4 flex gap-3 rounded-2xl bg-amber-300/9 p-3.5 text-amber-50/90">
+          <div className="mt-4 flex gap-3 rounded-lg bg-amber-300/9 p-3.5 text-amber-50/90">
             <QuestionMarkCircleIcon className="mt-0.5 h-5 w-5 shrink-0 text-amber-200" aria-hidden="true" />
             <p className="text-sm leading-5">{tapaus.kysymys}</p>
           </div>
         )}
 
-        <section className="mt-4 rounded-2xl bg-white/4 p-3.5" aria-label="Mediahuomio">
+        <section className="mt-4 rounded-lg bg-white/4 p-3.5" aria-label="Mediahuomio">
           <div className="flex items-center gap-2.5">
             <NewspaperIcon className="h-4 w-4 shrink-0 text-zinc-400" aria-hidden="true" />
             <p className="text-[0.62rem] font-bold tracking-[0.14em] text-zinc-400 uppercase">Mediahuomio</p>

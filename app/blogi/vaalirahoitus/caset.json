@@ -10,7 +10,7 @@
     "ylitys_euroa": 293.51,
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Ilmoituksessa tuki on merkitty suoraan Keravan Lääkintävoimistelu Oy:ltä saaduksi yritystueksi. Aineistossa ei ole välitettyyn tukeen tai palautukseen perustuvaa selitystä ylitykselle.",
+    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/aluevaalit2022/04/0228/vaalirahoitusilmoitus.html"
   },
   {
@@ -24,7 +24,7 @@
     "ylitys_euroa": 170,
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Haipeli Oy on ilmoitettu suoraan yritystukijaksi 3 170 eurolla.",
+    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/564/0407/vaalirahoitusilmoitus.html"
   },
   {
@@ -38,7 +38,7 @@
     "ylitys_euroa": 2581,
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Länsi-Suomen Kansallismedia Oy:ltä saatu 8 581 euroa on ilmoitettu yritystukena. Ilmoituksen rakenteesta ei käy ilmi, että summa olisi välitettyä tukea. Kansallismedia-yhtiöiden rooli muiden ehdokkaiden varainhankinnassa tekee tapauksesta kuitenkin tarkemman selvityksen arvoisen.",
+    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/04/0085/vaalirahoitusilmoitus.html"
   },
   {
@@ -52,7 +52,7 @@
     "ylitys_euroa": 1480,
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Tero Leponiemeltä saatu 7 480 euron tukisuoritus on ilmoitettu yhden yksityishenkilön antamaksi tueksi.",
+    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0074/vaalirahoitusilmoitus.html"
   },
   {
@@ -66,7 +66,7 @@
     "ylitys_euroa": 1900,
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Kunto Salus Oy:ltä saatu 4 900 euroa on ilmoitettu suoraan yritystukena.",
+    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/049/0350/vaalirahoitusilmoitus.html"
   },
   {
@@ -80,7 +80,7 @@
     "ylitys_euroa": 500,
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Jukka Silén Oy on ilmoitettu erillisenä yritystukijana 3 500 eurolla.",
+    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/286/0122/vaalirahoitusilmoitus.html"
   },
   {
@@ -93,8 +93,8 @@
     "lakisaateinen_raja_euroa": 6000,
     "ylitys_euroa": 4801.91,
     "rikkeen_taso": "selvä_varauksin",
-    "status": "Ilmoituksen kirjaustavan perusteella tukikatto näyttää ylittyvän",
-    "tausta": "Edistyksellinen Satakunta ry:n nimissä näkyy 10 801,91 euroa ja sama taho on yhdistetty välitettyyn tukeen. Jos taho on 2.8-kohdassa tarkoitettu tuen alkuperäinen lähde, raja ylittyy. Jos yhdistys on tosiasiassa vain välittäjä, ilmoituksen rakenne ei kuvaa alkuperäisiä tukijoita selvästi.",
+    "status": "Välitetty tuki",
+    "tausta": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/03/0196/vaalirahoitusilmoitus.html"
   },
 
@@ -108,9 +108,8 @@
     "lakisaateinen_raja_euroa": 10000,
     "nimellinen_ylitys_euroa": 2991,
     "rikkeen_taso": "epäselvä",
-    "status": "Ilmoitus vaatii tulkintaa",
-    "tausta": "Hyvä Suomi ry:n nimissä näkyy 12 991 euroa, mutta ilmoituksen lisätiedon mukaan koko summa on välitettyä tukea. Summaa ei siten voi sellaisenaan tulkita Hyvä Suomi ry:n omaksi tueksi.",
-    "kysymys": "Ketkä olivat välitetyn tuen alkuperäiset lähteet ja kuinka paljon kukin niistä antoi?",
+    "status": "Välitetty tuki",
+    "tausta": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/europarlamenttivaalit2024/FI/0128/vaalirahoitusilmoitus.html"
   },
   {
@@ -123,9 +122,8 @@
     "lakisaateinen_raja_euroa": 10000,
     "nimellinen_ylitys_euroa": 1000,
     "rikkeen_taso": "epäselvä",
-    "status": "Ei sellaisenaan tukikaton ylitys",
-    "tausta": "Tietotori ry:n nimissä näkyy 11 000 euroa, mutta lisätiedon mukaan vain 2 000 euroa on suoraa tukea ja 9 000 euroa välitettyä tukea.",
-    "kysymys": "Miksi käyttöliittymä näyttää ensin yhden tahon nimissä lain rajan ylittävän summan, vaikka sen oma suora tuki on vain 2 000 euroa?",
+    "status": "Välitetty tuki",
+    "tausta": "Tietotori RY:n rahoituksesta ilmoituksen mukaan on 9 000€ 'välitettyä tukea' ja 2 000€ yhdistyksen omaa tukea.",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/europarlamenttivaalit2024/FI/0128/vaalirahoitusilmoitus.html"
   },
   {
@@ -138,14 +136,13 @@
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 7821,
     "rikkeen_taso": "epäselvä",
-    "status": "Ilmoitus vaatii tulkintaa",
-    "tausta": "Hyvä Suomi ry:n nimissä näkyy 13 821 euroa, mutta ilmoituksessa on myös välitettyä tukea. Koko summaa ei voida julkisen ilmoituksen perusteella pitää yhdistyksen omana tukena.",
-    "kysymys": "Mikä osa summasta oli Hyvä Suomi ry:n omaa tukea ja mistä välitetty osuus oli alun perin peräisin?",
+    "status": "Välitetty tuki?",
+    "tausta": "Hyvä Suomi ry:n nimissä näkyy 13 821 euroa. Toisin kuin Eero Heinäluoman tapauksessa, ilmoituksessa ei ole merkitty juuri kyseisen lahjoituksen sisältävän 'välitettyä tukea'.",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0176/vaalirahoitusilmoitus.html"
   },
   {
     "nimi": "Aleksi Jäntti",
-    "puolue": null,
+    "puolue": "Kansallinen Kokoomus",
     "vaalit": "Eduskuntavaalit 2023",
     "rahoittaja": "Nimeämättömät yritystukijat",
     "rahoittajan_tyyppi": "Yritykset",
@@ -154,7 +151,7 @@
     "ylitys_euroa": null,
     "rikkeen_taso": "avoimuusongelma",
     "status": "Rahoittajat eivät ole julkisia",
-    "tausta": "Yrityksiltä saatua tukea on ilmoitettu yhteensä 26 435 euroa, mutta ilmoituksen mukaan yksikään yritykseltä saatu tukisuoritus ei yllä 1 500 euron julkistamiskynnykseen. Yrityksiä ei siksi nimetä.",
+    "tausta": "Esimerkkitapaus, kuinka merkittävä vaalirahoitus on mahdollista kerätä ilman että yhtään mitään ilmoitettavaa syntyy.",
     "kysymys": "Mistä 26 435 euroa tuli? Julkisesta ilmoituksesta yksittäisiä yrityksiä ei voi tunnistaa.",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/07/0085/vaalirahoitusilmoitus.html"
   },
@@ -168,9 +165,9 @@
     "lakisaateinen_raja_euroa": 3000,
     "nimellinen_ylitys_euroa": 1920,
     "rikkeen_taso": "epäselvä",
-    "status": "Välittäjä, ei ilmoituksen mukaan tuen antaja",
-    "tausta": "Summa on merkitty välitetyksi tueksi ja ilmoituksen lisätiedon mukaan Hämeenlinnan kokoomuksen kunnallisjärjestö on tuen välittäjä eikä tuen alkuperäinen antaja.",
-    "kysymys": "Ketkä olivat 4 920 euron alkuperäiset rahoittajat?",
+    "status": "Välitetty tuki",
+    "tausta": "",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/109/0233/vaalirahoitusilmoitus.html"
   },
   {
@@ -183,9 +180,9 @@
     "lakisaateinen_raja_euroa": 3000,
     "nimellinen_ylitys_euroa": 8153.47,
     "rikkeen_taso": "epäselvä",
-    "status": "Rahoituksen alkuperä vaatii tulkintaa",
-    "tausta": "Yhteistyön yhteiskunta ry:n nimissä näkyy 11 153,47 euroa. Rahoitus liittyy tukiryhmän kautta kulkeneeseen varainhankintaan eikä summaa voi sellaisenaan pitää yhdeltä alkuperäiseltä tukijalta saatuna tukena.",
-    "kysymys": "Miten summa jakautui alkuperäisten rahoittajien kesken?",
+    "status": "Välitetty tuki",
+    "tausta": "",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/564/0506/vaalirahoitusilmoitus.html"
   },
   {
@@ -198,9 +195,9 @@
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 400,
     "rikkeen_taso": "epäselvä",
-    "status": "Ei sellaisenaan tukikaton ylitys",
-    "tausta": "Ilmoituksen lisätiedon perusteella summa muodostui Kansallismedian järjestämän varainhankinnan tuotoista eikä yhdeltä yritykseltä annetusta 6 400 euron tuesta.",
-    "kysymys": "Miksi alkuperäiset rahoittajat eivät näy yhtä selvästi rakenteisessa ilmoituksessa?",
+    "status": "Välitetty tuki",
+    "tausta": "Myös vaalivideoiden ja autoteippausten laskennalliset summat ovat kätevästi juuri alle 6 000 € ja 1 500 € rajojen alla",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/02/0062/vaalirahoitusilmoitus.html"
   },
   {
@@ -213,9 +210,9 @@
     "lakisaateinen_raja_euroa": 3000,
     "nimellinen_ylitys_euroa": 3343.5,
     "rikkeen_taso": "epäselvä",
-    "status": "Välitetyn tuen alkuperä ei käy selvästi ilmi",
-    "tausta": "6 343,50 euroa on merkitty välitetyksi tueksi. Ilmoituksen perusteella Vantaan Kokoomusnuoret ry toimii välittäjänä.",
-    "kysymys": "Ketkä olivat varsinaiset rahoittajat ja kuinka paljon kukin antoi?",
+    "status": "Välitetty tuki",
+    "tausta": "",
+    "kysymys": "Summat ilmoituksesa eivät täsmää",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/092/0589/vaalirahoitusilmoitus.html"
   },
   {
@@ -228,9 +225,9 @@
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 3600,
     "rikkeen_taso": "epäselvä",
-    "status": "Ei sellaisenaan tukikaton ylitys",
-    "tausta": "9 600 euroa on ilmoitettu välitettynä tukena ja liittyy varainhankintaan. Summaa ei voi suoraan tulkita Helsingin Kansallismedia Oy:n omaksi tueksi.",
-    "kysymys": "Ketkä olivat tuen alkuperäiset lähteet?",
+    "status": "Välitetty tuki",
+    "tausta": "",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0147/vaalirahoitusilmoitus.html"
   },
   {
@@ -243,9 +240,9 @@
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 2400,
     "rikkeen_taso": "epäselvä",
-    "status": "Ei sellaisenaan tukikaton ylitys",
-    "tausta": "8 400 euroa on yhdistetty välitettyyn tukeen ja varainhankintaan. Summaa ei voi pitää sellaisenaan Kansallismedian omana 8 400 euron tukena.",
-    "kysymys": "Mistä 8 400 euroa lopulta tuli ja kuinka se jakautui alkuperäisten rahoittajien välillä?",
+    "status": "Välitetty tuki",
+    "tausta": "",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0154/vaalirahoitusilmoitus.html"
   },
 
@@ -259,9 +256,9 @@
     "lakisaateinen_raja_euroa": 6000,
     "alkuperainen_ylitys_euroa": 3451,
     "rikkeen_taso": "korjattu",
-    "status": "Ylimenevä osuus korvattiin takaisin",
-    "tausta": "Kansakunta Oy:n ilmoitettu suoritus oli 9 451 euroa. Ilmoituksen lisätiedon mukaan 6 000 euroa ylittävä 3 451 euron osuus korvattiin takaisin.",
-    "kysymys": "Miten vaalirahoituslain ilmausta 'ei saa vastaanottaa' tulkitaan tilanteessa, jossa ylimenevä tuki palautetaan jälkikäteen?",
+    "status": "Ylimenevä osuus palautettiin",
+    "tausta": "Timo Harakka on Kansakunta Oy:n pääomistaja. Rajan ylittävä osuus (3 451 €) palautettiin Kansakunta Oy:lle",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0175/vaalirahoitusilmoitus.html"
   },
   {
@@ -275,8 +272,8 @@
     "alkuperainen_ylitys_euroa": 300,
     "rikkeen_taso": "korjattu",
     "status": "Ylimenevä osuus palautettiin",
-    "tausta": "TS-Yhtymä Oy:n suoritus oli 6 300 euroa. Ilmoituksen lisätiedon mukaan ylimenevä 300 euroa palautettiin.",
-    "kysymys": "Milloin ylimenevä tuki katsotaan vastaanotetuksi lain tarkoittamalla tavalla ja missä vaiheessa palautus korjaa tilanteen?",
+    "tausta": "Rajan ylittävä osuus (300 €) palautettiin TS-Yhtymä Oy:lle",
+    "kysymys": "",
     "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/03/0188/vaalirahoitusilmoitus.html"
   }
 ]

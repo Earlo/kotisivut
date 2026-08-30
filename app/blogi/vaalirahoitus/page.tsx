@@ -1,6 +1,7 @@
 import ArticleDates from '@/components/ArticleDates';
 import Text from '@/components/Text';
 import Title from '@/components/Title';
+import Money from '@/components/vaalirahoitus/Money';
 import Tapausnavigaattori from '@/components/vaalirahoitus/Tapausnavigaattori';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
@@ -80,9 +81,9 @@ const PartiesPage = () => {
             <Text>
               Vuonna 2008 oli Suomen mediassa pinnalla ns. "vaalirahoituskohu". Keskustan kansanedustaja Timo Kallin
               kieltäydyttyä haastattelussa kertomasta tukiyhdistyksensä vastaanottamien lahjoituste summia.
-              Vaalirahoituslaki jo tuolloin vaati ilmoittamaan kaikki yli 1700 euroa ylittävät lahjoitukset. Kuitenkin,
-              Kallin argumentoi, että kyseistä lakia ei tarvitse noudattaa, sillä siitä ei ole säädetty minkäänlaista
-              rangaistusta.
+              Vaalirahoituslaki jo tuolloin vaati ilmoittamaan kaikki yli <Money amount={1700} />
+              :n lahjoitukset. Kuitenkin, Kallin argumentoi, että kyseistä lakia ei tarvitse noudattaa, sillä siitä ei
+              ole säädetty minkäänlaista rangaistusta.
             </Text>
             <Text>
               Kyseinen tapaus poiki paljon julkista keskustelua, ja siivittikin vaalirahoituslain uudistamista. Elikkäs
@@ -97,10 +98,11 @@ const PartiesPage = () => {
             </Text>
 
             <Text>
-              Tämänhetkiset rajat yksittäisen lahjoittajan tekemille lahjoituksille ovat seuraavanlaiset: Kuntavaaleissa
-              3000 euroa, eduskunta- ja aluevaaleissa 6 000 euroa, europarlamenttivaaleissa 10 000 euroa. Rajat ovat
-              vaalikohtaisia, eli yhdistetyissä Alue- ja kuntavaaleissa on raja käytännössä 9000 euroa. Lahjaveron
-              5000euron kynnys ei tietenkään koske vaalirahoitusta, vaan on täysin erillinen asia :tm:.
+              Tämänhetkiset rajat yksittäisen lahjoittajan tekemille lahjoituksille ovat seuraavanlaiset: Kuntavaaleissa{' '}
+              <Money amount={3000} />, eduskunta- ja aluevaaleissa <Money amount={6000} /> ja europarlamenttivaaleissa{' '}
+              <Money amount={10000} />. Rajat ovat vaalikohtaisia, eli yhdistetyissä alue- ja kuntavaaleissa raja on
+              käytännössä <Money amount={9000} />. Lahjaveron <Money amount={5000} />
+              :n kynnys ei tietenkään koske vaalirahoitusta, vaan on täysin erillinen asia :tm:.
             </Text>
             <Text>
               Vielä ongelmallisempaa on, että valvonta perustuu pitkälti ehdokkaiden itse tekemiin ilmoituksiin. Kun
@@ -118,10 +120,9 @@ const PartiesPage = () => {
             <Text>
               Vaalrahoituksen vastaanottanut ehdokas tai tukiyhdistys on täysin vapaa käyttämään vastaanottamansa rahat
               täysin itselleen parhaalla katsomallaan tavallaan. Tämä tiedän hyvin, sillä nurkissani taitaa vieläkin
-              lojua Pro Markkinatalouden minulle vuoden 2023 vaaleihin myöntämällä 1 500 eurolla ostama pullo
-              Puolustuslaitoksen Leikattua. Korkkaamaton. [TODO mieti haluunko sanoa tän :D]
+              lojua Pro Markkinatalouden minulle vuoden 2023 vaaleihin myöntämällä <Money amount={1500} />
+              :lla ostama pullo Puolustuslaitoksen Leikattua. Korkkaamaton. [TODO mieti haluunko sanoa tän :D]
             </Text>
-
             <Text>
               Tämän lisäksi, ilmoituvelvollisia on pelkästään vaaleissa valituksi tai varasijalle tulleet ehdokkaat.
               Muut voivat halutessaan täyttää ennakkoilmoituksen, mutta näiden osalta prosenttimäärät ovat surullisen
@@ -129,6 +130,11 @@ const PartiesPage = () => {
               ehdokkaan näkyvyyteen käytetty euro on käytännössä hyödyttää koko listaa. Ja kunta- ja aluetason
               luottamustoimikäyntäntöjen takia, yleensä jopa varapaikasta kausa jääneillä ehdokkailla on täysin
               mahdollista päästä julkisen valmisteluvallan käyttäjiksi ja luottamustoimipallille istumaan.
+            </Text>
+            <Text>
+              Lopultahan ongelma tässäkin on äänestäjäkunnan ja siten median kiinnostuksen puute vaalirahoitusta
+              kohtaan. Mikäli ehdokaan etupiirien ymmärätäminen ei paina paljoa vaakakupissa äänestyspäätöstä tehdessä,
+              tulee myös vaalirahoitusilmoitusten tekemisestä aikalailla tyhjäpäiväistä teatteria.
             </Text>
             <Text>T. Visa Pollari</Text>
           </div>

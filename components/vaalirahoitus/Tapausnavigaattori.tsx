@@ -89,7 +89,7 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
   return (
     <>
       <aside className="hidden lg:block" aria-label="Vaalirahoituksen tapauskortit">
-        <div className="sticky top-6 rounded-4xl bg-zinc-900/75 p-3 shadow-2xl shadow-black/30 backdrop-blur-xl">
+        <div className="sticky top-6 rounded-xl bg-zinc-900/75 p-3 shadow-2xl shadow-black/30 backdrop-blur-xl">
           <div className="mb-3 px-1 pt-1">
             <div className="flex items-center justify-between gap-3">
               <div>
@@ -126,12 +126,12 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
         aria-hidden={!mobileVisible || mobileOpen}
         inert={!mobileVisible || mobileOpen}
       >
-        <div className="mx-auto flex h-14 max-w-lg items-center gap-2 rounded-2xl bg-zinc-950/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl">
+        <div className="mx-auto flex h-14 max-w-lg items-center gap-2 rounded-lg bg-zinc-950/95 p-2 shadow-2xl shadow-black/60 backdrop-blur-xl">
           <Vaihtopainike direction="previous" onClick={previous} compact />
           <button
             type="button"
             onClick={() => setMobileOpen(true)}
-            className="flex min-w-0 flex-1 items-center gap-3 rounded-xl px-2 py-1 text-left focus-visible:outline-2 focus-visible:outline-sky-300"
+            className="flex min-w-0 flex-1 items-center gap-3 rounded-md px-2 py-1 text-left focus-visible:outline-2 focus-visible:outline-sky-300"
             aria-label={`Avaa tapaus ${currentIndex + 1}: ${current.nimi}`}
           >
             <span className={`h-8 w-1 shrink-0 rounded-full ${level.accent}`} aria-hidden="true" />
@@ -161,7 +161,7 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
             aria-label="Sulje tapauskortti"
           />
           <div
-            className="absolute inset-x-0 bottom-0 flex h-[min(42rem,calc(100dvh-0.75rem))] flex-col rounded-t-[2rem] bg-zinc-900 shadow-2xl"
+            className="absolute inset-x-0 bottom-0 flex h-[min(42rem,calc(100dvh-0.75rem))] flex-col rounded-t-xl bg-zinc-900 shadow-2xl"
             onTouchStart={(event) => (touchStartX.current = event.changedTouches[0]?.clientX ?? null)}
             onTouchEnd={endTouch}
           >
