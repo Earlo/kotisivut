@@ -39,11 +39,11 @@ const ehdokkaatIlmanIlmoitusta = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Vaalirahoituslaki ja -valvonta on yksi vitsi',
+  title: 'Suomen vaalirahoitusvalvonnan puutteet',
   description: 'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan.',
   alternates: { canonical: '/blogi/vaalirahoitus' },
   openGraph: {
-    title: 'Vaalirahoituslaki ja -valvonta on yksi vitsi',
+    title: 'Suomen vaalirahoitusvalvonnan puutteet',
     description: 'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan.',
     images: [
       {
