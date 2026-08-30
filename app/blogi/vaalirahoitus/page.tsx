@@ -104,7 +104,7 @@ const PartiesPage = () => {
               <Money amount={10000} />. Rajat ovat vaalikohtaisia, eli yhdistetyissä alue- ja kuntavaaleissa raja on
               käytännössä <Money amount={9000} />. Lahjaveron <Money amount={5000} />
               :n kynnys ei tietenkään koske vaalirahoitusta, vaan on täysin eri asia™. Mikäli ehdokkaan itse omistama
-              firma maksaa ehdokkaalle tukea, on se myös keino käytännössä nostaa verottomia osinkoja.
+              firma maksaa ehdokkaalle tukea, on se myös keino käytännössä nostaa verottomia osinkoja. [lähde]
             </Text>
             <Text>
               Vielä ongelmallisempaa on, että valvonta perustuu pitkälti ehdokkaiden itse tekemiin ilmoituksiin. Kun
@@ -115,7 +115,7 @@ const PartiesPage = () => {
               peittää, on se täysin triviaalia reitittämällä raha useampien välikäsien kautta.
             </Text>
             <Subheader>Kuinka piilottaisin vaalirahoitusta jos haluaisin Tips and Tricks</Subheader>
-            <Text>1. Valitse ehdokas joka ei missään nimessä ole pääsemässä läpi, kuten vaikka Visa Pollari. 2.</Text>
+            <Text>TODO</Text>
             <Text>
               Valvonta perustuu pitkälti siihen, että media ja kansalaiset jaksavat toimia vallan vahtikoirina. Muutamia
               tapauksia on mm. [Case Orpo ja Case Harakka]. Näissäkin, lakia ilmiselvästi rikottiin, mutta ainoa

@@ -7,15 +7,10 @@ import {
 import Image from 'next/image';
 import Money from './Money';
 
-interface MediaSource {
-  nimi: string;
-  url: string;
-}
-
-interface MediaAttention {
-  havaittu: boolean;
-  yhteenveto?: string;
-  lahteet?: MediaSource[];
+interface MediaMention {
+  lahde: string;
+  linkki: string;
+  huomio: string;
 }
 
 export interface VaalirahoitusCase {
@@ -33,7 +28,7 @@ export interface VaalirahoitusCase {
   status: string;
   tausta: string;
   kysymys?: string;
-  mediahuomio?: MediaAttention;
+  media: MediaMention[];
   lahde: string;
 }
 
@@ -113,6 +108,7 @@ const Tapahtumakortti = ({ tapaus }: TapahtumakorttiProps) => {
   const level = getLevelStyle(tapaus.rikkeen_taso);
   const overage = getOverage(tapaus);
   const party = tapaus.puolue ? partyLogos[tapaus.puolue] : undefined;
+  const hasMediaMentions = tapaus.media.length > 0;
 
   return (
     <article className="flex h-full min-h-0 flex-col overflow-hidden rounded-xl bg-[#121214] shadow-2xl shadow-black/35">
@@ -197,28 +193,30 @@ const Tapahtumakortti = ({ tapaus }: TapahtumakorttiProps) => {
             <NewspaperIcon className="h-4 w-4 shrink-0 text-zinc-400" aria-hidden="true" />
             <p className="text-[0.62rem] font-bold tracking-[0.14em] text-zinc-400 uppercase">Mediahuomio</p>
             <span className="ml-auto rounded-full bg-white/8 px-2.5 py-1 text-[0.62rem] font-bold text-zinc-300">
-              {tapaus.mediahuomio ? (tapaus.mediahuomio.havaittu ? 'Havaittu' : 'Ei havaittu') : 'Kartoittamatta'}
+              {hasMediaMentions
+                ? `${tapaus.media.length} ${tapaus.media.length === 1 ? 'osuma' : 'osumaa'}`
+                : 'Ei osumia'}
             </span>
           </div>
-          {tapaus.mediahuomio?.yhteenveto && (
-            <p className="mt-3 text-sm leading-5 text-zinc-400">{tapaus.mediahuomio.yhteenveto}</p>
-          )}
-          {tapaus.mediahuomio?.lahteet && tapaus.mediahuomio.lahteet.length > 0 && (
-            <ul className="mt-3 space-y-2">
-              {tapaus.mediahuomio.lahteet.map((lahde) => (
-                <li key={lahde.url}>
+          {hasMediaMentions ? (
+            <ul className="mt-3 space-y-3">
+              {tapaus.media.map((mediaosuma) => (
+                <li key={mediaosuma.linkki} className="border-t border-white/8 pt-3 first:border-0 first:pt-0">
                   <a
-                    href={lahde.url}
+                    href={mediaosuma.linkki}
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-zinc-300 transition hover:text-white focus-visible:rounded focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-300"
                   >
-                    {lahde.nimi}
+                    {mediaosuma.lahde}
                     <ArrowUpRightIcon className="h-3 w-3" aria-hidden="true" />
                   </a>
+                  <p className="mt-1.5 text-xs leading-5 text-zinc-500">{mediaosuma.huomio}</p>
                 </li>
               ))}
             </ul>
+          ) : (
+            <p className="mt-3 text-sm leading-5 text-zinc-500">Tapauksesta ei löytynyt mediaosumia.</p>
           )}
         </section>
 

@@ -11,7 +11,8 @@
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
     "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja. Enjala on Keravan Lääkintävoimistelu Oy:n toimitusjohtaja ja hallituksen puheenjohtaja.",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/aluevaalit2022/04/0228/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/aluevaalit2022/04/0228/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Hanna Haipus",
@@ -25,7 +26,8 @@
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
     "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja. Haipeli Oy on oletettavasti Haipusten perheyritys.",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/564/0407/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/564/0407/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Mari Kaunistola",
@@ -39,7 +41,8 @@
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
     "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/04/0085/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/04/0085/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Mai Kivelä",
@@ -50,10 +53,17 @@
     "tuki_euroa": 7480,
     "lakisaateinen_raja_euroa": 6000,
     "ylitys_euroa": 1480,
-    "rikkeen_taso": "selvä",
+    "rikkeen_taso": "selvähkö?",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0074/vaalirahoitusilmoitus.html"
+    "tausta": "Ilmoituksen mukaan kyseessä ei ole rahallinen lahjoitus vaan ilmaiseksi annetun palvelun laskennallinen arvo",
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0074/vaalirahoitusilmoitus.html",
+    "media": [
+      {
+        "lahde": "Helsingin Sanomat.",
+        "linkki": "https://www.hs.fi/politiikka/art-2000009637569.html",
+        "huomio": "HS:n 7.6.2023 jutussa todettiin, että Kivelän vaalirahoitusilmoituksessa on yksi 6 000 euron katon ylittävä tukisumma."
+      }
+    ]
   },
   {
     "nimi": "Jarno Limnell",
@@ -66,8 +76,20 @@
     "ylitys_euroa": 1900,
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
-    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja.",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/049/0350/vaalirahoitusilmoitus.html"
+    "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja. Huolimatta siitä että Limnellin ilmoitusta puitiin mediassa Cinia-tuen takia, ei rahoituskynnyksen ylitys tarttunut median haaviin.",
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/049/0350/vaalirahoitusilmoitus.html",
+    "media": [
+      {
+        "lahde": "Iltalehti",
+        "linkki": "https://www.iltalehti.fi/politiikka/a/f00a19b0-cd87-4025-a3f2-dd18b03ab7ce",
+        "huomio": "Iltalehti uutisoi samasta vaalirahoitusilmoituksesta Cinia Oy:n 1 185 euron valtionyhtiötuen vuoksi. Jutussa ei nostettu esiin Kunto Salus Oy:n 4 900 euron tukea."
+      },
+      {
+        "lahde": "Kansan Uutiset",
+        "linkki": "https://www.ku.fi/artikkeli/5179863-vaalirahalakia-voi-rikkoa-ilman-rangaistusta-eika-rahoja-tarvitse-palauttaa",
+        "huomio": "Käsittelee Limnellin Cinia Oy:ltä saamaa lainvastaista valtionyhtiötukea ja vaalirahoituslain seuraamusten puutetta. Kunto Salus Oy:n 4 900 euron tukisummaa ei mainita."
+      }
+    ]
   },
   {
     "nimi": "Jukka Silén",
@@ -81,7 +103,8 @@
     "rikkeen_taso": "selvä",
     "status": "Ilmoituksen perusteella tukikatto ylittyy",
     "tausta": "Ilmoitus ei anna rajan ylityksestä mitään lisätietoja. Yllättäen Jukka Silen on Jukka Silén Oy:n toimitusjohtaja.",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/286/0122/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/286/0122/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Ville Valkonen",
@@ -92,12 +115,12 @@
     "tuki_euroa": 10801.91,
     "lakisaateinen_raja_euroa": 6000,
     "ylitys_euroa": 4801.91,
-    "rikkeen_taso": "selvä_varauksin",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/03/0196/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/03/0196/vaalirahoitusilmoitus.html",
+    "media": []
   },
-
   {
     "nimi": "Eero Heinäluoma",
     "puolue": "Suomen Sosialidemokraattinen Puolue",
@@ -107,10 +130,11 @@
     "tuki_euroa": 12991,
     "lakisaateinen_raja_euroa": 10000,
     "nimellinen_ylitys_euroa": 2991,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/europarlamenttivaalit2024/FI/0128/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/europarlamenttivaalit2024/FI/0128/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Eero Heinäluoma",
@@ -121,10 +145,11 @@
     "tuki_euroa": 11000,
     "lakisaateinen_raja_euroa": 10000,
     "nimellinen_ylitys_euroa": 1000,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "Tietotori RY:n rahoituksesta ilmoituksen mukaan on 9 000€ 'välitettyä tukea' ja 2 000€ yhdistyksen omaa tukea.",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/europarlamenttivaalit2024/FI/0128/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/europarlamenttivaalit2024/FI/0128/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Eveliina Heinäluoma",
@@ -136,9 +161,10 @@
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 7821,
     "rikkeen_taso": "epäselvä",
-    "status": "Välitetty tuki?",
+    "status": "Välitetty tuki",
     "tausta": "Hyvä Suomi ry:n nimissä näkyy 13 821 euroa. Toisin kuin Eero Heinäluoman tapauksessa, ilmoituksessa ei ole merkitty juuri kyseisen lahjoituksen sisältävän 'välitettyä tukea'.",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0176/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0176/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Aleksi Jäntti",
@@ -149,11 +175,12 @@
     "tuki_euroa": 26435,
     "lakisaateinen_raja_euroa": 6000,
     "ylitys_euroa": null,
-    "rikkeen_taso": "avoimuusongelma",
+    "rikkeen_taso": "Ei rikettä",
     "status": "Rahoittajat eivät ole julkisia",
     "tausta": "Esimerkkitapaus, kuinka merkittävä vaalirahoitus on mahdollista kerätä ilman että yhtään mitään ilmoitettavaa syntyy.",
     "kysymys": "Mistä 26 435 euroa tuli? Julkisesta ilmoituksesta yksittäisiä yrityksiä ei voi tunnistaa.",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/07/0085/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/07/0085/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Juho Jokinen",
@@ -164,11 +191,12 @@
     "tuki_euroa": 4920,
     "lakisaateinen_raja_euroa": 3000,
     "nimellinen_ylitys_euroa": 1920,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "",
     "kysymys": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/109/0233/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/109/0233/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Johanna Karjula",
@@ -179,11 +207,12 @@
     "tuki_euroa": 11153.47,
     "lakisaateinen_raja_euroa": 3000,
     "nimellinen_ylitys_euroa": 8153.47,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "",
     "kysymys": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/564/0506/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/564/0506/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Pihla Keto-Huovinen",
@@ -194,11 +223,12 @@
     "tuki_euroa": 6400,
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 400,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "Myös vaalivideoiden ja autoteippausten laskennalliset summat ovat kätevästi juuri alle 6 000 € ja 1 500 € rajojen alla",
     "kysymys": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/02/0062/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/02/0062/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Sari Multala",
@@ -209,11 +239,12 @@
     "tuki_euroa": 6343.5,
     "lakisaateinen_raja_euroa": 3000,
     "nimellinen_ylitys_euroa": 3343.5,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "",
     "kysymys": "Summat ilmoituksesa eivät täsmää",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/092/0589/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/kuntavaalit2025/092/0589/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Sari Sarkomaa",
@@ -224,11 +255,12 @@
     "tuki_euroa": 9600,
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 3600,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "",
     "kysymys": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0147/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0147/vaalirahoitusilmoitus.html",
+    "media": []
   },
   {
     "nimi": "Ben Zyskowicz",
@@ -239,13 +271,13 @@
     "tuki_euroa": 8400,
     "lakisaateinen_raja_euroa": 6000,
     "nimellinen_ylitys_euroa": 2400,
-    "rikkeen_taso": "epäselvä",
+    "rikkeen_taso": "teknisesti ok",
     "status": "Välitetty tuki",
     "tausta": "",
     "kysymys": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0154/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0154/vaalirahoitusilmoitus.html",
+    "media": []
   },
-
   {
     "nimi": "Timo Harakka",
     "puolue": "Suomen Sosialidemokraattinen Puolue",
@@ -259,7 +291,19 @@
     "status": "Ylimenevä osuus palautettiin",
     "tausta": "Timo Harakka on Kansakunta Oy:n pääomistaja. Rajan ylittävä osuus (3 451 €) palautettiin Kansakunta Oy:lle",
     "kysymys": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0175/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/01/0175/vaalirahoitusilmoitus.html",
+    "media": [
+      {
+        "lahde": "Helsingin Sanomat.",
+        "linkki": "https://www.hs.fi/politiikka/art-2000009637569.html",
+        "huomio": "HS:n 7.6.2023 jutussa Timo Harakan kerrotaan rikkoneen vaalirahoituslakia. Harakka kertoo korjaavansa asian."
+      },
+      {
+        "lahde": "Verkkouutiset",
+        "linkki": "https://www.verkkouutiset.fi/a/timo-harakka-maksoi-yhtiostaan-itselleen-vaalitukea-verottaja-voi-tulkita-peitellyksi-osingoksi/",
+        "huomio": "Uutisoi Kansakunta Oy:n 9 451 euron tuesta, 6 000 euron tukikatosta ja Harakan aikomuksesta palauttaa ylimenevä osuus. Jutussa käsitellään myös mahdollisuutta tulkita lahjoitus piilo-osinkona."
+      }
+    ]
   },
   {
     "nimi": "Petteri Orpo",
@@ -274,6 +318,18 @@
     "status": "Ylimenevä osuus palautettiin",
     "tausta": "Rajan ylittävä osuus (300 €) palautettiin TS-Yhtymä Oy:lle",
     "kysymys": "",
-    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/03/0188/vaalirahoitusilmoitus.html"
+    "lahde": "https://www.vaalirahoitusvalvonta.fi/fi/index/vaalirahoitus/ilmoituksetvaaleittain/eduskuntavaalit2023/03/0188/vaalirahoitusilmoitus.html",
+    "media": [
+      {
+        "lahde": "Uusi Suomi",
+        "linkki": "https://www.uusisuomi.fi/uutiset/useita-sanomalehtia-omistava-ts-yhtyma-tuki-petteri-orpon-vaalikampanjaa-suoraan-6-000-eurolla-nain-kommentoi-medialiitto/eb492029-d98e-4124-abfd-3bf70aa60247",
+        "huomio": "Uutisoi TS-Yhtymän tuesta 6 000 euron suuruisena."
+      },
+      {
+        "lahde": "Demokraatti",
+        "linkki": "https://demokraatti.fi/puoluejohtajat-pistivat-rahaa-likoon-vaaleissa-11-000-ja-72-000-euron-valilla",
+        "huomio": "Ilmoittaa TS-Yhtymän tueksi 6 000 euroa. Ilmoituksen 6 300 euron alkuperäistä summaa ja 300 euron palautusta ei jutussa käsitellä."
+      }
+    ]
   }
 ]
