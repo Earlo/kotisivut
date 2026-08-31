@@ -209,17 +209,21 @@ const PartiesPage = () => {
               ilmoitusta:
             </Text>
             <div className="mb-6 overflow-hidden rounded-xl border border-white/10 bg-zinc-900/60">
-              <div className="overflow-x-auto">
-                <table className="w-full min-w-lg border-collapse text-left text-sm text-zinc-300">
+              <div className="min-w-0">
+                <table className="w-full table-fixed border-collapse text-left text-sm text-zinc-300">
+                  <colgroup>
+                    <col className="w-3/5 sm:w-1/2" />
+                    <col className="w-2/5 sm:w-1/2" />
+                  </colgroup>
                   <caption className="px-4 pt-4 pb-3 text-left text-base font-semibold text-zinc-100">
                     Vaalirahoitusilmoituksetta olevat ehdokkaat puolueittain
                   </caption>
                   <thead className="border-y border-white/10 bg-white/4 text-[0.65rem] tracking-wider text-zinc-500 uppercase">
                     <tr>
-                      <th scope="col" className="px-4 py-2.5 font-semibold">
+                      <th scope="col" className="px-3 py-2.5 font-semibold sm:px-4">
                         Puolue
                       </th>
-                      <th scope="col" className="px-4 py-2.5 text-right font-semibold">
+                      <th scope="col" className="px-3 py-2.5 text-right font-semibold wrap-break-word sm:px-4">
                         Ehdokkaita Ilman ilmoitusta (Tarkasteluväli vaalit 2019 - 2026)
                       </th>
                     </tr>
@@ -227,10 +231,10 @@ const PartiesPage = () => {
                   <tbody className="divide-y divide-white/[0.07]">
                     {ehdokkaatIlmanIlmoitusta.map((rivi) => (
                       <tr key={rivi.puolue}>
-                        <th scope="row" className="px-4 py-3 font-medium text-zinc-200">
+                        <th scope="row" className="px-3 py-3 font-medium wrap-break-word text-zinc-200 sm:px-4">
                           {rivi.puolue}
                         </th>
-                        <td className="px-4 py-3 text-right font-semibold whitespace-nowrap text-white">
+                        <td className="px-3 py-3 text-right font-semibold whitespace-nowrap text-white sm:px-4">
                           {rivi.osuus} <p className="font-light text-gray-500">({rivi.maara}kpl)</p>
                         </td>
                       </tr>
