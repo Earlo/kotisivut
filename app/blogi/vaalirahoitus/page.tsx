@@ -117,9 +117,9 @@ const ElectionFinancePage = () => {
         <div className="lg:grid lg:grid-cols-[minmax(0,1fr)_24rem] lg:items-start lg:gap-10 xl:grid-cols-[minmax(0,46rem)_26rem]">
           <div className="min-w-0">
             <Text>
-              Vuonna 2008 oli Suomen mediassa pinnalla ns. "vaalirahoituskohu" Keskustan kansanedustajan Timo Kallin
-              kieltäydyttyä haastattelussa kertomasta tukiyhdistyksensä vastaanottamien lahjoitusten tekijöiden nimiä.
-              Vaalirahoituslaki jo tuolloin vaati ilmoittamaan kaikki yli <Money amount={1700} suffix=":n" />{' '}
+              Vuonna 2008 oli Suomen mediassa pinnalla ns. "vaalirahoituskohu", kun Keskustan kansanedustajan Timo
+              Kallin kieltäydyttyä haastattelussa kertomasta tukiyhdistyksensä vastaanottamien lahjoitusten tekijöiden
+              nimiä. Vaalirahoituslaki jo tuolloin vaati ilmoittamaan kaikki yli <Money amount={1700} suffix=":n" />{' '}
               lahjoituksen tehneet. Kuitenkin, Kalli argumentoi, että kyseistä lakia ei tarvitse noudattaa, sillä siitä
               ei ole säädetty minkäänlaista rangaistusta.
             </Text>
@@ -143,7 +143,7 @@ const ElectionFinancePage = () => {
               <Money amount={2000} suffix=":oon" />. Siten yhdistelmäehdokas voi jatkossa ottaa vastaan 150 prosenttia
               enemmän ulkopuolista rahoitusta ilman, että hänen tarvitsee nimetä tuen antajaa
               vaalirahoitusilmoituksella". Eli käytännössä jatkossa olemalla ehdolla myös aluevaaleissa,
-              kuntavaaliehdokas voi vastaanottaa lahjoituksena <Money amount={1999.99} /> aiemman
+              kuntavaaliehdokas voi vastaanottaa lahjoituksena <Money amount={1999.99} /> aiemman{' '}
               <Money amount={799.99} suffix=":n" /> sijasta ilman että lahjoittajaa tarvitsee tuoda julki
               <Reference number={2} />. Kun näitä rajoja mietitään suhteessa siihen uskomattomaan määrään ehdokkaita
               joita jokaisissa vaaleissa on ehdolla, aukeaa väylä kanavoida erittäin suuria kokonaissummia
