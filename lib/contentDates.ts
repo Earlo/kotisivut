@@ -13,7 +13,7 @@ export const contentDates = {
   },
   blog: {
     published: '2024-05-30T16:57:04+03:00',
-    modified: '2024-06-01T22:22:56+03:00',
+    modified: '2026-08-30T21:41:54+03:00',
   },
   eurovaalit: {
     published: '2024-06-09T13:09:28+03:00',

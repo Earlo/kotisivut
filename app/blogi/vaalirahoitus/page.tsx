@@ -68,7 +68,7 @@ export const metadata: Metadata = {
   },
 };
 
-const PartiesPage = () => {
+const ElectionFinancePage = () => {
   const articleJsonLd = {
     '@context': 'https://schema.org',
     '@type': 'Article',
@@ -88,7 +88,12 @@ const PartiesPage = () => {
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Etusivu', item: 'https://visapollari.fi/' },
       { '@type': 'ListItem', position: 2, name: 'Blogi', item: 'https://visapollari.fi/blogi' },
-      { '@type': 'ListItem', position: 3, name: 'vaalirahoitus', item: 'https://visapollari.fi/blogi/vaalirahoitus' },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Suomen vaalirahoitusvalvonnan puutteet',
+        item: 'https://visapollari.fi/blogi/vaalirahoitus',
+      },
     ],
   };
 
@@ -273,4 +278,4 @@ const PartiesPage = () => {
   );
 };
 
-export default PartiesPage;
+export default ElectionFinancePage;

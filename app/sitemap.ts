@@ -15,6 +15,7 @@ const routes: RouteEntry[] = [
   { path: '/blogi/eurovaalit/results', lastModified: contentDates.eurovaalitResults.modified },
   { path: '/blogi/puolueet', lastModified: contentDates.puolueet.modified },
   { path: '/blogi/stv', lastModified: contentDates.stv.modified },
+  { path: '/blogi/vaalirahoitus', lastModified: contentDates.vaalirahoitus.modified },
   { path: '/budjettipeli', lastModified: contentDates.budjettipeli.modified },
   { path: '/ekvaalit2023', lastModified: contentDates.ekvaalit2023.modified },
 ];

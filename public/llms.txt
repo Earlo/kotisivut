@@ -11,6 +11,7 @@ The site contains information about Visa Pollari, political and technology writi
 
 ## Articles and tools
 
+- [Suomen vaalirahoitusvalvonnan puutteet](https://visapollari.fi/blogi/vaalirahoitus): A 2026 review of gaps in Finnish election-finance oversight and disclosure rules.
 - [Rekisteröityneet puolueet](https://visapollari.fi/blogi/puolueet): Directory of registered Finnish political parties and their contact details, populated from the Finnish party register.
 - [Siirtoäänivaali](https://visapollari.fi/blogi/stv): A 2024 opinion article and interactive ranked-choice election simulator.
 - [Budjettipeli](https://visapollari.fi/budjettipeli): Interactive tool for reallocating line items in a Finnish central-government budget baseline.

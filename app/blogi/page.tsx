@@ -43,6 +43,9 @@ const BlogListing = () => {
         <Title id="blog-heading">Blogi</Title>
         <Text>Tässä muutamia kirjoittamiani tekstejä tai muita virtuaalisyhteiskunnallisia kokemuksia:</Text>
         <div className="flex flex-col space-y-2">
+          <Link href="/blogi/vaalirahoitus" className="text-blue-400 hover:text-blue-300">
+            Suomen vaalirahoitusvalvonnan puutteet
+          </Link>
           <Link href="/blogi/puolueet" className="text-blue-400 hover:text-blue-300">
             Puolueet
           </Link>
