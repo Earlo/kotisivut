@@ -124,15 +124,10 @@ const ElectionFinancePage = () => {
               ei ole säädetty minkäänlaista rangaistusta.
             </Text>
             <Text>
-              Kyseinen tapaus poiki paljon julkista keskustelua, ja siivittikin vaalirahoituslain uudistamista. Elikkäs
-              homma taputeltu kuntoon ja sillä hyvä. Eikös näin?
-            </Text>
-            <Text>
-              Noh, tilanne vuonna 2026 on edelleen sama. Vaalirahoituslaki on olemassa, muutamia ilmoituskynnyksiä on
-              rukattu, ja vaaditaan tarkempaa erittelyä, ja asetettu kattoja yhden lahjoittajan tekemille
-              lahjoituksille. Mutta yksi ongelman keskeisistä piirteistä jäi ennalleen: aineellisen kiellon rikkomisesta
-              ei säädetty varsinaista rangaistusta. Siten asetettu katto lahjoitusten koolle ei ole millään käytännön
-              tasolla sitova.
+              Vuonna 2026 on tilanne edelleen pitkälti sama. Vaalirahoituslakia on toki rukattu, muutamia
+              ilmoituskynnyksiä madallettu, hieman tarkempia erittelyä vaadittu, ja asetettu kattoja lahjoituksille.
+              Mutta ongelman keskeinen piirre jäi ennalleen: aineellisen kiellon rikkomisesta ei säädetty varsinaista
+              rangaistusta. Siten asetettu katto lahjoitusten koolle ei ole käytännössä sitova.
             </Text>
             <Text>
               Ilmoituskynnyksessä on myös viime vuosina otettu takapakkia. Vuoden 2025 uudistuksella kuntavaalien
