@@ -5,7 +5,7 @@ export default function robots(): MetadataRoute.Robots {
   return {
     rules: {
       userAgent: '*',
-      allow: ['/', '/blogi/vaalirahoitus'],
+      allow: '/',
     },
     sitemap: `${host}/sitemap.xml`,
     host,
