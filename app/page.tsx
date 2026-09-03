@@ -14,6 +14,45 @@ export const metadata: Metadata = {
 const phone = '+358456350724';
 const calUrl = 'https://cal.com/visap/30min';
 
+const activityCardEasterEggs = `
+<!--
+  <article class="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm" data-activity-card="Tuolinkantajat">
+    <div class="mb-5 flex h-16 w-16 items-center justify-center rounded-xl bg-blue-700">
+      <img alt="Tuolinkantajat" class="h-12 w-auto" height="304" src="/tk.png" width="280" />
+    </div>
+    <h3 class="text-2xl font-bold">Tuolinkantajat</h3>
+    <p class="mt-3 grow text-gray-600">Varaa minut kalenterilinkistä tapahtumaasi tuolinkantoapukädeksi.</p>
+    <ul aria-label="Tuolinkantajien linkit" class="mt-6 divide-y divide-gray-100 border-t border-gray-100">
+      <li>
+        <a class="flex items-center justify-between py-3 font-medium transition hover:text-blue-700" href="https://tuolinkantajat.fi/">
+          Tuolinkantajat
+          <svg aria-hidden="true" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </li>
+      <li>
+        <a class="flex items-center justify-between py-3 font-medium transition hover:text-blue-700" href="${calUrl}">
+          Varaa tuolinkantaja
+          <svg aria-hidden="true" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="m4.5 19.5 15-15m0 0H8.25m11.25 0v11.25" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </article>
+-->
+<!--
+  <article class="flex flex-col rounded-2xl border border-gray-200 bg-white p-6 shadow-sm" data-activity-card="STTKPA RY">
+    <div class="mb-5 flex h-16 w-16 items-center justify-center">
+      <img alt="STTKPA RY" class="h-16 w-16 rounded-xl object-cover" height="640" src="/sttkpary.jpg" width="640" />
+    </div>
+    <h3 class="text-2xl font-bold">STTKPA RY</h3>
+    <p class="mt-3 grow text-gray-600">Rymyää yhdessä.</p>
+  </article>
+-->
+`;
+
 const activities: ActivityCardProps[] = [
   {
     title: 'Konsultointi',
@@ -133,17 +172,18 @@ export default function Page() {
         </div>
       </section>
       <section aria-labelledby="what-i-do-heading" className="w-full bg-gray-50 px-4 py-12 md:px-10 md:py-16">
-        <div className="mx-auto w-full max-w-5xl">
+        <div className="mx-auto w-full max-w-7xl">
           <div className="mb-8 max-w-2xl">
             <h2 id="what-i-do-heading" className="text-3xl font-bold tracking-tight">
               Mitä teen?
             </h2>
           </div>
 
-          <div className="grid gap-5 md:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-3 lg:grid-cols-[repeat(auto-fit,minmax(10rem,1fr))]">
             {activities.map((activity) => (
               <ActivityCard key={activity.title} {...activity} />
             ))}
+            <div className="contents" dangerouslySetInnerHTML={{ __html: activityCardEasterEggs }} />
           </div>
         </div>
       </section>
