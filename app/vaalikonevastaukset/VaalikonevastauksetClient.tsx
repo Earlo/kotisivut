@@ -193,7 +193,7 @@ export default function VaalikonevastauksetClient() {
     <>
       <section className="relative isolate w-full overflow-hidden bg-gray-950 px-4 py-14 text-white sm:py-20">
         <div
-          className="absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(ellipse_at_top,_rgba(59,130,246,0.22),_transparent_65%)]"
+          className="absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.22),transparent_65%)]"
           aria-hidden="true"
         />
         <div className="mx-auto max-w-5xl">

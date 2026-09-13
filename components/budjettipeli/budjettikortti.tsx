@@ -32,7 +32,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
   return (
     <div
       className={cn(
-        'relative box-border flex min-h-[26rem] w-full flex-col justify-between rounded-lg bg-[#FFB000]',
+        'relative box-border flex min-h-104 w-full flex-col justify-between rounded-lg bg-[#FFB000]',
         'p-5 shadow-2xl shadow-black/30 sm:p-6',
         className,
       )}
@@ -43,7 +43,7 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
       <div className="flex grow flex-col gap-6">
         <div className="pr-16">
           <p className="text-sm font-bold tracking-wide text-black/60 uppercase">{sign === 1 ? 'Tulo' : 'Meno'}</p>
-          <h2 className="mt-2 text-2xl leading-tight font-bold break-words text-black sm:text-3xl">
+          <h2 className="mt-2 text-2xl leading-tight font-bold wrap-break-word text-black sm:text-3xl">
             {index + 1}. {name}
           </h2>
         </div>

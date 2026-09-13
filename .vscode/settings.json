@@ -4,6 +4,7 @@
     "source.fixAll.oxc": "explicit"
   },
   "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "tailwindCSS.lint.suggestCanonicalClasses": "error",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.enablePromptUseWorkspaceTsdk": true,
   "[typescript]": {
