@@ -91,6 +91,7 @@ const activities: ActivityCardProps[] = [
         external: true,
       },
       { label: 'Kirjoitukset ja työkalut', href: '/blogi' },
+      { label: 'Vaalikonevastaukset', href: '/vaalikonevastaukset' },
       { label: 'Varaa tapaaminen', href: calUrl, external: true },
     ],
     linksLabel: 'Politiikkaan liittyvät linkit',

@@ -18,6 +18,7 @@ const routes: RouteEntry[] = [
   { path: '/blogi/vaalirahoitus', lastModified: contentDates.vaalirahoitus.modified },
   { path: '/budjettipeli', lastModified: contentDates.budjettipeli.modified },
   { path: '/ekvaalit2023', lastModified: contentDates.ekvaalit2023.modified },
+  { path: '/vaalikonevastaukset', lastModified: contentDates.vaalikonevastaukset.modified },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

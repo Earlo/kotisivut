@@ -55,6 +55,9 @@ const BlogListing = () => {
           <Link href="/budjettipeli" className="text-blue-400 hover:text-blue-300">
             Budjettipeli
           </Link>
+          <Link href="/vaalikonevastaukset" className="text-blue-400 hover:text-blue-300">
+            Vaalikonevastaukset
+          </Link>
         </div>
       </article>
     </div>
