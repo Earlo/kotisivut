@@ -191,11 +191,7 @@ export default function VaalikonevastauksetClient() {
 
   return (
     <>
-      <section className="relative isolate w-full overflow-hidden bg-gray-950 px-4 py-14 text-white sm:py-20">
-        <div
-          className="absolute inset-x-0 top-0 -z-10 h-80 bg-[radial-gradient(ellipse_at_top,rgba(59,130,246,0.22),transparent_65%)]"
-          aria-hidden="true"
-        />
+      <section className="w-full bg-gray-950 px-4 py-14 text-white sm:py-20">
         <div className="mx-auto max-w-5xl">
           <p className="mb-4 text-sm font-bold tracking-[0.2em] text-blue-300 uppercase">Vaalikonearkisto</p>
           <h1 className="max-w-4xl text-4xl leading-tight font-black tracking-tight sm:text-6xl">
