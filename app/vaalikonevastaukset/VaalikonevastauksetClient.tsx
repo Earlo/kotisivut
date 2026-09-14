@@ -201,7 +201,7 @@ export default function VaalikonevastauksetClient() {
             Kaikki vaalikonevastaukseni vuodesta 2023 lähtien yhdessä paikassa. Kun sama kysymys on esitetty useissa
             vaaleissa, vastaukset ja perustelut näkyvät rinnakkain.
           </p>
-          <dl className="mt-9 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/15 pt-7">
+          <dl className="mt-6 flex flex-wrap gap-x-10 gap-y-5 border-t border-white/15 pt-7">
             <div>
               <dt className="text-sm text-gray-400">Kysymyksiä</dt>
               <dd className="text-2xl font-bold">{questions.length}</dd>
@@ -336,6 +336,7 @@ export default function VaalikonevastauksetClient() {
             Vastaukset ja perustelut on tuotu vaalikoneista sellaisina kuin ne on annettu. Vaalikoneen tarjoaja näkyy
             jokaisen vastauksen yhteydessä. Vastauksia ei ole muokattu jälkikäteen.
           </p>
+          <p className="mt-2 max-w-2xl text-sm leading-8 text-gray-300">Myötistä itelleni :D mutta tällä mennään.</p>
         </div>
       </section>
     </>
