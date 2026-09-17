@@ -6,8 +6,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 
 export const metadata: Metadata = {
-  title: { absolute: 'Visa Pollari' },
-  description: 'Ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika kahville tai soita.',
+  title: { absolute: 'Visa Pollari – yleistekninen puuhailija' },
+  description: 'Ohjelmistokonsultointia ja yhteiskuntakritiikkiä ja -filosofiaa. Varaa aika kahville tai soita.',
   alternates: { canonical: '/' },
 };
 
@@ -129,26 +129,22 @@ export default function Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
       />
       <section className="flex w-full flex-col items-center p-0 md:p-4 xl:p-10">
-        <Image
-          src="/vaalikuva_rect.jpg"
-          className="m-5 block h-48 w-48 rounded-full md:hidden"
-          width={192}
-          height={192}
-          alt="Visa Pollari"
-          priority
-        />
-        <h1 className="text-2xl font-bold">Kuka olen?</h1>
-        <div className="flex w-full max-w-5xl flex-col items-center p-4 md:flex-row md:p-10">
+        <div className="grid w-full max-w-5xl grid-cols-1 items-center p-4 md:grid-cols-[auto_1fr] md:p-10">
           <Image
             src="/vaalikuva_rect.jpg"
-            className="m-5 hidden h-48 w-48 rounded-full md:block"
+            className="mx-auto mb-5 h-48 w-48 rounded-full md:col-start-1 md:row-start-2 md:m-5"
             width={192}
             height={192}
             alt="Visa Pollari"
-            priority
+            fetchPriority="high"
+            loading="eager"
+            sizes="192px"
           />
-          <div className="text-lg">
-            <p>Visa Pollari, ohjelmistokonsultti ja yhteiskunnallinen keskustelija.</p>
+          <h1 className="row-start-2 text-center text-2xl font-bold md:col-span-2 md:row-start-1">
+            Visa Pollari – Ohjelmistokehittäjä ja yhteiskunnallinen keskustelija
+          </h1>
+          <div className="row-start-3 text-lg md:col-start-2 md:row-start-2">
+            <p>Visa Pollari, Ohjelmistokehittäjä ja yhteiskunnallinen keskustelija.</p>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row">
               <Link
                 href={calUrl}

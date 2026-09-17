@@ -11,10 +11,10 @@ export const metadata: Metadata = {
     default: 'Visa Pollari',
     template: '%s | Visa Pollari',
   },
-  description: 'Visa Pollari – ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika kahville tai soita.',
+  description: 'Visa Pollari – yleistekninen puuhailija Espoosta. Varaa aika kahville tai soita.',
   openGraph: {
     title: 'Visa Pollari',
-    description: 'Ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika tai soita.',
+    description: 'Ohjelmistokonsultti Espoosta. Varaa aika tai soita.',
     url: 'https://visapollari.fi/',
     siteName: 'Visa Pollari',
     images: [{ url: '/vaalikuva_rect.jpg', width: 1200, height: 630, alt: 'Visa Pollari' }],
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Visa Pollari',
-    description: 'Ohjelmistokonsultti ja kunnallispoliitikko Espoosta. Varaa aika tai soita.',
+    description: 'Ohjelmistokonsultti Espoosta. Varaa aika tai soita.',
     images: ['/vaalikuva_rect.jpg'],
   },
   icons: { icon: '/favicon.ico' },
@@ -33,14 +33,13 @@ export const metadata: Metadata = {
 export const viewport: Viewport = {
   width: 'device-width',
   initialScale: 1,
-  userScalable: false,
   themeColor: '#000000',
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="fi" className="h-full">
-      <body className="flex min-h-screen flex-col items-center justify-between bg-gray-900 font-sans text-white">
+      <body className="flex min-h-screen touch-manipulation flex-col items-center justify-between bg-gray-900 font-sans text-white">
         <GoogleAnalytics gaId="G-9W2F6V6N7L" />
         <ToasterProvider>
           <header className="flex h-24 w-full items-center justify-between border-b border-white/10 bg-black">

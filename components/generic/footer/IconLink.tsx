@@ -10,6 +10,7 @@ const IconLink: React.FC<IconLinkProps> = ({ href, name }) => {
   return (
     <a href={href}>
       <Icon name={name} />
+      <span className="sr-only">{name}</span>
     </a>
   );
 };

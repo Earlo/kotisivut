@@ -31,7 +31,14 @@ const Icon: React.FC<IconProps> = ({ name, className = 'h-8 w-8', color = 'white
   const path = customPath || paths[name] || '';
   const viewBox = viewBoxes[name] || '0 0 24 24';
   return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox={viewBox} fill={color} className={className}>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      viewBox={viewBox}
+      fill={color}
+      className={className}
+      aria-hidden="true"
+      focusable="false"
+    >
       <title>{name}</title>
       <path d={path} />
     </svg>
