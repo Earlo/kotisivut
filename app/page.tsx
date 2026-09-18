@@ -100,7 +100,7 @@ const activities: ActivityCardProps[] = [
   {
     title: 'Kattilalaakson Tislaamo',
     description:
-      'Olen mukana rakentamassa espoolaista tislaamoa. Ensisijaisia tavoitteitamme on laatu, raaka-aineiden kotimaisuus, ja uteliaisuus.',
+      'Olen mukana rakentamassa espoolaista tislaamoa. Ensisijaisia tavoitteitamme on laatu sekä raaka-aineiden kotimaisuus.',
     logo: {
       src: '/kattila_logo_dark.svg',
       alt: 'Kattilalaakson Tislaamo',
