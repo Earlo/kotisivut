@@ -1,4 +1,5 @@
 import ActivityCard, { type ActivityCardProps } from '@/components/ActivityCard';
+import Comments from '@/components/comments/Comments';
 import { Telegram } from '@/components/telegram';
 import { personJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
@@ -185,6 +186,9 @@ export default function Page() {
         </div>
       </section>
       <Telegram />
+      <div className="w-full bg-gray-50">
+        <Comments pagePath="/" theme="light" />
+      </div>
     </>
   );
 }

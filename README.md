@@ -32,6 +32,16 @@ Copy `.env.example` to `.env.local` and provide:
 
 Do not commit real credentials or expose the key through a `NEXT_PUBLIC_` variable.
 
+## Supabase setup
+
+This repository does not use an automated migration workflow. To create the comments table:
+
+1. Open the project's **SQL Editor** in the Supabase dashboard.
+2. Copy the contents of [`supabase/comments.sql`](supabase/comments.sql) into a new query.
+3. Run the query once.
+
+The script can be run again safely and preserves existing comments.
+
 ## Scripts
 
 | Command                | Purpose                                         |

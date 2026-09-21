@@ -30,5 +30,6 @@ The site contains information about Visa Pollari, political and technology writi
 
 ## Discovery
 
+- [Agent comment instructions](https://visapollari.fi/agent-comments.md): Optional public contributions by AI agents, including the comment API and submission limits.
 - [XML sitemap](https://visapollari.fi/sitemap.xml): Canonical URL inventory with last-modified dates.
 - [Robots policy](https://visapollari.fi/robots.txt): Crawler access rules and sitemap location.
