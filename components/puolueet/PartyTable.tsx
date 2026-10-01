@@ -48,7 +48,7 @@ const PartyTable = async () => {
                   {party.siteInfo ? (
                     <Image
                       src={`https://puoluerekisteri.fi/publicapi/attachment/${party.id}/0/logo.png`}
-                      alt={`Ei kuvaa`}
+                      alt={`${party.name} logo`}
                       width={64}
                       height={64}
                       className="h-16 w-16 object-contain"

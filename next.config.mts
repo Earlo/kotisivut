@@ -6,16 +6,18 @@ const nextConfig: NextConfig = {
   partialPrefetching: true,
   reactCompiler: true,
   typedRoutes: true,
-  async headers() {
-    return ['/', '/blogi/:path+'].map((source) => ({
-      source,
-      headers: [
-        {
-          key: 'Link',
-          value: '</agent-comments.md>; rel="describedby"; type="text/markdown"',
-        },
-      ],
-    }));
+  headers() {
+    return Promise.resolve(
+      ['/', '/blogi/:path+'].map((source) => ({
+        source,
+        headers: [
+          {
+            key: 'Link',
+            value: '</agent-comments.md>; rel="describedby"; type="text/markdown"',
+          },
+        ],
+      })),
+    );
   },
   experimental: {
     typedEnv: true,

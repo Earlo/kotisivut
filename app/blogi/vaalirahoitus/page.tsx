@@ -7,8 +7,18 @@ import Tapausnavigaattori from '@/components/vaalirahoitus/Tapausnavigaattori';
 import Tapauspainike from '@/components/vaalirahoitus/Tapauspainike';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
+import { getCaseId } from '@/lib/vaalirahoitus';
 import type { Metadata } from 'next';
 import tapaukset from './caset.json';
+
+const title = 'Suomen vaalirahoitusvalvonnan puutteet';
+const description = `Suomen vaalirahoitusvalvonnan puutteet: ${tapaukset.length} tapausta tukikattojen ylityksistä, välitetystä tuesta ja rahoituksen avoimuudesta alkuperäisine lähteineen.`;
+
+function caseIdForName(nimi: string): string {
+  const tapaus = tapaukset.find((item) => item.nimi === nimi);
+  if (!tapaus) throw new Error(`Tuntematon vaalirahoitustapaus: ${nimi}`);
+  return getCaseId(tapaus);
+}
 
 const references = [
   {
@@ -39,14 +49,12 @@ const ehdokkaatIlmanIlmoitusta = [
 ] as const;
 
 export const metadata: Metadata = {
-  title: 'Suomen vaalirahoitusvalvonnan puutteet',
-  description:
-    'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan. Nostoja vallan vahtikoiran hampaattomuudesta, ja turhapäiväistä nillitystä.',
+  title,
+  description,
   alternates: { canonical: '/blogi/vaalirahoitus' },
   openGraph: {
-    title: 'Suomen vaalirahoitusvalvonnan puutteet',
-    description:
-      'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan. Nostoja vallan vahtikoiran hampaattomuudesta, ja turhapäiväistä nillitystä.',
+    title,
+    description,
     images: [
       {
         url: 'https://visapollari.fi/blogi/vaalirahoitus/opengraph-image',
@@ -55,16 +63,19 @@ export const metadata: Metadata = {
         alt: 'Vaalirahoituslain porsaanreiät',
       },
     ],
-    type: 'website',
+    type: 'article',
+    publishedTime: contentDates.vaalirahoitus.published,
+    modifiedTime: contentDates.vaalirahoitus.modified,
+    authors: ['https://visapollari.fi/'],
     url: 'https://visapollari.fi/blogi/vaalirahoitus',
   },
   twitter: {
     card: 'summary_large_image',
+    title,
     site: '@visapollari',
     creator: '@visapollari',
     images: 'https://visapollari.fi/blogi/vaalirahoitus/opengraph-image',
-    description:
-      'Katsaus ja kevyttä OSINTtia liittyen suomen vaalirahoitusvalvonnan tilaan. Nostoja vallan vahtikoiran hampaattomuudesta, ja turhapäiväistä nillitystä.',
+    description,
   },
 };
 
@@ -163,20 +174,31 @@ const ElectionFinancePage = () => {
             </Text>
             <Text>
               Valvonta perustuu pitkälti siihen, että media ja kansalaiset jaksavat toimia vallan vahtikoirina. Yksi
-              tällainen on <Tapauspainike nimi="Timo Harakka">Harakan tapaus</Tapauspainike>, jossa ehdokas sai
-              julkisesti näpeilleen ja korjasi tilanteen sen seurauksena. VTV:n tarkastus ei kohdistu siihen, että onko
-              rajoituksia rikottu vai ei, vaan pelkästään siihen että ilmoitus täytetään. Mikäli VTV:n ulkopuoliset
-              tahot eivät ole raporteista kiinnostuneita, hautautuvat ne unholaan. Toinen kiinnostava seikka tässä on
-              se, miten verottajan mukaan oman firman ehdokkaalle tekemä lahjoitus voidaan tulkita peiteltynä osinkona
+              tällainen on <Tapauspainike tapausId={caseIdForName('Timo Harakka')} text="Harakan tapaus" />
+              , jossa ehdokas sai julkisesti näpeilleen ja korjasi tilanteen sen seurauksena. VTV:n tarkastus ei
+              kohdistu siihen, että onko rajoituksia rikottu vai ei, vaan pelkästään siihen että ilmoitus täytetään.
+              Mikäli VTV:n ulkopuoliset tahot eivät ole raporteista kiinnostuneita, hautautuvat ne unholaan. Toinen
+              kiinnostava seikka tässä on se, miten verottajan mukaan oman firman ehdokkaalle tekemä lahjoitus voidaan
+              tulkita peiteltynä osinkona
               <Reference number={3} />. Harakan tapauksessa myös mahdollinen peitelty osinko nousi mediassa esiin.
               Julkista tietoa siitä, miten asia lopulta vaikutti hänen verotuksessaan, en kuitenkaan löytänyt.
             </Text>
             <Text>
-              Vielä ongelmallisempaa on, että valvonta perustuu pitkälti ehdokkaiden itse tekemiin ilmoituksiin. Kun
-              julkisia vaalirahoitusilmoituksia alkaa käydä järjestelmällisesti läpi, vastaan tulee sekä ilmeisiä
-              tukikaton ylityksiä että ilmoituksia, joista ei pysty edes yksiselitteisesti selvittämään, kuka
-              rahoituksen alkuperäinen antaja on. Esimerkiksi{' '}
-              <Tapauspainike nimi="Aleksi Jäntti">Jäntin tapaus</Tapauspainike> tuli itselle vastaan ihan
+              Kuitenkin median ja kansalaisten valppaus ja kiinnostus aihetta kohtaan on sangen vähäistä, joka taasen
+              tekee lainsäädännöstä aikalailla kuolleen kirjaimen. Kevään 2025 kuntavaaleissa mediahuomiota sai{' '}
+              <Tapauspainike tapausId={caseIdForName('Jarno Limnell')} text="Jarno Limnellin" /> kuntavaalikampanja,
+              hänen saatuaan <Money amount={1185} /> vaalitukea valtionyhtiö Cinialta. Samassa ilmoituksessa näkyy
+              kuitenkin myös Kunto Salus Oy:n antama, kuntavaalien <Money amount={3000} /> rajan ylittävän{' '}
+              <Money amount={4900} suffix=":n" /> lahjoitus. En kuitenkaan löytänyt uutisointia tästä ilmoituksen
+              perusteella näkyvästä <Money amount={1900} suffix=":n" /> tukikaton ylityksestä, vaikka ilmiselvästi
+              kyseinen ilmoitus on ollut useamman toimittajan pöydällä.
+            </Text>
+            <Text>
+              Systemaattisesta arvioinnista ja seurannasta tekee vaikeaa se, että valvonta perustuu pitkälti ehdokkaiden
+              itse tekemiin ilmoituksiin. Kun julkisia vaalirahoitusilmoituksia alkaa käydä järjestelmällisesti läpi,
+              vastaan tulee sekä ilmeisiä tukikaton ylityksiä että ilmoituksia, joista ei pysty edes yksiselitteisesti
+              selvittämään, kuka rahoituksen alkuperäinen antaja on. Esimerkiksi{' '}
+              <Tapauspainike tapausId={caseIdForName('Aleksi Jäntti')} text="Jäntin tapaus" /> tuli itselle vastaan ihan
               summanmutikassa VTV:n rahoitusportaalia selatessa. Ilmoituksessahan ei itsessään ole yhtään mitään vikaa.
               Mutta se havainnollistaa hyvin kuinka huomattaviakin vaalikassoja on mahdollista kerätä ilman että
               yksikään yksittäinen lahjoitus ylittää nimeämisrajan kynnystä. Mikäli rahoituksen lähteitä haluttaisiin
@@ -200,12 +222,14 @@ const ElectionFinancePage = () => {
             </Text>
             <Text>
               Ilmoituksia selatessa vaikuttavat ne omaan silmään aika leväperäisesti täytetyiltä. Katsotaan vaikka{' '}
-              <Tapauspainike nimi="Petteri Orpo">Petter Orpon</Tapauspainike> 2023 vaalirahoitusilmoitusta. Tuon{' '}
-              <Money amount={300} /> ylityksen lisäksi, on lomakkeessa kohta 2.8. "välitetty tuki" jätetty täysin
-              tyhjäksi, vaikka kohdan 2.5. lisätiedoissa lukee{' '}
+              <Tapauspainike tapausId={caseIdForName('Petteri Orpo')} text="Petter Orpon" /> 2023
+              vaalirahoitusilmoitusta. Tuon <Money amount={300} /> ylityksen lisäksi, on lomakkeessa kohta 2.8.
+              "välitetty tuki" jätetty täysin tyhjäksi, vaikka kohdan 2.5. lisätiedoissa lukee{' '}
               <span className="text-amber-100 italic">
-                "c. Lisätietoja puolueelta saatu tuki sisältää välitettyä tukea seuraavilta tahoilta: T2H Group Oy 5000
-                €, Notalar Oy 4000 €, Versowood Oy 4000 €, Troll Capital Oy 4000 € sekä Paananen Elmar Jalo 5000 €."
+                "c. Lisätietoja puolueelta saatu tuki sisältää välitettyä tukea seuraavilta tahoilta: T2H Group Oy{' '}
+                <Money amount={5000} />, Notalar Oy <Money amount={4000} />, Versowood Oy <Money amount={4000} />, Troll
+                Capital Oy <Money amount={4000} /> sekä Paananen Elmar Jalo <Money amount={5000} />
+                ."
               </span>
               . Nämä kyseiset seikat olisi pitänyt olla eriteltynä ilmoituksen viimeiseen kohtaan taulukkomuodossa.
               Tällaisen epästrukturoidun datan johdosta vaalirahoitusilmoitusten systemaattinen läpikäyminen on hyvin

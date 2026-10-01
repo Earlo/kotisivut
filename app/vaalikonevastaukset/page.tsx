@@ -1,4 +1,5 @@
 import { contentDates } from '@/lib/contentDates';
+import { articleAuthorJsonLd, personId, personJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
 import VaalikonevastauksetClient from './VaalikonevastauksetClient';
 
@@ -16,6 +17,15 @@ export const metadata: Metadata = {
     description: 'Kaikki vaalikonevastaukseni ja niiden perustelut yhdessä paikassa.',
     url,
     type: 'website',
+    images: [{ url: '/vaalikuva_rect.jpg', width: 1200, height: 630, alt: 'Visa Pollari' }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title,
+    description,
+    site: '@visapollari',
+    creator: '@visapollari',
+    images: ['/vaalikuva_rect.jpg'],
   },
 };
 
@@ -31,15 +41,10 @@ const jsonLd = {
       inLanguage: ['fi', 'en', 'sv'],
       datePublished: contentDates.vaalikonevastaukset.published,
       dateModified: contentDates.vaalikonevastaukset.modified,
-      author: { '@id': 'https://visapollari.fi/#person' },
-      about: { '@id': 'https://visapollari.fi/#person' },
+      author: articleAuthorJsonLd,
+      about: { '@id': personId },
     },
-    {
-      '@type': 'Person',
-      '@id': 'https://visapollari.fi/#person',
-      name: 'Visa Pollari',
-      url: 'https://visapollari.fi/',
-    },
+    personJsonLd,
   ],
 };
 

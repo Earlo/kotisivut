@@ -5,7 +5,6 @@ import TierList from '@/components/tierlist/Tierlist';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
-import Script from 'next/script';
 import { candidates } from './candidates';
 
 export const metadata: Metadata = {
@@ -63,12 +62,12 @@ const Page = () => {
 
   return (
     <div className="max-w-8xl mx-auto bg-gray-950 p-4">
-      <Script
+      <script
         id="eurovaalit-article-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
       />
-      <Script
+      <script
         id="eurovaalit-breadcrumb-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}

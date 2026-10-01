@@ -49,7 +49,7 @@ export const contentDates = {
   },
   vaalirahoitus: {
     published: '2026-08-29T15:00:00+03:00',
-    modified: '2026-08-30T21:41:54+03:00',
+    modified: '2026-10-01T14:26:54+03:00',
   },
   vaalikonevastaukset: {
     published: '2026-09-13T12:00:00+03:00',

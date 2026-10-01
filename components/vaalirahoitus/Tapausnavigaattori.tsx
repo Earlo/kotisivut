@@ -1,9 +1,9 @@
 'use client';
 
+import { getCaseId } from '@/lib/vaalirahoitus';
 import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon, ChevronUpIcon } from '@heroicons/react/24/outline';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import Tapahtumakortti, { getLevelStyle, type VaalirahoitusCase } from './Tapahtumakortti';
-import { SELECT_VAALIRAHOITUS_CASE_EVENT, type SelectVaalirahoitusCaseDetail } from './Tapauspainike';
 
 interface TapausnavigaattoriProps {
   tapaukset: VaalirahoitusCase[];
@@ -41,13 +41,23 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
   const touchStartX = useRef<number | null>(null);
   const mobileDragStartY = useRef<number | null>(null);
   const mobileCloseTimer = useRef<number | null>(null);
+  const mobileCloseButton = useRef<HTMLButtonElement>(null);
 
+  const selectIndex = useCallback(
+    (index: number) => {
+      const tapaus = tapaukset[index];
+      if (!tapaus) return;
+      setCurrentIndex(index);
+      window.history.replaceState(null, '', `#${getCaseId(tapaus)}`);
+    },
+    [tapaukset],
+  );
   const previous = useCallback(() => {
-    setCurrentIndex((index) => (index - 1 + tapaukset.length) % tapaukset.length);
-  }, [tapaukset.length]);
+    selectIndex((currentIndex - 1 + tapaukset.length) % tapaukset.length);
+  }, [currentIndex, selectIndex, tapaukset.length]);
   const next = useCallback(() => {
-    setCurrentIndex((index) => (index + 1) % tapaukset.length);
-  }, [tapaukset.length]);
+    selectIndex((currentIndex + 1) % tapaukset.length);
+  }, [currentIndex, selectIndex, tapaukset.length]);
   const finishMobileClose = useCallback(() => {
     mobileCloseTimer.current = null;
     setMobileOpen(false);
@@ -97,6 +107,7 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
     };
 
     document.body.style.overflow = 'hidden';
+    mobileCloseButton.current?.focus({ preventScroll: true });
     window.addEventListener('keydown', closeWithEscape);
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -105,9 +116,8 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
   }, [closeMobileCard, mobileOpen]);
 
   useEffect(() => {
-    const selectCase = (event: CustomEvent<SelectVaalirahoitusCaseDetail>) => {
-      const { nimi } = event.detail;
-      const selectedIndex = tapaukset.findIndex((tapaus) => tapaus.nimi === nimi);
+    const selectById = (id: string) => {
+      const selectedIndex = tapaukset.findIndex((tapaus) => getCaseId(tapaus) === id);
       if (selectedIndex === -1) return;
 
       setCurrentIndex(selectedIndex);
@@ -117,9 +127,42 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
       setMobileVisible(true);
       openMobileCard();
     };
+    const selectCase = (event: MouseEvent) => {
+      if (
+        event.defaultPrevented ||
+        event.button !== 0 ||
+        event.metaKey ||
+        event.ctrlKey ||
+        event.shiftKey ||
+        event.altKey
+      )
+        return;
+      const link =
+        event.target instanceof Element ? event.target.closest<HTMLAnchorElement>('a[data-tapaus-id]') : null;
+      const id = link?.dataset.tapausId;
+      if (!id || !tapaukset.some((tapaus) => getCaseId(tapaus) === id)) return;
 
-    window.addEventListener(SELECT_VAALIRAHOITUS_CASE_EVENT, selectCase);
-    return () => window.removeEventListener(SELECT_VAALIRAHOITUS_CASE_EVENT, selectCase);
+      event.preventDefault();
+      if (window.location.hash !== `#${id}`) window.history.pushState(null, '', `#${id}`);
+      selectById(id);
+    };
+    const selectFromHash = () => {
+      const id = window.location.hash.slice(1);
+      if (!id) {
+        setCurrentIndex(0);
+        setMobileOpen(false);
+        return;
+      }
+      selectById(id);
+    };
+
+    selectFromHash();
+    document.addEventListener('click', selectCase);
+    window.addEventListener('hashchange', selectFromHash);
+    return () => {
+      document.removeEventListener('click', selectCase);
+      window.removeEventListener('hashchange', selectFromHash);
+    };
   }, [openMobileCard, tapaukset]);
 
   if (tapaukset.length === 0) return null;
@@ -193,7 +236,11 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
             </div>
           </div>
           <div className="h-128" aria-live="polite">
-            <Tapahtumakortti key={currentIndex} tapaus={current} />
+            {tapaukset.map((tapaus, index) => (
+              <div key={getCaseId(tapaus)} id={getCaseId(tapaus)} hidden={index !== currentIndex} className="h-full">
+                <Tapahtumakortti tapaus={tapaus} />
+              </div>
+            ))}
           </div>
           <p className="px-2 pt-3 pb-1 text-center text-[0.65rem] leading-4 text-zinc-500">
             Luokitus perustuu julkisen ilmoituksen tulkintaan.
@@ -233,100 +280,100 @@ const Tapausnavigaattori = ({ tapaukset }: TapausnavigaattoriProps) => {
         </div>
       </div>
 
-      {mobileOpen && (
-        <dialog
-          open
-          className="fixed inset-0 z-50 m-0 h-full max-h-none w-full max-w-none border-0 bg-transparent p-0 text-inherit lg:hidden"
-          aria-modal="true"
-          aria-label="Vaalirahoituksen tapauskortti"
+      <dialog
+        open={mobileOpen}
+        inert={!mobileOpen}
+        className="fixed inset-0 z-50 m-0 h-full max-h-none w-full max-w-none border-0 bg-transparent p-0 text-inherit lg:hidden"
+        aria-modal="true"
+        aria-label="Vaalirahoituksen tapauskortti"
+      >
+        <button
+          type="button"
+          className={`absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-300 ${mobileClosing ? 'opacity-0' : 'opacity-100'}`}
+          onClick={closeMobileCard}
+          aria-label="Sulje tapauskortti"
+        />
+        <div
+          className={`absolute left-1/2 flex flex-col overflow-hidden shadow-2xl ${mobileClosing ? 'bottom-3 h-14 rounded-lg bg-zinc-950/95 shadow-black/60 backdrop-blur-xl' : 'bottom-0 h-[min(42rem,calc(100dvh-0.75rem))] rounded-t-xl bg-zinc-900'} ${mobileDragging ? '' : 'transition-[width,height,bottom,border-radius,transform,background-color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]'}`}
+          style={{
+            transform: `translate(-50%, ${mobileDragY}px)`,
+            width: mobileClosing ? 'min(calc(100% - 1.5rem), 32rem)' : '100%',
+          }}
+          onTouchStart={(event) => (touchStartX.current = event.changedTouches[0]?.clientX ?? null)}
+          onTouchEnd={endTouch}
         >
-          <button
-            type="button"
-            className={`absolute inset-0 bg-black/75 backdrop-blur-sm transition-opacity duration-300 ${mobileClosing ? 'opacity-0' : 'opacity-100'}`}
-            onClick={closeMobileCard}
-            aria-label="Sulje tapauskortti"
-          />
           <div
-            className={`absolute left-1/2 flex flex-col overflow-hidden shadow-2xl ${mobileClosing ? 'bottom-3 h-14 rounded-lg bg-zinc-950/95 shadow-black/60 backdrop-blur-xl' : 'bottom-0 h-[min(42rem,calc(100dvh-0.75rem))] rounded-t-xl bg-zinc-900'} ${mobileDragging ? '' : 'transition-[width,height,bottom,border-radius,transform,background-color] duration-300 ease-[cubic-bezier(0.32,0.72,0,1)]'}`}
-            style={{
-              transform: `translate(-50%, ${mobileDragY}px)`,
-              width: mobileClosing ? 'min(calc(100% - 1.5rem), 32rem)' : '100%',
-            }}
-            onTouchStart={(event) => (touchStartX.current = event.changedTouches[0]?.clientX ?? null)}
-            onTouchEnd={endTouch}
+            className={`pointer-events-none absolute inset-0 flex items-center gap-2 p-2 transition-opacity duration-150 ${mobileClosing ? 'opacity-100 delay-150' : 'opacity-0'}`}
+            aria-hidden="true"
+          >
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.07] text-zinc-200">
+              <ChevronLeftIcon className="h-4 w-4" />
+            </span>
+            <span className="flex min-w-0 flex-1 items-center gap-3 rounded-md px-2 py-1 text-left">
+              <span className={`h-8 w-1 shrink-0 rounded-full ${level.accent}`} />
+              <span className="min-w-0 flex-1">
+                <span className="flex min-w-0 items-center gap-1.5 text-[0.62rem] font-semibold tracking-wider uppercase">
+                  <span className="shrink-0 text-zinc-500">
+                    Tapaus {currentIndex + 1}/{tapaukset.length}
+                  </span>
+                  <span className="text-zinc-600">·</span>
+                  <span className={`truncate ${level.text}`}>{level.label}</span>
+                </span>
+                <span className="block truncate text-sm font-bold text-white">{current.nimi}</span>
+              </span>
+              <ChevronUpIcon className="h-4 w-4 shrink-0 text-zinc-400" />
+            </span>
+            <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.07] text-zinc-200">
+              <ChevronRightIcon className="h-4 w-4" />
+            </span>
+          </div>
+
+          <div
+            className={`flex min-h-0 flex-1 flex-col transition-opacity duration-150 ${mobileClosing ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
           >
             <div
-              className={`pointer-events-none absolute inset-0 flex items-center gap-2 p-2 transition-opacity duration-150 ${mobileClosing ? 'opacity-100 delay-150' : 'opacity-0'}`}
-              aria-hidden="true"
+              className="touch-none"
+              onTouchStart={startMobileDrag}
+              onTouchMove={moveMobileDrag}
+              onTouchEnd={endMobileDrag}
+              onTouchCancel={cancelMobileDrag}
             >
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.07] text-zinc-200">
-                <ChevronLeftIcon className="h-4 w-4" />
-              </span>
-              <span className="flex min-w-0 flex-1 items-center gap-3 rounded-md px-2 py-1 text-left">
-                <span className={`h-8 w-1 shrink-0 rounded-full ${level.accent}`} />
-                <span className="min-w-0 flex-1">
-                  <span className="flex min-w-0 items-center gap-1.5 text-[0.62rem] font-semibold tracking-wider uppercase">
-                    <span className="shrink-0 text-zinc-500">
-                      Tapaus {currentIndex + 1}/{tapaukset.length}
-                    </span>
-                    <span className="text-zinc-600">·</span>
-                    <span className={`truncate ${level.text}`}>{level.label}</span>
-                  </span>
-                  <span className="block truncate text-sm font-bold text-white">{current.nimi}</span>
-                </span>
-                <ChevronUpIcon className="h-4 w-4 shrink-0 text-zinc-400" />
-              </span>
-              <span className="grid h-9 w-9 shrink-0 place-items-center rounded-full bg-white/[0.07] text-zinc-200">
-                <ChevronRightIcon className="h-4 w-4" />
-              </span>
-            </div>
-
-            <div
-              className={`flex min-h-0 flex-1 flex-col transition-opacity duration-150 ${mobileClosing ? 'pointer-events-none opacity-0' : 'opacity-100'}`}
-            >
-              <div
-                className="touch-none"
-                onTouchStart={startMobileDrag}
-                onTouchMove={moveMobileDrag}
-                onTouchEnd={endMobileDrag}
-                onTouchCancel={cancelMobileDrag}
-              >
-                <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-white/20" aria-hidden="true" />
-                <div className="flex items-center gap-3 px-4 py-3">
-                  <Vaihtopainike direction="previous" onClick={previous} />
-                  <div className="min-w-0 flex-1 text-center">
-                    <p className="text-[0.62rem] font-semibold tracking-widest text-zinc-500 uppercase">
-                      Pyyhkäise tai selaa
-                    </p>
-                    <p className="text-sm font-bold text-white">
-                      {currentIndex + 1} / {tapaukset.length}
-                    </p>
-                  </div>
-                  <Vaihtopainike direction="next" onClick={next} />
-                  <button
-                    type="button"
-                    onClick={closeMobileCard}
-                    autoFocus
-                    className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-zinc-400 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-sky-300"
-                    aria-label="Pienennä tapauskortti"
-                  >
-                    <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
-                  </button>
+              <div className="mx-auto mt-2 h-1 w-10 rounded-full bg-white/20" aria-hidden="true" />
+              <div className="flex items-center gap-3 px-4 py-3">
+                <Vaihtopainike direction="previous" onClick={previous} />
+                <div className="min-w-0 flex-1 text-center">
+                  <p className="text-[0.62rem] font-semibold tracking-widest text-zinc-500 uppercase">
+                    Pyyhkäise tai selaa
+                  </p>
+                  <p className="text-sm font-bold text-white">
+                    {currentIndex + 1} / {tapaukset.length}
+                  </p>
                 </div>
+                <Vaihtopainike direction="next" onClick={next} />
+                <button
+                  type="button"
+                  onClick={closeMobileCard}
+                  ref={mobileCloseButton}
+                  className="grid h-10 w-10 shrink-0 place-items-center rounded-full text-zinc-400 transition hover:bg-white/10 hover:text-white focus-visible:outline-2 focus-visible:outline-sky-300"
+                  aria-label="Pienennä tapauskortti"
+                >
+                  <ChevronDownIcon className="h-5 w-5" aria-hidden="true" />
+                </button>
               </div>
-              <div className="h-0.5 bg-white/10">
-                <div className={`h-full transition-[width] duration-300 ${level.accent}`} style={{ width: progress }} />
-              </div>
-              <div
-                className="min-h-0 flex-1 px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]"
-                aria-live="polite"
-              >
-                <Tapahtumakortti key={currentIndex} tapaus={current} />
-              </div>
+            </div>
+            <div className="h-0.5 bg-white/10">
+              <div className={`h-full transition-[width] duration-300 ${level.accent}`} style={{ width: progress }} />
+            </div>
+            <div className="min-h-0 flex-1 px-3 pt-3 pb-[max(0.75rem,env(safe-area-inset-bottom))]" aria-live="polite">
+              {tapaukset.map((tapaus, index) => (
+                <div key={getCaseId(tapaus)} hidden={index !== currentIndex} className="h-full">
+                  <Tapahtumakortti tapaus={tapaus} />
+                </div>
+              ))}
             </div>
           </div>
-        </dialog>
-      )}
+        </div>
+      </dialog>
     </>
   );
 };
