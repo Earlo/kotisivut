@@ -4,8 +4,9 @@ import Text from '@/components/Text';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
+import type { Article, BreadcrumbList, WithContext } from 'schema-dts';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Tuotantofutuurimalli',
   description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',
   alternates: { canonical: '/blogi/tuotantofutuuri' },
@@ -31,10 +32,10 @@ export const metadata: Metadata = {
     images: 'https://visapollari.fi/blogi/tuotantofutuuri/opengraph-image',
     description: 'Kuinka varmistaa huoltovarmmus ilman helikopterirahaa?',
   },
-};
+} satisfies Metadata;
 
 const Page = () => {
-  const articleJsonLd = {
+  const articleJsonLd: WithContext<Article> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: metadata.title,
@@ -47,7 +48,7 @@ const Page = () => {
     mainEntityOfPage: 'https://visapollari.fi/blogi/tuotantofutuuri',
   };
 
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [

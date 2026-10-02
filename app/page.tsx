@@ -1,10 +1,11 @@
 import ActivityCard, { type ActivityCardProps } from '@/components/ActivityCard';
 import Comments from '@/components/comments/Comments';
 import { Telegram } from '@/components/telegram';
-import { personJsonLd } from '@/lib/schema';
+import { personJsonLd, websiteJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Person, WithContext } from 'schema-dts';
 
 export const metadata: Metadata = {
   title: { absolute: 'Visa Pollari – yleistekninen puuhailija' },
@@ -116,7 +117,7 @@ const activities: ActivityCardProps[] = [
 ];
 
 export default function Page() {
-  const personSchema = {
+  const personSchema: WithContext<Person> = {
     '@context': 'https://schema.org',
     ...personJsonLd,
     telephone: phone,
@@ -128,6 +129,11 @@ export default function Page() {
         id="person-jsonld"
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personSchema) }}
+      />
+      <script
+        id="website-jsonld"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }}
       />
       <section className="flex w-full flex-col items-center p-0 md:p-4 xl:p-10">
         <div className="grid w-full max-w-5xl grid-cols-1 items-center p-4 md:grid-cols-[auto_1fr] md:p-10">

@@ -1,63 +1,26 @@
-import { clientIpFromHeaders } from '@/lib/ip';
 import { getRankingGuesses } from '@/lib/rankings';
+import { readBoundedJson, SubmissionError } from '@/lib/request';
+import { enforceSubmissionLimit } from '@/lib/submissionLimit';
+import { noStoreJson, submissionFailure } from '@/lib/submissionResponse';
+import { validateRankingSubmission } from '@/lib/submissionValidation';
 import { supabase } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
 
-type RankingBody = {
-  name?: string;
-  ranking: string[];
-};
-
-function isRecord(value: unknown): value is Record<string, unknown> {
-  return typeof value === 'object' && value !== null;
-}
-
-function isRankingBody(value: unknown): value is RankingBody {
-  return (
-    isRecord(value) &&
-    'ranking' in value &&
-    Array.isArray(value.ranking) &&
-    value.ranking.every((candidate) => typeof candidate === 'string') &&
-    (!('name' in value) || typeof value.name === 'string')
-  );
-}
-
 export async function POST(request: Request) {
   try {
-    const headers = request.headers;
-    let body: unknown;
-    try {
-      body = await request.json();
-    } catch {
-      return NextResponse.json({ error: 'BAD_JSON' }, { status: 400 });
+    const ip = enforceSubmissionLimit(request.headers, 'tierlist');
+    const body = validateRankingSubmission(await readBoundedJson(request, 8192));
+    if (!body) {
+      throw new SubmissionError(400, 'INVALID_BODY', 'Aseta 1–80 merkin nimi ja valitse kaikki ehdokkaat kerran.');
     }
-    if (!isRecord(body)) {
-      return NextResponse.json({ error: 'INVALID_BODY' }, { status: 400 });
-    }
-    if (!('ranking' in body) || body.ranking == null) {
-      return NextResponse.json({ error: 'MISSING_FIELD', field: 'ranking' }, { status: 400 });
-    }
-    if (!isRankingBody(body)) {
-      return NextResponse.json({ error: 'INVALID_BODY' }, { status: 400 });
-    }
-    const ip = clientIpFromHeaders(headers);
-    const { data, error } = await supabase()
+    const { error } = await supabase()
       .from('rankings')
-      .insert([{ ip, ranking: body.ranking, made_by: body.name ?? null }])
-      .select('id, made_by, ranking, created_at');
-    if (error) {
-      return NextResponse.json(
-        { error: 'DB_ERROR', message: error.message, hint: error.hint ?? null },
-        { status: 500 },
-      );
-    }
+      .insert([{ ...(ip ? { ip } : {}), ranking: body.ranking, made_by: body.name }]);
+    if (error) throw error;
 
-    return NextResponse.json(data, {
-      headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate=300' },
-    });
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return NextResponse.json({ error: 'INTERNAL_ERROR', message: msg }, { status: 500 });
+    return noStoreJson({ ok: true }, 201);
+  } catch (error) {
+    return submissionFailure(error, 'Unable to save ranking', 'Veikkauksen lähettäminen epäonnistui.');
   }
 }
 
@@ -68,8 +31,7 @@ export async function GET() {
     return NextResponse.json(data, {
       headers: { 'Cache-Control': 's-maxage=60, stale-while-revalidate=300' },
     });
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : String(err);
-    return NextResponse.json({ error: 'INTERNAL_ERROR', message: msg }, { status: 500 });
+  } catch (error) {
+    return submissionFailure(error, 'Unable to load rankings', 'Veikkausten lataaminen epäonnistui.');
   }
 }

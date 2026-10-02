@@ -1,12 +1,14 @@
 'use client';
 
 import answerData from '@/data/vaalikonevastaukset.json';
+import { answerAnchorId, explanationAnchorId, questionAnchorId } from '@/lib/answerLinks';
 import { ArrowPathIcon, ChevronDownIcon, MagnifyingGlassIcon } from '@heroicons/react/24/outline';
-import { useDeferredValue, useMemo, useState } from 'react';
+import { Fragment, useDeferredValue, useEffect, useMemo, useState } from 'react';
 
 type Language = 'fi' | 'en' | 'sv';
 
 type VaalikoneResponse = {
+  id: string;
   response: string;
   explanations: Partial<Record<Language, string>>;
   election: string;
@@ -15,13 +17,18 @@ type VaalikoneResponse = {
 };
 
 type QuestionGroup = {
+  id: string;
   question: string;
   responses: VaalikoneResponse[];
 };
 
 type GroupFilter = 'all' | 'repeated';
 
-const questions: QuestionGroup[] = answerData;
+const questions: QuestionGroup[] = answerData.map((group) => ({
+  question: group.question,
+  id: questionAnchorId(group.question),
+  responses: group.responses.map((answer) => Object.assign({ id: answerAnchorId(group.question, answer) }, answer)),
+}));
 const responseCount = questions.reduce((total, group) => total + group.responses.length, 0);
 const years = questions.flatMap((group) => group.responses.map((answer) => answer.year));
 const yearRange = `${Math.min(...years)}–${Math.max(...years)}`;
@@ -32,6 +39,50 @@ const languageLabels: Record<Language, string> = {
   sv: 'Motivering',
 };
 const languages: Language[] = ['fi', 'en', 'sv'];
+
+type FragmentTarget = { id: string; group: QuestionGroup; answerId?: string };
+
+const fragmentTargets = new Map<string, FragmentTarget>();
+for (const group of questions) {
+  fragmentTargets.set(group.id, { id: group.id, group });
+  for (const answer of group.responses) {
+    fragmentTargets.set(answer.id, { id: answer.id, group, answerId: answer.id });
+    for (const language of languages) {
+      if (!answer.explanations[language]) continue;
+      const id = explanationAnchorId(answer.id, language);
+      fragmentTargets.set(id, { id, group, answerId: answer.id });
+    }
+  }
+}
+
+function FragmentLink({ id, label }: { id: string; label: string }) {
+  return (
+    <a
+      href={`#${id}`}
+      aria-label={label}
+      className="text-xs font-semibold text-blue-700 hover:text-blue-900 hover:underline"
+    >
+      Linkki
+    </a>
+  );
+}
+
+function ExplanationText({ text }: { text: string }) {
+  const parts = text.split(/(https?:\/\/[^\s()<>]+)/g);
+  return parts.map((part, index) => {
+    if (index % 2 === 0) return part;
+
+    const href = part.replace(/[.,;!?]+$/, '');
+    return (
+      <Fragment key={parts.slice(0, index + 1).join('')}>
+        <a href={href} className="wrap-break-word text-blue-700 underline hover:text-blue-900">
+          {href}
+        </a>
+        {part.slice(href.length)}
+      </Fragment>
+    );
+  });
+}
 
 const normalizeForSearch = (value: string) => value.toLocaleLowerCase('fi-FI').trim();
 
@@ -52,11 +103,16 @@ function Answer({ answer }: { answer: VaalikoneResponse }) {
   });
 
   return (
-    <section className="rounded-2xl bg-gray-50 p-4 sm:p-5" aria-label={`${answer.election}, ${answer.source}`}>
+    <section
+      id={answer.id}
+      className="scroll-mt-6 rounded-2xl bg-gray-50 p-4 sm:p-5"
+      aria-label={`${answer.election}, ${answer.source}`}
+    >
       <div className="flex flex-wrap items-center gap-x-3 gap-y-1 text-sm text-gray-500">
         <span className="font-semibold text-gray-900">{answer.election}</span>
         <span aria-hidden="true">·</span>
         <span>{answer.source}</span>
+        <FragmentLink id={answer.id} label={`Linkki vastaukseen: ${answer.election}, ${answer.source}`} />
       </div>
 
       <p className="mt-3 inline-flex rounded-full bg-blue-100 px-3 py-1 text-sm font-semibold text-blue-950">
@@ -66,11 +122,17 @@ function Answer({ answer }: { answer: VaalikoneResponse }) {
       <div className="mt-4 space-y-4">
         {explanations.length > 0 ? (
           explanations.map(({ language, explanation }) => (
-            <div key={language} lang={language}>
-              <p className="mb-1 text-xs font-bold tracking-wider text-gray-500 uppercase">
-                {languageLabels[language]}
+            <div key={language} id={explanationAnchorId(answer.id, language)} lang={language} className="scroll-mt-6">
+              <div className="mb-1 flex items-center gap-3">
+                <p className="text-xs font-bold tracking-wider text-gray-500 uppercase">{languageLabels[language]}</p>
+                <FragmentLink
+                  id={explanationAnchorId(answer.id, language)}
+                  label={`Linkki perusteluun (${language}): ${answer.election}, ${answer.source}`}
+                />
+              </div>
+              <p className="text-[0.95rem] leading-7 whitespace-pre-line text-gray-800">
+                <ExplanationText text={explanation} />
               </p>
-              <p className="text-[0.95rem] leading-7 whitespace-pre-line text-gray-800">{explanation}</p>
             </div>
           ))
         ) : (
@@ -81,17 +143,25 @@ function Answer({ answer }: { answer: VaalikoneResponse }) {
   );
 }
 
-function QuestionCard({ group }: { group: QuestionGroup }) {
+function QuestionCard({ group, linkedOutsideFilters }: { group: QuestionGroup; linkedOutsideFilters: boolean }) {
   const firstYear = Math.min(...group.responses.map(({ year }) => year));
   const lastYear = Math.max(...group.responses.map(({ year }) => year));
   const yearLabel = firstYear === lastYear ? String(firstYear) : `${firstYear}–${lastYear}`;
 
   return (
-    <article className="overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md">
+    <article
+      id={group.id}
+      className="scroll-mt-6 overflow-hidden rounded-2xl border border-gray-200 bg-white shadow-sm transition-shadow hover:shadow-md"
+    >
       <details className="group/details">
         <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-5 text-left marker:content-none sm:p-6 [&::-webkit-details-marker]:hidden">
           <span>
             <span className="flex flex-wrap gap-2">
+              {linkedOutsideFilters && (
+                <span className="rounded-full bg-blue-100 px-2.5 py-1 text-xs font-semibold text-blue-900">
+                  Linkitetty kysymys · näytetään rajauksista huolimatta
+                </span>
+              )}
               {group.responses.length > 1 && (
                 <span className="rounded-full bg-violet-100 px-2.5 py-1 text-xs font-bold text-violet-900">
                   Useasti kysytty
@@ -109,11 +179,9 @@ function QuestionCard({ group }: { group: QuestionGroup }) {
           />
         </summary>
         <div className="space-y-3 border-t border-gray-100 px-5 py-5 sm:px-6 sm:py-6">
+          <FragmentLink id={group.id} label={`Linkki kysymykseen: ${group.question}`} />
           {group.responses.map((answer) => (
-            <Answer
-              key={`${answer.election}-${answer.source}-${answer.response}-${JSON.stringify(answer.explanations)}`}
-              answer={answer}
-            />
+            <Answer key={answer.id} answer={answer} />
           ))}
         </div>
       </details>
@@ -125,8 +193,25 @@ export default function VaalikonevastauksetClient() {
   const [search, setSearch] = useState('');
   const [election, setElection] = useState('all');
   const [groupFilter, setGroupFilter] = useState<GroupFilter>('all');
+  const [linkedTarget, setLinkedTarget] = useState<FragmentTarget | null>(null);
   const deferredSearch = useDeferredValue(search);
   const normalizedSearch = normalizeForSearch(deferredSearch);
+
+  useEffect(() => {
+    const readFragment = () => setLinkedTarget(fragmentTargets.get(window.location.hash.slice(1)) ?? null);
+    readFragment();
+    window.addEventListener('hashchange', readFragment);
+    return () => window.removeEventListener('hashchange', readFragment);
+  }, []);
+
+  useEffect(() => {
+    if (!linkedTarget) return;
+    const target = document.getElementById(linkedTarget.id);
+    if (!target) return;
+    const details = target.closest('details') ?? target.querySelector('details');
+    if (details) details.open = true;
+    target.scrollIntoView({ block: 'start' });
+  }, [linkedTarget]);
 
   const elections = useMemo(
     () =>
@@ -183,10 +268,22 @@ export default function VaalikonevastauksetClient() {
 
   const hasFilters = Boolean(search) || election !== 'all' || groupFilter !== 'all';
 
+  const visibleLinkedGroup = linkedTarget && filteredQuestions.find((group) => group.id === linkedTarget.group.id);
+  const linkedOutsideFilters = Boolean(
+    linkedTarget &&
+    (!visibleLinkedGroup ||
+      (linkedTarget.answerId && !visibleLinkedGroup.responses.some((answer) => answer.id === linkedTarget.answerId))),
+  );
+  const displayedQuestions =
+    linkedTarget && linkedOutsideFilters
+      ? [linkedTarget.group, ...filteredQuestions.filter((group) => group.id !== linkedTarget.group.id)]
+      : filteredQuestions;
+
   const resetFilters = () => {
     setSearch('');
     setElection('all');
     setGroupFilter('all');
+    setLinkedTarget(null);
   };
 
   return (
@@ -235,7 +332,10 @@ export default function VaalikonevastauksetClient() {
                     id="answer-search"
                     type="search"
                     value={search}
-                    onChange={(event) => setSearch(event.target.value)}
+                    onChange={(event) => {
+                      setLinkedTarget(null);
+                      setSearch(event.target.value);
+                    }}
                     placeholder="Esimerkiksi perustulo tai verotus"
                     className="w-full rounded-xl border border-gray-300 bg-white py-3 pr-4 pl-11 text-base text-gray-950 transition outline-none placeholder:text-gray-400 focus:border-blue-500 focus:ring-3 focus:ring-blue-100"
                   />
@@ -249,7 +349,10 @@ export default function VaalikonevastauksetClient() {
                 <select
                   id="election-filter"
                   value={election}
-                  onChange={(event) => setElection(event.target.value)}
+                  onChange={(event) => {
+                    setLinkedTarget(null);
+                    setElection(event.target.value);
+                  }}
                   className="w-full rounded-xl border border-gray-300 bg-white px-4 py-3 text-base text-gray-950 transition outline-none focus:border-blue-500 focus:ring-3 focus:ring-blue-100"
                 >
                   <option value="all">Kaikki vaalit</option>
@@ -266,7 +369,10 @@ export default function VaalikonevastauksetClient() {
               <div className="inline-flex rounded-xl bg-gray-100 p-1" aria-label="Kysymysten rajaus">
                 <button
                   type="button"
-                  onClick={() => setGroupFilter('all')}
+                  onClick={() => {
+                    setLinkedTarget(null);
+                    setGroupFilter('all');
+                  }}
                   className={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
                     groupFilter === 'all' ? 'bg-white text-gray-950 shadow-sm' : 'text-gray-600 hover:text-gray-950'
                   }`}
@@ -276,7 +382,10 @@ export default function VaalikonevastauksetClient() {
                 </button>
                 <button
                   type="button"
-                  onClick={() => setGroupFilter('repeated')}
+                  onClick={() => {
+                    setLinkedTarget(null);
+                    setGroupFilter('repeated');
+                  }}
                   className={`rounded-lg px-3 py-2 text-sm font-semibold transition ${
                     groupFilter === 'repeated'
                       ? 'bg-white text-gray-950 shadow-sm'
@@ -307,16 +416,20 @@ export default function VaalikonevastauksetClient() {
                 Vastaukset
               </h2>
               <p className="mt-1 text-sm text-gray-500" aria-live="polite">
-                {filteredQuestions.length} {filteredQuestions.length === 1 ? 'kysymys' : 'kysymystä'}
+                {displayedQuestions.length} {displayedQuestions.length === 1 ? 'kysymys' : 'kysymystä'}
               </p>
             </div>
             <p className="hidden text-sm text-gray-500 sm:block">Avaa kysymys nähdäksesi perustelut</p>
           </div>
 
-          {filteredQuestions.length > 0 ? (
+          {displayedQuestions.length > 0 ? (
             <div className="mt-5 space-y-3">
-              {filteredQuestions.map((group) => (
-                <QuestionCard key={group.question} group={group} />
+              {displayedQuestions.map((group) => (
+                <QuestionCard
+                  key={group.id}
+                  group={group}
+                  linkedOutsideFilters={linkedOutsideFilters && group.id === linkedTarget?.group.id}
+                />
               ))}
             </div>
           ) : (

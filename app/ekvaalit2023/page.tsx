@@ -4,13 +4,14 @@ import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import Image from 'next/image';
 import Link from 'next/link';
+import type { Article, BreadcrumbList, WithContext } from 'schema-dts';
 
 const Header = () => {
   return (
     <section className="flex h-32 w-full items-center justify-between bg-gray-100">
       <div className="w-3/4 items-start">
         <h1 className="ml-4 text-3xl font-bold md:ml-10">Visa Pollari</h1>
-        <h3 className="ml-4 text-xl font-bold md:ml-10">Ehdolla Uudellamaalla</h3>
+        <p className="ml-4 text-xl font-bold md:ml-10">Eduskuntavaalit 2023 – kampanja-arkisto</p>
       </div>
       <Image
         className="mr-4 hidden h-3/4 w-auto md:flex"
@@ -31,11 +32,11 @@ const Header = () => {
 };
 
 const Home = () => {
-  const articleJsonLd = {
+  const articleJsonLd: WithContext<Article> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
-    headline: 'Eduskuntavaalit 2023 - Visa Pollari',
-    description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
+    headline: 'Eduskuntavaalit 2023 – kampanja-arkisto – Visa Pollari',
+    description: 'Visa Pollarin vuoden 2023 eduskuntavaalikampanjan arkisto: esittely ja tavoitteet Uudellamaalla.',
     author: articleAuthorJsonLd,
     datePublished: contentDates.ekvaalit2023.published,
     dateModified: contentDates.ekvaalit2023.modified,
@@ -44,12 +45,17 @@ const Home = () => {
     mainEntityOfPage: 'https://visapollari.fi/ekvaalit2023',
   };
 
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Etusivu', item: 'https://visapollari.fi/' },
-      { '@type': 'ListItem', position: 2, name: 'Eduskuntavaalit 2023', item: 'https://visapollari.fi/ekvaalit2023' },
+      {
+        '@type': 'ListItem',
+        position: 2,
+        name: 'Eduskuntavaalit 2023 – kampanja-arkisto',
+        item: 'https://visapollari.fi/ekvaalit2023',
+      },
     ],
   };
 
@@ -66,6 +72,10 @@ const Home = () => {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Header />
+      <p className="bg-gray-100 px-4 pb-6 text-lg md:px-10">
+        Tämä sivu on arkisto vuoden 2023 eduskuntavaalikampanjastani Uudellamaalla. Alla oleva esittely ja tavoitteet
+        ovat kampanjan ajalta.
+      </p>
       <article aria-labelledby="ekvaalit2023-heading">
         <section className="flex w-full flex-col items-center p-0 md:p-10">
           <Image

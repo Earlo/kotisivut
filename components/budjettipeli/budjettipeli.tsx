@@ -3,7 +3,6 @@
 import BudjettiKortti from '@/components/budjettipeli/budjettikortti';
 import EuroFormatter from '@/components/budjettipeli/euroja';
 import { useToaster } from '@/components/generic/Toaster';
-import Text from '@/components/Text';
 import { cn } from '@/lib/helpers';
 import { useSearchParams } from 'next/navigation';
 import { useState, type FC } from 'react';
@@ -100,11 +99,6 @@ const Budjettipeli: FC<BudjettiKorttiProps> = ({ buduProp }) => {
   return (
     <div className="grid w-full gap-6 lg:grid-cols-[minmax(18rem,1fr)_minmax(28rem,34rem)] lg:items-start">
       <section className="space-y-5">
-        <Text className="mb-0 max-w-3xl text-base text-slate-200">
-          Tervetuloa budjettipeliin. Jaa valtion budjetti eri osa-alueille ja seuraa samalla, miten päätökset
-          vaikuttavat kokonaisuuteen.
-        </Text>
-
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-1 xl:grid-cols-2">
           <div className="rounded-lg border border-white/10 bg-white/4 p-4">
             <span className="text-xs font-bold tracking-wide text-slate-400 uppercase">Budjetin saldo</span>

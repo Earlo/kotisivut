@@ -2,6 +2,7 @@ import Text from '@/components/Text';
 import Title from '@/components/Title';
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import type { BreadcrumbList, WithContext } from 'schema-dts';
 
 export const metadata: Metadata = {
   title: { absolute: 'Blogi | Visa Pollari' },
@@ -23,7 +24,7 @@ export const metadata: Metadata = {
 };
 
 const BlogListing = () => {
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [

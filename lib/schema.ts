@@ -1,3 +1,5 @@
+import type { Person, WebSite, WithContext } from 'schema-dts';
+
 export const personId = 'https://visapollari.fi/#visa-pollari';
 
 export const personJsonLd = {
@@ -17,11 +19,21 @@ export const personJsonLd = {
     'https://www.threads.net/@visapollari',
     'https://suomi.social/@visapollari',
   ],
-};
+} satisfies Person;
 
 export const articleAuthorJsonLd = {
   '@type': 'Person',
   '@id': personId,
   name: 'Visa Pollari',
   url: 'https://visapollari.fi',
+} satisfies Person;
+
+export const websiteJsonLd: WithContext<WebSite> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  '@id': 'https://visapollari.fi/#website',
+  name: 'Visa Pollari',
+  url: 'https://visapollari.fi/',
+  inLanguage: 'fi',
+  publisher: { '@id': personId },
 };

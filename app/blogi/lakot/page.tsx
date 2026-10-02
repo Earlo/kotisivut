@@ -7,8 +7,9 @@ import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
 import Image from 'next/image';
+import type { Article, BreadcrumbList, WithContext } from 'schema-dts';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Lakot ja metariita',
   description: 'Pohdintaa poliittisten lakkojen säätelystä ja vaikutuksista.',
   alternates: { canonical: '/blogi/lakot' },
@@ -27,10 +28,10 @@ export const metadata: Metadata = {
     images: ['https://visapollari.fi/blogi/lakot/opengraph-image'],
     description: 'Pohdintaa poliittisten lakkojen säätelystä ja vaikutuksista.',
   },
-};
+} satisfies Metadata;
 
 const Page = () => {
-  const articleJsonLd = {
+  const articleJsonLd: WithContext<Article> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: metadata.title,
@@ -43,7 +44,7 @@ const Page = () => {
     mainEntityOfPage: 'https://visapollari.fi/blogi/lakot',
   };
 
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [

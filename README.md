@@ -25,22 +25,14 @@ Open [http://localhost:3000](http://localhost:3000). Most content works without 
 
 Copy `.env.example` to `.env.local` and provide:
 
-| Variable       | Purpose                                             |
-| -------------- | --------------------------------------------------- |
-| `SUPABASE_URL` | Supabase project URL used by the server-side client |
-| `SUPABASE_KEY` | Supabase key used by the server-side client         |
+| Variable                    | Purpose                                                                      |
+| --------------------------- | ---------------------------------------------------------------------------- |
+| `SUPABASE_URL`              | Supabase project URL used by the server-side client                          |
+| `SUPABASE_KEY`              | Supabase key used by the server-side client                                  |
+| `SUPABASE_SERVICE_ROLE_KEY` | Optional server key alias; takes precedence over `SUPABASE_KEY`              |
+| `SUBMISSION_IP_HEADER`      | Outside Vercel, a client IP header overwritten by your trusted reverse proxy |
 
 Do not commit real credentials or expose the key through a `NEXT_PUBLIC_` variable.
-
-## Supabase setup
-
-This repository does not use an automated migration workflow. To create the comments table:
-
-1. Open the project's **SQL Editor** in the Supabase dashboard.
-2. Copy the contents of [`supabase/comments.sql`](supabase/comments.sql) into a new query.
-3. Run the query once.
-
-The script can be run again safely and preserves existing comments.
 
 ## Scripts
 
@@ -77,3 +69,5 @@ The same commands run in GitHub Actions for every pull request and every push to
 ## Deployment
 
 The application can be deployed to any Node.js platform that supports Next.js. Install with `npm ci`, build with `npm run build`, and start with `npm start`. Configure `SUPABASE_URL` and `SUPABASE_KEY` in the deployment environment for database-backed routes.
+
+Submission APIs validate candidate rankings and bound the JSON request body. They allow 30 submission attempts per minute per address and endpoint, with counters held in each running server instance. Vercel supplies the trusted IP header automatically. On other hosts, set `SUBMISSION_IP_HEADER` to a supported header that your proxy overwrites, and prevent direct access that bypasses the proxy. Without a trusted address, requests share one limit bucket per endpoint. Multi-instance deployments can enforce a shared limit at their hosting proxy.

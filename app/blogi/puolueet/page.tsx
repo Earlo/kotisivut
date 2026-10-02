@@ -5,8 +5,9 @@ import Title from '@/components/Title';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
+import type { Article, BreadcrumbList, WithContext } from 'schema-dts';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Rekisteröityneet puolueet - Yhteystiedot',
   description: 'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
   alternates: { canonical: '/blogi/puolueet' },
@@ -31,10 +32,10 @@ export const metadata: Metadata = {
     images: 'https://visapollari.fi/blogi/puolueet/opengraph-image',
     description: 'Löydä kaikkien rekisteröityneiden puolueiden yhteystiedot helposti yhdestä paikasta.',
   },
-};
+} satisfies Metadata;
 
 const PartiesPage = () => {
-  const articleJsonLd = {
+  const articleJsonLd: WithContext<Article> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: metadata.title,
@@ -47,7 +48,7 @@ const PartiesPage = () => {
     mainEntityOfPage: 'https://visapollari.fi/blogi/puolueet',
   };
 
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [

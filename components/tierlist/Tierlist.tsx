@@ -1,7 +1,7 @@
 'use client';
 
 import { useToaster } from '@/components/generic/Toaster';
-import { useState, type Dispatch, type FC, type SetStateAction } from 'react';
+import { useRef, useState, type FC } from 'react';
 import ListForm from './TierlistForm';
 
 interface TierListProps {
@@ -9,34 +9,46 @@ interface TierListProps {
 }
 
 const TierList: FC<TierListProps> = ({ candidates }) => {
-  const [votes, setVotes] = useState<string[][]>([]);
   const [name, setName] = useState<string>('');
   const [guessMade, setGuessMade] = useState<boolean>(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const submissionPending = useRef(false);
   const { addToast } = useToaster();
 
-  const handleVotesUpdate: Dispatch<SetStateAction<string[][]>> = (updater) => {
-    setVotes((prev) => {
-      const next = typeof updater === 'function' ? updater(prev) : updater;
-      if (next.length > 0) {
-        const clientIp = typeof window !== 'undefined' ? window.location.hostname : 'unknown';
-        void fetch('/api/tierlist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Forwarded-For': clientIp,
-          },
-          body: JSON.stringify({
-            ranking: next[0],
-            name,
-          }),
-        }).finally(() => {
-          setGuessMade(true);
-          addToast('Veikkaus tallennettu', 'success');
-        });
-        return [];
+  const handleSubmit = async (ranking: string[]) => {
+    if (submissionPending.current || guessMade) return;
+
+    submissionPending.current = true;
+    setIsSubmitting(true);
+    setSubmitError(null);
+
+    try {
+      const response = await fetch('/api/tierlist', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ ranking, name: name.trim() }),
+      });
+      if (!response.ok) {
+        const message =
+          response.status === 429
+            ? 'Liian monta lähetystä. Odota hetki ja yritä uudelleen.'
+            : 'Veikkauksen tallennus epäonnistui. Yritä uudelleen.';
+        setSubmitError(message);
+        addToast(message, 'error');
+        return;
       }
-      return next;
-    });
+
+      setGuessMade(true);
+      addToast('Veikkaus tallennettu', 'success');
+    } catch {
+      const message = 'Veikkauksen tallennus epäonnistui. Tarkista verkkoyhteys ja yritä uudelleen.';
+      setSubmitError(message);
+      addToast(message, 'error');
+    } finally {
+      submissionPending.current = false;
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -44,14 +56,21 @@ const TierList: FC<TierListProps> = ({ candidates }) => {
       {guessMade ? (
         <p className="text-white">Kiitos veikkauksestasi!</p>
       ) : (
-        <ListForm
-          votes={votes}
-          setVotes={handleVotesUpdate}
-          name={name}
-          setName={setName}
-          candidates={candidates}
-          className="lg:grid-cols-6"
-        />
+        <>
+          <ListForm
+            onSubmit={handleSubmit}
+            isSubmitting={isSubmitting}
+            name={name}
+            setName={setName}
+            candidates={candidates}
+            className="lg:grid-cols-6"
+          />
+          {submitError && (
+            <p role="alert" className="mt-3 text-red-300">
+              {submitError}
+            </p>
+          )}
+        </>
       )}
     </div>
   );

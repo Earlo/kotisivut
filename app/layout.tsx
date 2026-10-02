@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     description: 'Ohjelmistokonsultti Espoosta. Varaa aika tai soita.',
     url: 'https://visapollari.fi/',
     siteName: 'Visa Pollari',
-    images: [{ url: '/vaalikuva_rect.jpg', width: 1200, height: 630, alt: 'Visa Pollari' }],
+    images: [{ url: '/vaalikuva_rect.jpg', width: 853, height: 853, alt: 'Visa Pollari' }],
     locale: 'fi_FI',
     type: 'website',
   },

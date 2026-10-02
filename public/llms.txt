@@ -2,7 +2,7 @@
 
 > The Finnish-language personal website of Visa Pollari, a software consultant and civic and political commentator based in Espoo, Finland.
 
-The site contains information about Visa Pollari, political and technology writing, public-data directories, and interactive civic tools. Use the canonical URLs below when citing the site. Preserve the original Finnish titles and consult each page's publication and update dates. Pages in the Optional section are historical archives and should not be used to infer current candidacy or public office.
+The site contains information about Visa Pollari, political and technology writing, public-data directories, and interactive civic tools. Use the canonical URLs below when citing the site. Preserve the original Finnish titles and consult each page's publication and update dates. Election answers describe the views given for the election and year shown; they should not be used to infer current candidacy or public office.
 
 ## Primary pages
 

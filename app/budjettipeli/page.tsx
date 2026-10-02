@@ -1,11 +1,13 @@
 import ArticleDates from '@/components/ArticleDates';
 import Header from '@/components/BlogHeader';
 import Budjettipeli from '@/components/budjettipeli/budjettipeli';
+import Text from '@/components/Text';
 import { contentDates } from '@/lib/contentDates';
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
+import type { BreadcrumbList, SoftwareApplication, WithContext } from 'schema-dts';
 
-export const metadata: Metadata = {
+export const metadata = {
   title: 'Budjettipeli - Säädä budjettiasi',
   description:
     'Tee päätökset ja suunnittele valtion budjetti käyttäen tarkempaa ja kattavampaa työkalua kuin koskaan ennen.',
@@ -31,10 +33,10 @@ export const metadata: Metadata = {
     images: 'https://visapollari.fi/budjettipeli/opengraph-image',
     description: 'Tutustu Suomen valtion budjetin suunnitteluun uudella interaktiivisella työkalulla.',
   },
-};
+} satisfies Metadata;
 
 const Page = () => {
-  const toolJsonLd = {
+  const toolJsonLd: WithContext<SoftwareApplication> = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: 'Budjettipeli',
@@ -45,7 +47,7 @@ const Page = () => {
     datePublished: contentDates.budjettipeli.published,
     dateModified: contentDates.budjettipeli.modified,
   };
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
@@ -71,6 +73,27 @@ const Page = () => {
           <span id="budjettipeli-heading">Budjettipeli</span>
         </Header>
         <ArticleDates {...contentDates.budjettipeli} />
+        <section aria-label="Budjettipelin ohjeet" className="mb-6 max-w-3xl">
+          <Text className="text-base text-slate-200">
+            Tervetuloa budjettipeliin. Jaa valtion budjetti eri osa-alueille ja seuraa samalla, miten päätökset
+            vaikuttavat kokonaisuuteen.
+          </Text>
+          <Text className="text-base text-slate-200">
+            Budjettivuosi: <strong>2024</strong>. Pelin lähtöluvut perustuvat{' '}
+            <a
+              href="https://budjetti.vm.fi/sisalto.jsp?lang=fi&maindoc=%2F2024%2Ftae%2FhallituksenEsitys%2FhallituksenEsitys.xml&opennode=0%3A1%3A143%3A&year=2024"
+              className="underline decoration-white/40 underline-offset-4 hover:decoration-white"
+            >
+              hallituksen vuoden 2024 talousarvioesitykseen
+            </a>
+            . Nettolainanottoa ei lasketa tuloihin, jotta saldo näyttää tulojen ja menojen erotuksen.
+          </Text>
+          <Text className="mb-0 text-base text-slate-200">
+            Säädä tuloja ja menoja liukusäätimellä ja siirry budjettikohtien välillä Edellinen- ja
+            Seuraava-painikkeilla. Seuraa budjetin saldoa ja muutostesi yhteenvetoa. Voit jakaa oman budjettisi
+            painikkeella Kopioi linkki budjettiisi.
+          </Text>
+        </section>
         <Suspense>
           <Budjettipeli />
         </Suspense>

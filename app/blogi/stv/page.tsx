@@ -11,6 +11,7 @@ import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import Link from 'next/link';
 import { useState } from 'react';
+import type { Article, BreadcrumbList, WithContext } from 'schema-dts';
 import { defaultVotes } from './votes';
 
 const Page = () => {
@@ -29,7 +30,7 @@ const Page = () => {
     };
     return voteWithColor;
   });
-  const articleJsonLd = {
+  const articleJsonLd: WithContext<Article> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: 'Siirtoäänivaali (STV) simulaattori',
@@ -42,7 +43,7 @@ const Page = () => {
     mainEntityOfPage: 'https://visapollari.fi/blogi/stv',
   };
 
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [

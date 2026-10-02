@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 
-export const metadata: Metadata = {
-  title: { absolute: 'Eduskuntavaalit 2023 - Visa Pollari' },
-  description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
+export const metadata = {
+  title: { absolute: 'Eduskuntavaalit 2023 – kampanja-arkisto – Visa Pollari' },
+  description: 'Visa Pollarin vuoden 2023 eduskuntavaalikampanjan arkisto: esittely ja tavoitteet Uudellamaalla.',
   alternates: { canonical: '/ekvaalit2023' },
+  robots: { index: false, follow: true },
   openGraph: {
-    title: 'Eduskuntavaalit 2023 - Visa Pollari',
-    description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
+    title: 'Eduskuntavaalit 2023 – kampanja-arkisto – Visa Pollari',
+    description: 'Visa Pollarin vuoden 2023 eduskuntavaalikampanjan arkisto: esittely ja tavoitteet Uudellamaalla.',
     url: 'https://visapollari.fi/ekvaalit2023',
     type: 'website',
     images: [
@@ -18,9 +19,9 @@ export const metadata: Metadata = {
     site: '@visapollari',
     creator: '@visapollari',
     images: ['https://visapollari.fi/ekvaalit2023/opengraph-image'],
-    description: 'Visa Pollari ehdolla Uudellamaalla – yhteystiedot ja esittely.',
+    description: 'Visa Pollarin vuoden 2023 eduskuntavaalikampanjan arkisto: esittely ja tavoitteet Uudellamaalla.',
   },
-};
+} satisfies Metadata;
 
 export default function EkvaalitLayout({ children }: { children: React.ReactNode }) {
   return children;

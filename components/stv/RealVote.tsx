@@ -1,49 +1,61 @@
 'use client';
 
-import { useEffect, useState, type FC } from 'react';
+import { useToaster } from '@/components/generic/Toaster';
+import { presidentialCandidates } from '@/lib/submissionValidation';
+import { useRef, useState, type FC } from 'react';
 import VoteForm from './VoteForm';
 
 const RealVote: FC = () => {
-  const candidates = [
-    { name: 'Li Andersson', imageSrc: '/stv/number_2.png', color: '#ff0000' },
-    { name: 'Olli Rehn', imageSrc: '/stv/number_3.png', color: '#00ff00' },
-    { name: 'Harry Harkimo', imageSrc: '/stv/number_4.png', color: '#0000ff' },
-    { name: 'Jussi Halla-aho', imageSrc: '/stv/number_5.png', color: '#ffff00' },
-    { name: 'Jutta Urpilainen', imageSrc: '/stv/number_6.png', color: '#ff00ff' },
-    { name: 'Mika Aaltola', imageSrc: '/stv/number_7.png', color: '#00ffff' },
-    { name: 'Alexander Stubb', imageSrc: '/stv/number_8.png', color: '#ff0000' },
-    { name: 'Sari Essayah', imageSrc: '/stv/number_9.png', color: '#00ff00' },
-    { name: 'Pekka Haavisto', imageSrc: '/stv/number_10.png', color: '#0000ff' },
-  ];
-  const [votes, setVotes] = useState<string[][]>([]);
-  useEffect(() => {
-    if (votes.length === 0) return undefined;
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+  const submissionPending = useRef(false);
+  const { addToast } = useToaster();
 
-    const controller = new AbortController();
-    const clientIp = window.location.hostname;
+  const handleSubmit = async (vote: string[]): Promise<boolean> => {
+    if (submissionPending.current) return false;
+    submissionPending.current = true;
+    setIsSubmitting(true);
+    setSubmitError(null);
 
-    void (async () => {
-      try {
-        await fetch('/api/votes', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'X-Forwarded-For': clientIp,
-          },
-          body: JSON.stringify(votes[0]),
-          signal: controller.signal,
-        });
-      } catch (err) {
-        console.error('Failed to post votes', err);
+    try {
+      const response = await fetch('/api/votes', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(vote),
+      });
+      if (!response.ok) {
+        throw new Error(
+          response.status === 429
+            ? 'Liian monta lähetystä. Odota hetki ja yritä uudelleen.'
+            : 'Äänen tallennus epäonnistui. Yritä uudelleen.',
+        );
       }
-    })();
-
-    return () => controller.abort();
-  }, [votes]);
+      addToast('Ääni tallennettu', 'success');
+      return true;
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Äänen tallennus epäonnistui. Yritä uudelleen.';
+      setSubmitError(message);
+      addToast(message, 'error');
+      return false;
+    } finally {
+      submissionPending.current = false;
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <div className="mx-auto w-full rounded-lg bg-gray-700 p-4 shadow-lg">
-      <VoteForm votes={votes} setVotes={setVotes} candidates={candidates} className="lg:grid-cols-6" />
+      <VoteForm
+        onSubmit={handleSubmit}
+        isSubmitting={isSubmitting}
+        candidates={presidentialCandidates}
+        className="lg:grid-cols-6"
+      />
+      {submitError && (
+        <p role="alert" className="mt-3 text-red-300">
+          {submitError}
+        </p>
+      )}
     </div>
   );
 };

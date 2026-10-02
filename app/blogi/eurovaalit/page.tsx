@@ -5,21 +5,23 @@ import TierList from '@/components/tierlist/Tierlist';
 import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import type { Metadata } from 'next';
+import type { Article, BreadcrumbList, WithContext } from 'schema-dts';
 import { candidates } from './candidates';
 
-export const metadata: Metadata = {
-  title: 'Eurovaalit LIB tulosveikkaus',
-  description: 'Veikkaa Liberaalin listan järjestystä ja voita mainetta ja kunniaa.',
+export const metadata = {
+  title: 'Eurovaalit 2024 – LIB-tulosveikkauksen arkisto',
+  description: 'Arkisto vuoden 2024 eurovaalien Liberaalipuolueen ehdokaslistan tulosveikkauksesta.',
   alternates: { canonical: '/blogi/eurovaalit' },
+  robots: { index: false, follow: true },
   openGraph: {
-    title: 'Eurovaalit LIB tulosveikkaus',
-    description: 'Veikkaa Liberaalin listan järjestystä ja voita mainetta ja kunniaa.',
+    title: 'Eurovaalit 2024 – LIB-tulosveikkauksen arkisto',
+    description: 'Arkisto vuoden 2024 eurovaalien Liberaalipuolueen ehdokaslistan tulosveikkauksesta.',
     images: [
       {
         url: 'https://visapollari.fi/blogi/eurovaalit/opengraph-image',
         width: 1200,
         height: 630,
-        alt: 'Eurovaalit LIB tulosveikkaus esikatselukuva',
+        alt: 'Eurovaalien 2024 LIB-tulosveikkauksen esikatselukuva',
       },
     ],
     type: 'website',
@@ -30,12 +32,12 @@ export const metadata: Metadata = {
     site: '@visapollari',
     creator: '@visapollari',
     images: 'https://visapollari.fi/blogi/eurovaalit/opengraph-image',
-    description: 'Veikkaa Liberaalin listan järjestystä ja voita mainetta ja kunniaa.',
+    description: 'Arkisto vuoden 2024 eurovaalien Liberaalipuolueen ehdokaslistan tulosveikkauksesta.',
   },
-};
+} satisfies Metadata;
 
 const Page = () => {
-  const articleJsonLd = {
+  const articleJsonLd: WithContext<Article> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: metadata.title,
@@ -50,13 +52,18 @@ const Page = () => {
     mainEntityOfPage: 'https://visapollari.fi/blogi/eurovaalit',
   };
 
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
       { '@type': 'ListItem', position: 1, name: 'Etusivu', item: 'https://visapollari.fi/' },
       { '@type': 'ListItem', position: 2, name: 'Blogi', item: 'https://visapollari.fi/blogi' },
-      { '@type': 'ListItem', position: 3, name: 'Eurovaalit', item: 'https://visapollari.fi/blogi/eurovaalit' },
+      {
+        '@type': 'ListItem',
+        position: 3,
+        name: 'Eurovaalit 2024 – tulosveikkauksen arkisto',
+        item: 'https://visapollari.fi/blogi/eurovaalit',
+      },
     ],
   };
 
@@ -74,9 +81,10 @@ const Page = () => {
       />
       <article aria-labelledby="eurovaalit-heading">
         <Header>
-          <span id="eurovaalit-heading">Eurovaalit LIB tulosveikkaus</span>
+          <span id="eurovaalit-heading">Eurovaalit 2024 – LIB-tulosveikkauksen arkisto</span>
         </Header>
         <ArticleDates {...contentDates.eurovaalit} />
+        <Text>Tämä sivu on arkisto eurovaalien 9.6.2024 tulosveikkauksesta. Alla oleva teksti on vaalipäivältä.</Text>
         <Text>
           Tänään on eurovaalit ja Liberaalipuolueeella on täysi lista ehdokkaita. Veikkaa listan sisäistä järjestystä
           alla olevalla lomakkeella.

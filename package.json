@@ -39,6 +39,7 @@
     "prettier": "3.9.9",
     "prettier-plugin-packagejson": "3.0.2",
     "prettier-plugin-tailwindcss": "0.8.1",
+    "schema-dts": "2.0.0",
     "tailwind-lint": "0.12.1",
     "tailwindcss": "4.3.3",
     "typescript": "7.0.2"

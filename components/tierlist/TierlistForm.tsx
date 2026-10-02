@@ -2,30 +2,37 @@
 
 import CandidateProfile from '@/components/stv/CandidateProfile';
 import { cn } from '@/lib/helpers';
-import { useState, type Dispatch, type FC, type SetStateAction } from 'react';
+import { useState, type Dispatch, type FC, type FormEvent, type SetStateAction } from 'react';
 
 interface ListFormProps {
-  votes: string[][];
-  setVotes: Dispatch<SetStateAction<string[][]>>;
+  onSubmit: (ranking: string[]) => Promise<void>;
+  isSubmitting: boolean;
   name: string;
   setName: Dispatch<SetStateAction<string>>;
   candidates: { name: string; imageSrc: string; color?: string }[];
   className?: string;
 }
 
-const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidates, className = 'grid-cols-4' }) => {
+const ListForm: FC<ListFormProps> = ({
+  onSubmit,
+  isSubmitting,
+  name,
+  setName,
+  candidates,
+  className = 'grid-cols-4',
+}) => {
   const [newVote, setNewVote] = useState<string[]>(Array(candidates.length).fill(''));
   const rankingSlots = candidates.map(({ name: candidateName }) => `ranking-slot-${candidateName}`);
+  const ranking = newVote.filter((choice) => choice);
 
-  const addVote = () => {
-    const validVote = newVote.filter((choice) => choice);
-    if (validVote.length > 0) {
-      setVotes([newVote, ...votes]);
-      setNewVote(Array(candidates.length).fill(''));
-    }
+  const submitVote = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (isSubmitting || ranking.length < candidates.length || !name.trim()) return;
+    void onSubmit(ranking);
   };
 
   const handleCandidateClick = (candidateName: string) => {
+    if (isSubmitting || newVote.includes(candidateName)) return;
     const freeIndex = newVote.indexOf('');
     if (freeIndex !== -1) {
       const updatedVote = [...newVote];
@@ -40,9 +47,9 @@ const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidate
     setNewVote(updatedVote);
   };
 
-  if (!name) {
+  if (!name.trim()) {
     return (
-      <>
+      <form onSubmit={submitVote} aria-busy={isSubmitting}>
         <label htmlFor="guesser-name" className="block text-white">
           Aseta ensin nimesi
         </label>
@@ -50,15 +57,16 @@ const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidate
           id="guesser-name"
           type="text"
           value={name}
+          maxLength={80}
           onChange={(e) => setName(e.target.value)}
           placeholder="Name"
           className="mb-2 rounded-sm border border-gray-300 bg-slate-900 p-2"
         />
-      </>
+      </form>
     );
   }
   return (
-    <>
+    <form onSubmit={submitVote} aria-busy={isSubmitting}>
       <label htmlFor="guesser-name" className="block text-white">
         Arvaajan nimi
       </label>
@@ -66,6 +74,9 @@ const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidate
         id="guesser-name"
         type="text"
         value={name}
+        maxLength={80}
+        disabled={isSubmitting}
+        required
         onChange={(e) => setName(e.target.value)}
         placeholder="Name"
         className="mb-2 rounded-sm border border-gray-300 bg-slate-900 p-2"
@@ -78,7 +89,13 @@ const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidate
               name={candidate.name}
               imageSrc={candidate.imageSrc}
               onClick={() => handleCandidateClick(candidate.name)}
-              disabled={newVote.includes(candidate.name) ? 'Lipukkeessa #' + (newVote.indexOf(candidate.name) + 1) : ''}
+              disabled={
+                isSubmitting
+                  ? 'Tallennetaan'
+                  : newVote.includes(candidate.name)
+                    ? 'Lipukkeessa #' + (newVote.indexOf(candidate.name) + 1)
+                    : ''
+              }
             />
           </div>
         ))}
@@ -100,6 +117,7 @@ const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidate
                 <button
                   type="button"
                   onClick={() => updateVote(index, '')}
+                  disabled={isSubmitting}
                   className="ml-2 rounded-sm bg-red-500 p-2 text-white hover:bg-red-700"
                 >
                   X
@@ -109,17 +127,18 @@ const ListForm: FC<ListFormProps> = ({ votes, setVotes, name, setName, candidate
           ) : null,
         )}
         <button
-          type="button"
-          onClick={addVote}
+          type="submit"
           className={cn('mt-2 rounded-sm bg-blue-500 p-2 text-white disabled:cursor-not-allowed disabled:bg-gray-500')}
-          disabled={newVote.filter((choice) => choice).length < 20}
+          disabled={isSubmitting || ranking.length < candidates.length}
         >
-          {newVote.filter((choice) => choice).length < 20
-            ? 'Valitse vielä ' + (20 - newVote.filter((choice) => choice).length) + ' ehdokasta'
-            : 'Lähetä'}
+          {isSubmitting
+            ? 'Tallennetaan…'
+            : ranking.length < candidates.length
+              ? 'Valitse vielä ' + (candidates.length - ranking.length) + ' ehdokasta'
+              : 'Lähetä'}
         </button>
       </div>
-    </>
+    </form>
   );
 };
 

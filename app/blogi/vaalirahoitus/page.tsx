@@ -9,6 +9,7 @@ import { contentDates } from '@/lib/contentDates';
 import { articleAuthorJsonLd } from '@/lib/schema';
 import { getCaseId } from '@/lib/vaalirahoitus';
 import type { Metadata } from 'next';
+import type { Article, BreadcrumbList, WithContext } from 'schema-dts';
 import tapaukset from './caset.json';
 
 const title = 'Suomen vaalirahoitusvalvonnan puutteet';
@@ -48,7 +49,7 @@ const ehdokkaatIlmanIlmoitusta = [
   { puolue: 'Liike Nyt', maara: '707', osuus: '82,1 %' },
 ] as const;
 
-export const metadata: Metadata = {
+export const metadata = {
   title,
   description,
   alternates: { canonical: '/blogi/vaalirahoitus' },
@@ -77,10 +78,10 @@ export const metadata: Metadata = {
     images: 'https://visapollari.fi/blogi/vaalirahoitus/opengraph-image',
     description,
   },
-};
+} satisfies Metadata;
 
 const ElectionFinancePage = () => {
-  const articleJsonLd = {
+  const articleJsonLd: WithContext<Article> = {
     '@context': 'https://schema.org',
     '@type': 'Article',
     headline: metadata.title,
@@ -93,7 +94,7 @@ const ElectionFinancePage = () => {
     mainEntityOfPage: 'https://visapollari.fi/blogi/vaalirahoitus',
   };
 
-  const breadcrumbJsonLd = {
+  const breadcrumbJsonLd: WithContext<BreadcrumbList> = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
     itemListElement: [
