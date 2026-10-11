@@ -38,6 +38,7 @@ Do not commit real credentials or expose the key through a `NEXT_PUBLIC_` variab
 
 | Command                | Purpose                                         |
 | ---------------------- | ----------------------------------------------- |
+| `npm run analyze`      | Inspect production bundles with Turbopack       |
 | `npm run dev`          | Start the local development server              |
 | `npm run build`        | Create a production build                       |
 | `npm start`            | Run the production server after a build         |

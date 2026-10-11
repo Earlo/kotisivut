@@ -5,6 +5,9 @@ import { GoogleAnalytics } from '@next/third-parties/google';
 import type { Metadata, Viewport } from 'next';
 import Link from 'next/link';
 
+// Keep page rendering static; cached feeds can revalidate and submission APIs stay dynamic.
+export const ensureStatic = 'navigation';
+
 export const metadata: Metadata = {
   metadataBase: new URL('https://visapollari.fi'),
   title: {

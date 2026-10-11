@@ -21,6 +21,8 @@ const nextConfig: NextConfig = {
   },
   experimental: {
     typedEnv: true,
+    turbopackRustReactCompiler: true,
+    turbopackGc: true,
   },
   images: {
     remotePatterns: [
