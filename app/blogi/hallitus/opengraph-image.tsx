@@ -19,7 +19,7 @@ export default function Image() {
         fontFamily: 'sans-serif',
       }}
     >
-      <div style={{ display: 'flex', color: '#7dd3fc', fontSize: 24 }}>Nillityspsykoosi · Visa Pollari</div>
+      <div style={{ display: 'flex', color: '#7dd3fc', fontSize: 24 }}>Nillitys · Visa Pollari</div>
       <div style={{ display: 'flex', flexDirection: 'column', fontSize: 62, fontWeight: 700, lineHeight: 1.15 }}>
         <span>Hallituksessa on</span>
         <span>108 kansanedustajaa.</span>

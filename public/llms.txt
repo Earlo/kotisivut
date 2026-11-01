@@ -11,6 +11,7 @@ The site contains information about Visa Pollari, political and technology writi
 
 ## Articles and tools
 
+- [Nillitys: Hallituksessa on 108 kansanedustajaa. Paitsi ettei ole.](https://visapollari.fi/blogi/hallitus): A Finnish opinion article about the distinction between the Government, government parties, and parliamentary groups, with a minister-count chart and references to the Constitution.
 - [Visa Pollarin vaalikonevastaukset 2023–2026](https://visapollari.fi/vaalikonevastaukset): Searchable archive of Visa Pollari's election compass answers and explanations in Finnish, English, and Swedish.
 - [Suomen vaalirahoitusvalvonnan puutteet](https://visapollari.fi/blogi/vaalirahoitus): A 2026 review of gaps in Finnish election-finance oversight and disclosure rules.
 - [Rekisteröityneet puolueet](https://visapollari.fi/blogi/puolueet): Directory of registered Finnish political parties and their contact details, populated from the Finnish party register.
