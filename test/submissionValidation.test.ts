@@ -41,6 +41,7 @@ void describe('submission validation', () => {
   void it('accepts comments only for existing pages', () => {
     assert.equal(validCommentPage('/'), true);
     assert.equal(validCommentPage('/blogi/stv'), true);
+    assert.equal(validCommentPage('/blogi/hallitus'), true);
     assert.equal(validCommentPage('/blogi/eurovaalit/results'), true);
     for (const path of ['/blogi', '/blogi/nonexistent', '/blogi/../api/votes', '/blogi/stv?x=1', null]) {
       assert.equal(validCommentPage(path), false);

@@ -18,6 +18,7 @@ const commentPages = new Set([
   '/',
   '/blogi/eurovaalit',
   '/blogi/eurovaalit/results',
+  '/blogi/hallitus',
   '/blogi/lakot',
   '/blogi/puolueet',
   '/blogi/stv',

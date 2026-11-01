@@ -44,6 +44,9 @@ const BlogListing = () => {
         <Title id="blog-heading">Blogi</Title>
         <Text>Tässä muutamia kirjoittamiani tekstejä tai muita virtuaalisyhteiskunnallisia kokemuksia:</Text>
         <div className="flex flex-col space-y-2">
+          <Link href="/blogi/hallitus" className="text-blue-400 hover:text-blue-300">
+            Nillityspsykoosi: Hallituksessa on 108 kansanedustajaa. Paitsi ettei ole.
+          </Link>
           <Link href="/blogi/vaalirahoitus" className="text-blue-400 hover:text-blue-300">
             Suomen vaalirahoitusvalvonnan puutteet
           </Link>

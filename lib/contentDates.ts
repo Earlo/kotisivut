@@ -14,7 +14,11 @@ export const contentDates = {
   },
   blog: {
     published: '2024-05-30T16:57:04+03:00',
-    modified: '2026-09-13T13:55:40+03:00',
+    modified: '2026-11-01T19:00:00+02:00',
+  },
+  hallitus: {
+    published: '2026-11-01T19:00:00+02:00',
+    modified: '2026-11-01T19:00:00+02:00',
   },
   eurovaalit: {
     published: '2024-06-09T13:09:28+03:00',

@@ -11,6 +11,7 @@ type RouteEntry = {
 const routes: RouteEntry[] = [
   { path: '', lastModified: contentDates.home.modified },
   { path: '/blogi', lastModified: contentDates.blog.modified },
+  { path: '/blogi/hallitus', lastModified: contentDates.hallitus.modified },
   { path: '/blogi/puolueet', lastModified: contentDates.puolueet.modified },
   { path: '/blogi/stv', lastModified: contentDates.stv.modified },
   { path: '/blogi/vaalirahoitus', lastModified: contentDates.vaalirahoitus.modified },
