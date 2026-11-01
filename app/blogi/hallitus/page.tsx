@@ -14,7 +14,7 @@ import voimasuhteet from './voimasuhteet.png';
 
 const title = 'Nillitys: Hallituksessa on 108 kansanedustajaa. Paitsi ettei ole.';
 const description =
-  'Hallitus, hallituspuolueet ja eduskuntaryhmät ovat eri asioita. Pohdintaa eduskunnan pylväsdiagrammista, parlamentarismista ja käsitteiden tarkkuudesta.';
+  'Hallitus, hallituspuolueet ja eduskuntaryhmät ovat eri asioita. Pohdintaa eduskunnan verkkosivujen pylväsdiagrammista, parlamentarismista ja käsitteiden tarkkuudesta.';
 const url = 'https://visapollari.fi/blogi/hallitus';
 const imageUrl = `${url}/opengraph-image`;
 
