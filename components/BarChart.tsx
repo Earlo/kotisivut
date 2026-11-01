@@ -40,7 +40,7 @@ export default function BarChart({ id, title, rows, maxValue, unit }: BarChartPr
               >
                 {row.label}
               </th>
-              <td className="py-2 align-middle">
+              <td aria-label={`${unit}: ${row.value}`} className="py-2 align-middle">
                 <div className="flex items-center gap-2">
                   <div aria-hidden="true" className="h-6 flex-1 border-l border-white/30 bg-white/5">
                     <div
@@ -56,8 +56,8 @@ export default function BarChart({ id, title, rows, maxValue, unit }: BarChartPr
         </tbody>
         <tfoot aria-hidden="true">
           <tr>
-            <td />
-            <td className="pt-2 pr-8 text-xs text-gray-400 tabular-nums">
+            <td aria-hidden="true" />
+            <td aria-hidden="true" className="pt-2 pr-8 text-xs text-gray-400 tabular-nums">
               <div className="flex justify-between border-t border-white/20 pt-2">
                 <span>0</span>
                 <span>{maxValue / 2}</span>
