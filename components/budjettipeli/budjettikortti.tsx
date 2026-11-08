@@ -78,12 +78,13 @@ const BudjettiKortti: React.FC<BudjettiKorttiProps> = ({
             min={0}
             max={Math.max(originalAbsAmount * 2, 1000000)}
             value={absAmount}
-            onInput={(e) =>
+            onInput={(e) => {
+              const nextAmount = sign * parseInt(e.currentTarget.value, 10);
               setBudu((prev) => ({
                 ...prev,
-                [name]: sign * parseInt(e.currentTarget.value, 10),
-              }))
-            }
+                [name]: nextAmount,
+              }));
+            }}
           />
         </div>
       </div>

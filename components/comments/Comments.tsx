@@ -42,6 +42,9 @@ export default function Comments({ pagePath, theme = 'dark' }: CommentsProps) {
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const authorLength = author.trim().length;
+  const bodyLength = body.trim().length;
+  const isValid = authorLength >= 2 && authorLength <= 80 && bodyLength >= 2 && bodyLength <= 2000;
 
   useEffect(() => {
     const controller = new AbortController();
@@ -75,6 +78,8 @@ export default function Comments({ pagePath, theme = 'dark' }: CommentsProps) {
 
   async function submitComment(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    if (submitting || !isValid) return;
+
     setSubmitting(true);
     setError(null);
 
@@ -166,7 +171,7 @@ export default function Comments({ pagePath, theme = 'dark' }: CommentsProps) {
 
         <button
           type="submit"
-          disabled={submitting}
+          disabled={submitting || !isValid}
           className="rounded-lg bg-blue-600 px-5 py-2.5 font-semibold text-white transition hover:bg-blue-500 disabled:cursor-not-allowed disabled:opacity-60"
         >
           {submitting ? 'Lähetetään…' : 'Lähetä kommentti'}
